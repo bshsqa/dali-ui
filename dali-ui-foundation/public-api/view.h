@@ -469,6 +469,29 @@ public: // Properties (Migrated from Control)
    */
   Vector4 GetBackgroundColor() const;
 
+public: // Key Input Focus
+
+  /**
+   * @brief Sets the key input focus to this view.
+   *
+   * Only one view can be focused at any time.  The view
+   * must first be added to the scene, and must not be disabled.
+   */
+  void SetKeyInputFocus();
+
+  /**
+   * @brief Returns whether this view has key input focus.
+   * @return true if this view has focus.
+   */
+  bool HasKeyInputFocus() const;
+
+  /**
+   * @brief Clears the key input focus from this view.
+   *
+   * Will emit the KeyInputFocusLost signal.
+   */
+  void ClearKeyInputFocus();
+
 public: // Keyboard Navigation
 
   /**

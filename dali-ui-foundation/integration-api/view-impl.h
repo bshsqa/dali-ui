@@ -213,6 +213,22 @@ public: // Validation Logic (Migrated from Control)
   void OnKeyInputFocusLost();
 
   /**
+   * @brief Sets the key input focus to this view.
+   */
+  void SetKeyInputFocus();
+
+  /**
+   * @brief Returns whether this view has key input focus.
+   * @return true if this view has focus.
+   */
+  bool HasKeyInputFocus() const;
+
+  /**
+   * @brief Clears the key input focus from this view.
+   */
+  void ClearKeyInputFocus();
+
+  /**
    * @brief Emits the key event signal.
    * @param[in] event The key event.
    * @return True if consumed.

@@ -33,6 +33,7 @@
 #include <dali-ui-foundation/integration-api/trait-id.h>
 #include <dali-ui-foundation/integration-api/layout-manager.h>
 #include <dali-ui-foundation/integration-api/layout-impl.h>
+#include <dali-ui-foundation/public-api/input/keyinput-focus-manager.h>
 
 namespace Dali
 {
@@ -1061,6 +1062,40 @@ UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusGainedSignal()
 UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusLostSignal()
 {
   return mKeyInputFocusLostSignal;
+}
+
+// =============================================================================
+// Key Input Focus Convenience API
+// =============================================================================
+
+void ViewImpl::SetKeyInputFocus()
+{
+  if(Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+  {
+    UI::KeyInputFocusManager::Get().SetFocus(UI::View::DownCast(Self()));
+  }
+}
+
+bool ViewImpl::HasKeyInputFocus() const
+{
+  bool result = false;
+  if(Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+  {
+    UI::View currentFocus = UI::KeyInputFocusManager::Get().GetCurrentFocusView();
+    if(Self() == currentFocus)
+    {
+      result = true;
+    }
+  }
+  return result;
+}
+
+void ViewImpl::ClearKeyInputFocus()
+{
+  if(Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+  {
+    UI::KeyInputFocusManager::Get().RemoveFocus(UI::View::DownCast(Self()));
+  }
 }
 
 // =============================================================================

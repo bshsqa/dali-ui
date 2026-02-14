@@ -313,6 +313,25 @@ View::KeyInputFocusSignalType& View::KeyInputFocusLostSignal()
 }
 
 // =============================================================================
+// Key Input Focus
+// =============================================================================
+
+void View::SetKeyInputFocus()
+{
+  Integration::GetImpl(*this).SetKeyInputFocus();
+}
+
+bool View::HasKeyInputFocus() const
+{
+  return Integration::GetImpl(*this).HasKeyInputFocus();
+}
+
+void View::ClearKeyInputFocus()
+{
+  Integration::GetImpl(*this).ClearKeyInputFocus();
+}
+
+// =============================================================================
 // Keyboard Navigation
 // =============================================================================
 
