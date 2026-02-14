@@ -317,6 +317,18 @@ int UtcDaliViewBackgroundColorChainingP(void)
 
   View& result = view.BackgroundColor(testColor);
   DALI_TEST_EQUALS(&result, &view, TEST_LOCATION);
+  DALI_TEST_EQUALS(view.GetBackgroundColor(), testColor, TEST_LOCATION);
+  END_TEST;
+}
+
+int UtcDaliViewBackgroundColorP(void)
+{
+  TestApplication application;
+  View view = View::New();
+  const Vector4 testColor(0.5f, 0.5f, 0.5f, 1.0f);
+
+  view.SetBackgroundColor(testColor);
+  DALI_TEST_EQUALS(view.GetBackgroundColor(), testColor, TEST_LOCATION);
   END_TEST;
 }
 

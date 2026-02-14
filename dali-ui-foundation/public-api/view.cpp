@@ -312,6 +312,30 @@ View::KeyInputFocusSignalType& View::KeyInputFocusLostSignal()
   return Integration::GetImpl(*this).KeyInputFocusLostSignal();
 }
 
+// =============================================================================
+// Keyboard Navigation
+// =============================================================================
+
+void View::SetKeyboardNavigationSupport(bool isSupported)
+{
+  Integration::GetImpl(*this).SetKeyboardNavigationSupport(isSupported);
+}
+
+bool View::IsKeyboardNavigationSupported() const
+{
+  return Integration::GetImpl(*this).IsKeyboardNavigationSupported();
+}
+
+void View::SetAsKeyboardFocusGroup(bool isFocusGroup)
+{
+  Integration::GetImpl(*this).SetAsKeyboardFocusGroup(isFocusGroup);
+}
+
+bool View::IsKeyboardFocusGroup() const
+{
+  return Integration::GetImpl(*this).IsKeyboardFocusGroup();
+}
+
 } // namespace UI
 
 } // namespace Dali

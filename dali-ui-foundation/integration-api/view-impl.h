@@ -29,6 +29,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/public-api/dali-ui-common.h>
 #include <dali-ui-foundation/public-api/view.h>
+#include <dali-ui-foundation/public-api/focus/focus-direction.h>
 #include <dali-ui-foundation/public-api/trait.h>
 #include <dali-ui-foundation/public-api/layout-types.h>
 #include <dali-ui-foundation/integration-api/trait-id.h>
@@ -217,6 +218,62 @@ public: // Validation Logic (Migrated from Control)
    * @return True if consumed.
    */
   bool EmitKeyEventSignal(const KeyEvent& event);
+
+  // Keyboard Navigation
+
+  /**
+   * @brief Sets whether this view supports 2D keyboard navigation.
+   * @param[in] isSupported Whether this view supports 2D keyboard navigation.
+   */
+  void SetKeyboardNavigationSupport(bool isSupported);
+
+  /**
+   * @brief Gets whether this view supports 2D keyboard navigation.
+   * @return true if supported.
+   */
+  bool IsKeyboardNavigationSupported() const;
+
+  /**
+   * @brief Sets whether this view is a keyboard focus group.
+   * @param[in] isFocusGroup Whether this view is a focus group.
+   */
+  void SetAsKeyboardFocusGroup(bool isFocusGroup);
+
+  /**
+   * @brief Gets whether this view is a keyboard focus group.
+   * @return true if a focus group.
+   */
+  bool IsKeyboardFocusGroup() const;
+
+  /**
+   * @brief Gets the next keyboard focusable actor in this view towards the given direction.
+   *
+   * A view needs to override this function to support 2D keyboard navigation.
+   * @param[in] currentFocusedActor The current focused actor.
+   * @param[in] direction The direction to move the focus towards.
+   * @param[in] loopEnabled Whether the focus movement should be looped.
+   * @return The next keyboard focusable actor or an empty handle.
+   */
+  virtual Actor GetNextKeyboardFocusableActor(Actor currentFocusedActor, UI::Focus::Direction direction, bool loopEnabled);
+
+  /**
+   * @brief Informs this view that its chosen focusable actor will be focused.
+   * @param[in] committedFocusableActor The committed focusable actor.
+   */
+  virtual void OnKeyboardFocusChangeCommitted(Actor committedFocusableActor);
+
+  /**
+   * @brief Called when the view has enter pressed on it.
+   * @return true if this view handled the enter key.
+   */
+  virtual bool OnKeyboardEnter();
+
+  /**
+   * @brief Called after a key-event is received by the actor that has had its focus set.
+   * @param[in] event The Key Event.
+   * @return True if the event should be consumed.
+   */
+  virtual bool OnKeyEvent(const KeyEvent& event);
 
 public: // Signals
   /**
@@ -575,6 +632,10 @@ private:
 
   // ClipsToBounds (layout-style behaviour when view has children)
   bool mClipsToBounds;
+
+  // Keyboard Navigation
+  bool mIsKeyboardNavigationSupported;
+  bool mIsKeyboardFocusGroup;
 
   // Signals
   UI::View::KeyEventSignalType      mKeyEventSignal;

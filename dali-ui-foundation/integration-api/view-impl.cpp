@@ -95,7 +95,9 @@ ViewImpl::ViewImpl()
     mLastMeasuredConstraint{-1.0f, -1.0f},
     mArrangedBounds{0.0f, 0.0f, 0.0f, 0.0f},
     mArrangeValid(false),
-    mClipsToBounds(false)
+    mClipsToBounds(false),
+    mIsKeyboardNavigationSupported(false),
+    mIsKeyboardFocusGroup(false)
 {
 }
 
@@ -1059,6 +1061,50 @@ UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusGainedSignal()
 UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusLostSignal()
 {
   return mKeyInputFocusLostSignal;
+}
+
+// =============================================================================
+// Keyboard Navigation API
+// =============================================================================
+
+void ViewImpl::SetKeyboardNavigationSupport(bool isSupported)
+{
+  mIsKeyboardNavigationSupported = isSupported;
+}
+
+bool ViewImpl::IsKeyboardNavigationSupported() const
+{
+  return mIsKeyboardNavigationSupported;
+}
+
+void ViewImpl::SetAsKeyboardFocusGroup(bool isFocusGroup)
+{
+  mIsKeyboardFocusGroup = isFocusGroup;
+}
+
+bool ViewImpl::IsKeyboardFocusGroup() const
+{
+  return mIsKeyboardFocusGroup;
+}
+
+Actor ViewImpl::GetNextKeyboardFocusableActor(Actor currentFocusedActor, UI::Focus::Direction direction, bool loopEnabled)
+{
+  return Actor();
+}
+
+void ViewImpl::OnKeyboardFocusChangeCommitted(Actor committedFocusableActor)
+{
+  // Default: do nothing
+}
+
+bool ViewImpl::OnKeyboardEnter()
+{
+  return false;
+}
+
+bool ViewImpl::OnKeyEvent(const KeyEvent& event)
+{
+  return false;
 }
 
 } // namespace Integration

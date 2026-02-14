@@ -25,6 +25,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/public-api/dali-ui-common.h>
 #include <dali-ui-foundation/public-api/layout-types.h>
+#include <dali-ui-foundation/public-api/focus/focus-direction.h>
 
 namespace Dali
 {
@@ -467,6 +468,32 @@ public: // Properties (Migrated from Control)
    * @return The background color
    */
   Vector4 GetBackgroundColor() const;
+
+public: // Keyboard Navigation
+
+  /**
+   * @brief Sets whether this view supports 2D keyboard navigation.
+   * @param[in] isSupported Whether this view supports 2D keyboard navigation.
+   */
+  void SetKeyboardNavigationSupport(bool isSupported);
+
+  /**
+   * @brief Gets whether this view supports 2D keyboard navigation.
+   * @return true if supported.
+   */
+  bool IsKeyboardNavigationSupported() const;
+
+  /**
+   * @brief Sets whether this view is a keyboard focus group.
+   * @param[in] isFocusGroup Whether this view is a focus group.
+   */
+  void SetAsKeyboardFocusGroup(bool isFocusGroup);
+
+  /**
+   * @brief Gets whether this view is a keyboard focus group.
+   * @return true if a focus group.
+   */
+  bool IsKeyboardFocusGroup() const;
 
 public: // Signals
 
