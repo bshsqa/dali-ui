@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,12 +26,12 @@
 #include <dali/integration-api/debug.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/utility/npatch-helper.h>
+#include <dali-ui-visuals/devel-api/utility/npatch-helper.h>
 #include <dali-ui-visuals/devel-api/visuals/image-visual-properties-devel.h>
 #include <dali-ui-visuals/internal/visuals/image/image-visual-shader-factory.h>
 #include <dali-ui-visuals/internal/visuals/image/image-visual-shader-feature-builder.h>
 #include <dali-ui-visuals/internal/visuals/npatch/npatch-loader.h>
-#include <dali-toolkit/internal/visuals/rendering-addon.h>
+#include <dali-ui-visuals/internal/visuals/rendering-addon.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>

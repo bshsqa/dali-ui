@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
 #include <dali/devel-api/common/singleton-service.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/visuals/visual-factory-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-impl.h>
 
 namespace Dali
 {

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2024 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,10 +16,10 @@
  */
 
 // CLASS HEADER
-#include <dali-toolkit/devel-api/visual-factory/visual-base.h>
+#include <dali-ui-visuals/devel-api/visual-factory/visual-base.h>
 
 // INTERAL INCLUDES
-#include <dali-toolkit/internal/visuals/visual-base-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 
 namespace Dali
 {

@@ -22,7 +22,7 @@
 #include <dali/public-api/object/property-value.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 // DEVEL INCLUDES
 #include <dali-ui-text/devel-api/text/text-enumerations-devel.h>

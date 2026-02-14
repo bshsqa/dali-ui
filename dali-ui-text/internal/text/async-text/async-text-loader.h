@@ -21,7 +21,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-text/internal/text/async-text/async-text-module.h>
 #include <dali-ui-text/internal/text/text-model-interface.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 // EXTERNAL INCLUDES
 #include <dali/public-api/actors/actor-enumerations.h>

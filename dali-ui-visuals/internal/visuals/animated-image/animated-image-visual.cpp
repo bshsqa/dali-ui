@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@
 #include <memory>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/image-loader/texture-manager.h>
+#include <dali-ui-visuals/devel-api/image-loader/texture-manager.h>
 #include <dali-ui-visuals/devel-api/visuals/image-visual-properties-devel.h>
 #include <dali-ui-visuals/internal/visuals/animated-image/fixed-image-cache.h>
 #include <dali-ui-visuals/internal/visuals/animated-image/rolling-animated-image-cache.h>

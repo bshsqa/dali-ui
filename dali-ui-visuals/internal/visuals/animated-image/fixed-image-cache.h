@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_FIXED_IMAGE_CACHE_H
+﻿#ifndef DALI_UI_INTERNAL_FIXED_IMAGE_CACHE_H
 #define DALI_UI_INTERNAL_FIXED_IMAGE_CACHE_H
 
 /*
@@ -18,7 +18,7 @@
  */
 
 // EXTERNAL INCLUDES
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 #include <dali-ui-visuals/internal/visuals/animated-image/image-cache.h>
 
 namespace Dali

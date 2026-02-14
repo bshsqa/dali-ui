@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,16 +19,16 @@
 #include "wireframe-visual.h"
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
-#include <dali-toolkit/internal/visuals/visual-base-data-impl.h>
-#include <dali-toolkit/internal/visuals/visual-factory-cache.h>
-#include <dali-toolkit/internal/visuals/visual-factory-impl.h>
-#include <dali-toolkit/internal/visuals/visual-string-constants.h>
-#include <dali-toolkit/public-api/visuals/visual-properties.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
+#include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -213,6 +213,6 @@ Visual::Base& WireframeVisual::GetVisualObject()
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

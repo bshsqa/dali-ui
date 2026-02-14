@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2020 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include <dali-toolkit/devel-api/visual-factory/transition-data.h>
-#include <dali-toolkit/internal/visuals/transition-data-impl.h>
+#include <dali-ui-visuals/devel-api/visual-factory/transition-data.h>
+#include <dali-ui-visuals/internal/visuals/transition-data-impl.h>
 
 namespace Dali
 {

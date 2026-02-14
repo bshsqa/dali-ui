@@ -1,4 +1,4 @@
-#ifndef DALI_TOOLKIT_TRANSITION_DATA_H
+﻿#ifndef DALI_TOOLKIT_TRANSITION_DATA_H
 #define DALI_TOOLKIT_TRANSITION_DATA_H
 
 /*
@@ -25,7 +25,7 @@
 #include <dali/public-api/object/property-map.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/dali-toolkit-common.h>
+#include <dali-ui-foundation/public-api/dali-toolkit-common.h>
 
 namespace Dali
 {

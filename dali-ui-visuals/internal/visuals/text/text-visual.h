@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_TEXT_VISUAL_H
+﻿#ifndef DALI_UI_INTERNAL_TEXT_VISUAL_H
 #define DALI_UI_INTERNAL_TEXT_VISUAL_H
 
 /*
@@ -25,10 +25,10 @@
 #include <dali/public-api/rendering/visual-renderer.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/text/async-text/async-text-interface.h>
-#include <dali-toolkit/internal/text/async-text/async-text-manager.h>
-#include <dali-toolkit/internal/text/controller/text-controller.h>
-#include <dali-toolkit/internal/text/rendering/text-typesetter.h>
+#include <dali-ui-text/internal/text/async-text/async-text-interface.h>
+#include <dali-ui-text/internal/text/async-text/async-text-manager.h>
+#include <dali-ui-text/internal/text/controller/text-controller.h>
+#include <dali-ui-text/internal/text/rendering/text-typesetter.h>
 #include <dali-ui-visuals/internal/visuals/text/text-visual-shader-factory.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 

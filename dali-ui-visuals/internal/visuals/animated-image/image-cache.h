@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_IMAGE_CACHE_H
+﻿#ifndef DALI_UI_INTERNAL_IMAGE_CACHE_H
 #define DALI_UI_INTERNAL_IMAGE_CACHE_H
 
 /*
@@ -18,8 +18,8 @@
  */
 
 // EXTERNAL INCLUDES
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
-#include <dali-toolkit/internal/texture-manager/texture-upload-observer.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-upload-observer.h>
 
 namespace Dali
 {

@@ -24,7 +24,7 @@
 #include <dali/public-api/math/vector4.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali
 {

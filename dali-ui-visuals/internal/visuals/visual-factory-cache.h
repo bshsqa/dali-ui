@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_VISUAL_FACTORY_CACHE_H
+﻿#ifndef DALI_UI_INTERNAL_VISUAL_FACTORY_CACHE_H
 #define DALI_UI_INTERNAL_VISUAL_FACTORY_CACHE_H
 
 /*
@@ -27,7 +27,7 @@
 #include <dali/public-api/rendering/visual-renderer.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 #include <dali-ui-visuals/internal/visuals/npatch/npatch-loader.h>
 #include <dali-ui-visuals/internal/visuals/svg/svg-loader.h>
 #include <dali/devel-api/rendering/renderer-devel.h>
@@ -36,7 +36,7 @@ namespace Dali
 {
 class Texture;
 
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {

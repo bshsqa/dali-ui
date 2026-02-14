@@ -1,4 +1,4 @@
-#ifndef DALI_TOOLKIT_VISUAL_SHADER_FACTORY_INTERFACE_H
+﻿#ifndef DALI_TOOLKIT_VISUAL_SHADER_FACTORY_INTERFACE_H
 #define DALI_TOOLKIT_VISUAL_SHADER_FACTORY_INTERFACE_H
 
 /*
@@ -22,13 +22,13 @@
 #include <dali/integration-api/adaptor-framework/shader-precompiler.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/visual-factory/precompile-shader-option.h>
-#include <dali-toolkit/internal/visuals/visual-factory-cache.h>
-#include <dali-toolkit/public-api/dali-toolkit-common.h>
+#include <dali-ui-visuals/devel-api/visual-factory/precompile-shader-option.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>
+#include <dali-ui-foundation/public-api/dali-toolkit-common.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 using HashType       = uint64_t;
 using ShaderFlagList = std::vector<PrecompileShaderOption::Flag>;
@@ -72,7 +72,7 @@ protected:
 };
 
 } // namespace Internal
-} // namespace Toolkit
+} // namespace UI
 } // namespace Dali
 
 #endif // DALI_TOOLKIT_VISUAL_SHADER_FACTORY_INTERFACE_H

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,17 +30,17 @@
 #include <string.h>
 
 // INTERNAL HEADER
-#include <dali-toolkit/devel-api/controls/control-depth-index-ranges.h>
-#include <dali-toolkit/devel-api/text/text-enumerations-devel.h>
+#include <dali-ui-visuals/devel-api/controls/control-depth-index-ranges.h>
+#include <dali-ui-text/devel-api/text/text-enumerations-devel.h>
 #include <dali-ui-visuals/devel-api/visuals/text-visual-properties-devel.h>
 #include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
-#include <dali-toolkit/internal/text/script-run.h>
-#include <dali-toolkit/internal/text/text-effects-style.h>
-#include <dali-toolkit/internal/text/text-enumerations-impl.h>
-#include <dali-toolkit/internal/text/text-font-style.h>
+#include <dali-ui-text/internal/text/script-run.h>
+#include <dali-ui-text/internal/text/text-effects-style.h>
+#include <dali-ui-text/internal/text/text-enumerations-impl.h>
+#include <dali-ui-text/internal/text/text-font-style.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
-#include <dali-toolkit/public-api/toolkit-constraint-tag-ranges.h>
+#include <dali-ui-foundation/public-api/toolkit-constraint-tag-ranges.h>
 #include <dali-ui-visuals/public-api/visuals/text-visual-properties.h>
 #include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 

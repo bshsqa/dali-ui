@@ -1,4 +1,4 @@
-#ifndef DALI_TOOLKIT_INTERNAL_MESH_VISUAL_H
+﻿#ifndef DALI_TOOLKIT_INTERNAL_MESH_VISUAL_H
 #define DALI_TOOLKIT_INTERNAL_MESH_VISUAL_H
 
 /*
@@ -24,13 +24,13 @@
 #include <fstream>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/visuals/mesh/obj-loader.h>
-#include <dali-toolkit/internal/visuals/visual-base-impl.h>
-#include <dali-toolkit/public-api/visuals/mesh-visual-properties.h>
+#include <dali-ui-visuals/internal/visuals/mesh/obj-loader.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
+#include <dali-ui-visuals/public-api/visuals/mesh-visual-properties.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -190,7 +190,7 @@ private:
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali
 

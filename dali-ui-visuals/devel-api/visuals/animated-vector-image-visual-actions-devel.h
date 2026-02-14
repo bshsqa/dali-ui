@@ -1,4 +1,4 @@
-#ifndef DALI_UI_ANIMATED_VECTOR_IMAGE_VISUAL_ACTIONS_DEVEL_H
+﻿#ifndef DALI_UI_ANIMATED_VECTOR_IMAGE_VISUAL_ACTIONS_DEVEL_H
 #define DALI_UI_ANIMATED_VECTOR_IMAGE_VISUAL_ACTIONS_DEVEL_H
 
 /*
@@ -21,7 +21,7 @@
 // EXTERNAL INCLUDES
 #include <dali-ui-visuals/public-api/visuals/visual-property-index-ranges.h>
 #include <dali-ui/devel-api/visuals/animated-image-visual-actions-devel.h>
-#include <dali-toolkit/devel-api/visuals/image-visual-actions-devel.h>
+#include <dali-ui-visuals/devel-api/visuals/image-visual-actions-devel.h>
 #include <dali/public-api/signals/callback.h>
 #include <string>
 

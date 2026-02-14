@@ -1,4 +1,4 @@
-#ifndef DALI_TOOLKIT_INTERNAL_OBJ_LOADER_H
+﻿#ifndef DALI_TOOLKIT_INTERNAL_OBJ_LOADER_H
 #define DALI_TOOLKIT_INTERNAL_OBJ_LOADER_H
 
 /*
@@ -24,7 +24,7 @@
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -196,7 +196,7 @@ private:
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali
 

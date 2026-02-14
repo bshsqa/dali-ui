@@ -1,4 +1,4 @@
-#ifndef DALI_TOOLKIT_INTERNAL_PRIMITIVE_VISUAL_H
+﻿#ifndef DALI_TOOLKIT_INTERNAL_PRIMITIVE_VISUAL_H
 #define DALI_TOOLKIT_INTERNAL_PRIMITIVE_VISUAL_H
 
 /*
@@ -48,12 +48,12 @@
 #include <dali/public-api/common/intrusive-ptr.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/visuals/visual-base-impl.h>
-#include <dali-toolkit/public-api/visuals/primitive-visual-properties.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
+#include <dali-ui-visuals/public-api/visuals/primitive-visual-properties.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -344,7 +344,7 @@ private:
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali
 

@@ -24,7 +24,7 @@
 #include <dali-ui-text/internal/text/text-effects-style.h>
 #include <dali-ui-text/internal/text/text-enumerations-impl.h>
 #include <dali-ui-text/internal/text/text-font-style.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 #include <dali/integration-api/debug.h>
 
 #if defined(DEBUG_ENABLED)

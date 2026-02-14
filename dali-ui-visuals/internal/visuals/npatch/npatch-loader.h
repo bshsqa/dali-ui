@@ -1,4 +1,4 @@
-#ifndef DALI_UI_NPATCH_LOADER_H
+﻿#ifndef DALI_UI_NPATCH_LOADER_H
 #define DALI_UI_NPATCH_LOADER_H
 
 /*
@@ -25,8 +25,8 @@
 #include <utility> // for std::pair
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/utility/npatch-utilities.h>
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/devel-api/utility/npatch-utilities.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 #include <dali-ui-visuals/internal/visuals/npatch/npatch-data.h>
 #include <dali-ui-visuals/internal/visuals/visual-url.h>
 

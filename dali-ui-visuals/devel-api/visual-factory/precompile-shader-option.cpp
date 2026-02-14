@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +16,7 @@
  */
 
 // CLASS HEADER
-#include <dali-toolkit/devel-api/visual-factory/precompile-shader-option.h>
+#include <dali-ui-visuals/devel-api/visual-factory/precompile-shader-option.h>
 
 // EXTERNAL INCLUDES
 #include <dali/devel-api/scripting/enum-helper.h>

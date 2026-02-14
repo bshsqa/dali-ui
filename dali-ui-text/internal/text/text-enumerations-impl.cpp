@@ -22,7 +22,7 @@
 #include <dali/devel-api/scripting/enum-helper.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali
 {

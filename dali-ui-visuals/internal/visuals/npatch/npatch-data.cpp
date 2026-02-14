@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
 #include <dali-ui-visuals/internal/visuals/npatch/npatch-data.h>
 
 // INTERNAL HEADERS
-#include <dali-toolkit/internal/visuals/rendering-addon.h>
+#include <dali-ui-visuals/internal/visuals/rendering-addon.h>
 
 // EXTERNAL HEADERS
 #include <dali/integration-api/debug.h>
@@ -32,18 +32,14 @@ namespace Internal
 {
 NPatchData::NPatchData()
 : mId(INVALID_NPATCH_DATA_ID),
-  mObserverList(),
-  mQueuedObservers(),
   mUrl(),
   mTextureSet(),
-  mStretchPixelsX(),
-  mStretchPixelsY(),
   mHash(0),
   mCroppedWidth(0),
   mCroppedHeight(0),
   mBorder(0, 0, 0, 0),
   mLoadingState(LoadingState::NOT_STARTED),
-  mRenderingMap(NULL),
+  mRenderingMap{nullptr},
   mPreMultiplyOnLoad(false),
   mObserverNotifying(false)
 {

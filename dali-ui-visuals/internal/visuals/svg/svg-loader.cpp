@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
 #include <dali-ui-visuals/internal/visuals/svg/svg-loader.h>
 
 // INTERNAL HEADERS
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h> ///< for EncodedImageBuffer
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h> ///< for EncodedImageBuffer
 #include <dali-ui-visuals/internal/visuals/svg/svg-task.h>
 #include <dali-ui-visuals/internal/visuals/svg/svg-visual.h>
 #include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>
@@ -1199,6 +1199,6 @@ void SvgLoader::RasterizeObserverDestroyed(SvgLoaderObserver* observer)
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

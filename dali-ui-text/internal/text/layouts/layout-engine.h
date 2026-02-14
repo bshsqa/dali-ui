@@ -26,7 +26,7 @@
 // INTERNAL INCLUDE
 #include <dali-ui-text/internal/text/line-run.h>
 #include <dali-ui-text/internal/text/metrics.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 //DEVEL INCLUDE
 #include <dali-ui-text/devel-api/text/text-enumerations-devel.h>

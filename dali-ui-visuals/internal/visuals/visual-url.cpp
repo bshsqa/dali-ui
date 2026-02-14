@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +22,7 @@
 #include <cstring> // for toupper()
 
 // INTERNAL HEADERS
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 
 namespace Dali
 {
@@ -439,5 +439,7 @@ std::string VisualUrl::GetLocationWithoutExtension(const std::string& url)
 }
 
 } // namespace Internal
+
 } // namespace UI
+
 } // namespace Dali

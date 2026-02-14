@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,13 +27,13 @@
 #include <dali/public-api/rendering/decorated-visual-renderer.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-actions-devel.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>
 #include <dali-ui-visuals/internal/visuals/visual-factory-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
-#include <dali-toolkit/public-api/toolkit-constraint-tag-ranges.h>
+#include <dali-ui-foundation/public-api/toolkit-constraint-tag-ranges.h>
 #include <dali-ui-visuals/public-api/visuals/color-visual-properties.h>
 #include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 

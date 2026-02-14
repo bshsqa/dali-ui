@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +29,7 @@
 #include <typeinfo>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-ui-visuals/internal/visuals/gradient/conic-gradient.h>
 #include <dali-ui-visuals/internal/visuals/gradient/linear-gradient.h>
 #include <dali-ui-visuals/internal/visuals/gradient/radial-gradient.h>

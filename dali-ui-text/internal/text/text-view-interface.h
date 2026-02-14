@@ -27,7 +27,7 @@
 #include <dali-ui-text/internal/text/character-spacing-glyph-run.h>
 #include <dali-ui-text/internal/text/text-definitions.h>
 #include <dali-ui-text/internal/text/underlined-glyph-run.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali
 {

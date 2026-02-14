@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +26,7 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
-#include <dali-toolkit/internal/helpers/property-helper.h>
+#include <dali-ui-visuals/internal/helpers/property-helper.h>
 #include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
 #include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 

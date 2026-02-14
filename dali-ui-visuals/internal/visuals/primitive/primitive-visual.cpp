@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,14 +27,14 @@
 #include <dali/public-api/common/constants.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
-#include <dali-toolkit/internal/visuals/visual-base-data-impl.h>
-#include <dali-toolkit/internal/visuals/visual-string-constants.h>
-#include <dali-toolkit/public-api/visuals/visual-properties.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
+#include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -1410,6 +1410,6 @@ void PrimitiveVisual::FormBevelledCubeTriangles(Vector<unsigned short>& indices)
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

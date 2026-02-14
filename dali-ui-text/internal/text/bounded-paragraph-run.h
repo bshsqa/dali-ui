@@ -23,7 +23,7 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-text/internal/text/abstract-style-character-run.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali
 {

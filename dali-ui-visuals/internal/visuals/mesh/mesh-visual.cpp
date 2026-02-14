@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,10 +28,10 @@
 #include <dali/integration-api/debug.h>
 
 //INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
-#include <dali-toolkit/internal/visuals/visual-base-data-impl.h>
-#include <dali-toolkit/internal/visuals/visual-string-constants.h>
-#include <dali-toolkit/public-api/visuals/visual-properties.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
+#include <dali-ui-visuals/public-api/visuals/visual-properties.h>
 
 namespace Dali
 {
@@ -66,7 +66,7 @@ Texture LoadTexture(const char* imageUrl, bool generateMipmaps)
 }
 } // unnamed namespace
 
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -500,6 +500,6 @@ bool MeshVisual::LoadTextures()
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

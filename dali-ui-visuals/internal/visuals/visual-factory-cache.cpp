@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,9 +29,9 @@
 #include <dali/public-api/math/math-utils.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/utility/npatch-helper.h>
+#include <dali-ui-visuals/devel-api/utility/npatch-helper.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
-// #include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h> // Not used
+// #include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h> // Not used
 #include <dali-ui-visuals/internal/visuals/animated-vector-image/vector-animation-manager.h>
 #include <dali-ui-visuals/internal/visuals/color/color-visual.h>
 #include <dali-ui-visuals/internal/visuals/svg/svg-visual.h>

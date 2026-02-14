@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_N_PATCH_VISUAL_H
+﻿#ifndef DALI_UI_INTERNAL_N_PATCH_VISUAL_H
 #define DALI_UI_INTERNAL_N_PATCH_VISUAL_H
 
 /*
@@ -27,7 +27,7 @@
 #include <dali/public-api/rendering/shader.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/texture-manager/texture-upload-observer.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-upload-observer.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-url.h>
 #include <dali-ui-visuals/public-api/visuals/image-visual-properties.h>

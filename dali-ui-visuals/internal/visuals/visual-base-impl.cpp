@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1715,6 +1715,6 @@ void Visual::Base::StopConstraintFeature(Property::Index index)
 
 } // namespace Internal
 
-} //namespace Toolkit
+} //namespace UI
 
 } //namespace Dali

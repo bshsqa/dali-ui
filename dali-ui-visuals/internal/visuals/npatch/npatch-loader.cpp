@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
 #include <dali-ui-visuals/internal/visuals/npatch/npatch-loader.h>
 
 // INTERNAL HEADERS
-#include <dali-toolkit/internal/visuals/rendering-addon.h>
+#include <dali-ui-visuals/internal/visuals/rendering-addon.h>
 
 // EXTERNAL HEADERS
 #include <dali/integration-api/adaptor-framework/adaptor.h>

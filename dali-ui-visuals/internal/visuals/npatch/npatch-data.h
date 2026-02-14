@@ -1,5 +1,5 @@
-#ifndef DALI_UI_NPATCH_DATA_H
-#define DALI_UI_NPATCH_DATA_H
+﻿#ifndef DALI_TOOLKIT_NPATCH_DATA_H
+#define DALI_TOOLKIT_NPATCH_DATA_H
 
 /*
  * Copyright (c) 2024 Samsung Electronics Co., Ltd.
@@ -24,8 +24,8 @@
 #include <string>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/utility/npatch-utilities.h>
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/devel-api/utility/npatch-utilities.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-url.h>
 
 namespace Dali
@@ -34,8 +34,6 @@ namespace UI
 {
 namespace Internal
 {
-using TextureUploadObserver = Dali::Toolkit::TextureUploadObserver;
-using TextureManager = Dali::Toolkit::Internal::TextureManager;
 class NPatchData;
 typedef IntrusivePtr<NPatchData> NPatchDataPtr;
 
@@ -310,4 +308,4 @@ private:
 
 } // namespace Dali
 
-#endif // DALI_UI_NPATCH_DATA_H
+#endif // DALI_TOOLKIT_NPATCH_DATA_H

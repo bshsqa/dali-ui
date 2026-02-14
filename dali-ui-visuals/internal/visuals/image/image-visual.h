@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_IMAGE_VISUAL_H
+﻿#ifndef DALI_UI_INTERNAL_IMAGE_VISUAL_H
 #define DALI_UI_INTERNAL_IMAGE_VISUAL_H
 
 /*
@@ -28,8 +28,8 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-visuals/devel-api/visuals/image-visual-properties-devel.h>
-#include <dali-toolkit/internal/image-loader/fast-track-loading-task.h>
-#include <dali-toolkit/internal/texture-manager/texture-upload-observer.h>
+#include <dali-ui-visuals/internal/image-loader/fast-track-loading-task.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-upload-observer.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 #include <dali-ui-visuals/internal/visuals/visual-url.h>
 #include <dali-ui-visuals/public-api/visuals/image-visual-properties.h>
@@ -38,7 +38,7 @@ namespace Dali
 {
 class NativeImage;
 
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {

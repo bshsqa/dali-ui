@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,7 +34,7 @@
 
 // INTERNAL HEADERS
 #include <dali-ui-visuals/devel-api/visuals/image-visual-actions-devel.h>
-#include <dali-toolkit/internal/texture-manager/texture-manager-impl.h>
+#include <dali-ui-visuals/internal/texture-manager/texture-manager-impl.h>
 #include <dali-ui-visuals/internal/visuals/image/image-visual-shader-factory.h>
 #include <dali-ui-visuals/internal/visuals/image/image-visual-shader-feature-builder.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>

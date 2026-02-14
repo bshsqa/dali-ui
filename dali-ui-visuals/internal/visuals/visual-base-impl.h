@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_VISUAL_H
+﻿#ifndef DALI_UI_INTERNAL_VISUAL_H
 #define DALI_UI_INTERNAL_VISUAL_H
 
 /*
@@ -29,7 +29,7 @@
 #include <unordered_set>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/direction-enums.h>
+#include <dali-ui-foundation/devel-api/direction-enums.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-base.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>

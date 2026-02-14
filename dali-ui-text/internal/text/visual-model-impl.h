@@ -31,7 +31,7 @@
 #include <dali-ui-text/internal/text/line-run.h>
 #include <dali-ui-text/internal/text/strikethrough-glyph-run.h>
 #include <dali-ui-text/internal/text/underlined-glyph-run.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 // DEVEL INCLUDES
 #include <dali-ui-text/devel-api/text/text-enumerations-devel.h>

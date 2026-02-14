@@ -32,7 +32,7 @@
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
 #include <dali-ui-text/devel-api/text/rendering-backend.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
-#include <dali-toolkit/internal/render-effects/mask-effect-impl.h>
+#include <dali-ui-visuals/internal/render-effects/mask-effect-impl.h>
 #include <dali-ui-foundation/integration-api/styling/style-manager-impl.h>
 #include <dali-ui-text/internal/text/property-string-parser.h>
 #include <dali-ui-text/internal/text/rendering/text-backend.h>
@@ -40,14 +40,14 @@
 #include <dali-ui-text/internal/text/text-effects-style.h>
 #include <dali-ui-text/internal/text/text-font-style.h>
 #include <dali-ui-text/internal/text/text-view.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 #include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-base.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
 #include <dali-ui-text/internal/text/text-enumerations-impl.h>
-#include <dali-toolkit/public-api/align-enumerations.h>
-#include <dali-toolkit/public-api/render-effects/mask-effect.h>
+#include <dali-ui-foundation/public-api/align-enumerations.h>
+#include <dali-ui-visuals/public-api/render-effects/mask-effect.h>
 #include <dali-ui-visuals/public-api/visuals/color-visual-properties.h>
 #include <dali-ui-visuals/public-api/visuals/text-visual-properties.h>
 #include <dali-ui-visuals/public-api/visuals/visual-properties.h>

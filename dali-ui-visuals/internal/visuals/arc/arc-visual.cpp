@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,22 +16,22 @@
  */
 
 // CLASS HEADER
-#include <dali-toolkit/internal/visuals/arc/arc-visual.h>
+#include <dali-ui-visuals/internal/visuals/arc/arc-visual.h>
 
 // EXTERNAL INCLUDES
 #include <dali/integration-api/debug.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/visuals/visual-properties-devel.h>
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
-#include <dali-toolkit/internal/visuals/visual-base-data-impl.h>
-#include <dali-toolkit/internal/visuals/visual-factory-cache.h>
-#include <dali-toolkit/internal/visuals/visual-factory-impl.h>
-#include <dali-toolkit/internal/visuals/visual-string-constants.h>
+#include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/visuals/visual-base-data-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-cache.h>
+#include <dali-ui-visuals/internal/visuals/visual-factory-impl.h>
+#include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -233,6 +233,6 @@ void ArcVisual::OnInitialize()
 
 } // namespace Internal
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

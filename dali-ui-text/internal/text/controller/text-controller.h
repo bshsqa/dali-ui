@@ -37,7 +37,7 @@
 #include <dali-ui-text/internal/text/text-anchor-control-interface.h>
 #include <dali-ui-text/internal/text/text-model-interface.h>
 #include <dali-ui-text/internal/text/text-selectable-control-interface.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali::UI::Text
 {

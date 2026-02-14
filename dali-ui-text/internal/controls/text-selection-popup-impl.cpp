@@ -40,7 +40,7 @@
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
 #include <dali-toolkit/internal/controls/control/control-data-impl.h>
 #include <dali-ui-text/internal/controls/text-selection-popup-property-handler.h>
-#include <dali-toolkit/internal/helpers/color-conversion.h>
+#include <dali-ui-visuals/internal/helpers/color-conversion.h>
 #include <dali-ui-text/public-api/controls/text-label.h>
 #include <dali-ui-visuals/public-api/visuals/color-visual-properties.h>
 #include <dali-ui-visuals/public-api/visuals/text-visual-properties.h>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-visuals/internal/visuals/image/image-visual-shader-debug.h>
 #include <dali-ui-visuals/internal/visuals/visual-string-constants.h>
-// #include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h> // Not used
+// #include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h> // Not used
 #include <dali/integration-api/debug.h>
 
 namespace Dali

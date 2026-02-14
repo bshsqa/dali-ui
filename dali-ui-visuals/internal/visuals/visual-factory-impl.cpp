@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,9 +28,9 @@
 
 // INTERNAL INCLUDES
 #include <dali-toolkit/devel-api/asset-manager/asset-manager.h>
-#include <dali-toolkit/devel-api/styling/style-manager-devel.h>
+#include <dali-ui-foundation/devel-api/styling/style-manager-devel.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
-// #include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h> // Not used
+// #include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h> // Not used
 #include <dali-ui-visuals/internal/visuals/animated-image/animated-image-visual.h>
 #include <dali-ui-visuals/internal/visuals/animated-vector-image/animated-vector-image-visual.h>
 #include <dali-ui-visuals/internal/visuals/arc/arc-visual.h>

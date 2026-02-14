@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_GRADIENT_H
+﻿#ifndef DALI_UI_INTERNAL_GRADIENT_H
 #define DALI_UI_INTERNAL_GRADIENT_H
 
 /*
@@ -25,7 +25,7 @@
 #include <dali/public-api/rendering/texture.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/visuals/gradient-visual-properties.h>
+#include <dali-ui-visuals/public-api/visuals/gradient-visual-properties.h>
 
 namespace Dali
 {

@@ -1,4 +1,4 @@
-#ifndef DALI_UI_ANIMATED_IMAGE_VISUAL_ACTIONS_DEVEL_H
+﻿#ifndef DALI_UI_ANIMATED_IMAGE_VISUAL_ACTIONS_DEVEL_H
 #define DALI_UI_ANIMATED_IMAGE_VISUAL_ACTIONS_DEVEL_H
 
 /*
@@ -17,7 +17,7 @@
  * limitations under the License.
  *
  */
-#include <dali-toolkit/devel-api/toolkit-action-index-ranges.h>
+#include <dali-ui-foundation/devel-api/toolkit-action-index-ranges.h>
 #include <dali-ui-visuals/public-api/visuals/visual-property-index-ranges.h>
 
 namespace Dali

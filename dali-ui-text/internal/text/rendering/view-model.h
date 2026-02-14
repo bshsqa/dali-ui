@@ -26,7 +26,7 @@
 #include <dali-ui-text/devel-api/text/text-enumerations-devel.h>
 #include <dali-ui-text/internal/text/bounded-paragraph-run.h>
 #include <dali-ui-text/internal/text/text-model-interface.h>
-#include <dali-toolkit/public-api/text/text-enumerations.h>
+#include <dali-ui-text/public-api/text/text-enumerations.h>
 
 namespace Dali
 {

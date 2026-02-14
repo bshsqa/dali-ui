@@ -28,7 +28,7 @@
 // INTERNAL INCLUDES
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
 #include <dali-ui-foundation/devel-api/view-devel.h>
-#include <dali-toolkit/internal/helpers/color-conversion.h>
+#include <dali-ui-visuals/internal/helpers/color-conversion.h>
 #include <dali-toolkit/public-api/controls/image-view/image-view.h>
 
 namespace Dali
