@@ -61,32 +61,32 @@ public:
    * @param[in] styleManager Handle for style manager.
    * @param[in] type Style change type.
    */
-  void OnStyleChangedSignal(Toolkit::StyleManager styleManager, StyleChange::Type type);
+  void OnStyleChangedSignal(UI::StyleManager styleManager, StyleChange::Type type);
 
   /**
    * @brief BrokenImageChanged callback
    *
    * @param[in] styleManager Handle for style manager.
    */
-  void OnBrokenImageChangedSignal(Toolkit::StyleManager styleManager);
+  void OnBrokenImageChangedSignal(UI::StyleManager styleManager);
 
   /**
-   * @copydoc Toolkit::VisualFactory::CreateVisual( const Property::Map& )
+   * @copydoc UI::VisualFactory::CreateVisual( const Property::Map& )
    */
   UI::Visual::Base CreateVisual(const Property::Map& propertyMap);
 
   /**
-   * @copydoc Toolkit::VisualFactory::CreateVisual( const Property::Map&, Toolkit::VisualFactory::CreationOptions )
+   * @copydoc UI::VisualFactory::CreateVisual( const Property::Map&, UI::VisualFactory::CreationOptions )
    */
   UI::Visual::Base CreateVisual(const Property::Map& propertyMap, UI::VisualFactory::CreationOptions creationOptions);
 
   /**
-   * @copydoc Toolkit::VisualFactory::CreateVisual( const std::string&, ImageDimensions )
+   * @copydoc UI::VisualFactory::CreateVisual( const std::string&, ImageDimensions )
    */
   UI::Visual::Base CreateVisual(const std::string& image, ImageDimensions size);
 
   /**
-   * @copydoc Toolkit::VisualFactory::CreateVisual( const std::string&, ImageDimensions, Toolkit::VisualFactory::CreationOptions )
+   * @copydoc UI::VisualFactory::CreateVisual( const std::string&, ImageDimensions, UI::VisualFactory::CreationOptions )
    */
   UI::Visual::Base CreateVisual(const std::string& image, ImageDimensions size, UI::VisualFactory::CreationOptions creationOptions);
 
@@ -156,7 +156,7 @@ private:
    * @brief Set the Broken Image url
    * @param[in] styleManager The instance of StyleManager
    */
-  void SetBrokenImageUrl(Toolkit::StyleManager& styleManager);
+  void SetBrokenImageUrl(UI::StyleManager& styleManager);
 
   /**
    * Get the image visual shader factory, creating it if necessary.

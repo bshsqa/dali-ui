@@ -36,7 +36,7 @@ namespace Internal
  * Frames are always ready, so the observer.FrameReady callback is never triggered;
  * the FirstFrame and NextFrame APIs will always return a texture.
  */
-class RollingAnimatedImageCache : public ImageCache, public Toolkit::TextureUploadObserver
+class RollingAnimatedImageCache : public ImageCache, public UI::TextureUploadObserver
 {
 public:
   /**
@@ -58,12 +58,12 @@ public:
    * This will start loading textures immediately, according to the
    * batch and cache sizes.
    */
-  RollingAnimatedImageCache(Toolkit::TextureManager&                     textureManager,
+  RollingAnimatedImageCache(UI::TextureManager&                     textureManager,
                             ImageDimensions                              size,
                             Dali::FittingMode::Type                      fittingMode,
                             Dali::SamplingMode::Type                     samplingMode,
                             AnimatedImageLoading&                        animatedImageLoading,
-                            Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                            UI::TextureManager::MaskingDataPointer& maskingData,
                             ImageCache::FrameReadyObserver&     observer,
                             uint16_t                            cacheSize,
                             uint16_t                            batchSize,
@@ -134,7 +134,7 @@ private:
    *
    * @return the texture set currently loaded.
    */
-  TextureSet RequestFrameLoading(uint32_t frameIndex, bool synchronousLoading, Toolkit::TextureManager::MultiplyOnLoad& preMultiplyOnLoading);
+  TextureSet RequestFrameLoading(uint32_t frameIndex, bool synchronousLoading, UI::TextureManager::MultiplyOnLoad& preMultiplyOnLoading);
 
   /**
    * @brief Load the next batch of images
@@ -148,7 +148,7 @@ private:
    *
    * @param[in] textureId texture id to be marked as ready.
    */
-  void SetImageFrameReady(Toolkit::TextureManager::TextureId textureId);
+  void SetImageFrameReady(UI::TextureManager::TextureId textureId);
 
   /**
    * @brief Get the texture set of the front frame.
@@ -162,7 +162,7 @@ private:
    *
    * @param[in] index index of the queue.
    */
-  Toolkit::TextureManager::TextureId GetCachedTextureId(int index) const;
+  UI::TextureManager::TextureId GetCachedTextureId(int index) const;
 
   /**
    * @brief Make the loaded frame ready and notify it to the texture upload observer
@@ -182,7 +182,7 @@ private:
 
 protected:
   /**
-   * @copydoc Toolkit::TextureUploadObserver::LoadComplete()
+   * @copydoc UI::TextureUploadObserver::LoadComplete()
    */
   void LoadComplete(bool loadSuccess, TextureInformation textureInformation) override;
 
@@ -195,7 +195,7 @@ private:
     uint32_t mFrameNumber = 0u;
     bool     mReady       = false;
   };
-  std::vector<Toolkit::TextureManager::TextureId> mTextureIds;
+  std::vector<UI::TextureManager::TextureId> mTextureIds;
 
   VisualUrl                  mImageUrl;
   Dali::AnimatedImageLoading mAnimatedImageLoading;

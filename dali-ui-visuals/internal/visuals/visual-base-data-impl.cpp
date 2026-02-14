@@ -45,15 +45,15 @@ DALI_ENUM_TO_STRING_TABLE_BEGIN(SHADER_HINT)
 DALI_ENUM_TO_STRING_TABLE_END(SHADER_HINT)
 
 DALI_ENUM_TO_STRING_TABLE_BEGIN(ALIGN)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, TOP_BEGIN)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, TOP_CENTER)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, TOP_END)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, CENTER_BEGIN)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, CENTER)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, CENTER_END)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, BOTTOM_BEGIN)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, BOTTOM_CENTER)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::Align, BOTTOM_END)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, TOP_BEGIN)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, TOP_CENTER)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, TOP_END)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, CENTER_BEGIN)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, CENTER)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, CENTER_END)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, BOTTOM_BEGIN)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, BOTTOM_CENTER)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Align, BOTTOM_END)
 DALI_ENUM_TO_STRING_TABLE_END(ALIGN)
 
 DALI_ENUM_TO_STRING_TABLE_BEGIN(POLICY)
@@ -61,7 +61,7 @@ DALI_ENUM_TO_STRING_TABLE_BEGIN(POLICY)
   DALI_ENUM_TO_STRING_WITH_SCOPE(UI::Visual::Transform::Policy, ABSOLUTE)
 DALI_ENUM_TO_STRING_TABLE_END(POLICY)
 
-Dali::Vector2 PointToVector2(Toolkit::Align::Type point, Toolkit::Direction::Type direction)
+Dali::Vector2 PointToVector2(UI::Align::Type point, UI::Direction::Type direction)
 {
   // clang-format off
   static const float pointToVector2[] = {0.0f,0.0f,
@@ -97,8 +97,8 @@ bool GetPolicyFromValue(const Property::Value& value, Vector2& policy)
     const Property::Array* array = value.GetArray();
     if(array && array->Size() == 2)
     {
-      Toolkit::Visual::Transform::Policy::Type xPolicy = static_cast<UI::Visual::Transform::Policy::Type>(-1); // Assign an invalid value so definitely changes
-      Toolkit::Visual::Transform::Policy::Type yPolicy = static_cast<UI::Visual::Transform::Policy::Type>(-1); // Assign an invalid value so definitely changes
+      UI::Visual::Transform::Policy::Type xPolicy = static_cast<UI::Visual::Transform::Policy::Type>(-1); // Assign an invalid value so definitely changes
+      UI::Visual::Transform::Policy::Type yPolicy = static_cast<UI::Visual::Transform::Policy::Type>(-1); // Assign an invalid value so definitely changes
 
       if(Scripting::GetEnumerationProperty<UI::Visual::Transform::Policy::Type>(array->GetElementAt(0), POLICY_TABLE, POLICY_TABLE_COUNT, xPolicy) &&
          Scripting::GetEnumerationProperty<UI::Visual::Transform::Policy::Type>(array->GetElementAt(1), POLICY_TABLE, POLICY_TABLE_COUNT, yPolicy))
@@ -121,7 +121,7 @@ Internal::Visual::Base::Impl::Impl(FittingMode fittingMode, UI::Visual::Type typ
   mMixColor(Color::WHITE),
   mControlSize(Vector2::ZERO),
   mDecorationData(nullptr),
-  mDepthIndex(Toolkit::DepthIndex::AUTO_INDEX),
+  mDepthIndex(UI::DepthIndex::AUTO_INDEX),
   mFittingMode(fittingMode),
   mFlags(0),
   mResourceStatus(UI::Visual::ResourceStatus::PREPARING),
@@ -163,7 +163,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
   mHints    = Shader::Hint::NONE;
   mName     = "";
 
-  Property::Value* vertexShaderValue = shaderMap.Find(Toolkit::Visual::Shader::Property::VERTEX_SHADER, CUSTOM_VERTEX_SHADER);
+  Property::Value* vertexShaderValue = shaderMap.Find(UI::Visual::Shader::Property::VERTEX_SHADER, CUSTOM_VERTEX_SHADER);
   if(vertexShaderValue)
   {
     if(!GetStringFromProperty(*vertexShaderValue, mVertexShader))
@@ -172,7 +172,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* fragmentShaderValue = shaderMap.Find(Toolkit::Visual::Shader::Property::FRAGMENT_SHADER, CUSTOM_FRAGMENT_SHADER);
+  Property::Value* fragmentShaderValue = shaderMap.Find(UI::Visual::Shader::Property::FRAGMENT_SHADER, CUSTOM_FRAGMENT_SHADER);
   if(fragmentShaderValue)
   {
     if(!GetStringFromProperty(*fragmentShaderValue, mFragmentShader))
@@ -181,7 +181,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* subdivideXValue = shaderMap.Find(Toolkit::Visual::Shader::Property::SUBDIVIDE_GRID_X, CUSTOM_SUBDIVIDE_GRID_X);
+  Property::Value* subdivideXValue = shaderMap.Find(UI::Visual::Shader::Property::SUBDIVIDE_GRID_X, CUSTOM_SUBDIVIDE_GRID_X);
   if(subdivideXValue)
   {
     int subdivideX;
@@ -195,7 +195,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* subdivideYValue = shaderMap.Find(Toolkit::Visual::Shader::Property::SUBDIVIDE_GRID_Y, CUSTOM_SUBDIVIDE_GRID_Y);
+  Property::Value* subdivideYValue = shaderMap.Find(UI::Visual::Shader::Property::SUBDIVIDE_GRID_Y, CUSTOM_SUBDIVIDE_GRID_Y);
   if(subdivideYValue)
   {
     int subdivideY;
@@ -209,7 +209,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* renderPassTagValue = shaderMap.Find(Toolkit::Visual::Shader::Property::RENDER_PASS_TAG, CUSTOM_RENDER_PASS_TAG);
+  Property::Value* renderPassTagValue = shaderMap.Find(UI::Visual::Shader::Property::RENDER_PASS_TAG, CUSTOM_RENDER_PASS_TAG);
   if(renderPassTagValue)
   {
     if(!renderPassTagValue->Get(mRenderPassTag) || mRenderPassTag < 0)
@@ -218,7 +218,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* hintsValue = shaderMap.Find(Toolkit::Visual::Shader::Property::HINTS, CUSTOM_SHADER_HINTS);
+  Property::Value* hintsValue = shaderMap.Find(UI::Visual::Shader::Property::HINTS, CUSTOM_SHADER_HINTS);
   if(hintsValue)
   {
     if(!Scripting::GetBitmaskEnumerationProperty(*hintsValue, SHADER_HINT_TABLE, SHADER_HINT_TABLE_COUNT, mHints))
@@ -227,7 +227,7 @@ void Internal::Visual::Base::Impl::CustomShader::SetPropertyMap(const Property::
     }
   }
 
-  Property::Value* nameValue = shaderMap.Find(Toolkit::Visual::Shader::Property::NAME, CUSTOM_SHADER_NAME);
+  Property::Value* nameValue = shaderMap.Find(UI::Visual::Shader::Property::NAME, CUSTOM_SHADER_NAME);
   if(nameValue)
   {
     if(!GetStringFromProperty(*nameValue, mName))
@@ -244,35 +244,35 @@ Property::Map Internal::Visual::Base::Impl::CustomShader::CreatePropertyMap() co
   {
     if(!mVertexShader.empty())
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::VERTEX_SHADER, mVertexShader);
+      customShader.Insert(UI::Visual::Shader::Property::VERTEX_SHADER, mVertexShader);
     }
     if(!mFragmentShader.empty())
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::FRAGMENT_SHADER, mFragmentShader);
+      customShader.Insert(UI::Visual::Shader::Property::FRAGMENT_SHADER, mFragmentShader);
     }
 
     if(mGridSize.GetWidth() != 1)
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::SUBDIVIDE_GRID_X, mGridSize.GetWidth());
+      customShader.Insert(UI::Visual::Shader::Property::SUBDIVIDE_GRID_X, mGridSize.GetWidth());
     }
     if(mGridSize.GetHeight() != 1)
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::SUBDIVIDE_GRID_Y, mGridSize.GetHeight());
+      customShader.Insert(UI::Visual::Shader::Property::SUBDIVIDE_GRID_Y, mGridSize.GetHeight());
     }
 
     if(mRenderPassTag >= 0)
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::RENDER_PASS_TAG, mRenderPassTag);
+      customShader.Insert(UI::Visual::Shader::Property::RENDER_PASS_TAG, mRenderPassTag);
     }
 
     if(mHints != Dali::Shader::Hint::NONE)
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::HINTS, static_cast<int>(mHints));
+      customShader.Insert(UI::Visual::Shader::Property::HINTS, static_cast<int>(mHints));
     }
 
     if(!mName.empty())
     {
-      customShader.Insert(Toolkit::Visual::Shader::Property::NAME, mName);
+      customShader.Insert(UI::Visual::Shader::Property::NAME, mName);
     }
   }
   return customShader;
@@ -283,8 +283,8 @@ Internal::Visual::Base::Impl::Transform::Transform()
   mSize(1.0f, 1.0f),
   mExtraSize(0.0f, 0.0f),
   mOffsetSizeMode(0.0f, 0.0f, 0.0f, 0.0f),
-  mOrigin(Toolkit::Align::TOP_BEGIN),
-  mAnchorPoint(Toolkit::Align::TOP_BEGIN)
+  mOrigin(UI::Align::TOP_BEGIN),
+  mAnchorPoint(UI::Align::TOP_BEGIN)
 {
 }
 
@@ -295,8 +295,8 @@ void Internal::Visual::Base::Impl::Transform::SetPropertyMap(const Property::Map
   mSize           = Vector2(1.0f, 1.0f);
   mExtraSize      = Vector2(0.0f, 0.0f);
   mOffsetSizeMode = Vector4(0.0f, 0.0f, 0.0f, 0.0f);
-  mOrigin         = Toolkit::Align::TOP_BEGIN;
-  mAnchorPoint    = Toolkit::Align::TOP_BEGIN;
+  mOrigin         = UI::Align::TOP_BEGIN;
+  mAnchorPoint    = UI::Align::TOP_BEGIN;
 
   UpdatePropertyMap(map);
 }
@@ -308,27 +308,27 @@ void Internal::Visual::Base::Impl::Transform::UpdatePropertyMap(const Property::
     KeyValuePair keyValue = map.GetKeyValue(i);
     switch(Visual::Base::GetIntKey(keyValue.first))
     {
-      case Toolkit::Visual::Transform::Property::OFFSET:
+      case UI::Visual::Transform::Property::OFFSET:
       {
         keyValue.second.Get(mOffset);
         break;
       }
-      case Toolkit::Visual::Transform::Property::SIZE:
+      case UI::Visual::Transform::Property::SIZE:
       {
         keyValue.second.Get(mSize);
         break;
       }
-      case Toolkit::Visual::Transform::Property::ORIGIN:
+      case UI::Visual::Transform::Property::ORIGIN:
       {
-        Scripting::GetEnumerationProperty<Toolkit::Align::Type>(keyValue.second, ALIGN_TABLE, ALIGN_TABLE_COUNT, mOrigin);
+        Scripting::GetEnumerationProperty<UI::Align::Type>(keyValue.second, ALIGN_TABLE, ALIGN_TABLE_COUNT, mOrigin);
         break;
       }
-      case Toolkit::Visual::Transform::Property::ANCHOR_POINT:
+      case UI::Visual::Transform::Property::ANCHOR_POINT:
       {
-        Scripting::GetEnumerationProperty<Toolkit::Align::Type>(keyValue.second, ALIGN_TABLE, ALIGN_TABLE_COUNT, mAnchorPoint);
+        Scripting::GetEnumerationProperty<UI::Align::Type>(keyValue.second, ALIGN_TABLE, ALIGN_TABLE_COUNT, mAnchorPoint);
         break;
       }
-      case Toolkit::Visual::Transform::Property::OFFSET_POLICY:
+      case UI::Visual::Transform::Property::OFFSET_POLICY:
       {
         Vector2 policy;
         if(GetPolicyFromValue(keyValue.second, policy))
@@ -338,7 +338,7 @@ void Internal::Visual::Base::Impl::Transform::UpdatePropertyMap(const Property::
         }
         break;
       }
-      case Toolkit::Visual::Transform::Property::SIZE_POLICY:
+      case UI::Visual::Transform::Property::SIZE_POLICY:
       {
         Vector2 policy;
         if(GetPolicyFromValue(keyValue.second, policy))
@@ -348,7 +348,7 @@ void Internal::Visual::Base::Impl::Transform::UpdatePropertyMap(const Property::
         }
         break;
       }
-      case Toolkit::DevelVisual::Transform::Property::EXTRA_SIZE:
+      case UI::DevelVisual::Transform::Property::EXTRA_SIZE:
       {
         keyValue.second.Get(mExtraSize);
         break;
@@ -361,20 +361,20 @@ void Internal::Visual::Base::Impl::Transform::GetPropertyMap(Property::Map& map)
 {
   map.Clear();
   map
-    .Add(Toolkit::Visual::Transform::Property::OFFSET, mOffset)
-    .Add(Toolkit::Visual::Transform::Property::SIZE, mSize)
-    .Add(Toolkit::Visual::Transform::Property::ORIGIN, mOrigin)
-    .Add(Toolkit::Visual::Transform::Property::ANCHOR_POINT, mAnchorPoint)
-    .Add(Toolkit::Visual::Transform::Property::OFFSET_POLICY, Vector2(mOffsetSizeMode.x, mOffsetSizeMode.y))
-    .Add(Toolkit::Visual::Transform::Property::SIZE_POLICY, Vector2(mOffsetSizeMode.z, mOffsetSizeMode.w))
-    .Add(Toolkit::DevelVisual::Transform::Property::EXTRA_SIZE, mExtraSize);
+    .Add(UI::Visual::Transform::Property::OFFSET, mOffset)
+    .Add(UI::Visual::Transform::Property::SIZE, mSize)
+    .Add(UI::Visual::Transform::Property::ORIGIN, mOrigin)
+    .Add(UI::Visual::Transform::Property::ANCHOR_POINT, mAnchorPoint)
+    .Add(UI::Visual::Transform::Property::OFFSET_POLICY, Vector2(mOffsetSizeMode.x, mOffsetSizeMode.y))
+    .Add(UI::Visual::Transform::Property::SIZE_POLICY, Vector2(mOffsetSizeMode.z, mOffsetSizeMode.w))
+    .Add(UI::DevelVisual::Transform::Property::EXTRA_SIZE, mExtraSize);
 }
 
-void Internal::Visual::Base::Impl::Transform::SetUniforms(Dali::VisualRenderer renderer, Toolkit::Direction::Type direction)
+void Internal::Visual::Base::Impl::Transform::SetUniforms(Dali::VisualRenderer renderer, UI::Direction::Type direction)
 {
   renderer.SetProperty(VisualRenderer::Property::TRANSFORM_SIZE, mSize);
   renderer.SetProperty(VisualRenderer::Property::TRANSFORM_OFFSET,
-                       direction == Toolkit::Direction::LEFT_TO_RIGHT ? mOffset : mOffset * Vector2(-1.0f, 1.0f));
+                       direction == UI::Direction::LEFT_TO_RIGHT ? mOffset : mOffset * Vector2(-1.0f, 1.0f));
   renderer.SetProperty(VisualRenderer::Property::TRANSFORM_OFFSET_SIZE_MODE, mOffsetSizeMode);
   renderer.SetProperty(VisualRenderer::Property::TRANSFORM_ORIGIN, PointToVector2(mOrigin, direction) - Vector2(0.5, 0.5));
   renderer.SetProperty(VisualRenderer::Property::TRANSFORM_ANCHOR_POINT,
@@ -392,13 +392,13 @@ Vector2 Internal::Visual::Base::Impl::Transform::GetVisualSize(const Vector2& co
 const Property::Map& Internal::Visual::Base::Impl::Transform::GetDefaultTransformMap()
 {
   static const Property::Map sDefaultTransformMap{
-    {Toolkit::Visual::Transform::Property::OFFSET, Vector2::ZERO},
-    {Toolkit::Visual::Transform::Property::SIZE, Vector2::ONE},
-    {Toolkit::Visual::Transform::Property::ORIGIN, Toolkit::Align::TOP_BEGIN},
-    {Toolkit::Visual::Transform::Property::ANCHOR_POINT, Toolkit::Align::TOP_BEGIN},
-    {Toolkit::Visual::Transform::Property::OFFSET_POLICY, Vector2::ZERO},
-    {Toolkit::Visual::Transform::Property::SIZE_POLICY, Vector2::ZERO},
-    {Toolkit::DevelVisual::Transform::Property::EXTRA_SIZE, Vector2::ZERO},
+    {UI::Visual::Transform::Property::OFFSET, Vector2::ZERO},
+    {UI::Visual::Transform::Property::SIZE, Vector2::ONE},
+    {UI::Visual::Transform::Property::ORIGIN, UI::Align::TOP_BEGIN},
+    {UI::Visual::Transform::Property::ANCHOR_POINT, UI::Align::TOP_BEGIN},
+    {UI::Visual::Transform::Property::OFFSET_POLICY, Vector2::ZERO},
+    {UI::Visual::Transform::Property::SIZE_POLICY, Vector2::ZERO},
+    {UI::DevelVisual::Transform::Property::EXTRA_SIZE, Vector2::ZERO},
   };
 
   return sDefaultTransformMap;

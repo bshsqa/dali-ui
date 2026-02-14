@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,12 +55,12 @@ namespace UI
 {
 namespace Internal
 {
-RollingImageCache::RollingImageCache(Toolkit::TextureManager&                     textureManager,
+RollingImageCache::RollingImageCache(UI::TextureManager&                     textureManager,
                                      ImageDimensions                              size,
                                      Dali::FittingMode::Type                      fittingMode,
                                      Dali::SamplingMode::Type                     samplingMode,
                                      UrlList&                                     urlList,
-                                     Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                                     UI::TextureManager::MaskingDataPointer& maskingData,
                                      ImageCache::FrameReadyObserver&     observer,
                                      uint16_t                            cacheSize,
                                      uint16_t                            batchSize,
@@ -100,7 +100,7 @@ TextureSet RollingImageCache::Frame(uint32_t frameIndex)
   }
 
   TextureSet textureSet;
-  if(IsFrontReady() == true && mLoadState != Toolkit::TextureManager::LoadState::LOAD_FAILED)
+  if(IsFrontReady() == true && mLoadState != UI::TextureManager::LoadState::LOAD_FAILED)
   {
     textureSet = GetFrontTextureSet();
   }
@@ -157,17 +157,17 @@ void RollingImageCache::LoadBatch(uint32_t frameIndex)
     // from within this method. This means it won't yet have a texture id, so we
     // need to account for this inside the LoadComplete method using mRequestingLoad.
     mRequestingLoad = true;
-    mLoadState      = Toolkit::TextureManager::LoadState::LOADING;
+    mLoadState      = UI::TextureManager::LoadState::LOADING;
 
     bool synchronousLoading = false;
     bool loadingStatus      = false;
 
-    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? Toolkit::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
-                                                   : Toolkit::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
+    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? UI::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
+                                                   : UI::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
 
-    Toolkit::TextureManager::TextureId loadTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+    UI::TextureManager::TextureId loadTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
     TextureSet                textureSet    = mTextureManager.LoadTexture(
-      url, mDesiredSize, mFittingMode, mSamplingMode, mMaskingData, synchronousLoading, loadTextureId, loadingStatus, this, ENABLE_ORIENTATION_CORRECTION, Toolkit::TextureManager::ReloadPolicy::CACHED, preMultiplyOnLoading);
+      url, mDesiredSize, mFittingMode, mSamplingMode, mMaskingData, synchronousLoading, loadTextureId, loadingStatus, this, ENABLE_ORIENTATION_CORRECTION, UI::TextureManager::ReloadPolicy::CACHED, preMultiplyOnLoading);
     mImageUrls[imageFrame.mUrlIndex].mTextureId = loadTextureId;
 
     mRequestingLoad = false;
@@ -179,7 +179,7 @@ void RollingImageCache::LoadBatch(uint32_t frameIndex)
 
 TextureSet RollingImageCache::GetFrontTextureSet() const
 {
-  Toolkit::TextureManager::TextureId textureId  = GetCachedTextureId(0);
+  UI::TextureManager::TextureId textureId  = GetCachedTextureId(0);
   TextureSet                textureSet = mTextureManager.GetTextureSet(textureId);
   if(textureSet)
   {
@@ -190,7 +190,7 @@ TextureSet RollingImageCache::GetFrontTextureSet() const
   return textureSet;
 }
 
-Toolkit::TextureManager::TextureId RollingImageCache::GetCachedTextureId(int index) const
+UI::TextureManager::TextureId RollingImageCache::GetCachedTextureId(int index) const
 {
   return mImageUrls[mQueue[index].mUrlIndex].mTextureId;
 }
@@ -200,13 +200,13 @@ void RollingImageCache::PopFrontCache()
   ImageFrame imageFrame = mQueue.PopFront();
 
   mTextureManager.RequestRemove(mImageUrls[imageFrame.mUrlIndex].mTextureId, this);
-  mImageUrls[imageFrame.mUrlIndex].mTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+  mImageUrls[imageFrame.mUrlIndex].mTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
 
-  if(mMaskingData && mMaskingData->mAlphaMaskId != Toolkit::TextureManager::INVALID_TEXTURE_ID)
+  if(mMaskingData && mMaskingData->mAlphaMaskId != UI::TextureManager::INVALID_TEXTURE_ID)
   {
     if(mQueue.IsEmpty())
     {
-      mMaskingData->mAlphaMaskId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+      mMaskingData->mAlphaMaskId = UI::TextureManager::INVALID_TEXTURE_ID;
     }
   }
 }
@@ -220,7 +220,7 @@ void RollingImageCache::ClearCache()
       PopFrontCache();
     }
   }
-  mLoadState = Toolkit::TextureManager::LoadState::NOT_STARTED;
+  mLoadState = UI::TextureManager::LoadState::NOT_STARTED;
 }
 
 void RollingImageCache::LoadComplete(bool loadSuccess, TextureInformation textureInformation)
@@ -230,7 +230,7 @@ void RollingImageCache::LoadComplete(bool loadSuccess, TextureInformation textur
 
   if(loadSuccess)
   {
-    mLoadState           = Toolkit::TextureManager::LoadState::LOAD_FINISHED;
+    mLoadState           = UI::TextureManager::LoadState::LOAD_FINISHED;
     bool frontFrameReady = IsFrontReady();
     if(!mRequestingLoad)
     {
@@ -258,7 +258,7 @@ void RollingImageCache::LoadComplete(bool loadSuccess, TextureInformation textur
   }
   else
   {
-    mLoadState = Toolkit::TextureManager::LoadState::LOAD_FAILED;
+    mLoadState = UI::TextureManager::LoadState::LOAD_FAILED;
     // preMultiplied should be false because broken image don't premultiply alpha on load
     mObserver.FrameReady(TextureSet(), 0, false);
   }

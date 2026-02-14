@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,7 +68,7 @@ StackLayout StackLayout::New(StackOrientation orientation)
 
 StackLayout StackLayout::DownCast(BaseHandle handle)
 {
-  return Toolkit::Control::DownCast<StackLayout, Integration::StackLayoutImpl>(handle);
+  return UI::View::DownCast<StackLayout, Integration::StackLayoutImpl>(handle);
 }
 
 StackLayout::StackLayout(Integration::StackLayoutImpl& implementation)

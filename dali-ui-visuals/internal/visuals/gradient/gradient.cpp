@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,8 +33,8 @@ namespace UI
 namespace Internal
 {
 Gradient::Gradient()
-: mGradientUnits(Toolkit::GradientVisual::Units::OBJECT_BOUNDING_BOX),
-  mSpreadMethod(Toolkit::GradientVisual::SpreadMethod::PAD),
+: mGradientUnits(UI::GradientVisual::Units::OBJECT_BOUNDING_BOX),
+  mSpreadMethod(UI::GradientVisual::SpreadMethod::PAD),
   mStartOffset(0.f)
 {
 }
@@ -54,22 +54,22 @@ const Vector<Gradient::GradientStop>& Gradient::GetStops()
   return mGradientStops;
 }
 
-void Gradient::SetGradientUnits(Toolkit::GradientVisual::Units::Type gradientUnits)
+void Gradient::SetGradientUnits(UI::GradientVisual::Units::Type gradientUnits)
 {
   mGradientUnits = gradientUnits;
 }
 
-Toolkit::GradientVisual::Units::Type Gradient::GetGradientUnits() const
+UI::GradientVisual::Units::Type Gradient::GetGradientUnits() const
 {
   return mGradientUnits;
 }
 
-void Gradient::SetSpreadMethod(Toolkit::GradientVisual::SpreadMethod::Type spread)
+void Gradient::SetSpreadMethod(UI::GradientVisual::SpreadMethod::Type spread)
 {
   mSpreadMethod = spread;
 }
 
-Toolkit::GradientVisual::SpreadMethod::Type Gradient::GetSpreadMethod() const
+UI::GradientVisual::SpreadMethod::Type Gradient::GetSpreadMethod() const
 {
   return mSpreadMethod;
 }
@@ -106,7 +106,7 @@ Dali::Texture Gradient::GenerateLookupTexture()
   {
     tempFirstStop = true;
     Vector4 firstStopColor(mGradientStops[0].mStopColor); // If spread method is PAD or REFLECT
-    if(mSpreadMethod == Toolkit::GradientVisual::SpreadMethod::REPEAT)
+    if(mSpreadMethod == UI::GradientVisual::SpreadMethod::REPEAT)
     {
       firstStopColor = (mGradientStops[0].mStopColor * (1.f - mGradientStops[numStops - 1].mOffset) + mGradientStops[numStops - 1].mStopColor * mGradientStops[0].mOffset) / (mGradientStops[0].mOffset + 1.f - mGradientStops[numStops - 1].mOffset);
     }
@@ -120,7 +120,7 @@ Dali::Texture Gradient::GenerateLookupTexture()
   {
     tempLastStop = true;
     Vector4 lastStopColor(mGradientStops[numStops - 1].mStopColor); // If spread method is PAD or REFLECT
-    if(mSpreadMethod == Toolkit::GradientVisual::SpreadMethod::REPEAT)
+    if(mSpreadMethod == UI::GradientVisual::SpreadMethod::REPEAT)
     {
       lastStopColor = mGradientStops[0].mStopColor;
     }

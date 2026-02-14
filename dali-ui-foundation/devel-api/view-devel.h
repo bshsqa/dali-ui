@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 /*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
@@ -49,7 +49,7 @@ class Base;
 
 /**
  * @brief DevelView provides extended APIs for View that were previously
- * exposed via Toolkit::DevelControl C-style free functions.
+ * exposed via UI::DevelControl C-style free functions.
  *
  * This is a transitional header. These APIs will eventually be folded
  * directly into the View class as member functions.

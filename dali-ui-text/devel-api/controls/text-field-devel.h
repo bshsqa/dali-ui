@@ -285,7 +285,7 @@ enum
  * @param[in] textField The instance of TextField.
  * @return InputMethodContext instance.
  */
-DALI_TOOLKIT_API InputMethodContext GetInputMethodContext(TextField textField);
+DALI_UI_API InputMethodContext GetInputMethodContext(TextField textField);
 
 /**
  * @brief Anchor clicked signal type.
@@ -306,7 +306,7 @@ using AnchorClickedSignalType = Signal<void(TextField, const char*, uint32_t)>;
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AnchorClickedSignalType& AnchorClickedSignal(TextField textField);
+DALI_UI_API AnchorClickedSignalType& AnchorClickedSignal(TextField textField);
 
 /**
  * @brief cursor position changed signal type.
@@ -326,7 +326,7 @@ using CursorPositionChangedSignalType = Signal<void(TextField, uint32_t)>;
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API CursorPositionChangedSignalType& CursorPositionChangedSignal(TextField textField);
+DALI_UI_API CursorPositionChangedSignalType& CursorPositionChangedSignal(TextField textField);
 
 /**
  * @brief Input filtered signal type.
@@ -357,7 +357,7 @@ using InputFilteredSignalType = Signal<void(TextField, UI::InputFilter::Property
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API InputFilteredSignalType& InputFilteredSignal(TextField textField);
+DALI_UI_API InputFilteredSignalType& InputFilteredSignal(TextField textField);
 
 /**
  * @brief selection changed signal type.
@@ -378,7 +378,7 @@ using SelectionChangedSignalType = Signal<void(TextField, uint32_t, uint32_t)>;
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionChangedSignalType& SelectionChangedSignal(TextField textField);
+DALI_UI_API SelectionChangedSignalType& SelectionChangedSignal(TextField textField);
 
 /**
  * @brief selection cleared signal type.
@@ -395,7 +395,7 @@ using SelectionClearedSignalType = Signal<void(TextField)>;
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionClearedSignalType& SelectionClearedSignal(TextField textField);
+DALI_UI_API SelectionClearedSignalType& SelectionClearedSignal(TextField textField);
 
 /**
  * @brief selection start signal type.
@@ -412,7 +412,7 @@ using SelectionStartedSignalType = Signal<void(TextField)>;
  * @param[in] textField The instance of TextField.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionStartedSignalType& SelectionStartedSignal(TextField textField);
+DALI_UI_API SelectionStartedSignalType& SelectionStartedSignal(TextField textField);
 
 /**
  * @brief Get the rendered size of a specific text range.
@@ -424,7 +424,7 @@ DALI_TOOLKIT_API SelectionStartedSignalType& SelectionStartedSignal(TextField te
  * @param[in] endIndex end index(included) of the text requested to calculate size for.
  * @return list of sizes of the reuested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextField textField, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextSize(TextField textField, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Get the top/left rendered position of a specific text range.
@@ -436,7 +436,7 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextField textField, const uint32_t
  * @param[in] endIndex end index(included) of the text requested to get position to.
  * @return list of positions of the requested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextField textField, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextPosition(TextField textField, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Gets the bounding box of a specific text range.
@@ -446,21 +446,21 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextField textField, const uint
  * @param[in] endIndex end index(included) of the text requested to get bounding box to.
  * @return bounding box of the requested text.
  */
-DALI_TOOLKIT_API Rect<float> GetTextBoundingRectangle(TextField textField, uint32_t startIndex, uint32_t endIndex);
+DALI_UI_API Rect<float> GetTextBoundingRectangle(TextField textField, uint32_t startIndex, uint32_t endIndex);
 
 /**
  * @brief Select the whole text of TextField.
  *
  * @param[in] textField The instance of TextField.
  */
-DALI_TOOLKIT_API void SelectWholeText(TextField textField);
+DALI_UI_API void SelectWholeText(TextField textField);
 
 /**
  * @brief Unselect the whole text of TextField.
  *
  * @param[in] textField The instance of TextField.
  */
-DALI_TOOLKIT_API void SelectNone(TextField textField);
+DALI_UI_API void SelectNone(TextField textField);
 
 /**
  * @brief Select the text from start index to end index of TextField.
@@ -475,7 +475,7 @@ DALI_TOOLKIT_API void SelectNone(TextField textField);
  * @param[in] start The start index of the text to select. (The starting point of start index is 0.)
  * @param[in] end The end index of the text to select. (If end index > text's length, the end index is set to the length of the text.)
  */
-DALI_TOOLKIT_API void SelectText(TextField textField, const uint32_t start, const uint32_t end);
+DALI_UI_API void SelectText(TextField textField, const uint32_t start, const uint32_t end);
 
 /**
  * @brief Copy and return the selected text of TextField.
@@ -483,7 +483,7 @@ DALI_TOOLKIT_API void SelectText(TextField textField, const uint32_t start, cons
  * @param[in] textField The instance of TextField.
  * @return The copied text.
  */
-DALI_TOOLKIT_API std::string CopyText(TextField textField);
+DALI_UI_API std::string CopyText(TextField textField);
 
 /**
  * @brief Cut and return the selected text of TextField.
@@ -491,14 +491,14 @@ DALI_TOOLKIT_API std::string CopyText(TextField textField);
  * @param[in] textField The instance of TextField.
  * @return The cut text.
  */
-DALI_TOOLKIT_API std::string CutText(TextField textField);
+DALI_UI_API std::string CutText(TextField textField);
 
 /**
  * @brief Paste the most recent clipboard text item into the TextField.
  *
  * @param[in] textField The instance of TextField.
  */
-DALI_TOOLKIT_API void PasteText(TextField textField);
+DALI_UI_API void PasteText(TextField textField);
 
 /**
  * @brief Set removing front inset to TextField.
@@ -506,7 +506,7 @@ DALI_TOOLKIT_API void PasteText(TextField textField);
  * @param[in] textField The instance of TextField.
  * @param[in] remove Whether front inset of TextField has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveFrontInset(TextField textField, const bool remove);
+DALI_UI_API void SetRemoveFrontInset(TextField textField, const bool remove);
 
 /**
  * @brief Whether front inset of TextField is removed or not.
@@ -514,7 +514,7 @@ DALI_TOOLKIT_API void SetRemoveFrontInset(TextField textField, const bool remove
  * @param[in] textField The instance of TextField.
  * @return True if the front inset of TextField is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveFrontInset(TextField textField);
+DALI_UI_API bool IsRemoveFrontInset(TextField textField);
 
 /**
  * @brief Set removing back inset to TextField.
@@ -522,7 +522,7 @@ DALI_TOOLKIT_API bool IsRemoveFrontInset(TextField textField);
  * @param[in] textField The instance of TextField.
  * @param[in] remove Whether back inset of TextField has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveBackInset(TextField textField, const bool remove);
+DALI_UI_API void SetRemoveBackInset(TextField textField, const bool remove);
 
 /**
  * @brief Whether back inset of TextField is removed or not.
@@ -530,7 +530,7 @@ DALI_TOOLKIT_API void SetRemoveBackInset(TextField textField, const bool remove)
  * @param[in] textField The instance of TextField.
  * @return True if the back inset of TextField is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveBackInset(TextField textField);
+DALI_UI_API bool IsRemoveBackInset(TextField textField);
 
 /**
  * @brief Registers a new font variation property based on the provided tag.
@@ -539,7 +539,7 @@ DALI_TOOLKIT_API bool IsRemoveBackInset(TextField textField);
  * @param[in] tag A 4-character string representing the variation property tag.
  * @return The index of the registered variation property. Property::INVALID_INDEX if failed.
  */
-DALI_TOOLKIT_API Dali::Property::Index RegisterFontVariationProperty(TextField textField, std::string tag);
+DALI_UI_API Dali::Property::Index RegisterFontVariationProperty(TextField textField, std::string tag);
 
 } // namespace DevelTextField
 

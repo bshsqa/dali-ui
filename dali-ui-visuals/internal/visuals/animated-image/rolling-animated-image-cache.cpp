@@ -38,7 +38,7 @@ Debug::Filter* gAnimImgLogFilter = Debug::Filter::New(Debug::NoLogging, false, "
       oss << _i << "={ frm#: " << mQueue[_i].mFrameNumber << " tex: ";         \
       oss << (DALI_LIKELY(mQueue[_i].mFrameNumber < mTextureIds.size()) ?      \
               mTextureIds[mQueue[_i].mFrameNumber] :                           \
-              Toolkit::TextureManager::INVALID_TEXTURE_ID) << "}, ";                    \
+              UI::TextureManager::INVALID_TEXTURE_ID) << "}, ";                    \
     }                                                                          \
     oss << " ]" << std::endl;                                                  \
     DALI_LOG_INFO(gAnimImgLogFilter, Debug::Concise, "%s", oss.str().c_str()); \
@@ -62,12 +62,12 @@ static constexpr uint32_t SINGLE_IMAGE_COUNT = 1u;
 static constexpr uint32_t FIRST_FRAME_INDEX  = 0u;
 } // namespace
 
-RollingAnimatedImageCache::RollingAnimatedImageCache(Toolkit::TextureManager&                     textureManager,
+RollingAnimatedImageCache::RollingAnimatedImageCache(UI::TextureManager&                     textureManager,
                                                      ImageDimensions                              size,
                                                      Dali::FittingMode::Type                      fittingMode,
                                                      Dali::SamplingMode::Type                     samplingMode,
                                                      AnimatedImageLoading&                        animatedImageLoading,
-                                                     Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                                                     UI::TextureManager::MaskingDataPointer& maskingData,
                                                      ImageCache::FrameReadyObserver&     observer,
                                                      uint16_t                            cacheSize,
                                                      uint16_t                            batchSize,
@@ -87,7 +87,7 @@ RollingAnimatedImageCache::RollingAnimatedImageCache(Toolkit::TextureManager&   
   mIsSynchronousLoading(isSynchronousLoading)
 {
   mTextureIds.resize(mFrameCount);
-  mTextureIds[0] = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+  mTextureIds[0] = UI::TextureManager::INVALID_TEXTURE_ID;
   mIntervals.assign(mFrameCount, 0);
 }
 
@@ -113,8 +113,8 @@ TextureSet RollingAnimatedImageCache::Frame(uint32_t frameIndex)
   bool synchronouslyLoaded = false;
   if(mIsSynchronousLoading && mQueue.IsEmpty())
   {
-    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? Toolkit::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
-                                                   : Toolkit::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
+    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? UI::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
+                                                   : UI::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
 
     textureSet        = RequestFrameLoading(frameIndex, true, preMultiplyOnLoading);
     batchFrameIndex   = (frameIndex + 1) % mFrameCount;
@@ -124,7 +124,7 @@ TextureSet RollingAnimatedImageCache::Frame(uint32_t frameIndex)
       synchronouslyLoaded = true;
       interval            = mAnimatedImageLoading.GetFrameInterval(mQueue.Back().mFrameNumber);
     }
-    MakeFrameReady(synchronouslyLoaded, textureSet, mAnimatedImageLoading.GetImageCount(), interval, preMultiplyOnLoading == Toolkit::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD);
+    MakeFrameReady(synchronouslyLoaded, textureSet, mAnimatedImageLoading.GetImageCount(), interval, preMultiplyOnLoading == UI::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD);
   }
 
   if(popExist || mQueue.IsEmpty() || synchronouslyLoaded)
@@ -154,7 +154,7 @@ TextureSet RollingAnimatedImageCache::Frame(uint32_t frameIndex)
     LoadBatch(batchFrameIndex);
   }
 
-  if(!textureSet && mLoadState != Toolkit::TextureManager::LoadState::LOAD_FAILED && IsFrontReady() == true)
+  if(!textureSet && mLoadState != UI::TextureManager::LoadState::LOAD_FAILED && IsFrontReady() == true)
   {
     textureSet = GetFrontTextureSet();
   }
@@ -198,13 +198,13 @@ bool RollingAnimatedImageCache::IsFrontReady() const
 
 TextureSet RollingAnimatedImageCache::RequestFrameLoading(uint32_t frameIndex)
 {
-  auto preMultiplyOnLoading = mPreMultiplyOnLoad ? Toolkit::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
-                                                 : Toolkit::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
+  auto preMultiplyOnLoading = mPreMultiplyOnLoad ? UI::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
+                                                 : UI::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
 
   return RequestFrameLoading(frameIndex, false, preMultiplyOnLoading);
 }
 
-TextureSet RollingAnimatedImageCache::RequestFrameLoading(uint32_t frameIndex, bool synchronousLoading, Toolkit::TextureManager::MultiplyOnLoad& preMultiplyOnLoading)
+TextureSet RollingAnimatedImageCache::RequestFrameLoading(uint32_t frameIndex, bool synchronousLoading, UI::TextureManager::MultiplyOnLoad& preMultiplyOnLoading)
 {
   ImageFrame imageFrame;
   imageFrame.mFrameNumber = frameIndex;
@@ -212,9 +212,9 @@ TextureSet RollingAnimatedImageCache::RequestFrameLoading(uint32_t frameIndex, b
 
   mQueue.PushBack(imageFrame);
 
-  mLoadState = Toolkit::TextureManager::LoadState::LOADING;
+  mLoadState = UI::TextureManager::LoadState::LOADING;
 
-  Toolkit::TextureManager::TextureId loadTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+  UI::TextureManager::TextureId loadTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
   TextureSet                textureSet    = mTextureManager.LoadAnimatedImageTexture(mImageUrl,
                                                                                      mAnimatedImageLoading,
                                                                                      frameIndex,
@@ -246,7 +246,7 @@ void RollingAnimatedImageCache::LoadBatch(uint32_t frameIndex)
   uint32_t minimumSize = std::min(mCacheSize, mFrameCount);
   for(uint32_t i = 0; i < mBatchSize && (mQueue.Count() + mLoadWaitingQueue.size()) < minimumSize; ++i)
   {
-    if(mLoadState != Toolkit::TextureManager::LoadState::LOADING)
+    if(mLoadState != UI::TextureManager::LoadState::LOADING)
     {
       RequestFrameLoading(frameIndex);
     }
@@ -262,7 +262,7 @@ void RollingAnimatedImageCache::LoadBatch(uint32_t frameIndex)
   LOG_CACHE;
 }
 
-void RollingAnimatedImageCache::SetImageFrameReady(Toolkit::TextureManager::TextureId textureId)
+void RollingAnimatedImageCache::SetImageFrameReady(UI::TextureManager::TextureId textureId)
 {
   for(std::size_t i = 0; i < mQueue.Count(); ++i)
   {
@@ -278,7 +278,7 @@ TextureSet RollingAnimatedImageCache::GetFrontTextureSet() const
 {
   DALI_LOG_INFO(gAnimImgLogFilter, Debug::Concise, "RollingAnimatedImageCache::GetFrontTextureSet() FrameNumber:%d\n", mQueue[0].mFrameNumber);
 
-  Toolkit::TextureManager::TextureId textureId  = GetCachedTextureId(0);
+  UI::TextureManager::TextureId textureId  = GetCachedTextureId(0);
   TextureSet                textureSet = mTextureManager.GetTextureSet(textureId);
   if(textureSet && (mWrapModeU != Dali::WrapMode::DEFAULT || mWrapModeV != Dali::WrapMode::DEFAULT))
   {
@@ -289,9 +289,9 @@ TextureSet RollingAnimatedImageCache::GetFrontTextureSet() const
   return textureSet;
 }
 
-Toolkit::TextureManager::TextureId RollingAnimatedImageCache::GetCachedTextureId(int index) const
+UI::TextureManager::TextureId RollingAnimatedImageCache::GetCachedTextureId(int index) const
 {
-  return DALI_LIKELY(mQueue[index].mFrameNumber < mTextureIds.size()) ? mTextureIds[mQueue[index].mFrameNumber] : Toolkit::TextureManager::INVALID_TEXTURE_ID;
+  return DALI_LIKELY(mQueue[index].mFrameNumber < mTextureIds.size()) ? mTextureIds[mQueue[index].mFrameNumber] : UI::TextureManager::INVALID_TEXTURE_ID;
 }
 
 void RollingAnimatedImageCache::PopFrontCache()
@@ -299,13 +299,13 @@ void RollingAnimatedImageCache::PopFrontCache()
   ImageFrame imageFrame = mQueue.PopFront();
 
   mTextureManager.RequestRemove(mTextureIds[imageFrame.mFrameNumber], this);
-  mTextureIds[imageFrame.mFrameNumber] = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+  mTextureIds[imageFrame.mFrameNumber] = UI::TextureManager::INVALID_TEXTURE_ID;
 
-  if(mMaskingData && mMaskingData->mAlphaMaskId != Toolkit::TextureManager::INVALID_TEXTURE_ID)
+  if(mMaskingData && mMaskingData->mAlphaMaskId != UI::TextureManager::INVALID_TEXTURE_ID)
   {
     if(mQueue.IsEmpty())
     {
-      mMaskingData->mAlphaMaskId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+      mMaskingData->mAlphaMaskId = UI::TextureManager::INVALID_TEXTURE_ID;
     }
   }
 }
@@ -320,20 +320,20 @@ void RollingAnimatedImageCache::ClearCache()
     }
   }
   mLoadWaitingQueue.clear();
-  mLoadState = Toolkit::TextureManager::LoadState::NOT_STARTED;
+  mLoadState = UI::TextureManager::LoadState::NOT_STARTED;
 }
 
 void RollingAnimatedImageCache::MakeFrameReady(bool loadSuccess, TextureSet textureSet, uint32_t frameCount, uint32_t interval, bool preMultiplied)
 {
   if(!loadSuccess)
   {
-    mLoadState = Toolkit::TextureManager::LoadState::LOAD_FAILED;
+    mLoadState = UI::TextureManager::LoadState::LOAD_FAILED;
     // preMultiplied should be false because broken image don't premultiply alpha on load
     mObserver.FrameReady(TextureSet(), 0, false);
   }
   else
   {
-    mLoadState = Toolkit::TextureManager::LoadState::LOAD_FINISHED;
+    mLoadState = UI::TextureManager::LoadState::LOAD_FINISHED;
 
     // Reset size of Queue according to the real frame count.
     if(mFrameCount != frameCount)

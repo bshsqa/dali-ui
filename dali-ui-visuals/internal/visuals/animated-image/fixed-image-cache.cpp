@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,12 +53,12 @@ constexpr bool     ENABLE_ORIENTATION_CORRECTION(true);
 constexpr uint32_t FIRST_FRAME_INDEX = 0u;
 } // namespace
 
-FixedImageCache::FixedImageCache(Toolkit::TextureManager&                     textureManager,
+FixedImageCache::FixedImageCache(UI::TextureManager&                     textureManager,
                                  ImageDimensions                              size,
                                  Dali::FittingMode::Type                      fittingMode,
                                  Dali::SamplingMode::Type                     samplingMode,
                                  UrlList&                                     urlList,
-                                 Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                                 UI::TextureManager::MaskingDataPointer& maskingData,
                                  ImageCache::FrameReadyObserver&     observer,
                                  uint32_t                            batchSize,
                                  uint32_t                            interval,
@@ -101,7 +101,7 @@ TextureSet FixedImageCache::Frame(uint32_t frameIndex)
     LoadBatch();
   }
 
-  if(IsFrameReady(mCurrentFrameIndex) && mLoadState != Toolkit::TextureManager::LoadState::LOAD_FAILED)
+  if(IsFrameReady(mCurrentFrameIndex) && mLoadState != UI::TextureManager::LoadState::LOAD_FAILED)
   {
     textureSet = GetTextureSet(mCurrentFrameIndex);
   }
@@ -151,16 +151,16 @@ void FixedImageCache::LoadBatch()
     // from within this method. This means it won't yet have a texture id, so we
     // need to account for this inside the LoadComplete method using mRequestingLoad.
     mRequestingLoad = true;
-    mLoadState      = Toolkit::TextureManager::LoadState::LOADING;
+    mLoadState      = UI::TextureManager::LoadState::LOADING;
 
     bool synchronousLoading = false;
     bool loadingStatus      = false;
 
-    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? Toolkit::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
-                                                   : Toolkit::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
+    auto preMultiplyOnLoading = mPreMultiplyOnLoad ? UI::TextureManager::MultiplyOnLoad::MULTIPLY_ON_LOAD
+                                                   : UI::TextureManager::MultiplyOnLoad::LOAD_WITHOUT_MULTIPLY;
 
-    Toolkit::TextureManager::TextureId loadTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
-    mTextureManager.LoadTexture(url, mDesiredSize, mFittingMode, mSamplingMode, mMaskingData, synchronousLoading, loadTextureId, loadingStatus, this, ENABLE_ORIENTATION_CORRECTION, Toolkit::TextureManager::ReloadPolicy::CACHED, preMultiplyOnLoading);
+    UI::TextureManager::TextureId loadTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
+    mTextureManager.LoadTexture(url, mDesiredSize, mFittingMode, mSamplingMode, mMaskingData, synchronousLoading, loadTextureId, loadingStatus, this, ENABLE_ORIENTATION_CORRECTION, UI::TextureManager::ReloadPolicy::CACHED, preMultiplyOnLoading);
     mImageUrls[frameIndex].mTextureId = loadTextureId;
     mRequestingLoad                   = false;
   }
@@ -189,14 +189,14 @@ void FixedImageCache::ClearCache()
     for(std::size_t i = 0u; i < mImageUrls.size(); ++i)
     {
       mTextureManager.RequestRemove(mImageUrls[i].mTextureId, this);
-      mImageUrls[i].mTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+      mImageUrls[i].mTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
     }
   }
   mReadyFlags.clear();
-  mLoadState = Toolkit::TextureManager::LoadState::NOT_STARTED;
+  mLoadState = UI::TextureManager::LoadState::NOT_STARTED;
   if(mMaskingData)
   {
-    mMaskingData->mAlphaMaskId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+    mMaskingData->mAlphaMaskId = UI::TextureManager::INVALID_TEXTURE_ID;
   }
 }
 
@@ -207,7 +207,7 @@ void FixedImageCache::LoadComplete(bool loadSuccess, TextureInformation textureI
 
   if(loadSuccess)
   {
-    mLoadState                = Toolkit::TextureManager::LoadState::LOAD_FINISHED;
+    mLoadState                = UI::TextureManager::LoadState::LOAD_FINISHED;
     bool wasCurrentFrameReady = IsFrameReady(mCurrentFrameIndex);
     if(!mRequestingLoad)
     {
@@ -233,7 +233,7 @@ void FixedImageCache::LoadComplete(bool loadSuccess, TextureInformation textureI
   }
   else
   {
-    mLoadState = Toolkit::TextureManager::LoadState::LOAD_FAILED;
+    mLoadState = UI::TextureManager::LoadState::LOAD_FAILED;
     // preMultiplied should be false because broken image don't premultiply alpha on load
     mObserver.FrameReady(TextureSet(), 0, false);
   }

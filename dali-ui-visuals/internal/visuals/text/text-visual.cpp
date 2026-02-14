@@ -59,8 +59,8 @@ DALI_INIT_TRACE_FILTER(gTraceFilter2, DALI_TRACE_TEXT_ASYNC, false);
 
 const int CUSTOM_PROPERTY_COUNT(3); // uTextColorAnimatable, uHasMultipleTextColors, requireRender
 
-static constexpr uint32_t TEXT_VISUAL_COLOR_CONSTRAINT_TAG(Dali::Toolkit::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 21);
-static constexpr uint32_t TEXT_VISUAL_OPACITY_CONSTRAINT_TAG(Dali::Toolkit::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 22);
+static constexpr uint32_t TEXT_VISUAL_COLOR_CONSTRAINT_TAG(Dali::UI::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 21);
+static constexpr uint32_t TEXT_VISUAL_OPACITY_CONSTRAINT_TAG(Dali::UI::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 22);
 
 const float VERTICAL_ALIGNMENT_TABLE[Text::VerticalAlignment::BOTTOM + 1] =
   {
@@ -348,7 +348,7 @@ void TextVisual::DoSetOnScene(Actor& actor)
 {
   mControl = actor;
 
-  mImpl->mRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, Toolkit::DepthIndex::CONTENT);
+  mImpl->mRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, UI::DepthIndex::CONTENT);
 
   const Vector4& defaultColor = mController->GetTextModel()->GetDefaultColor();
   if(mTextColorAnimatableIndex == Property::INVALID_INDEX)
@@ -516,7 +516,7 @@ void TextVisual::DoSetProperty(Dali::Property::Index index, const Dali::Property
       if(mController)
       {
         Text::HorizontalAlignment::Type alignment(static_cast<Text::HorizontalAlignment::Type>(-1)); // Set to invalid value to ensure a valid mode does get set
-        if(Toolkit::Text::GetHorizontalAlignmentEnumeration(propertyValue, alignment))
+        if(UI::Text::GetHorizontalAlignmentEnumeration(propertyValue, alignment))
         {
           mController->SetHorizontalAlignment(alignment);
         }
@@ -527,8 +527,8 @@ void TextVisual::DoSetProperty(Dali::Property::Index index, const Dali::Property
     {
       if(mController)
       {
-        Toolkit::Text::VerticalAlignment::Type alignment(static_cast<Text::VerticalAlignment::Type>(-1)); // Set to invalid value to ensure a valid mode does get set
-        if(Toolkit::Text::GetVerticalAlignmentEnumeration(propertyValue, alignment))
+        UI::Text::VerticalAlignment::Type alignment(static_cast<Text::VerticalAlignment::Type>(-1)); // Set to invalid value to ensure a valid mode does get set
+        if(UI::Text::GetVerticalAlignmentEnumeration(propertyValue, alignment))
         {
           mController->SetVerticalAlignment(alignment);
         }
@@ -782,7 +782,7 @@ void TextVisual::CreateTextureSet(TilingInfo& info, VisualRenderer& renderer, Sa
 }
 
 // From async text manager
-void TextVisual::LoadComplete(bool loadingSuccess, const Dali::Toolkit::Text::TextInformation& textInformation)
+void TextVisual::LoadComplete(bool loadingSuccess, const Dali::UI::Text::TextInformation& textInformation)
 {
   Text::AsyncTextParameters parameters = textInformation.parameters;
 
@@ -908,8 +908,8 @@ void TextVisual::LoadComplete(bool loadingSuccess, const Dali::Toolkit::Text::Te
       .Add(UI::Visual::Transform::Property::SIZE_POLICY, Vector2(UI::Visual::Transform::Policy::ABSOLUTE, UI::Visual::Transform::Policy::ABSOLUTE))
       .Add(UI::Visual::Transform::Property::OFFSET, visualTransformOffset)
       .Add(UI::Visual::Transform::Property::OFFSET_POLICY, Vector2(UI::Visual::Transform::Policy::ABSOLUTE, UI::Visual::Transform::Policy::ABSOLUTE))
-      .Add(UI::Visual::Transform::Property::ORIGIN, Dali::Toolkit::Align::TOP_BEGIN)
-      .Add(UI::Visual::Transform::Property::ANCHOR_POINT, Dali::Toolkit::Align::TOP_BEGIN);
+      .Add(UI::Visual::Transform::Property::ORIGIN, Dali::UI::Align::TOP_BEGIN)
+      .Add(UI::Visual::Transform::Property::ANCHOR_POINT, Dali::UI::Align::TOP_BEGIN);
     SetTransformAndSize(visualTransform, textControlSize);
 
     Shader shader = GetTextShader(mFactoryCache, TextVisualShaderFeature::FeatureBuilder().EnableMultiColor(renderInfo.hasMultipleTextColors).EnableEmoji(renderInfo.containsColorGlyph).EnableStyle(renderInfo.styleEnabled).EnableOverlay(renderInfo.isOverlayStyle).EnableEmboss(renderInfo.embossEnabled));
@@ -1018,7 +1018,7 @@ void TextVisual::LoadComplete(bool loadingSuccess, const Dali::Toolkit::Text::Te
       {
         VisualRenderer tilingRenderer = VisualRenderer::New(geometry, shader);
         tilingRenderer.RegisterVisualTransformUniform();
-        tilingRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, Toolkit::DepthIndex::CONTENT);
+        tilingRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, UI::DepthIndex::CONTENT);
         // New offset position of buffer for tiling.
         info.offsetHeight += static_cast<uint32_t>(maxTextureSize);
         // New height for tiling.
@@ -1131,7 +1131,7 @@ void TextVisual::LoadComplete(bool loadingSuccess, const Dali::Toolkit::Text::Te
   ResourceReady(resourceStatus);
 }
 
-void TextVisual::SetAsyncTextInterface(Dali::Toolkit::Text::AsyncTextInterface* asyncTextInterface)
+void TextVisual::SetAsyncTextInterface(Dali::UI::Text::AsyncTextInterface* asyncTextInterface)
 {
   mAsyncTextInterface = asyncTextInterface;
 }
@@ -1163,7 +1163,7 @@ void TextVisual::SetConstraintApplyAlways(bool applyAlways, bool notifyToConstra
   }
 }
 
-void TextVisual::RequestAsyncSizeComputation(Dali::Toolkit::Text::AsyncTextParameters& parameters)
+void TextVisual::RequestAsyncSizeComputation(Dali::UI::Text::AsyncTextParameters& parameters)
 {
 #ifdef TRACE_ENABLED
   if(gTraceFilter2 && gTraceFilter2->IsTraceEnabled())
@@ -1206,7 +1206,7 @@ void TextVisual::RequestAsyncSizeComputation(Dali::Toolkit::Text::AsyncTextParam
   }
 }
 
-bool TextVisual::UpdateAsyncRenderer(Dali::Toolkit::Text::AsyncTextParameters& parameters)
+bool TextVisual::UpdateAsyncRenderer(Dali::UI::Text::AsyncTextParameters& parameters)
 {
   Actor control = mControl.GetHandle();
   if(!control)
@@ -1322,7 +1322,7 @@ void TextVisual::AddRenderer(Actor& actor, const Vector2& size, bool hasMultiple
     Pixel::Format textPixelFormat = (containsColorGlyph || hasMultipleTextColors) ? Pixel::RGBA8888 : Pixel::L8;
 
     // Check the text direction
-    Toolkit::DevelText::TextDirection::Type textDirection = mController->GetTextDirection();
+    UI::DevelText::TextDirection::Type textDirection = mController->GetTextDirection();
 
     // Create a texture for the text without any styles
     PixelData data = mTypesetter->Render(size, textDirection, Text::Typesetter::RENDER_NO_STYLES, false, textPixelFormat);
@@ -1378,7 +1378,7 @@ void TextVisual::AddRenderer(Actor& actor, const Vector2& size, bool hasMultiple
     {
       VisualRenderer tilingRenderer = VisualRenderer::New(geometry, shader);
       tilingRenderer.RegisterVisualTransformUniform();
-      tilingRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, Toolkit::DepthIndex::CONTENT);
+      tilingRenderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, UI::DepthIndex::CONTENT);
       // New offset position of buffer for tiling.
       info.offsetHeight += maxTextureSize;
       // New height for tiling.
@@ -1469,7 +1469,7 @@ TextureSet TextVisual::GetTextTexture(const Vector2& size)
   Pixel::Format textPixelFormat = (mTextShaderFeatureCache.IsEnabledEmoji() || mTextShaderFeatureCache.IsEnabledMultiColor() || cutoutEnabled) ? Pixel::RGBA8888 : Pixel::L8;
 
   // Check the text direction
-  Toolkit::DevelText::TextDirection::Type textDirection   = mController->GetTextDirection();
+  UI::DevelText::TextDirection::Type textDirection   = mController->GetTextDirection();
   uint32_t                                textureSetIndex = 0u;
   // Create a texture for the text without any styles
 

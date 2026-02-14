@@ -38,8 +38,8 @@ namespace UI
 {
 namespace Internal
 {
-using TextureUploadObserver = Dali::Toolkit::TextureUploadObserver;
-using TextureManager = Dali::Toolkit::Internal::TextureManager;
+using TextureUploadObserver = Dali::UI::TextureUploadObserver;
+using TextureManager = Dali::UI::Internal::TextureManager;
 class ImageVisualShaderFactory;
 class NPatchVisual;
 typedef IntrusivePtr<NPatchVisual> NPatchVisualPtr;
@@ -204,12 +204,12 @@ private:
   NPatchData::NPatchDataId                  mId;                      ///< id of the N patch (from loader/cache)
   TextureSet                                mAuxiliaryTextureSet;     ///< TextureSet of the auxiliary mask image
   TextureManager::TextureId                 mAuxiliaryTextureId;      ///< id of the auxiliary mask image (from TextureManager)
-  Toolkit::Visual::ResourceStatus           mAuxiliaryResourceStatus; ///< resource status for auxiliary mask image
+  UI::Visual::ResourceStatus           mAuxiliaryResourceStatus; ///< resource status for auxiliary mask image
   Property::Index                           mPreMultipliedAlphaIndex; ///< Index of premultipliedAlpha uniform. Only be used for auxiliary image.
   bool                                      mBorderOnly;              ///< if only border is desired
   Rect<int>                                 mBorder;                  ///< The size of the border
   float                                     mAuxiliaryImageAlpha;     ///< The alpha value for the auxiliary image only
-  Toolkit::ImageVisual::ReleasePolicy::Type mReleasePolicy;           ///< The release policy to determine when an image should no longer be cached.
+  UI::ImageVisual::ReleasePolicy::Type mReleasePolicy;           ///< The release policy to determine when an image should no longer be cached.
 };
 
 } // namespace Internal

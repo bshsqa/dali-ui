@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -160,7 +160,7 @@ bool ParseScriptInfomation(Property::Map& vertexResult, Property::Map& fragmentR
     return false;
   }
 
-  Toolkit::JsonParser parser = Toolkit::JsonParser::New();
+  UI::JsonParser parser = UI::JsonParser::New();
 
   if(!parser.Parse(stringOut))
   {

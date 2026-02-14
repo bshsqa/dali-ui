@@ -57,7 +57,7 @@ public:
    * @note Activates render effect on default.
    * @param[in] control The owner control to apply RenderEffect.
    */
-  void SetOwnerControl(Toolkit::Control control);
+  void SetOwnerControl(UI::View control);
 
   /**
    * @brief Clears owner Control.
@@ -94,17 +94,17 @@ public:
   virtual void GetOffScreenRenderTasks(Dali::Vector<Dali::RenderTask>& tasks, bool isForward) = 0;
 
   /**
-   * @copydoc Dali::Toolkit::RenderEffect::Activate
+   * @copydoc Dali::UI::RenderEffect::Activate
    */
   void Activate();
 
   /**
-   * @copydoc Dali::Toolkit::RenderEffect::Deactivate
+   * @copydoc Dali::UI::RenderEffect::Deactivate
    */
   void Deactivate();
 
   /**
-   * @copydoc Dali::Toolkit::RenderEffect::Refresh
+   * @copydoc Dali::UI::RenderEffect::Refresh
    */
   void Refresh();
 
@@ -116,12 +116,12 @@ public:
 
 protected:
   /**
-   * @copydoc Dali::Toolkit::RenderEffect::RenderEffect
+   * @copydoc Dali::UI::RenderEffect::RenderEffect
    */
   RenderEffectImpl();
 
   /**
-   * @copydoc Dali::Toolkit::RenderEffect::~RenderEffect
+   * @copydoc Dali::UI::RenderEffect::~RenderEffect
    */
   virtual ~RenderEffectImpl() override;
 
@@ -152,7 +152,7 @@ protected:
    * @brief Get Owner control. It could be return empty handle if owner control is not set, or destroyed.
    * @return mOwnerControl
    */
-  Toolkit::Control GetOwnerControl() const;
+  UI::View GetOwnerControl() const;
 
   /**
    * @brief Get scene holder of owner control.
@@ -210,7 +210,7 @@ private:
 
   std::vector<Constraint> mAnimationConstraints; // For corner animation on owner control.
 
-  Dali::WeakHandle<Dali::Toolkit::Control>   mOwnerControl;         ///< Weakhandle of owner control.
+  Dali::WeakHandle<Dali::UI::View>   mOwnerControl;         ///< Weakhandle of owner control.
   WeakHandle<Dali::Integration::SceneHolder> mPlacementSceneHolder; ///< Weakhandle of scene
 
   Vector2 mTargetSize; // The final size of mOwnerControl
@@ -219,16 +219,16 @@ private:
 };
 } // namespace Internal
 
-inline Toolkit::Internal::RenderEffectImpl& GetImplementation(Toolkit::RenderEffect& obj)
+inline UI::Internal::RenderEffectImpl& GetImplementation(UI::RenderEffect& obj)
 {
   BaseObject& handle = obj.GetBaseObject();
-  return static_cast<Toolkit::Internal::RenderEffectImpl&>(handle);
+  return static_cast<UI::Internal::RenderEffectImpl&>(handle);
 }
 
-inline const Toolkit::Internal::RenderEffectImpl& GetImplementation(const Toolkit::RenderEffect& obj)
+inline const UI::Internal::RenderEffectImpl& GetImplementation(const UI::RenderEffect& obj)
 {
   const BaseObject& handle = obj.GetBaseObject();
-  return static_cast<const Toolkit::Internal::RenderEffectImpl&>(handle);
+  return static_cast<const UI::Internal::RenderEffectImpl&>(handle);
 }
 
 } // namespace UI

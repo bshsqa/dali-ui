@@ -105,7 +105,7 @@ struct Base::Impl
     /**
      * Set the uniform properties onto the renderer
      */
-    void SetUniforms(VisualRenderer renderer, Toolkit::Direction::Type direction);
+    void SetUniforms(VisualRenderer renderer, UI::Direction::Type direction);
 
     /**
      * Convert the control size and the transform attributes into the actual
@@ -122,8 +122,8 @@ struct Base::Impl
     Vector2              mSize;
     Vector2              mExtraSize;
     Vector4              mOffsetSizeMode;
-    Toolkit::Align::Type mOrigin;
-    Toolkit::Align::Type mAnchorPoint;
+    UI::Align::Type mOrigin;
+    UI::Align::Type mAnchorPoint;
   };
 
   struct ConstraintFeature
@@ -368,7 +368,7 @@ struct Base::Impl
 
     if(mCustomShaders.size() == 1)
     {
-      map.Insert(Toolkit::Visual::Property::SHADER, mCustomShaders[0]->CreatePropertyMap());
+      map.Insert(UI::Visual::Property::SHADER, mCustomShaders[0]->CreatePropertyMap());
     }
     else
     {
@@ -397,9 +397,9 @@ struct Base::Impl
    * @brief Set the uniform properties onto the renderer.
    * And Register visual transform uniforms if neccessary.
    */
-  void SetTransformUniforms(VisualRenderer renderer, Toolkit::Direction::Type direction)
+  void SetTransformUniforms(VisualRenderer renderer, UI::Direction::Type direction)
   {
-    if(!mTransformMapUsingDefault || direction != Toolkit::Direction::LEFT_TO_RIGHT)
+    if(!mTransformMapUsingDefault || direction != UI::Direction::LEFT_TO_RIGHT)
     {
       renderer.RegisterVisualTransformUniform();
       GetOrCreateTransform().SetUniforms(renderer, direction);

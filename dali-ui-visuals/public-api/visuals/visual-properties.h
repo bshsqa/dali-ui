@@ -1,4 +1,4 @@
-#ifndef DALI_UI_VISUAL_PROPERTIES_H
+﻿#ifndef DALI_UI_VISUAL_PROPERTIES_H
 #define DALI_UI_VISUAL_PROPERTIES_H
 
 /*
@@ -180,7 +180,7 @@ enum Type
   /**
    * @brief The origin of the visual within its control area.
    * @details Name "origin", type Align::Type (Property::INTEGER) or Property::STRING.
-   * @see Toolkit::Align
+   * @see UI::Align
    * @SINCE_1_2.60
    * @note The default is Align::TOP_BEGIN.
    */
@@ -189,7 +189,7 @@ enum Type
   /**
    * @brief The anchor-point of the visual
    * @details Name "anchorPoint", type Align::Type (Property::INTEGER) or Property::STRING.
-   * @see Toolkit::Align
+   * @see UI::Align
    * @SINCE_1_2.60
    * @note The default is Align::TOP_BEGIN.
    */
@@ -205,8 +205,8 @@ enum Type
    * control.SetProperty( ..., // Some visual based property
    *                      Property::Map().Add( ... ) // Properties to set up visual
    *                                     .Add( Visual::Property::TRANSFORM,
-   *                                           Property::Array().Add( Toolkit::Visual::Transform::Property::OFFSET_POLICY, Vector2( Policy::ABSOLUTE, Policy::RELATIVE ) ) )
-   *                                                            .Add( Toolkit::Visual::Transform::Property::OFFSET, Vector2( 10, 1.0f ) ) );
+   *                                           Property::Array().Add( UI::Visual::Transform::Property::OFFSET_POLICY, Vector2( Policy::ABSOLUTE, Policy::RELATIVE ) ) )
+   *                                                            .Add( UI::Visual::Transform::Property::OFFSET, Vector2( 10, 1.0f ) ) );
    * @endcode
    *
    * JSON:

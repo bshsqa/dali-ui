@@ -38,7 +38,7 @@
 #include <dali-ui-text/devel-api/controls/text-selection-popup-callback-interface.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
-#include <dali-toolkit/internal/controls/control/control-data-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/internal/controls/text-selection-popup-property-handler.h>
 #include <dali-ui-visuals/internal/helpers/color-conversion.h>
 #include <dali-ui-text/public-api/controls/text-label.h>

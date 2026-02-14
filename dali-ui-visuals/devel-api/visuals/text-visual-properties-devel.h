@@ -1,4 +1,4 @@
-#ifndef DALI_UI_TEXT_VISUAL_PROPERTIES_DEVEL_H
+﻿#ifndef DALI_UI_TEXT_VISUAL_PROPERTIES_DEVEL_H
 #define DALI_UI_TEXT_VISUAL_PROPERTIES_DEVEL_H
 
 /*
@@ -34,17 +34,17 @@ namespace Property
  */
 enum
 {
-  TEXT                 = Dali::Toolkit::TextVisual::Property::TEXT,
-  FONT_FAMILY          = Dali::Toolkit::TextVisual::Property::FONT_FAMILY,
-  FONT_STYLE           = Dali::Toolkit::TextVisual::Property::FONT_STYLE,
-  POINT_SIZE           = Dali::Toolkit::TextVisual::Property::POINT_SIZE,
-  MULTI_LINE           = Dali::Toolkit::TextVisual::Property::MULTI_LINE,
-  HORIZONTAL_ALIGNMENT = Dali::Toolkit::TextVisual::Property::HORIZONTAL_ALIGNMENT,
-  VERTICAL_ALIGNMENT   = Dali::Toolkit::TextVisual::Property::VERTICAL_ALIGNMENT,
-  TEXT_COLOR           = Dali::Toolkit::TextVisual::Property::TEXT_COLOR,
-  ENABLE_MARKUP        = Dali::Toolkit::TextVisual::Property::ENABLE_MARKUP,
-  SHADOW               = Dali::Toolkit::TextVisual::Property::SHADOW,
-  UNDERLINE            = Dali::Toolkit::TextVisual::Property::UNDERLINE,
+  TEXT                 = Dali::UI::TextVisual::Property::TEXT,
+  FONT_FAMILY          = Dali::UI::TextVisual::Property::FONT_FAMILY,
+  FONT_STYLE           = Dali::UI::TextVisual::Property::FONT_STYLE,
+  POINT_SIZE           = Dali::UI::TextVisual::Property::POINT_SIZE,
+  MULTI_LINE           = Dali::UI::TextVisual::Property::MULTI_LINE,
+  HORIZONTAL_ALIGNMENT = Dali::UI::TextVisual::Property::HORIZONTAL_ALIGNMENT,
+  VERTICAL_ALIGNMENT   = Dali::UI::TextVisual::Property::VERTICAL_ALIGNMENT,
+  TEXT_COLOR           = Dali::UI::TextVisual::Property::TEXT_COLOR,
+  ENABLE_MARKUP        = Dali::UI::TextVisual::Property::ENABLE_MARKUP,
+  SHADOW               = Dali::UI::TextVisual::Property::SHADOW,
+  UNDERLINE            = Dali::UI::TextVisual::Property::UNDERLINE,
 
   /**
    * @brief The default outline parameters.
@@ -53,17 +53,17 @@ enum
   OUTLINE = UNDERLINE + 1,
 
   /**
-   * @copydoc Dali::Toolkit::DevelTextLabel::Property::BACKGROUND
+   * @copydoc Dali::UI::DevelTextLabel::Property::BACKGROUND
    */
   BACKGROUND = UNDERLINE + 2,
 
   /**
-   * @copydoc Dali::Toolkit::DevelTextLabel::Property::STRIKETHROUGH
+   * @copydoc Dali::UI::DevelTextLabel::Property::STRIKETHROUGH
    */
   STRIKETHROUGH = UNDERLINE + 3,
 
   /**
-   * @copydoc Dali::Toolkit::DevelTextLabel::Property::CHARACTER_SPACING
+   * @copydoc Dali::UI::DevelTextLabel::Property::CHARACTER_SPACING
    */
   CHARACTER_SPACING = UNDERLINE + 4,
 };

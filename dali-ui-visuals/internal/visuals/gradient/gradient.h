@@ -81,13 +81,13 @@ public:
    * Set the coordinate system used by the gradient attributes.
    * @param[in] gradientUnits The the attributes are defined using the current user coordinate system or the bounding box of the shape.
    */
-  void SetGradientUnits(Toolkit::GradientVisual::Units::Type gradientUnits);
+  void SetGradientUnits(UI::GradientVisual::Units::Type gradientUnits);
 
   /**
    * Get the coordinate system used by the gradient attributes.
    * @return USER_SPACE_ON_USE or OBJECT_BOUNDING_BOX
    */
-  Toolkit::GradientVisual::Units::Type GetGradientUnits() const;
+  UI::GradientVisual::Units::Type GetGradientUnits() const;
 
   /**
    * Indicates what happens if the gradient starts or ends inside the bounds of the target rectangle.
@@ -95,13 +95,13 @@ public:
    *
    * @param[in] spread The method to fill the remainder of target region which is outside the gradient bounds
    */
-  void SetSpreadMethod(Toolkit::GradientVisual::SpreadMethod::Type spread);
+  void SetSpreadMethod(UI::GradientVisual::SpreadMethod::Type spread);
 
   /**
    * Get the filling method for the the remainder of target region which is outside the gradient boun.
    * @return PAD, REFLECT or REPEAT
    */
-  Toolkit::GradientVisual::SpreadMethod::Type GetSpreadMethod() const;
+  UI::GradientVisual::SpreadMethod::Type GetSpreadMethod() const;
 
   /**
    * Get the transformation matrix to align the vertices with the gradient line/circle
@@ -158,8 +158,8 @@ protected:
 protected:
   Vector<GradientStop>                        mGradientStops;
   Matrix3                                     mAlignmentTransform;
-  Toolkit::GradientVisual::Units::Type        mGradientUnits;
-  Toolkit::GradientVisual::SpreadMethod::Type mSpreadMethod;
+  UI::GradientVisual::Units::Type        mGradientUnits;
+  UI::GradientVisual::SpreadMethod::Type mSpreadMethod;
   float                                       mStartOffset;
 };
 

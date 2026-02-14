@@ -1,4 +1,4 @@
-#ifndef DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
+﻿#ifndef DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
 #define DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
 
 /*
@@ -170,12 +170,12 @@ public:
 
 public: // Implementation of VisualShaderFactoryInterface
   /**
-   * @copydoc Dali::Toolkit::VisualShaderFactoryInterface::AddPrecompiledShader
+   * @copydoc Dali::UI::VisualShaderFactoryInterface::AddPrecompiledShader
    */
   bool AddPrecompiledShader(PrecompileShaderOption& option) override;
 
   /**
-   * @copydoc Dali::Toolkit::VisualShaderFactoryInterface::GetPreCompiledShader
+   * @copydoc Dali::UI::VisualShaderFactoryInterface::GetPreCompiledShader
    */
   void GetPreCompiledShader(ShaderPreCompiler::RawShaderData& shaders) override;
 

@@ -39,7 +39,7 @@ uint32_t Load(AsyncImageLoader                         asyncImageLoader,
               bool                                     orientationCorrection,
               DevelAsyncImageLoader::PreMultiplyOnLoad preMultiplyOnLoad)
 {
-  return GetImplementation(asyncImageLoader).Load(Toolkit::Internal::VisualUrl(url), dimensions, fittingMode, samplingMode, orientationCorrection, preMultiplyOnLoad, false);
+  return GetImplementation(asyncImageLoader).Load(UI::Internal::VisualUrl(url), dimensions, fittingMode, samplingMode, orientationCorrection, preMultiplyOnLoad, false);
 }
 
 uint32_t ApplyMask(AsyncImageLoader                         asyncImageLoader,

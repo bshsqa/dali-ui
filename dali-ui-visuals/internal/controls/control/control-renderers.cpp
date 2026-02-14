@@ -36,7 +36,7 @@ Shader CreateShader(std::string_view vertexSrc, std::string_view fragmentSrc, Da
 {
   if(Dali::Adaptor::IsAvailable() && !shaderName.empty())
   {
-    auto factory = Dali::Toolkit::VisualFactory::Get();
+    auto factory = Dali::UI::VisualFactory::Get();
     if(DALI_LIKELY(factory))
     {
       thread_local static std::unordered_map<std::string, VisualFactoryCache::ExternalShaderId> gShaderIdMap;

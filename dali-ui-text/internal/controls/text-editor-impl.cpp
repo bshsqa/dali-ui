@@ -35,7 +35,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-text/devel-api/text/rendering-backend.h>
-#include <dali-toolkit/internal/controls/control/control-data-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-ui-text/internal/controls/text-editor-property-handler.h>
 #include <dali-ui-foundation/integration-api/input/keyboard-focus-manager-impl.h>

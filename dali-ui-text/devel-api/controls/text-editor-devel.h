@@ -361,7 +361,7 @@ enum Type
  * @param[in] textEditor The instance of TextEditor.
  * @return InputMethodContext instance.
  */
-DALI_TOOLKIT_API InputMethodContext GetInputMethodContext(TextEditor textEditor);
+DALI_UI_API InputMethodContext GetInputMethodContext(TextEditor textEditor);
 
 /**
  * @brief Max Characters Exceed signal type.
@@ -378,7 +378,7 @@ using MaxLengthReachedSignalType = Signal<void(TextEditor)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API MaxLengthReachedSignalType& MaxLengthReachedSignal(TextEditor textEditor);
+DALI_UI_API MaxLengthReachedSignalType& MaxLengthReachedSignal(TextEditor textEditor);
 
 /**
  * @brief Anchor clicked signal type.
@@ -399,7 +399,7 @@ using AnchorClickedSignalType = Signal<void(TextEditor, const char*, uint32_t)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AnchorClickedSignalType& AnchorClickedSignal(TextEditor textEditor);
+DALI_UI_API AnchorClickedSignalType& AnchorClickedSignal(TextEditor textEditor);
 
 /**
  * @brief cursor position changed signal type.
@@ -419,7 +419,7 @@ using CursorPositionChangedSignalType = Signal<void(TextEditor, uint32_t)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API CursorPositionChangedSignalType& CursorPositionChangedSignal(TextEditor textEditor);
+DALI_UI_API CursorPositionChangedSignalType& CursorPositionChangedSignal(TextEditor textEditor);
 
 /**
  * @brief Input filtered signal type.
@@ -450,7 +450,7 @@ using InputFilteredSignalType = Signal<void(TextEditor, UI::InputFilter::Propert
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API InputFilteredSignalType& InputFilteredSignal(TextEditor textEditor);
+DALI_UI_API InputFilteredSignalType& InputFilteredSignal(TextEditor textEditor);
 
 /**
  * @brief selection changed signal type.
@@ -471,7 +471,7 @@ using SelectionChangedSignalType = Signal<void(TextEditor, uint32_t, uint32_t)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionChangedSignalType& SelectionChangedSignal(TextEditor textEditor);
+DALI_UI_API SelectionChangedSignalType& SelectionChangedSignal(TextEditor textEditor);
 
 /**
  * @brief selection cleared signal type.
@@ -488,7 +488,7 @@ using SelectionClearedSignalType = Signal<void(TextEditor)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionClearedSignalType& SelectionClearedSignal(TextEditor textEditor);
+DALI_UI_API SelectionClearedSignalType& SelectionClearedSignal(TextEditor textEditor);
 
 /**
  * @brief selection start signal type.
@@ -505,21 +505,21 @@ using SelectionStartedSignalType = Signal<void(TextEditor)>;
  * @param[in] textEditor The instance of TextEditor.
  * @return The signal to connect to
  */
-DALI_TOOLKIT_API SelectionStartedSignalType& SelectionStartedSignal(TextEditor textEditor);
+DALI_UI_API SelectionStartedSignalType& SelectionStartedSignal(TextEditor textEditor);
 
 /**
  * @brief Select the whole text of TextEditor.
  *
  * @param[in] textEditor The instance of TextEditor.
  */
-DALI_TOOLKIT_API void SelectWholeText(TextEditor textEditor);
+DALI_UI_API void SelectWholeText(TextEditor textEditor);
 
 /**
  * @brief Unselect the whole text of TextEditor.
  *
  * @param[in] textEditor The instance of TextEditor.
  */
-DALI_TOOLKIT_API void SelectNone(TextEditor textEditor);
+DALI_UI_API void SelectNone(TextEditor textEditor);
 
 /**
  * @brief Select the text from start index to end index of TextEditor.
@@ -534,7 +534,7 @@ DALI_TOOLKIT_API void SelectNone(TextEditor textEditor);
  * @param[in] start The start index of the text to select. (The starting point of start index is 0.)
  * @param[in] end The end index of the text to select. (If end index > text's length, the end index is set to the length of the text.)
  */
-DALI_TOOLKIT_API void SelectText(TextEditor textEditor, const uint32_t start, const uint32_t end);
+DALI_UI_API void SelectText(TextEditor textEditor, const uint32_t start, const uint32_t end);
 
 /**
  * @brief Scroll the TextEditor by specific amount.
@@ -542,7 +542,7 @@ DALI_TOOLKIT_API void SelectText(TextEditor textEditor, const uint32_t start, co
  * @param[in] textEditor The instance of TextEditor.
  * @param[in] scroll amount (in pixels) of scrolling in horizontal & vectical directions.
  */
-DALI_TOOLKIT_API void ScrollBy(TextEditor textEditor, Vector2 scroll);
+DALI_UI_API void ScrollBy(TextEditor textEditor, Vector2 scroll);
 
 /**
  * @brief Get the rendered size of a specific text range.
@@ -554,7 +554,7 @@ DALI_TOOLKIT_API void ScrollBy(TextEditor textEditor, Vector2 scroll);
  * @param[in] endIndex end index(included) of the text requested to calculate size for.
  * @return list of sizes of the reuested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextEditor textEditor, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextSize(TextEditor textEditor, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Get the top/left rendered position of a specific text range.
@@ -566,7 +566,7 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextEditor textEditor, const uint32
  * @param[in] endIndex end index(included) of the text requested to get position to.
  * @return list of positions of the requested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextEditor textEditor, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextPosition(TextEditor textEditor, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Gets the bounding box of a specific text range.
@@ -576,7 +576,7 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextEditor textEditor, const ui
  * @param[in] endIndex end index(included) of the text requested to get bounding box to.
  * @return bounding box of the requested text.
  */
-DALI_TOOLKIT_API Rect<float> GetTextBoundingRectangle(TextEditor textEditor, uint32_t startIndex, uint32_t endIndex);
+DALI_UI_API Rect<float> GetTextBoundingRectangle(TextEditor textEditor, uint32_t startIndex, uint32_t endIndex);
 
 /**
  * @brief Copy and return the selected text of TextEditor.
@@ -584,7 +584,7 @@ DALI_TOOLKIT_API Rect<float> GetTextBoundingRectangle(TextEditor textEditor, uin
  * @param[in] textEditor The instance of TextEditor.
  * @return The copied text.
  */
-DALI_TOOLKIT_API std::string CopyText(TextEditor textEditor);
+DALI_UI_API std::string CopyText(TextEditor textEditor);
 
 /**
  * @brief Cut and return the selected text of TextEditor.
@@ -592,14 +592,14 @@ DALI_TOOLKIT_API std::string CopyText(TextEditor textEditor);
  * @param[in] textEditor The instance of TextEditor.
  * @return The cut text.
  */
-DALI_TOOLKIT_API std::string CutText(TextEditor textEditor);
+DALI_UI_API std::string CutText(TextEditor textEditor);
 
 /**
  * @brief Paste the most recent clipboard text item into the TextEditor.
  *
  * @param[in] textEditor The instance of TextEditor.
  */
-DALI_TOOLKIT_API void PasteText(TextEditor textEditor);
+DALI_UI_API void PasteText(TextEditor textEditor);
 
 /**
  * @brief Set removing front inset to text label.
@@ -607,7 +607,7 @@ DALI_TOOLKIT_API void PasteText(TextEditor textEditor);
  * @param[in] textEditor The instance of TextLabel.
  * @param[in] remove Whether front inset of text label has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveFrontInset(TextEditor textEditor, const bool remove);
+DALI_UI_API void SetRemoveFrontInset(TextEditor textEditor, const bool remove);
 
 /**
  * @brief Whether front inset of text label is removed or not.
@@ -615,7 +615,7 @@ DALI_TOOLKIT_API void SetRemoveFrontInset(TextEditor textEditor, const bool remo
  * @param[in] textEditor The instance of TextLabel.
  * @return True if the front inset of text label is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveFrontInset(TextEditor textEditor);
+DALI_UI_API bool IsRemoveFrontInset(TextEditor textEditor);
 
 /**
  * @brief Set removing back inset to text label.
@@ -623,7 +623,7 @@ DALI_TOOLKIT_API bool IsRemoveFrontInset(TextEditor textEditor);
  * @param[in] textEditor The instance of TextLabel.
  * @param[in] remove Whether back inset of text label has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveBackInset(TextEditor textEditor, const bool remove);
+DALI_UI_API void SetRemoveBackInset(TextEditor textEditor, const bool remove);
 
 /**
  * @brief Whether back inset of text label is removed or not.
@@ -631,7 +631,7 @@ DALI_TOOLKIT_API void SetRemoveBackInset(TextEditor textEditor, const bool remov
  * @param[in] textEditor The instance of TextLabel.
  * @return True if the back inset of text label is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveBackInset(TextEditor textEditor);
+DALI_UI_API bool IsRemoveBackInset(TextEditor textEditor);
 
 /**
  * @brief Registers a new font variation property based on the provided tag.
@@ -640,7 +640,7 @@ DALI_TOOLKIT_API bool IsRemoveBackInset(TextEditor textEditor);
  * @param[in] tag A 4-character string representing the variation property tag.
  * @return The index of the registered variation property. Property::INVALID_INDEX if failed.
  */
-DALI_TOOLKIT_API Dali::Property::Index RegisterFontVariationProperty(TextEditor textEditor, std::string tag);
+DALI_UI_API Dali::Property::Index RegisterFontVariationProperty(TextEditor textEditor, std::string tag);
 
 } // namespace DevelTextEditor
 

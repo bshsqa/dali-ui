@@ -30,7 +30,7 @@
 #include <dali-toolkit/devel-api/asset-manager/asset-manager.h>
 #include <dali-toolkit/internal/builder/builder-impl.h>
 #include <dali-toolkit/internal/feedback/feedback-style.h>
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-foundation/public-api/view.h>
 #include <dali-ui-foundation/public-api/styling/style-manager.h>
 

@@ -57,7 +57,7 @@ DALI_ENUM_TO_STRING_TABLE_BEGIN(CUTOUT_POLICY)
   DALI_ENUM_TO_STRING_WITH_SCOPE(Dali::UI::DevelColorVisual::CutoutPolicy, CUTOUT_OUTSIDE_WITH_CORNER_RADIUS)
 DALI_ENUM_TO_STRING_TABLE_END(CUTOUT_POLICY)
 
-static constexpr uint32_t CUTOUT_CORNER_RADIUS_CONSTRAINT_TAG(Dali::Toolkit::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 20);
+static constexpr uint32_t CUTOUT_CORNER_RADIUS_CONSTRAINT_TAG(Dali::UI::ConstraintTagRanges::TOOLKIT_CONSTRAINT_TAG_START + 20);
 
 } // unnamed namespace
 
@@ -172,15 +172,15 @@ void ColorVisual::DoSetOnScene(Actor& actor)
   if(mCuroutCornerRadiusIndex != Property::INVALID_INDEX)
   {
     // If cutout policy is CUTOUT_VIEW_WITH_CORNER_RADIUS or CUTOUT_OUTSIDE_WITH_CORNER_RADIUS, we need to apply equal constraint to it with control's corner radius.
-    Dali::Toolkit::Control control = Dali::Toolkit::Control::DownCast(actor);
+    Dali::UI::View control = Dali::UI::View::DownCast(actor);
     DALI_ASSERT_ALWAYS(control && "ColorVisual must be used with Control");
 
     // Get the corner radius from control
     mCutoutCornerRadiusConstraint = Constraint::New<Vector4>(mImpl->mRenderer, mCuroutCornerRadiusIndex, Dali::EqualToConstraint());
-    mCutoutCornerRadiusConstraint.AddSource(Source(control, Dali::Toolkit::DevelControl::Property::CORNER_RADIUS));
+    mCutoutCornerRadiusConstraint.AddSource(Source(control, Dali::UI::DevelControl::Property::CORNER_RADIUS));
     Dali::Integration::ConstraintSetInternalTag(mCutoutCornerRadiusConstraint, CUTOUT_CORNER_RADIUS_CONSTRAINT_TAG);
 
-    AddConstraintFeature(mCutoutCornerRadiusConstraint, {Dali::Toolkit::DevelControl::Property::CORNER_RADIUS});
+    AddConstraintFeature(mCutoutCornerRadiusConstraint, {Dali::UI::DevelControl::Property::CORNER_RADIUS});
 
     // Apply the constraint to renderer
     mCutoutCornerRadiusConstraint.Apply();

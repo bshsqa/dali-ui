@@ -53,9 +53,9 @@ namespace UI
 {
 namespace Internal
 {
-using TextureManager = Dali::Toolkit::Internal::TextureManager;
-using FastTrackLoadingTask = Dali::Toolkit::Internal::FastTrackLoadingTask;
-using FastTrackLoadingTaskPtr = Dali::Toolkit::Internal::FastTrackLoadingTaskPtr;
+using TextureManager = Dali::UI::Internal::TextureManager;
+using FastTrackLoadingTask = Dali::UI::Internal::FastTrackLoadingTask;
+using FastTrackLoadingTaskPtr = Dali::UI::Internal::FastTrackLoadingTaskPtr;
 class ImageVisualShaderFactory;
 class ImageVisual;
 typedef IntrusivePtr<ImageVisual> ImageVisualPtr;
@@ -124,7 +124,7 @@ typedef IntrusivePtr<ImageVisual> ImageVisualPtr;
  * If the Visual is in a LayerUI it will pixel align the image, using a Layer3D will disable pixel alignment.
  * Changing layer behaviour between LayerUI to Layer3D whilst the visual is already staged will not have an effect.
  */
-class ImageVisual : public Visual::Base, public ConnectionTracker, public Toolkit::Internal::TextureUploadObserver
+class ImageVisual : public Visual::Base, public ConnectionTracker, public UI::Internal::TextureUploadObserver
 {
 public:
   /**
@@ -274,7 +274,7 @@ public:
    *
    * @param[in] task The pointer of task who call this callback.
    */
-  void FastLoadComplete(Dali::Toolkit::Internal::FastTrackLoadingTaskPtr task);
+  void FastLoadComplete(Dali::UI::Internal::FastTrackLoadingTaskPtr task);
 
 private:
   /**
@@ -288,7 +288,7 @@ private:
    * @param[in] size if mUseSynchronousSizing is true this is the size of visual, else it is mDesiredSize
    * @param[in] forceReload flag determines if the texture should be reloaded from its source or use the cached texture.
    */
-  void LoadTexture(TextureSet& textures, const Dali::ImageDimensions& size, Toolkit::Internal::TextureManager::ReloadPolicy forceReload);
+  void LoadTexture(TextureSet& textures, const Dali::ImageDimensions& size, UI::Internal::TextureManager::ReloadPolicy forceReload);
 
   /**
    * @brief Initializes the Dali::Renderer from the image url
@@ -374,17 +374,17 @@ private:
 
   WeakHandle<Actor>                  mPlacementActor;
   VisualUrl                          mImageUrl;
-  Toolkit::Internal::TextureManager::MaskingDataPointer mMaskingData;
+  UI::Internal::TextureManager::MaskingDataPointer mMaskingData;
 
   Dali::ImageDimensions     mDesiredSize;
   Dali::ImageDimensions     mLastRequiredSize;
-  Toolkit::Internal::TextureManager::TextureId mTextureId;
+  UI::Internal::TextureManager::TextureId mTextureId;
   TextureSet                mTextures;
   Dali::Texture             mNativeTexture; ///< The handle of native texture if we are using it.
   Vector2                   mTextureSize;
   Vector2                   mPlacementActorSize;
 
-  Dali::Toolkit::Internal::FastTrackLoadingTaskPtr mFastTrackLoadingTask; ///< For fast track uploading.
+  Dali::UI::Internal::FastTrackLoadingTaskPtr mFastTrackLoadingTask; ///< For fast track uploading.
 
   ImageVisualShaderFactory& mImageVisualShaderFactory;
 
@@ -394,7 +394,7 @@ private:
   Dali::WrapMode::Type                            mWrapModeV : 3;
   Dali::UI::ImageVisual::LoadPolicy::Type    mLoadPolicy;
   Dali::UI::ImageVisual::ReleasePolicy::Type mReleasePolicy;
-  Toolkit::Internal::TextureManager::LoadState                       mLoadState; ///< The texture loading state
+  UI::Internal::TextureManager::LoadState                       mLoadState; ///< The texture loading state
 
   bool mOrientationCorrection : 1;  ///< true if the image will have it's orientation corrected.
   bool mNeedYuvToRgb : 1;           ///< true if we need to convert yuv to rgb.

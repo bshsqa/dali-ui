@@ -43,7 +43,7 @@ namespace Text
  * @param[in] textLabel The instance of TextLabel.
  * @param[in] spannedText the text with spans.
  */
-DALI_TOOLKIT_API void SetSpannedText(TextLabel textLabel, const Spanned& spannedText);
+DALI_UI_API void SetSpannedText(TextLabel textLabel, const Spanned& spannedText);
 
 /**
  * @brief Set the @p spannedText into @p textField
@@ -58,7 +58,7 @@ DALI_TOOLKIT_API void SetSpannedText(TextLabel textLabel, const Spanned& spanned
  * @param[in] textField The instance of TextField.
  * @param[in] spannedText the text with spans.
  */
-DALI_TOOLKIT_API void SetSpannedText(TextField textField, const Spanned& spannedText);
+DALI_UI_API void SetSpannedText(TextField textField, const Spanned& spannedText);
 
 /**
  * @brief Set the @p spannedText into @p textEditor
@@ -73,7 +73,7 @@ DALI_TOOLKIT_API void SetSpannedText(TextField textField, const Spanned& spanned
  * @param[in] textEditor The instance of TextEditor.
  * @param[in] spannedText the text with spans.
  */
-DALI_TOOLKIT_API void SetSpannedText(TextEditor textEditor, const Spanned& spannedText);
+DALI_UI_API void SetSpannedText(TextEditor textEditor, const Spanned& spannedText);
 
 } // namespace Text
 

@@ -19,7 +19,7 @@
  */
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 namespace Dali
 {
@@ -60,7 +60,7 @@ class TextLabel;
  *
  * @SINCE_1_0.0
  */
-class DALI_TOOLKIT_API TextLabel : public Control
+class DALI_UI_API TextLabel : public Control
 {
 public:
   /**

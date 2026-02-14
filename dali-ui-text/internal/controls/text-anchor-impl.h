@@ -23,9 +23,9 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-text/devel-api/controls/text-anchor-devel.h>
-#include <dali-toolkit/internal/controls/control/control-data-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/internal/text/text-anchor-control-interface.h>
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 
 namespace Dali
 {

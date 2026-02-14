@@ -37,7 +37,7 @@ namespace Internal
 class NPatchData;
 typedef IntrusivePtr<NPatchData> NPatchDataPtr;
 
-class NPatchData : public ConnectionTracker, public Dali::Toolkit::TextureUploadObserver, public Dali::RefObject
+class NPatchData : public ConnectionTracker, public Dali::UI::TextureUploadObserver, public Dali::RefObject
 {
 public:
   typedef int32_t           NPatchDataId;                ///< The NPatchDataId type. This is used as a handle to refer to a particular Npatch Data.

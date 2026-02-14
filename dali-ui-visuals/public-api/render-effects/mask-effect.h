@@ -34,7 +34,7 @@ class MaskEffectImpl;
  * This class is a concrete class from RenderEffect interface.
  * Add this effect to a control, clear manually to deactivate.
  *
- * Toolkit::Control control = Toolkit::Control::New();
+ * UI::View control = UI::View::New();
  * parent.Add(control);
  * control.SetRenderEffect(MaskEffect::New(maskControl)); // Activate
  * ...
@@ -67,7 +67,7 @@ public:
    * @SINCE_2_4.15
    * @return A handle to a newly allocated Dali resource
    */
-  static MaskEffect New(Toolkit::Control maskControl);
+  static MaskEffect New(UI::View maskControl);
 
   /**
    * @brief Creates an initialized MaskEffect.
@@ -80,7 +80,7 @@ public:
    * @SINCE_2_4.15
    * @return A handle to a newly allocated Dali resource
    */
-  static MaskEffect New(Toolkit::Control maskControl, MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
+  static MaskEffect New(UI::View maskControl, MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
 
   /**
    * @brief Creates an uninitialized mask effect.
@@ -129,7 +129,7 @@ public:
 public: // Not intended for use by Application developers
   ///@cond internal
   /**
-   * @brief Creates a handle using the Toolkit::Internal implementation.
+   * @brief Creates a handle using the UI::Internal implementation.
    * @SINCE_2_4.15
    * @param[in] maskEffectImpl The mask effect internal implementation.
    */

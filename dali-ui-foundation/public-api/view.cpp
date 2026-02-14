@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,12 +41,12 @@ View View::New()
 }
 
 View::View(const View& view)
-  : Toolkit::Control(view)
+  : UI::View(view)
 {
 }
 
 View::View(View&& rhs) noexcept
-  : Toolkit::Control(std::move(rhs))
+  : UI::View(std::move(rhs))
 {
 }
 
@@ -56,7 +56,7 @@ View::~View()
 
 View View::DownCast(BaseHandle handle)
 {
-  return Toolkit::Control::DownCast<View, Integration::ViewImpl>(handle);
+  return UI::View::DownCast<View, Integration::ViewImpl>(handle);
 }
 
 View::View(Integration::ViewImpl& implementation)

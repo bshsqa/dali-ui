@@ -19,7 +19,7 @@
  */
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 namespace Dali
 {
@@ -40,7 +40,7 @@ class TextSelectionToolbar;
  *
  *
  */
-class DALI_TOOLKIT_API TextSelectionToolbar : public Control
+class DALI_UI_API TextSelectionToolbar : public Control
 {
 public:
   /**

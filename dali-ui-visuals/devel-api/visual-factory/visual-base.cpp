@@ -23,7 +23,7 @@
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 Visual::Base::Base()
 {
@@ -114,6 +114,6 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key)
   return GetImplementation(*this).GetPropertyObject(std::move(key));
 }
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

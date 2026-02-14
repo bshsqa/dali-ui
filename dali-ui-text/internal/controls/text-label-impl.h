@@ -26,7 +26,7 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-text/devel-api/text/spanned.h>
-#include <dali-toolkit/internal/controls/control/control-data-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-ui-text/internal/text/async-text/async-text-loader.h>
 #include <dali-ui-text/internal/text/controller/text-controller.h>
@@ -36,7 +36,7 @@
 #include <dali-ui-text/internal/text/text-scroller-interface.h>
 #include <dali-ui-text/internal/text/text-scroller.h>
 #include <dali-ui-visuals/internal/visuals/text/text-visual.h>
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/public-api/controls/text-label.h>
 namespace Dali
 {

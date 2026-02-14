@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -69,7 +69,7 @@ AbsoluteLayout AbsoluteLayout::New()
 
 AbsoluteLayout AbsoluteLayout::DownCast(BaseHandle handle)
 {
-  return Toolkit::Control::DownCast<AbsoluteLayout, Integration::AbsoluteLayoutImpl>(handle);
+  return UI::View::DownCast<AbsoluteLayout, Integration::AbsoluteLayoutImpl>(handle);
 }
 
 AbsoluteLayout::AbsoluteLayout(Integration::AbsoluteLayoutImpl& implementation)

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@
 #include <dali/public-api/actors/actor.h>
 #include <dali/public-api/object/type-registry.h>
 #include <dali/devel-api/object/property-helper-devel.h>
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 // INTERNAL INCLUDES
 #include <dali-ui-components/internal/dummy-component-impl.h>

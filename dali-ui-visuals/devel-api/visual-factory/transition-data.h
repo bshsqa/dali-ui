@@ -29,7 +29,7 @@
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace Internal
 {
@@ -43,7 +43,7 @@ class TransitionData;
  * Each animator describes a named object and a named property of that object
  * to be animated. Internally, these are translated into object instances and
  * property indices to be animated.
- * @see Dali::Toolkit::Internal::Control::CreateTransition()
+ * @see Dali::UI::Internal::Control::CreateTransition()
  *
  * The animators can each be retrieved as a Property::Map by using Count() and
  * GetAnimatorAt().
@@ -68,7 +68,7 @@ class TransitionData;
  * ]
  *
  */
-class DALI_TOOLKIT_API TransitionData : public BaseHandle
+class DALI_UI_API TransitionData : public BaseHandle
 {
 public:
   /**
@@ -150,7 +150,7 @@ public: // Not intended for application developers
   explicit DALI_INTERNAL TransitionData(Internal::TransitionData* impl);
 };
 
-} // namespace Toolkit
+} // namespace UI
 } // namespace Dali
 
 #endif // DALI_TOOLKIT_TRANSITION_DATA_H

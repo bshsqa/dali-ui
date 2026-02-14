@@ -181,7 +181,7 @@ private:
   Vector3   mSceneSize;
 
   Vector3                                 mLightPosition;
-  Toolkit::MeshVisual::ShadingMode::Value mShadingMode;
+  UI::MeshVisual::ShadingMode::Value mShadingMode;
 
   bool mUseTexture;
   bool mUseMipmapping;

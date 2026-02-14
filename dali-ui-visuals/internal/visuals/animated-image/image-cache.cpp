@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,11 +23,11 @@ namespace UI
 {
 namespace Internal
 {
-ImageCache::ImageCache(Toolkit::TextureManager&                     textureManager,
+ImageCache::ImageCache(UI::TextureManager&                     textureManager,
                        ImageDimensions                              size,
                        Dali::FittingMode::Type                      fittingMode,
                        Dali::SamplingMode::Type                     samplingMode,
-                       Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                       UI::TextureManager::MaskingDataPointer& maskingData,
                        ImageCache::FrameReadyObserver&     observer,
                        uint32_t                            batchSize,
                        uint32_t                            interval,
@@ -38,7 +38,7 @@ ImageCache::ImageCache(Toolkit::TextureManager&                     textureManag
   mDesiredSize(size),
   mBatchSize(batchSize),
   mInterval(interval),
-  mLoadState(Toolkit::TextureManager::LoadState::NOT_STARTED),
+  mLoadState(UI::TextureManager::LoadState::NOT_STARTED),
   mFittingMode(fittingMode),
   mSamplingMode(samplingMode),
   mRequestingLoad(false),

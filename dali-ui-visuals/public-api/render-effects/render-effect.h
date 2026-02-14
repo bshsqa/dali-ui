@@ -23,7 +23,7 @@
 #include <dali/public-api/render-tasks/render-task.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 namespace Dali
 {
@@ -43,8 +43,8 @@ class RenderEffectImpl;
  * Each effect has a single owner Control.
  *
  * Used internal at:
- * Toolkit::Control::SetRenderEffect(Toolkit::RenderEffect effect);
- * Toolkit::Control::ClearRenderEffect();
+ * UI::View::SetRenderEffect(UI::RenderEffect effect);
+ * UI::View::ClearRenderEffect();
  * @note RenderEffect is interface class without constructor. Create resource by subclass.
  * @SINCE_2_3.28
  */
@@ -98,7 +98,7 @@ public:
 public: // Not intended for Application developers
   ///@cond internal
   /**
-   * @brief Creates a handle using the Toolkit::Internal implementation.
+   * @brief Creates a handle using the UI::Internal implementation.
    * @SINCE_2_3.28
    * @param[in]  renderEffectImpl The UI Control implementation.
    */

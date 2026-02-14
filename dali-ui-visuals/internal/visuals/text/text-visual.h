@@ -38,7 +38,7 @@ namespace UI
 {
 namespace Internal
 {
-using TextLoadObserver = Dali::Toolkit::Text::TextLoadObserver;
+using TextLoadObserver = Dali::UI::Text::TextLoadObserver;
 // using namespace Dali::Toolkit;
 
 class TextVisual;
@@ -96,7 +96,7 @@ public:
    * @param[in] visual The text visual.
    * @return The text controller
    */
-  static Dali::Toolkit::Text::ControllerPtr GetController(Dali::UI::Visual::Base visual)
+  static Dali::UI::Text::ControllerPtr GetController(Dali::UI::Visual::Base visual)
   {
     return GetVisualObject(visual).mController;
   };
@@ -145,7 +145,7 @@ public:
    * @param[in] parameters The async text parameters.
    * @return true if the async text render request was successful, false otherwise.
    */
-  static bool UpdateAsyncRenderer(Dali::UI::Visual::Base visual, Dali::Toolkit::Text::AsyncTextParameters& parameters)
+  static bool UpdateAsyncRenderer(Dali::UI::Visual::Base visual, Dali::UI::Text::AsyncTextParameters& parameters)
   {
     return GetVisualObject(visual).UpdateAsyncRenderer(parameters);
   };
@@ -155,7 +155,7 @@ public:
    * @param[in] visual The text visual.
    * @param[in] parameters The async text parameters.
    */
-  static void RequestAsyncSizeComputation(Dali::UI::Visual::Base visual, Dali::Toolkit::Text::AsyncTextParameters& parameters)
+  static void RequestAsyncSizeComputation(Dali::UI::Visual::Base visual, Dali::UI::Text::AsyncTextParameters& parameters)
   {
     GetVisualObject(visual).RequestAsyncSizeComputation(parameters);
   };
@@ -165,7 +165,7 @@ public:
    * @param[in] visual The text visual.
    * @param[in] asyncTextInterface The async text interface.
    */
-  static void SetAsyncTextInterface(Dali::UI::Visual::Base visual, Dali::Toolkit::Text::AsyncTextInterface* asyncTextInterface)
+  static void SetAsyncTextInterface(Dali::UI::Visual::Base visual, Dali::UI::Text::AsyncTextInterface* asyncTextInterface)
   {
     GetVisualObject(visual).SetAsyncTextInterface(asyncTextInterface);
   };
@@ -296,19 +296,19 @@ private:
    * @param[in] parameters The async text parameters.
    * @return true if the async text render request was successful, false otherwise.
    */
-  bool UpdateAsyncRenderer(Dali::Toolkit::Text::AsyncTextParameters& parameters);
+  bool UpdateAsyncRenderer(Dali::UI::Text::AsyncTextParameters& parameters);
 
   /**
    * @brief Requests the async size computation.
    * @param[in] parameters The async text parameters.
    */
-  void RequestAsyncSizeComputation(Dali::Toolkit::Text::AsyncTextParameters& parameters);
+  void RequestAsyncSizeComputation(Dali::UI::Text::AsyncTextParameters& parameters);
 
   /**
    * @brief Set the control's async text interface.
    * @param[in] asyncTextInterface The async text interface.
    */
-  void SetAsyncTextInterface(Dali::Toolkit::Text::AsyncTextInterface* asyncTextInterface);
+  void SetAsyncTextInterface(Dali::UI::Text::AsyncTextInterface* asyncTextInterface);
 
   /**
    * @brief Set the visual constraints need to be applied always or not.
@@ -398,19 +398,19 @@ private:
    * @param[in] success True if the load was successful, false otherwise.
    * @param[in] textInformation The text information including render info and parameters.
    */
-  void LoadComplete(bool success, const Dali::Toolkit::Text::TextInformation& textInformation) override;
+  void LoadComplete(bool success, const Dali::UI::Text::TextInformation& textInformation) override;
 
 private:
   typedef std::vector<Renderer>   RendererContainer;
   typedef std::vector<Constraint> ConstraintContainer;
 
 private:
-  Dali::Toolkit::Text::ControllerPtr       mController;         ///< The text's controller.
-  Dali::Toolkit::Text::TypesetterPtr       mTypesetter;         ///< The text's typesetter.
-  Dali::Toolkit::Text::AsyncTextInterface* mAsyncTextInterface; ///< The text's async interface.
+  Dali::UI::Text::ControllerPtr       mController;         ///< The text's controller.
+  Dali::UI::Text::TypesetterPtr       mTypesetter;         ///< The text's typesetter.
+  Dali::UI::Text::AsyncTextInterface* mAsyncTextInterface; ///< The text's async interface.
 
   TextVisualShaderFactory&                mTextVisualShaderFactory; ///< The shader factory for text visual.
-  Dali::Toolkit::TextVisualShaderFeature::FeatureBuilder mTextShaderFeatureCache;  ///< The cached shader feature for text visual.
+  Dali::UI::TextVisualShaderFeature::FeatureBuilder mTextShaderFeatureCache;  ///< The cached shader feature for text visual.
 
   WeakHandle<Actor>   mControl;                          ///< The control where the renderer is added.
   Constraint          mColorConstraint{};                ///< Color constraint

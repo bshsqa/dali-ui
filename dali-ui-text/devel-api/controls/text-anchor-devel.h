@@ -19,7 +19,7 @@
  */
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 namespace Dali
 {
@@ -33,7 +33,7 @@ class TextAnchor;
 /**
  * @brief A control which renders anchor (hyperlink) in hypertext.
  */
-class DALI_TOOLKIT_API TextAnchor : public Control
+class DALI_UI_API TextAnchor : public Control
 {
 public:
   /**

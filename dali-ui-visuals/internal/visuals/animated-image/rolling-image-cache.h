@@ -32,7 +32,7 @@ namespace Internal
  * Class to manage a rolling cache of images, where the cache size
  * is smaller than the total number of images.
  */
-class RollingImageCache : public ImageCache, public Toolkit::TextureUploadObserver
+class RollingImageCache : public ImageCache, public UI::TextureUploadObserver
 {
 public:
   /**
@@ -52,12 +52,12 @@ public:
    * This will start loading textures immediately, according to the
    * batch and cache sizes.
    */
-  RollingImageCache(Toolkit::TextureManager&                     textureManager,
+  RollingImageCache(UI::TextureManager&                     textureManager,
                     ImageDimensions                              size,
                     Dali::FittingMode::Type                      fittingMode,
                     Dali::SamplingMode::Type                     samplingMode,
                     UrlList&                                     urlList,
-                    Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                    UI::TextureManager::MaskingDataPointer& maskingData,
                     ImageCache::FrameReadyObserver&     observer,
                     uint16_t                            cacheSize,
                     uint16_t                            batchSize,
@@ -126,7 +126,7 @@ private:
    *
    * @param[in] index index of the queue.
    */
-  Toolkit::TextureManager::TextureId GetCachedTextureId(int index) const;
+  UI::TextureManager::TextureId GetCachedTextureId(int index) const;
 
   /**
    * @brief Pop front entity of Cache.
@@ -135,7 +135,7 @@ private:
 
 protected:
   /**
-   * @copydoc Toolkit::TextureUploadObserver::LoadComplete()
+   * @copydoc UI::TextureUploadObserver::LoadComplete()
    */
   void LoadComplete(bool loadSuccess, TextureInformation textureInformation) override;
 

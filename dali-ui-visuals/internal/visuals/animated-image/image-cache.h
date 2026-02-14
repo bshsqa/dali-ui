@@ -47,7 +47,7 @@ public:
 
   struct UrlStore
   {
-    Toolkit::TextureManager::TextureId mTextureId = Toolkit::TextureManager::INVALID_TEXTURE_ID;
+    UI::TextureManager::TextureId mTextureId = UI::TextureManager::INVALID_TEXTURE_ID;
     VisualUrl                          mUrl;
   };
 
@@ -72,11 +72,11 @@ public:
    * This will start loading textures immediately, according to the
    * batch and cache sizes. The cache is as large as the number of urls.
    */
-  ImageCache(Toolkit::TextureManager&                     textureManager,
+  ImageCache(UI::TextureManager&                     textureManager,
              ImageDimensions                              size,
              Dali::FittingMode::Type                      fittingMode,
              Dali::SamplingMode::Type                     samplingMode,
-             Toolkit::TextureManager::MaskingDataPointer& maskingData,
+             UI::TextureManager::MaskingDataPointer& maskingData,
              ImageCache::FrameReadyObserver&     observer,
              uint32_t                            batchSize,
              uint32_t                            interval,
@@ -147,13 +147,13 @@ private:
   void AllocateMaskData();
 
 protected:
-  Toolkit::TextureManager&                     mTextureManager;
+  UI::TextureManager&                     mTextureManager;
   FrameReadyObserver&                          mObserver;
-  Toolkit::TextureManager::MaskingDataPointer& mMaskingData;
+  UI::TextureManager::MaskingDataPointer& mMaskingData;
   Dali::ImageDimensions                        mDesiredSize;
   uint32_t                                     mBatchSize;
   uint32_t                                     mInterval;
-  Toolkit::TextureManager::LoadState           mLoadState;
+  UI::TextureManager::LoadState           mLoadState;
   Dali::FittingMode::Type             mFittingMode : 4;
   Dali::SamplingMode::Type            mSamplingMode : 5;
   bool                                mRequestingLoad : 1;

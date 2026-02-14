@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1043,7 +1043,7 @@ bool ViewImpl::EmitKeyEventSignal(const KeyEvent& event)
     // Wait, Control::KeyEventSignalType is bool(Control, KeyEvent).
     // View::KeyEventSignalType is void(View, KeyEvent).
     // If I want to support consumption, I might need to change signal type or check something.
-    // Toolkit::Control::KeyEventSignal() returns KeyEventSignalType& which is Signal<bool(Control, const KeyEvent&)>
+    // UI::View::KeyEventSignal() returns KeyEventSignalType& which is Signal<bool(Control, const KeyEvent&)>
   }
 
   return consumed;

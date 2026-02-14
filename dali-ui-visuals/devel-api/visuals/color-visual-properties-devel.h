@@ -1,4 +1,4 @@
-#ifndef DALI_UI_COLOR_VISUAL_PROPERTIES_DEVEL_H
+﻿#ifndef DALI_UI_COLOR_VISUAL_PROPERTIES_DEVEL_H
 #define DALI_UI_COLOR_VISUAL_PROPERTIES_DEVEL_H
 
 /*
@@ -37,7 +37,7 @@ namespace Property
  */
 enum
 {
-  MIX_COLOR = Toolkit::ColorVisual::Property::MIX_COLOR,
+  MIX_COLOR = UI::ColorVisual::Property::MIX_COLOR,
 
   /**
    * @brief The blur radius of the visual.

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -67,7 +67,7 @@ Layout& Layout::operator=(Layout&& rhs) noexcept
 
 Layout Layout::DownCast(BaseHandle handle)
 {
-  return Toolkit::Control::DownCast<Layout, Integration::LayoutImpl>(handle);
+  return UI::View::DownCast<Layout, Integration::LayoutImpl>(handle);
 }
 
 Layout::Layout(Integration::LayoutImpl& implementation)

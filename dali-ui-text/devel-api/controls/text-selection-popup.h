@@ -19,7 +19,7 @@
  */
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 #include <dali/public-api/object/property-map.h>
 
 namespace Dali
@@ -43,7 +43,7 @@ class TextSelectionPopup;
  *
  *
  */
-class DALI_TOOLKIT_API TextSelectionPopup : public Control
+class DALI_UI_API TextSelectionPopup : public Control
 {
 public:
   enum Buttons

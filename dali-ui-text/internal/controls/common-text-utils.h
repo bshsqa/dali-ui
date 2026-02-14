@@ -31,7 +31,7 @@
 #include <dali-ui-text/internal/text/decorator/text-decorator.h>
 #include <dali-ui-text/internal/text/rendering/text-renderer.h>
 #include <dali-ui-text/internal/text/text-model.h>
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 #include <dali-ui-text/public-api/controls/text-editor.h>
 #include <dali/devel-api/text-abstraction/text-abstraction-definitions.h>
 

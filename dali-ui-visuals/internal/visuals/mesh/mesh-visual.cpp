@@ -84,9 +84,9 @@ enum TextureIndex
 
 //Shading mode
 DALI_ENUM_TO_STRING_TABLE_BEGIN(SHADING_MODE)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::MeshVisual::ShadingMode, TEXTURELESS_WITH_DIFFUSE_LIGHTING)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::MeshVisual::ShadingMode, TEXTURED_WITH_SPECULAR_LIGHTING)
-  DALI_ENUM_TO_STRING_WITH_SCOPE(Toolkit::MeshVisual::ShadingMode, TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::MeshVisual::ShadingMode, TEXTURELESS_WITH_DIFFUSE_LIGHTING)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::MeshVisual::ShadingMode, TEXTURED_WITH_SPECULAR_LIGHTING)
+  DALI_ENUM_TO_STRING_WITH_SCOPE(UI::MeshVisual::ShadingMode, TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
 DALI_ENUM_TO_STRING_TABLE_END(SHADING_MODE)
 
 //Shader properties
@@ -104,8 +104,8 @@ MeshVisualPtr MeshVisual::New(VisualFactoryCache& factoryCache, const Property::
 }
 
 MeshVisual::MeshVisual(VisualFactoryCache& factoryCache)
-: Visual::Base(factoryCache, Visual::FittingMode::DONT_CARE, Toolkit::Visual::MESH),
-  mShadingMode(Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING),
+: Visual::Base(factoryCache, Visual::FittingMode::DONT_CARE, UI::Visual::MESH),
+  mShadingMode(UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING),
   mUseTexture(true),
   mUseMipmapping(true),
   mUseSoftNormals(true)
@@ -129,31 +129,31 @@ void MeshVisual::DoSetProperties(const Property::Map& propertyMap)
     {
       if(keyValue.first == OBJECT_URL_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::OBJECT_URL, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::OBJECT_URL, keyValue.second);
       }
       else if(keyValue.first == MATERIAL_URL_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::MATERIAL_URL, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::MATERIAL_URL, keyValue.second);
       }
       else if(keyValue.first == TEXTURES_PATH_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::TEXTURES_PATH, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::TEXTURES_PATH, keyValue.second);
       }
       else if(keyValue.first == SHADING_MODE_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::SHADING_MODE, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::SHADING_MODE, keyValue.second);
       }
       else if(keyValue.first == USE_MIPMAPPING_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::USE_MIPMAPPING, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::USE_MIPMAPPING, keyValue.second);
       }
       else if(keyValue.first == USE_SOFT_NORMALS_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::USE_SOFT_NORMALS, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::USE_SOFT_NORMALS, keyValue.second);
       }
       else if(keyValue.first == LIGHT_POSITION_NAME)
       {
-        DoSetProperty(Toolkit::MeshVisual::Property::LIGHT_POSITION, keyValue.second);
+        DoSetProperty(UI::MeshVisual::Property::LIGHT_POSITION, keyValue.second);
       }
     }
   }
@@ -177,7 +177,7 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
 {
   switch(index)
   {
-    case Toolkit::MeshVisual::Property::OBJECT_URL:
+    case UI::MeshVisual::Property::OBJECT_URL:
     {
       if(!value.Get(mObjectUrl))
       {
@@ -185,7 +185,7 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
       }
       break;
     }
-    case Toolkit::MeshVisual::Property::MATERIAL_URL:
+    case UI::MeshVisual::Property::MATERIAL_URL:
     {
       if(!value.Get(mMaterialUrl))
       {
@@ -193,7 +193,7 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
       }
       break;
     }
-    case Toolkit::MeshVisual::Property::TEXTURES_PATH:
+    case UI::MeshVisual::Property::TEXTURES_PATH:
     {
       if(!value.Get(mTexturesPath))
       {
@@ -201,12 +201,12 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
       }
       break;
     }
-    case Toolkit::MeshVisual::Property::SHADING_MODE:
+    case UI::MeshVisual::Property::SHADING_MODE:
     {
       Scripting::GetEnumerationProperty(value, SHADING_MODE_TABLE, SHADING_MODE_TABLE_COUNT, mShadingMode);
       break;
     }
-    case Toolkit::MeshVisual::Property::USE_MIPMAPPING:
+    case UI::MeshVisual::Property::USE_MIPMAPPING:
     {
       if(!value.Get(mUseMipmapping))
       {
@@ -214,7 +214,7 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
       }
       break;
     }
-    case Toolkit::MeshVisual::Property::USE_SOFT_NORMALS:
+    case UI::MeshVisual::Property::USE_SOFT_NORMALS:
     {
       if(!value.Get(mUseSoftNormals))
       {
@@ -222,7 +222,7 @@ void MeshVisual::DoSetProperty(Property::Index index, const Property::Value& val
       }
       break;
     }
-    case Toolkit::MeshVisual::Property::LIGHT_POSITION:
+    case UI::MeshVisual::Property::LIGHT_POSITION:
     {
       if(!value.Get(mLightPosition))
       {
@@ -247,20 +247,20 @@ void MeshVisual::DoSetOnScene(Actor& actor)
   actor.AddRenderer(mImpl->mRenderer);
 
   // Mesh loaded and ready to display
-  ResourceReady(Toolkit::Visual::ResourceStatus::READY);
+  ResourceReady(UI::Visual::ResourceStatus::READY);
 }
 
 void MeshVisual::DoCreatePropertyMap(Property::Map& map) const
 {
   map.Clear();
-  map.Insert(Toolkit::Visual::Property::TYPE, Toolkit::Visual::MESH);
-  map.Insert(Toolkit::MeshVisual::Property::OBJECT_URL, mObjectUrl);
-  map.Insert(Toolkit::MeshVisual::Property::MATERIAL_URL, mMaterialUrl);
-  map.Insert(Toolkit::MeshVisual::Property::TEXTURES_PATH, mTexturesPath);
-  map.Insert(Toolkit::MeshVisual::Property::SHADING_MODE, mShadingMode);
-  map.Insert(Toolkit::MeshVisual::Property::USE_MIPMAPPING, mUseMipmapping);
-  map.Insert(Toolkit::MeshVisual::Property::USE_SOFT_NORMALS, mUseSoftNormals);
-  map.Insert(Toolkit::MeshVisual::Property::LIGHT_POSITION, mLightPosition);
+  map.Insert(UI::Visual::Property::TYPE, UI::Visual::MESH);
+  map.Insert(UI::MeshVisual::Property::OBJECT_URL, mObjectUrl);
+  map.Insert(UI::MeshVisual::Property::MATERIAL_URL, mMaterialUrl);
+  map.Insert(UI::MeshVisual::Property::TEXTURES_PATH, mTexturesPath);
+  map.Insert(UI::MeshVisual::Property::SHADING_MODE, mShadingMode);
+  map.Insert(UI::MeshVisual::Property::USE_MIPMAPPING, mUseMipmapping);
+  map.Insert(UI::MeshVisual::Property::USE_SOFT_NORMALS, mUseSoftNormals);
+  map.Insert(UI::MeshVisual::Property::LIGHT_POSITION, mLightPosition);
 }
 
 void MeshVisual::DoCreateInstancePropertyMap(Property::Map& map) const
@@ -338,11 +338,11 @@ void MeshVisual::UpdateShaderUniforms()
 
 void MeshVisual::CreateShader()
 {
-  if(mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
+  if(mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
   {
     mShader = Shader::New(SHADER_MESH_VISUAL_NORMAL_MAP_SHADER_VERT, SHADER_MESH_VISUAL_NORMAL_MAP_SHADER_FRAG, static_cast<Shader::Hint::Value>(Shader::Hint::FILE_CACHE_SUPPORT | Shader::Hint::INTERNAL), "MESH_VISUAL_NRMMAP");
   }
-  else if(mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING)
+  else if(mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING)
   {
     mShader = Shader::New(SHADER_MESH_VISUAL_SHADER_VERT, SHADER_MESH_VISUAL_SHADER_FRAG, static_cast<Shader::Hint::Value>(Shader::Hint::FILE_CACHE_SUPPORT | Shader::Hint::INTERNAL), "MESH_VISUA");
   }
@@ -359,22 +359,22 @@ bool MeshVisual::CreateGeometry()
   //Determine if we need to use a simpler shader to handle the provided data
   if(!mUseTexture || !mObjLoader.IsDiffuseMapPresent())
   {
-    mShadingMode = Toolkit::MeshVisual::ShadingMode::TEXTURELESS_WITH_DIFFUSE_LIGHTING;
+    mShadingMode = UI::MeshVisual::ShadingMode::TEXTURELESS_WITH_DIFFUSE_LIGHTING;
   }
-  else if(mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING && (!mObjLoader.IsNormalMapPresent() || !mObjLoader.IsSpecularMapPresent()))
+  else if(mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING && (!mObjLoader.IsNormalMapPresent() || !mObjLoader.IsSpecularMapPresent()))
   {
-    mShadingMode = Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING;
+    mShadingMode = UI::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING;
   }
 
   int objectProperties = 0;
 
-  if(mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING ||
-     mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
+  if(mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_SPECULAR_LIGHTING ||
+     mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
   {
     objectProperties |= ObjLoader::TEXTURE_COORDINATES;
   }
 
-  if(mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
+  if(mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING)
   {
     objectProperties |= ObjLoader::TANGENTS | ObjLoader::BINORMALS;
   }
@@ -433,7 +433,7 @@ bool MeshVisual::LoadTextures()
 {
   mTextureSet = TextureSet::New();
 
-  if(mShadingMode != Toolkit::MeshVisual::ShadingMode::TEXTURELESS_WITH_DIFFUSE_LIGHTING)
+  if(mShadingMode != UI::MeshVisual::ShadingMode::TEXTURELESS_WITH_DIFFUSE_LIGHTING)
   {
     Sampler sampler = Sampler::New();
     if(mUseMipmapping)
@@ -459,7 +459,7 @@ bool MeshVisual::LoadTextures()
       }
     }
 
-    if(!mNormalTextureUrl.empty() && (mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING))
+    if(!mNormalTextureUrl.empty() && (mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING))
     {
       std::string imageUrl = mTexturesPath + mNormalTextureUrl;
 
@@ -477,7 +477,7 @@ bool MeshVisual::LoadTextures()
       }
     }
 
-    if(!mGlossTextureUrl.empty() && (mShadingMode == Toolkit::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING))
+    if(!mGlossTextureUrl.empty() && (mShadingMode == UI::MeshVisual::ShadingMode::TEXTURED_WITH_DETAILED_SPECULAR_LIGHTING))
     {
       std::string imageUrl = mTexturesPath + mGlossTextureUrl;
 

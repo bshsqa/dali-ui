@@ -19,7 +19,7 @@
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 TransitionData::TransitionData()
 {
@@ -43,7 +43,7 @@ TransitionData TransitionData::New(const Property::Map& transition)
 
 TransitionData TransitionData::DownCast(BaseHandle handle)
 {
-  return TransitionData(dynamic_cast<Dali::Toolkit::Internal::TransitionData*>(handle.GetObjectPtr()));
+  return TransitionData(dynamic_cast<Dali::UI::Internal::TransitionData*>(handle.GetObjectPtr()));
 }
 
 TransitionData::TransitionData(const TransitionData& handle)
@@ -72,5 +72,5 @@ TransitionData::TransitionData(Internal::TransitionData* pointer)
 {
 }
 
-} // namespace Toolkit
+} // namespace UI
 } // namespace Dali

@@ -377,7 +377,7 @@ private:
  * @param[in] endIndex end index(included) of the text requested to calculate size for.
  * @return list of sizes of the reuested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextLabel textLabel, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextSize(TextLabel textLabel, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Get the top/left rendered position of a specific text range.
@@ -389,7 +389,7 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextSize(TextLabel textLabel, const uint32_t
  * @param[in] endIndex end index(included) of the text requested to get position to.
  * @return list of positions of the requested text.
  */
-DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextLabel textLabel, const uint32_t startIndex, const uint32_t endIndex);
+DALI_UI_API Vector<Vector2> GetTextPosition(TextLabel textLabel, const uint32_t startIndex, const uint32_t endIndex);
 
 /**
  * @brief Gets the bounding box of a specific text range.
@@ -399,7 +399,7 @@ DALI_TOOLKIT_API Vector<Vector2> GetTextPosition(TextLabel textLabel, const uint
  * @param[in] endIndex end index(included) of the text requested to get bounding box to.
  * @return bounding box of the requested text.
  */
-DALI_TOOLKIT_API Rect<float> GetTextBoundingRectangle(TextLabel textLabel, uint32_t startIndex, uint32_t endIndex);
+DALI_UI_API Rect<float> GetTextBoundingRectangle(TextLabel textLabel, uint32_t startIndex, uint32_t endIndex);
 
 /**
  * @brief Set text fit array to text label.
@@ -408,7 +408,7 @@ DALI_TOOLKIT_API Rect<float> GetTextBoundingRectangle(TextLabel textLabel, uint3
  * @param[in] enable Whether the text fit array is enabled or not.
  * @param[in] fitOptions list of the fit options.
  */
-DALI_TOOLKIT_API void SetTextFitArray(TextLabel textLabel, const bool enable, std::vector<FitOption>& fitOptions);
+DALI_UI_API void SetTextFitArray(TextLabel textLabel, const bool enable, std::vector<FitOption>& fitOptions);
 
 /**
  * @brief Get the text fit array of text label.
@@ -416,14 +416,14 @@ DALI_TOOLKIT_API void SetTextFitArray(TextLabel textLabel, const bool enable, st
  * @param[in] textLabel The instance of TextLabel.
  * @return list of the fit options.
  */
-DALI_TOOLKIT_API std::vector<FitOption>& GetTextFitArray(TextLabel textLabel);
+DALI_UI_API std::vector<FitOption>& GetTextFitArray(TextLabel textLabel);
 
 /**
  * @brief Whether the text fit array is enabled or not.
  *
  * @return True if the text fit array is enabled.
  */
-DALI_TOOLKIT_API bool IsTextFitArrayEnabled(TextLabel textLabel);
+DALI_UI_API bool IsTextFitArrayEnabled(TextLabel textLabel);
 
 /**
  * @brief Set removing front inset to text label.
@@ -431,7 +431,7 @@ DALI_TOOLKIT_API bool IsTextFitArrayEnabled(TextLabel textLabel);
  * @param[in] textLabel The instance of TextLabel.
  * @param[in] remove Whether front inset of text label has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveFrontInset(TextLabel textLabel, const bool remove);
+DALI_UI_API void SetRemoveFrontInset(TextLabel textLabel, const bool remove);
 
 /**
  * @brief Whether front inset of text label is removed or not.
@@ -439,7 +439,7 @@ DALI_TOOLKIT_API void SetRemoveFrontInset(TextLabel textLabel, const bool remove
  * @param[in] textLabel The instance of TextLabel.
  * @return True if the front inset of text label is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveFrontInset(TextLabel textLabel);
+DALI_UI_API bool IsRemoveFrontInset(TextLabel textLabel);
 
 /**
  * @brief Set removing back inset to text label.
@@ -447,7 +447,7 @@ DALI_TOOLKIT_API bool IsRemoveFrontInset(TextLabel textLabel);
  * @param[in] textLabel The instance of TextLabel.
  * @param[in] remove Whether back inset of text label has to be removed or not.
  */
-DALI_TOOLKIT_API void SetRemoveBackInset(TextLabel textLabel, const bool remove);
+DALI_UI_API void SetRemoveBackInset(TextLabel textLabel, const bool remove);
 
 /**
  * @brief Whether back inset of text label is removed or not.
@@ -455,7 +455,7 @@ DALI_TOOLKIT_API void SetRemoveBackInset(TextLabel textLabel, const bool remove)
  * @param[in] textLabel The instance of TextLabel.
  * @return True if the back inset of text label is removed.
  */
-DALI_TOOLKIT_API bool IsRemoveBackInset(TextLabel textLabel);
+DALI_UI_API bool IsRemoveBackInset(TextLabel textLabel);
 
 /**
  * @brief A method that requests asynchronous rendering of text with a fixed size.
@@ -464,7 +464,7 @@ DALI_TOOLKIT_API bool IsRemoveBackInset(TextLabel textLabel);
  * @param[in] width The width of text to render.
  * @param[in] height The height of text to render.
  */
-DALI_TOOLKIT_API void RequestAsyncRenderWithFixedSize(TextLabel textLabel, float width, float height);
+DALI_UI_API void RequestAsyncRenderWithFixedSize(TextLabel textLabel, float width, float height);
 
 /**
  * @brief Requests asynchronous text rendering with a fixed width.
@@ -476,7 +476,7 @@ DALI_TOOLKIT_API void RequestAsyncRenderWithFixedSize(TextLabel textLabel, float
  * @param[in] width The width of text to render.
  * @param[in] heightConstraint The maximum available height of text to render.
  */
-DALI_TOOLKIT_API void RequestAsyncRenderWithFixedWidth(TextLabel textLabel, float width, float heightConstraint);
+DALI_UI_API void RequestAsyncRenderWithFixedWidth(TextLabel textLabel, float width, float heightConstraint);
 
 /**
  * @brief Requests asynchronous text rendering with a fixed height.
@@ -487,7 +487,7 @@ DALI_TOOLKIT_API void RequestAsyncRenderWithFixedWidth(TextLabel textLabel, floa
  * @param[in] widthConstraint The maximum available width of text to render.
  * @param[in] height The height of text to render.
  */
-DALI_TOOLKIT_API void RequestAsyncRenderWithFixedHeight(TextLabel textLabel, float widthConstraint, float height);
+DALI_UI_API void RequestAsyncRenderWithFixedHeight(TextLabel textLabel, float widthConstraint, float height);
 
 /**
  * @brief Requests asynchronous rendering with the maximum available width using the given widthConstraint.
@@ -502,14 +502,14 @@ DALI_TOOLKIT_API void RequestAsyncRenderWithFixedHeight(TextLabel textLabel, flo
  * @param[in] widthConstraint The maximum available width of text to render.
  * @param[in] heightConstraint The maximum available height of text to render.
  */
-DALI_TOOLKIT_API void RequestAsyncRenderWithConstraint(TextLabel textLabel, float widthConstraint, float heightConstraint);
+DALI_UI_API void RequestAsyncRenderWithConstraint(TextLabel textLabel, float widthConstraint, float heightConstraint);
 
 /**
  * @brief Requests asynchronous text natural size computation.
  *
  * @param[in] textLabel The instance of TextLabel.
  */
-DALI_TOOLKIT_API void RequestAsyncNaturalSize(TextLabel textLabel);
+DALI_UI_API void RequestAsyncNaturalSize(TextLabel textLabel);
 
 /**
  * @brief Requests asynchronous computation of the height of the text based on the given width.
@@ -517,7 +517,7 @@ DALI_TOOLKIT_API void RequestAsyncNaturalSize(TextLabel textLabel);
  * @param[in] textLabel The instance of TextLabel.
  * @param[in] width The width of text to compute.
  */
-DALI_TOOLKIT_API void RequestAsyncHeightForWidth(TextLabel textLabel, float width);
+DALI_UI_API void RequestAsyncHeightForWidth(TextLabel textLabel, float width);
 
 /**
  * @brief Retrieves the text's number of lines for a given width.
@@ -525,7 +525,7 @@ DALI_TOOLKIT_API void RequestAsyncHeightForWidth(TextLabel textLabel, float widt
  * @param[in] width The width of the text's area.
  * @return The number of lines.
  */
-DALI_TOOLKIT_API int GetLineCount(TextLabel textLabel, float width);
+DALI_UI_API int GetLineCount(TextLabel textLabel, float width);
 
 /**
  * @brief Registers a new font variation property based on the provided tag.
@@ -534,7 +534,7 @@ DALI_TOOLKIT_API int GetLineCount(TextLabel textLabel, float width);
  * @param[in] tag A 4-character string representing the variation property tag.
  * @return The index of the registered variation property. Property::INVALID_INDEX if failed.
  */
-DALI_TOOLKIT_API Dali::Property::Index RegisterFontVariationProperty(TextLabel textLabel, std::string tag);
+DALI_UI_API Dali::Property::Index RegisterFontVariationProperty(TextLabel textLabel, std::string tag);
 
 /**
  * @brief Applies the visual of the given control as a mask to shape the label.
@@ -542,21 +542,21 @@ DALI_TOOLKIT_API Dali::Property::Index RegisterFontVariationProperty(TextLabel t
  * @param[in] textLabel The instance of TextLabel.
  * @param[in] control The control to apply mask.
  */
-DALI_TOOLKIT_API void SetMaskEffect(TextLabel textLabel, UI::View control);
+DALI_UI_API void SetMaskEffect(TextLabel textLabel, UI::View control);
 
 /**
  * @brief Remove the applied mask effect of the label.
  *
  * @param[in] textLabel The instance of TextLabel.
  */
-DALI_TOOLKIT_API void RemoveMaskEffect(TextLabel textLabel);
+DALI_UI_API void RemoveMaskEffect(TextLabel textLabel);
 
 /**
  * @brief Request an update manually.
  *
  * @param[in] textLabel The instance of TextLabel.
  */
-DALI_TOOLKIT_API void RequestUpdateManually(TextLabel textLabel);
+DALI_UI_API void RequestUpdateManually(TextLabel textLabel);
 
 /**
  * @brief Anchor clicked signal type.
@@ -609,7 +609,7 @@ using AsyncHeightForWidthComputedSignalType = Signal<void(TextLabel, float, floa
  * @param[in] textLabel The instance of TextLabel.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AnchorClickedSignalType& AnchorClickedSignal(TextLabel textLabel);
+DALI_UI_API AnchorClickedSignalType& AnchorClickedSignal(TextLabel textLabel);
 
 /**
  * @brief This signal is emitted when the textfit property is changed.
@@ -621,7 +621,7 @@ DALI_TOOLKIT_API AnchorClickedSignalType& AnchorClickedSignal(TextLabel textLabe
  * @param[in] textLabel The instance of TextLabel.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API TextFitChangedSignalType& TextFitChangedSignal(TextLabel textLabel);
+DALI_UI_API TextFitChangedSignalType& TextFitChangedSignal(TextLabel textLabel);
 
 /**
  * @brief This signal is emitted when the async text rendered.
@@ -633,7 +633,7 @@ DALI_TOOLKIT_API TextFitChangedSignalType& TextFitChangedSignal(TextLabel textLa
  * @param[in] textLabel The instance of TextLabel.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AsyncTextRenderedSignalType& AsyncTextRenderedSignal(TextLabel textLabel);
+DALI_UI_API AsyncTextRenderedSignalType& AsyncTextRenderedSignal(TextLabel textLabel);
 
 /**
  * @brief This signal is emitted when the async natural size computed.
@@ -645,7 +645,7 @@ DALI_TOOLKIT_API AsyncTextRenderedSignalType& AsyncTextRenderedSignal(TextLabel 
  * @param[in] textLabel The instance of TextLabel.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AsyncNaturalSizeComputedSignalType& AsyncNaturalSizeComputedSignal(TextLabel textLabel);
+DALI_UI_API AsyncNaturalSizeComputedSignalType& AsyncNaturalSizeComputedSignal(TextLabel textLabel);
 
 /**
  * @brief This signal is emitted when the async height for width computed.
@@ -657,7 +657,7 @@ DALI_TOOLKIT_API AsyncNaturalSizeComputedSignalType& AsyncNaturalSizeComputedSig
  * @param[in] textLabel The instance of TextLabel.
  * @return The signal to connect to.
  */
-DALI_TOOLKIT_API AsyncHeightForWidthComputedSignalType& AsyncHeightForWidthComputedSignal(TextLabel textLabel);
+DALI_UI_API AsyncHeightForWidthComputedSignalType& AsyncHeightForWidthComputedSignal(TextLabel textLabel);
 
 } // namespace DevelTextLabel
 

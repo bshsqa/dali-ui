@@ -1,4 +1,4 @@
-#ifndef DALI_UI_INTERNAL_ANIMATED_IMAGE_VISUAL_H
+﻿#ifndef DALI_UI_INTERNAL_ANIMATED_IMAGE_VISUAL_H
 #define DALI_UI_INTERNAL_ANIMATED_IMAGE_VISUAL_H
 
 /*
@@ -307,7 +307,7 @@ private:
   // Variables for image visual properties.
   Dali::UI::ImageVisual::LoadPolicy::Type    mLoadPolicy;
   Dali::UI::ImageVisual::ReleasePolicy::Type mReleasePolicy;
-  Dali::Toolkit::TextureManager::MaskingDataPointer              mMaskingData;
+  Dali::UI::TextureManager::MaskingDataPointer              mMaskingData;
   Dali::ImageDimensions                           mDesiredSize;
   Dali::ImageDimensions                           mLastRequiredSize;
   float                                           mFrameSpeedFactor;

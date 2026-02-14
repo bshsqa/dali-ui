@@ -27,7 +27,7 @@
 
 namespace Dali
 {
-namespace Toolkit
+namespace UI
 {
 namespace
 {
@@ -151,6 +151,6 @@ void VisualFactory::UsePreCompiledShader()
   GetImplementation(*this).UsePreCompiledShader();
 }
 
-} // namespace Toolkit
+} // namespace UI
 
 } // namespace Dali

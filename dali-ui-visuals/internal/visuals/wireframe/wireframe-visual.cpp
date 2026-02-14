@@ -57,7 +57,7 @@ WireframeVisualPtr WireframeVisual::New(VisualFactoryCache& factoryCache, Visual
   WireframeVisualPtr wireframeVisual(new WireframeVisual(factoryCache, actualVisual));
 
   // Instead of calling SetProperties, looking for the only valid property 'transform'
-  Property::Value* transformValue = properties.Find(Toolkit::Visual::Property::TRANSFORM, TRANSFORM);
+  Property::Value* transformValue = properties.Find(UI::Visual::Property::TRANSFORM, TRANSFORM);
   Property::Map    transformMap;
   if(transformValue && transformValue->Get(transformMap))
   {
@@ -68,7 +68,7 @@ WireframeVisualPtr WireframeVisual::New(VisualFactoryCache& factoryCache, Visual
 }
 
 WireframeVisual::WireframeVisual(VisualFactoryCache& factoryCache, Visual::BasePtr actualVisual)
-: Visual::Base(factoryCache, Visual::FittingMode::DONT_CARE, actualVisual ? actualVisual->GetType() : Toolkit::Visual::WIREFRAME),
+: Visual::Base(factoryCache, Visual::FittingMode::DONT_CARE, actualVisual ? actualVisual->GetType() : UI::Visual::WIREFRAME),
   mActualVisual(actualVisual)
 {
 }
@@ -110,7 +110,7 @@ void WireframeVisual::DoCreatePropertyMap(Property::Map& map) const
   else
   {
     map.Clear();
-    map.Insert(Toolkit::Visual::Property::TYPE, Toolkit::Visual::WIREFRAME);
+    map.Insert(UI::Visual::Property::TYPE, UI::Visual::WIREFRAME);
   }
 }
 
@@ -121,7 +121,7 @@ void WireframeVisual::DoCreateInstancePropertyMap(Property::Map& map) const
 
 void WireframeVisual::DoSetProperties(const Property::Map& propertyMap)
 {
-  Property::Value* mixValue = propertyMap.Find(Toolkit::Visual::Property::MIX_COLOR, MIX_COLOR);
+  Property::Value* mixValue = propertyMap.Find(UI::Visual::Property::MIX_COLOR, MIX_COLOR);
   if(mixValue)
   {
     Vector4 mixColor;
@@ -135,7 +135,7 @@ void WireframeVisual::DoSetOnScene(Actor& actor)
   actor.AddRenderer(mImpl->mRenderer);
 
   // Wireframe generated and ready to display
-  ResourceReady(Toolkit::Visual::ResourceStatus::READY);
+  ResourceReady(UI::Visual::ResourceStatus::READY);
 }
 
 void WireframeVisual::OnInitialize()

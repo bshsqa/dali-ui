@@ -50,7 +50,7 @@ namespace Internal
 {
 class NPatchLoader;
 class SvgLoader;
-using TextureManager = Dali::Toolkit::Internal::TextureManager;
+using TextureManager = Dali::UI::Internal::TextureManager;
 class VectorAnimationManager;
 
 /**

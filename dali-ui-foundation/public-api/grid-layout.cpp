@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -69,7 +69,7 @@ GridLayout GridLayout::New()
 
 GridLayout GridLayout::DownCast(BaseHandle handle)
 {
-  return Toolkit::Control::DownCast<GridLayout, Integration::GridLayoutImpl>(handle);
+  return UI::View::DownCast<GridLayout, Integration::GridLayoutImpl>(handle);
 }
 
 GridLayout::GridLayout(Integration::GridLayoutImpl& implementation)

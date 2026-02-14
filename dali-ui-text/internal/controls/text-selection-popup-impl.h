@@ -29,7 +29,7 @@
 #include <dali-ui-text/devel-api/controls/text-selection-popup.h>
 #include <dali-ui-text/devel-api/controls/text-selection-toolbar.h>
 #include <dali-toolkit/public-api/controls/buttons/push-button.h>
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-toolkit/public-api/controls/image-view/image-view.h>
 
 namespace Dali

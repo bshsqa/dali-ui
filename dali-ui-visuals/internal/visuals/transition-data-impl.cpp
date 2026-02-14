@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2021 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,8 +19,8 @@
 #include <dali-ui-visuals/internal/visuals/transition-data-impl.h>
 
 // EXTERNAL HEADERS
-// #include <dali-toolkit/public-api/controls/control-impl.h> // Remove or replace if needed
-// #include <dali-toolkit/public-api/controls/control.h> // Remove or replace if needed
+// #include <dali-ui-foundation/integration-api/view-impl.h> // Remove or replace if needed
+// #include <dali-ui-foundation/public-api/view.h> // Remove or replace if needed
 #include <dali/dali.h>
 #include <dali/devel-api/scripting/enum-helper.h>
 #include <dali/integration-api/debug.h>

@@ -115,7 +115,7 @@ VisualFactory::~VisualFactory()
   }
 }
 
-void VisualFactory::OnStyleChangedSignal(Toolkit::StyleManager styleManager, StyleChange::Type type)
+void VisualFactory::OnStyleChangedSignal(UI::StyleManager styleManager, StyleChange::Type type)
 {
   if(type == StyleChange::THEME_CHANGE)
   {
@@ -123,7 +123,7 @@ void VisualFactory::OnStyleChangedSignal(Toolkit::StyleManager styleManager, Sty
   }
 }
 
-void VisualFactory::OnBrokenImageChangedSignal(Toolkit::StyleManager styleManager)
+void VisualFactory::OnBrokenImageChangedSignal(UI::StyleManager styleManager)
 {
   SetBrokenImageUrl(styleManager);
 }
@@ -485,7 +485,7 @@ Internal::SvgLoader& VisualFactory::GetSvgLoader()
   return GetFactoryCache().GetSvgLoader();
 }
 
-void VisualFactory::SetBrokenImageUrl(Toolkit::StyleManager& styleManager)
+void VisualFactory::SetBrokenImageUrl(UI::StyleManager& styleManager)
 {
   const std::string        imageDirPath   = AssetManager::GetDaliImagePath();
   std::string              brokenImageUrl = imageDirPath + BROKEN_IMAGE_FILE_NAME;
@@ -493,8 +493,8 @@ void VisualFactory::SetBrokenImageUrl(Toolkit::StyleManager& styleManager)
 
   if(styleManager)
   {
-    customBrokenImageUrlList       = Toolkit::DevelStyleManager::GetBrokenImageUrlList(styleManager);
-    const auto brokenImageUrlValue = Toolkit::DevelStyleManager::GetConfigurations(styleManager).Find("brokenImageUrl", Property::Type::STRING);
+    customBrokenImageUrlList       = UI::DevelStyleManager::GetBrokenImageUrlList(styleManager);
+    const auto brokenImageUrlValue = UI::DevelStyleManager::GetConfigurations(styleManager).Find("brokenImageUrl", Property::Type::STRING);
     if(brokenImageUrlValue)
     {
       brokenImageUrlValue->Get(brokenImageUrl);
@@ -510,11 +510,11 @@ Internal::VisualFactoryCache& VisualFactory::GetFactoryCache()
   if(!mFactoryCache)
   {
     mFactoryCache                      = std::unique_ptr<VisualFactoryCache>(new VisualFactoryCache(mPreMultiplyOnLoad));
-    Toolkit::StyleManager styleManager = Toolkit::StyleManager::Get();
+    UI::StyleManager styleManager = UI::StyleManager::Get();
     if(styleManager)
     {
       styleManager.StyleChangedSignal().Connect(mSlotDelegate, &VisualFactory::OnStyleChangedSignal);
-      Toolkit::DevelStyleManager::BrokenImageChangedSignal(styleManager).Connect(mSlotDelegate, &VisualFactory::OnBrokenImageChangedSignal);
+      UI::DevelStyleManager::BrokenImageChangedSignal(styleManager).Connect(mSlotDelegate, &VisualFactory::OnBrokenImageChangedSignal);
     }
     SetBrokenImageUrl(styleManager);
   }

@@ -77,14 +77,14 @@ DALI_ENUM_TO_STRING_TABLE_END(VISUAL_FITTING_MODE)
  */
 static bool IsTypeAvailableForCornerRadius(UI::Visual::Type type)
 {
-  switch(static_cast<Toolkit::DevelVisual::Type>(type))
+  switch(static_cast<UI::DevelVisual::Type>(type))
   {
-    case Toolkit::Visual::Type::COLOR:
-    case Toolkit::Visual::Type::GRADIENT:
-    case Toolkit::Visual::Type::IMAGE:
-    case Toolkit::Visual::Type::SVG:
-    case Toolkit::Visual::Type::ANIMATED_IMAGE:
-    case Toolkit::DevelVisual::Type::ANIMATED_VECTOR_IMAGE:
+    case UI::Visual::Type::COLOR:
+    case UI::Visual::Type::GRADIENT:
+    case UI::Visual::Type::IMAGE:
+    case UI::Visual::Type::SVG:
+    case UI::Visual::Type::ANIMATED_IMAGE:
+    case UI::DevelVisual::Type::ANIMATED_VECTOR_IMAGE:
     {
       return true;
     }
@@ -999,7 +999,7 @@ void Visual::Base::RemoveEventObserver(Visual::EventObserver& observer)
   mImpl->mEventObserver = NULL;
 }
 
-void Visual::Base::ResourceReady(Toolkit::Visual::ResourceStatus resourceStatus)
+void Visual::Base::ResourceReady(UI::Visual::ResourceStatus resourceStatus)
 {
   if(mImpl->mResourceStatus != resourceStatus)
   {
@@ -1015,8 +1015,8 @@ void Visual::Base::ResourceReady(Toolkit::Visual::ResourceStatus resourceStatus)
 
 bool Visual::Base::IsResourceReady() const
 {
-  return (mImpl->mResourceStatus == Toolkit::Visual::ResourceStatus::READY ||
-          mImpl->mResourceStatus == Toolkit::Visual::ResourceStatus::FAILED);
+  return (mImpl->mResourceStatus == UI::Visual::ResourceStatus::READY ||
+          mImpl->mResourceStatus == UI::Visual::ResourceStatus::FAILED);
 }
 
 bool Visual::Base::IsSynchronousLoadingRequired() const
@@ -1024,12 +1024,12 @@ bool Visual::Base::IsSynchronousLoadingRequired() const
   return (mImpl->mFlags & Impl::IS_SYNCHRONOUS_RESOURCE_LOADING);
 }
 
-Toolkit::Visual::Type Visual::Base::GetType() const
+UI::Visual::Type Visual::Base::GetType() const
 {
   return mImpl->mType;
 }
 
-Toolkit::Visual::ResourceStatus Visual::Base::GetResourceStatus() const
+UI::Visual::ResourceStatus Visual::Base::GetResourceStatus() const
 {
   return mImpl->mResourceStatus;
 }
@@ -1102,79 +1102,79 @@ Property::Index Visual::Base::GetIntKey(Property::Key key)
 
   if(key.stringKey == ANCHOR_POINT)
   {
-    return Toolkit::Visual::Transform::Property::ANCHOR_POINT;
+    return UI::Visual::Transform::Property::ANCHOR_POINT;
   }
   else if(key.stringKey == EXTRA_SIZE)
   {
-    return Toolkit::DevelVisual::Transform::Property::EXTRA_SIZE;
+    return UI::DevelVisual::Transform::Property::EXTRA_SIZE;
   }
   else if(key.stringKey == MIX_COLOR)
   {
-    return Toolkit::Visual::Property::MIX_COLOR;
+    return UI::Visual::Property::MIX_COLOR;
   }
   else if(key.stringKey == OPACITY)
   {
-    return Toolkit::Visual::Property::OPACITY;
+    return UI::Visual::Property::OPACITY;
   }
   else if(key.stringKey == OFFSET)
   {
-    return Toolkit::Visual::Transform::Property::OFFSET;
+    return UI::Visual::Transform::Property::OFFSET;
   }
   else if(key.stringKey == OFFSET_POLICY)
   {
-    return Toolkit::Visual::Transform::Property::OFFSET_POLICY;
+    return UI::Visual::Transform::Property::OFFSET_POLICY;
   }
   else if(key.stringKey == ORIGIN)
   {
-    return Toolkit::Visual::Transform::Property::ORIGIN;
+    return UI::Visual::Transform::Property::ORIGIN;
   }
   else if(key.stringKey == PREMULTIPLIED_ALPHA)
   {
-    return Toolkit::Visual::Property::PREMULTIPLIED_ALPHA;
+    return UI::Visual::Property::PREMULTIPLIED_ALPHA;
   }
   else if(key.stringKey == CUSTOM_SHADER)
   {
-    return Toolkit::Visual::Property::SHADER;
+    return UI::Visual::Property::SHADER;
   }
   else if(key.stringKey == SIZE)
   {
-    return Toolkit::Visual::Transform::Property::SIZE;
+    return UI::Visual::Transform::Property::SIZE;
   }
   else if(key.stringKey == SIZE_POLICY)
   {
-    return Toolkit::Visual::Transform::Property::SIZE_POLICY;
+    return UI::Visual::Transform::Property::SIZE_POLICY;
   }
   else if(key.stringKey == TRANSFORM)
   {
-    return Toolkit::Visual::Property::TRANSFORM;
+    return UI::Visual::Property::TRANSFORM;
   }
   else if(key.stringKey == VISUAL_FITTING_MODE)
   {
-    return Toolkit::DevelVisual::Property::VISUAL_FITTING_MODE;
+    return UI::DevelVisual::Property::VISUAL_FITTING_MODE;
   }
   else if(key.stringKey == CORNER_RADIUS)
   {
-    return Toolkit::DevelVisual::Property::CORNER_RADIUS;
+    return UI::DevelVisual::Property::CORNER_RADIUS;
   }
   else if(key.stringKey == CORNER_RADIUS_POLICY)
   {
-    return Toolkit::DevelVisual::Property::CORNER_RADIUS_POLICY;
+    return UI::DevelVisual::Property::CORNER_RADIUS_POLICY;
   }
   else if(key.stringKey == CORNER_SQUARENESS)
   {
-    return Toolkit::DevelVisual::Property::CORNER_SQUARENESS;
+    return UI::DevelVisual::Property::CORNER_SQUARENESS;
   }
   else if(key.stringKey == BORDERLINE_WIDTH)
   {
-    return Toolkit::DevelVisual::Property::BORDERLINE_WIDTH;
+    return UI::DevelVisual::Property::BORDERLINE_WIDTH;
   }
   else if(key.stringKey == BORDERLINE_COLOR)
   {
-    return Toolkit::DevelVisual::Property::BORDERLINE_COLOR;
+    return UI::DevelVisual::Property::BORDERLINE_COLOR;
   }
   else if(key.stringKey == BORDERLINE_OFFSET)
   {
-    return Toolkit::DevelVisual::Property::BORDERLINE_OFFSET;
+    return UI::DevelVisual::Property::BORDERLINE_OFFSET;
   }
 
   return Property::INVALID_INDEX;
@@ -1184,35 +1184,35 @@ Property::Index Visual::Base::GetPropertyIndex(Property::Key key) const
 {
   switch(GetIntKey(key))
   {
-    case Dali::Toolkit::Visual::Transform::Property::OFFSET:
+    case Dali::UI::Visual::Transform::Property::OFFSET:
     {
       return VisualRenderer::Property::TRANSFORM_OFFSET;
     }
-    case Dali::Toolkit::Visual::Transform::Property::SIZE:
+    case Dali::UI::Visual::Transform::Property::SIZE:
     {
       return VisualRenderer::Property::TRANSFORM_SIZE;
     }
-    case Dali::Toolkit::Visual::Transform::Property::ORIGIN:
+    case Dali::UI::Visual::Transform::Property::ORIGIN:
     {
       return VisualRenderer::Property::TRANSFORM_ORIGIN;
     }
-    case Dali::Toolkit::Visual::Transform::Property::ANCHOR_POINT:
+    case Dali::UI::Visual::Transform::Property::ANCHOR_POINT:
     {
       return VisualRenderer::Property::TRANSFORM_ANCHOR_POINT;
     }
-    case Dali::Toolkit::Visual::Property::MIX_COLOR:
+    case Dali::UI::Visual::Property::MIX_COLOR:
     {
       return Renderer::Property::MIX_COLOR;
     }
-    case Dali::Toolkit::Visual::Property::OPACITY:
+    case Dali::UI::Visual::Property::OPACITY:
     {
       return Renderer::Property::OPACITY;
     }
-    case Dali::Toolkit::Visual::Property::PREMULTIPLIED_ALPHA:
+    case Dali::UI::Visual::Property::PREMULTIPLIED_ALPHA:
     {
       return Renderer::Property::BLEND_PRE_MULTIPLIED_ALPHA;
     }
-    case Dali::Toolkit::DevelVisual::Property::CORNER_RADIUS:
+    case Dali::UI::DevelVisual::Property::CORNER_RADIUS:
     {
       if(IsTypeAvailableForCornerRadius(mImpl->mType))
       {
@@ -1220,7 +1220,7 @@ Property::Index Visual::Base::GetPropertyIndex(Property::Key key) const
       }
       break;
     }
-    case Dali::Toolkit::DevelVisual::Property::CORNER_SQUARENESS:
+    case Dali::UI::DevelVisual::Property::CORNER_SQUARENESS:
     {
       if(IsTypeAvailableForCornerRadius(mImpl->mType))
       {
@@ -1228,7 +1228,7 @@ Property::Index Visual::Base::GetPropertyIndex(Property::Key key) const
       }
       break;
     }
-    case Dali::Toolkit::DevelVisual::Property::BORDERLINE_WIDTH:
+    case Dali::UI::DevelVisual::Property::BORDERLINE_WIDTH:
     {
       if(IsTypeAvailableForBorderline(mImpl->mType))
       {
@@ -1236,7 +1236,7 @@ Property::Index Visual::Base::GetPropertyIndex(Property::Key key) const
       }
       break;
     }
-    case Dali::Toolkit::DevelVisual::Property::BORDERLINE_COLOR:
+    case Dali::UI::DevelVisual::Property::BORDERLINE_COLOR:
     {
       if(IsTypeAvailableForBorderline(mImpl->mType))
       {
@@ -1244,7 +1244,7 @@ Property::Index Visual::Base::GetPropertyIndex(Property::Key key) const
       }
       break;
     }
-    case Dali::Toolkit::DevelVisual::Property::BORDERLINE_OFFSET:
+    case Dali::UI::DevelVisual::Property::BORDERLINE_OFFSET:
     {
       if(IsTypeAvailableForBorderline(mImpl->mType))
       {
@@ -1361,16 +1361,16 @@ void Visual::Base::AnimateProperty(
   }
 #endif
 
-  if(animator.propertyKey == Toolkit::Visual::Property::MIX_COLOR ||
+  if(animator.propertyKey == UI::Visual::Property::MIX_COLOR ||
      animator.propertyKey == MIX_COLOR ||
-     (mImpl->mType == Toolkit::Visual::COLOR &&
+     (mImpl->mType == UI::Visual::COLOR &&
       animator.propertyKey == ColorVisual::Property::MIX_COLOR) ||
-     (mImpl->mType == Toolkit::Visual::PRIMITIVE &&
+     (mImpl->mType == UI::Visual::PRIMITIVE &&
       animator.propertyKey == PrimitiveVisual::Property::MIX_COLOR))
   {
     AnimateMixColorProperty(transition, animator);
   }
-  else if(animator.propertyKey == Toolkit::Visual::Property::OPACITY ||
+  else if(animator.propertyKey == UI::Visual::Property::OPACITY ||
           animator.propertyKey == OPACITY)
   {
     AnimateOpacityProperty(transition, animator);
@@ -1497,15 +1497,15 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
   switch(GetIntKey(key))
   {
     // Default animatable properties from VisualRenderer
-    case Toolkit::Visual::Property::MIX_COLOR:
+    case UI::Visual::Property::MIX_COLOR:
     {
       return Dali::Property(mImpl->mRenderer, Renderer::Property::MIX_COLOR);
     }
-    case Toolkit::Visual::Property::OPACITY:
+    case UI::Visual::Property::OPACITY:
     {
       return Dali::Property(mImpl->mRenderer, Renderer::Property::OPACITY);
     }
-    case Toolkit::Visual::Transform::Property::OFFSET:
+    case UI::Visual::Transform::Property::OFFSET:
     {
       // Need to change visual transform is not default anymore.
       if(changeProperties && mImpl->mTransformMapUsingDefault)
@@ -1516,7 +1516,7 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
 
       return Dali::Property(mImpl->mRenderer, VisualRenderer::Property::TRANSFORM_OFFSET);
     }
-    case Toolkit::Visual::Transform::Property::SIZE:
+    case UI::Visual::Transform::Property::SIZE:
     {
       // Need to change visual transform is not default anymore.
       if(changeProperties && mImpl->mTransformMapUsingDefault)
@@ -1529,7 +1529,7 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
     }
 
     // Default animatable properties from DecoratedVisualRenderer
-    case Toolkit::DevelVisual::Property::CORNER_RADIUS:
+    case UI::DevelVisual::Property::CORNER_RADIUS:
     {
       if(IsTypeAvailableForCornerRadius(mImpl->mType))
       {
@@ -1568,7 +1568,7 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
       }
       break;
     }
-    case Toolkit::DevelVisual::Property::CORNER_SQUARENESS:
+    case UI::DevelVisual::Property::CORNER_SQUARENESS:
     {
       if(IsTypeAvailableForCornerRadius(mImpl->mType))
       {
@@ -1600,9 +1600,9 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
       }
       break;
     }
-    case Toolkit::DevelVisual::Property::BORDERLINE_WIDTH:
-    case Toolkit::DevelVisual::Property::BORDERLINE_COLOR:
-    case Toolkit::DevelVisual::Property::BORDERLINE_OFFSET:
+    case UI::DevelVisual::Property::BORDERLINE_WIDTH:
+    case UI::DevelVisual::Property::BORDERLINE_COLOR:
+    case UI::DevelVisual::Property::BORDERLINE_OFFSET:
     {
       if(IsTypeAvailableForBorderline(mImpl->mType))
       {
@@ -1635,14 +1635,14 @@ Dali::Property Visual::Base::GetPropertyObject(Dali::Property::Key key, bool cha
     {
       // Special case for MIX_COLOR
       if(key.type == Property::Key::INDEX &&
-         ((mImpl->mType == Toolkit::Visual::COLOR && key.indexKey == ColorVisual::Property::MIX_COLOR) ||
-          (mImpl->mType == Toolkit::Visual::PRIMITIVE && key.indexKey == PrimitiveVisual::Property::MIX_COLOR)))
+         ((mImpl->mType == UI::Visual::COLOR && key.indexKey == ColorVisual::Property::MIX_COLOR) ||
+          (mImpl->mType == UI::Visual::PRIMITIVE && key.indexKey == PrimitiveVisual::Property::MIX_COLOR)))
       {
         return Dali::Property(mImpl->mRenderer, Renderer::Property::MIX_COLOR);
       }
 
       // Special case for BLUR_RADIUS
-      if(mImpl->mType == Toolkit::Visual::COLOR &&
+      if(mImpl->mType == UI::Visual::COLOR &&
          ((key.type == Property::Key::INDEX && key.indexKey == DevelColorVisual::Property::BLUR_RADIUS) ||
           (key.type == Property::Key::STRING && key.stringKey == BLUR_RADIUS_NAME)))
       {

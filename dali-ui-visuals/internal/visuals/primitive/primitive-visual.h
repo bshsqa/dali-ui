@@ -339,7 +339,7 @@ private:
   int     mSlices;            ///< Number of slices to use when creating certain objects.
   int     mStacks;            ///< Number of stacks to use when creating certain objects.
 
-  Toolkit::PrimitiveVisual::Shape::Type mPrimitiveType; //Shape to render, as enum.
+  UI::PrimitiveVisual::Shape::Type mPrimitiveType; //Shape to render, as enum.
 };
 
 } // namespace Internal

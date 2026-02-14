@@ -54,7 +54,7 @@ public:
    * @param[in] maskControl The source Control to affect mask.
    * @return A handle to a newly allocated Dali resource
    */
-  static MaskEffectImplPtr New(Toolkit::Control maskControl);
+  static MaskEffectImplPtr New(UI::View maskControl);
 
   /**
    * @brief Creates an initialized MaskEffect.
@@ -64,35 +64,35 @@ public:
    * @param[in] maskScale The Scale of mask source.
    * @return A handle to a newly allocated Dali resource
    */
-  static MaskEffectImplPtr New(Toolkit::Control maskControl, MaskEffect::MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
+  static MaskEffectImplPtr New(UI::View maskControl, MaskEffect::MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
 
   /**
-   * @copydoc Toolkit::Internal::RenderEffectImpl::GetOffScreenRenderableType
+   * @copydoc UI::Internal::RenderEffectImpl::GetOffScreenRenderableType
    */
   OffScreenRenderable::Type GetOffScreenRenderableType() const override;
 
   /**
-   * @copydoc Toolkit::Internal::RenderEffectImpl::GetOffScreenRenderTasks
+   * @copydoc UI::Internal::RenderEffectImpl::GetOffScreenRenderTasks
    */
   void GetOffScreenRenderTasks(Dali::Vector<Dali::RenderTask>& tasks, bool isForward) override;
 
   /**
-   * @copydoc Toolkit::MaskEffect::SetTargetMaskOnce
+   * @copydoc UI::MaskEffect::SetTargetMaskOnce
    */
   void SetTargetMaskOnce(bool targetMaskOnce);
 
   /**
-   * @copydoc Toolkit::MaskEffect::GetTargetMaskOnce
+   * @copydoc UI::MaskEffect::GetTargetMaskOnce
    */
   bool GetTargetMaskOnce() const;
 
   /**
-   * @copydoc Toolkit::MaskEffect::SetSourceMaskOnce
+   * @copydoc UI::MaskEffect::SetSourceMaskOnce
    */
   void SetSourceMaskOnce(bool sourceMaskOnce);
 
   /**
-   * @copydoc Toolkit::MaskEffect::GetSourceMaskOnce
+   * @copydoc UI::MaskEffect::GetSourceMaskOnce
    */
   bool GetSourceMaskOnce() const;
 
@@ -107,7 +107,7 @@ protected:
    * @brief Creates an uninitialized mask effect implementation
    * @param[in] maskControl
    */
-  MaskEffectImpl(Toolkit::Control maskControl);
+  MaskEffectImpl(UI::View maskControl);
 
   /**
    * @brief Creates an uninitialized mask effect implementation
@@ -116,7 +116,7 @@ protected:
    * @param[in] maskPosition
    * @param[in] maskScale
    */
-  MaskEffectImpl(Toolkit::Control maskControl, MaskEffect::MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
+  MaskEffectImpl(UI::View maskControl, MaskEffect::MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale);
 
   /**
    * @brief Destructor
@@ -157,7 +157,7 @@ private:
    * @brief Sets mask render tasks.
    * @param[in] ownerControl Input owner control
    */
-  void CreateRenderTasks(Toolkit::Control ownerControl);
+  void CreateRenderTasks(UI::View ownerControl);
 
   /**
    * @brief Reset Mask Data
@@ -168,7 +168,7 @@ private:
    * @brief Sets shader constants, mask mode, position, and scale.
    * @param[in] ownerControl Input owner control
    */
-  void SetShaderConstants(Toolkit::Control ownerControl);
+  void SetShaderConstants(UI::View ownerControl);
 
   /**
    * @brief Create mask data including RenderTask, Framebuffer, Texture.
@@ -186,7 +186,7 @@ private:
   // Camera actors
   CameraActor mCamera;
 
-  WeakHandle<Toolkit::Control> mMaskControl;
+  WeakHandle<UI::View> mMaskControl;
 
   // Resource
   RenderTask  mMaskTargetRenderTask;
@@ -210,16 +210,16 @@ private:
 };
 } // namespace Internal
 
-inline Toolkit::Internal::MaskEffectImpl& GetImplementation(Toolkit::MaskEffect& obj)
+inline UI::Internal::MaskEffectImpl& GetImplementation(UI::MaskEffect& obj)
 {
   BaseObject& handle = obj.GetBaseObject();
-  return static_cast<Toolkit::Internal::MaskEffectImpl&>(handle);
+  return static_cast<UI::Internal::MaskEffectImpl&>(handle);
 }
 
-inline const Toolkit::Internal::MaskEffectImpl& GetImplementation(const Toolkit::MaskEffect& obj)
+inline const UI::Internal::MaskEffectImpl& GetImplementation(const UI::MaskEffect& obj)
 {
   const BaseObject& handle = obj.GetBaseObject();
-  return static_cast<const Toolkit::Internal::MaskEffectImpl&>(handle);
+  return static_cast<const UI::Internal::MaskEffectImpl&>(handle);
 }
 
 } // namespace UI

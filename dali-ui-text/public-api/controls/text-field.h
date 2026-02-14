@@ -19,7 +19,7 @@
  */
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali-ui-foundation/public-api/view.h>
 
 namespace Dali
 {
@@ -44,7 +44,7 @@ class TextField;
  * | maxLengthReached     | @ref MaxLengthReachedSignal()  | @SINCE_1_0.0       |
  * | inputStyleChanged    | @ref InputStyleChangedSignal() | @SINCE_1_2_2       |
  */
-class DALI_TOOLKIT_API TextField : public Control
+class DALI_UI_API TextField : public Control
 {
 public:
   /**

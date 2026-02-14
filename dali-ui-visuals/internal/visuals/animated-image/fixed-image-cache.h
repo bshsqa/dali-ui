@@ -27,7 +27,7 @@ namespace UI
 {
 namespace Internal
 {
-class FixedImageCache : public ImageCache, public Toolkit::TextureUploadObserver
+class FixedImageCache : public ImageCache, public UI::TextureUploadObserver
 {
 public:
   /**
@@ -46,12 +46,12 @@ public:
    * This will start loading textures immediately, according to the
    * batch and cache sizes. The cache is as large as the number of urls.
    */
-  FixedImageCache(Toolkit::TextureManager&                     textureManager,
+  FixedImageCache(UI::TextureManager&                     textureManager,
                   ImageDimensions                              size,
                   Dali::FittingMode::Type                      fittingMode,
                   Dali::SamplingMode::Type                     samplingMode,
                   UrlList&                                     urlList,
-                  Toolkit::TextureManager::MaskingDataPointer& maskingData,
+                  UI::TextureManager::MaskingDataPointer& maskingData,
                   ImageCache::FrameReadyObserver&     observer,
                   uint32_t                            batchSize,
                   uint32_t                            interval,
@@ -122,14 +122,14 @@ private:
 
 protected:
   /**
-   * @copydoc Toolkit::TextureUploadObserver::LoadComplete()
+   * @copydoc UI::TextureUploadObserver::LoadComplete()
    */
   void LoadComplete(bool loadSuccess, TextureInformation textureInformation) override;
 
 private:
   std::vector<UrlStore>&                          mImageUrls;
   std::vector<bool>                               mReadyFlags;
-  std::vector<Toolkit::TextureManager::LoadState> mLoadStates;
+  std::vector<UI::TextureManager::LoadState> mLoadStates;
   uint32_t                               mCurrentFrameIndex;
 };
 

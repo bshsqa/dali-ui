@@ -935,7 +935,7 @@ void ImageVisual::DoSetOffScene(Actor& actor)
 void ImageVisual::DoCreatePropertyMap(Property::Map& map) const
 {
   map.Clear();
-  map.Insert(Toolkit::Visual::Property::TYPE, Toolkit::Visual::IMAGE);
+  map.Insert(UI::Visual::Property::TYPE, UI::Visual::IMAGE);
 
   bool sync = IsSynchronousLoadingRequired();
   map.Insert(UI::ImageVisual::Property::SYNCHRONOUS_LOADING, sync);
@@ -984,7 +984,7 @@ void ImageVisual::DoCreatePropertyMap(Property::Map& map) const
 void ImageVisual::DoCreateInstancePropertyMap(Property::Map& map) const
 {
   map.Clear();
-  map.Insert(Toolkit::Visual::Property::TYPE, Toolkit::Visual::IMAGE);
+  map.Insert(UI::Visual::Property::TYPE, UI::Visual::IMAGE);
   if(mImageUrl.IsValid())
   {
     Dali::ImageDimensions size = mUseSynchronousSizing ? mLastRequiredSize : mDesiredSize;
@@ -1005,7 +1005,7 @@ void ImageVisual::EnablePreMultipliedAlpha(bool preMultiplied)
     {
       // Register PREMULTIPLIED_ALPHA only if it become false.
       // Default PREMULTIPLIED_ALPHA value is 1.0f, at image-visual-shader-factory.cpp
-      mPreMultipliedAlphaIndex = mImpl->mRenderer.RegisterProperty(Toolkit::Visual::Property::PREMULTIPLIED_ALPHA, PREMULTIPLIED_ALPHA, 0.0f);
+      mPreMultipliedAlphaIndex = mImpl->mRenderer.RegisterProperty(UI::Visual::Property::PREMULTIPLIED_ALPHA, PREMULTIPLIED_ALPHA, 0.0f);
     }
   }
 

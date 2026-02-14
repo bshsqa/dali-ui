@@ -311,13 +311,13 @@ Geometry VisualFactoryCache::CreateGridGeometry(Uint16Pair gridSize, bool normal
           return iter->second;
         }
         // Create and cache new geometry.
-        Geometry geometry = Dali::Toolkit::Internal::CreateGridGeometry(gridSize, normalized);
+        Geometry geometry = Dali::UI::Internal::CreateGridGeometry(gridSize, normalized);
         cacheMap.insert(iter, {gridSize, geometry});
         return geometry;
       }
     }
   }
-  return Dali::Toolkit::Internal::CreateGridGeometry(gridSize, normalized);
+  return Dali::UI::Internal::CreateGridGeometry(gridSize, normalized);
 }
 
 Geometry VisualFactoryCache::CreateBorderGeometry(Uint16Pair gridSize)
@@ -341,13 +341,13 @@ Geometry VisualFactoryCache::CreateBorderGeometry(Uint16Pair gridSize)
         }
 
         // Create and cache new geometry.
-        Geometry geometry = Dali::Toolkit::Internal::CreateBorderGeometry(gridSize);
+        Geometry geometry = Dali::UI::Internal::CreateBorderGeometry(gridSize);
         cacheMap.insert(iter, {gridSize, geometry});
         return geometry;
       }
     }
   }
-  return Dali::Toolkit::Internal::CreateBorderGeometry(gridSize);
+  return Dali::UI::Internal::CreateBorderGeometry(gridSize);
 }
 
 Texture VisualFactoryCache::GetBrokenVisualImage(uint32_t brokenIndex)

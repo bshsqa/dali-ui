@@ -37,7 +37,7 @@ MaskEffect::MaskEffect(Internal::MaskEffectImpl* maskEffectImpl)
 
 MaskEffect::~MaskEffect() = default;
 
-MaskEffect MaskEffect::New(Toolkit::Control maskControl)
+MaskEffect MaskEffect::New(UI::View maskControl)
 {
   Internal::MaskEffectImplPtr internal = Internal::MaskEffectImpl::New(maskControl);
   return MaskEffect(internal.Get());
@@ -63,7 +63,7 @@ bool MaskEffect::GetSourceMaskOnce() const
   return GetImplementation(*this).GetSourceMaskOnce();
 }
 
-MaskEffect MaskEffect::New(Toolkit::Control maskControl, MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale)
+MaskEffect MaskEffect::New(UI::View maskControl, MaskMode maskMode, Vector2 maskPosition, Vector2 maskScale)
 {
   Internal::MaskEffectImplPtr internal = Internal::MaskEffectImpl::New(maskControl, maskMode, maskPosition, maskScale);
   return MaskEffect(internal.Get());

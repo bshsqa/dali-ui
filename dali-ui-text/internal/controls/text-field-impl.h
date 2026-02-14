@@ -27,7 +27,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-text/devel-api/controls/text-field-devel.h>
-#include <dali-toolkit/internal/controls/control/control-data-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-ui-text/internal/text/controller/text-controller.h>
 #include <dali-ui-text/internal/text/decorator/text-decorator.h>
@@ -36,7 +36,7 @@
 #include <dali-ui-text/internal/text/text-control-interface.h>
 #include <dali-ui-text/internal/text/text-editable-control-interface.h>
 #include <dali-ui-text/internal/text/text-selectable-control-interface.h>
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-text/public-api/controls/text-field.h>
 
 namespace Dali
