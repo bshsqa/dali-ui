@@ -293,6 +293,25 @@ LayoutAlignment View::GetVerticalAlignment() const
   return Integration::GetImpl(*this).GetVerticalAlignment();
 }
 
+// =============================================================================
+// Signals
+// =============================================================================
+
+View::KeyEventSignalType& View::KeyEventSignal()
+{
+  return Integration::GetImpl(*this).KeyEventSignal();
+}
+
+View::KeyInputFocusSignalType& View::KeyInputFocusGainedSignal()
+{
+  return Integration::GetImpl(*this).KeyInputFocusGainedSignal();
+}
+
+View::KeyInputFocusSignalType& View::KeyInputFocusLostSignal()
+{
+  return Integration::GetImpl(*this).KeyInputFocusLostSignal();
+}
+
 } // namespace UI
 
 } // namespace Dali

@@ -17,12 +17,10 @@
 
 // EXTERNAL INCLUDES
 #include <dali/public-api/actors/actor.h>
-#include <dali/public-api/actors/custom-actor-impl.h>
 #include <dali/public-api/object/type-registry.h>
 #include <dali/public-api/adaptor-framework/window.h>
 #include <dali/devel-api/adaptor-framework/window-devel.h>
 #include <dali/devel-api/object/property-helper-devel.h>
-#include <dali-toolkit/public-api/controls/control.h>
 #include <dali-ui-foundation/public-api/layout.h>
 #include <dali-ui-foundation/public-api/layout-controller.h>
 #include <algorithm>
@@ -54,7 +52,7 @@ BaseHandle Create()
 }
 
 // Type Registration
-DALI_TYPE_REGISTRATION_BEGIN(UI::Integration::ViewImpl, Toolkit::Control, Create)
+DALI_TYPE_REGISTRATION_BEGIN(UI::Integration::ViewImpl, CustomActor, Create)
 DALI_TYPE_REGISTRATION_END()
 
 /**
@@ -82,9 +80,7 @@ UI::View ViewImpl::New()
 }
 
 ViewImpl::ViewImpl()
-  : Toolkit::Internal::Control(Toolkit::Internal::Control::ControlBehaviour(
-        static_cast<int>(Toolkit::Internal::Control::CONTROL_BEHAVIOUR_DEFAULT) |
-        static_cast<int>(Dali::CustomActorImpl::DISABLE_SIZE_NEGOTIATION))),
+  : CustomActorImpl(static_cast<ActorFlags>(ActorFlags::ACTOR_BEHAVIOUR_DEFAULT | ActorFlags::DISABLE_SIZE_NEGOTIATION)),
     mLayoutWidth(LayoutDimension::WrapContent),
     mLayoutHeight(LayoutDimension::WrapContent),
     mMinimumWidth(0.0f),
@@ -111,20 +107,15 @@ ViewImpl::~ViewImpl()
   }
 }
 
-void ViewImpl::OnInitialize()
+void ViewImpl::Initialize()
 {
-  // Call base class initialization
-  Toolkit::Internal::Control::OnInitialize();
-
   // Set default anchor point for layout positioning
   Self().SetProperty(Actor::Property::ANCHOR_POINT, AnchorPoint::TOP_LEFT);
   Self().SetProperty(Actor::Property::PARENT_ORIGIN, ParentOrigin::TOP_LEFT);
 }
 
-void ViewImpl::OnSceneConnection(int depth)
+void ViewImpl::OnSceneConnection(int32_t depth)
 {
-  Toolkit::Internal::Control::OnSceneConnection(depth);
-
   // When this view (layout root) is added to a window, ensure it is scheduled for layout.
   // This handles the case where invalidation occurred before the view was added to the window.
   if (IsLayout())
@@ -133,10 +124,32 @@ void ViewImpl::OnSceneConnection(int depth)
   }
 }
 
-bool ViewImpl::OnKeyEvent(const KeyEvent& event)
+void ViewImpl::OnSceneDisconnection()
 {
-  // Call base class implementation
-  return Toolkit::Internal::Control::OnKeyEvent(event);
+}
+
+void ViewImpl::OnChildAdd(Actor& child)
+{
+}
+
+void ViewImpl::OnChildRemove(Actor& child)
+{
+}
+
+void ViewImpl::OnPropertySet(Property::Index index, const Property::Value& propertyValue)
+{
+}
+
+void ViewImpl::OnSizeSet(const Vector3& targetSize)
+{
+}
+
+void ViewImpl::OnSizeAnimation(Animation& animation, const Vector3& targetSize)
+{
+}
+
+void ViewImpl::GetOffScreenRenderTasks(Dali::Vector<Dali::RenderTask>& tasks, bool isForward)
+{
 }
 
 void ViewImpl::OnRelayout(const Vector2& size, RelayoutContainer& container)
@@ -147,7 +160,46 @@ void ViewImpl::OnRelayout(const Vector2& size, RelayoutContainer& container)
   {
     return;
   }
-  Toolkit::Internal::Control::OnRelayout(size, container);
+}
+
+void ViewImpl::OnSetResizePolicy(ResizePolicy::Type policy, Dimension::Type dimension)
+{
+}
+
+Vector3 ViewImpl::GetNaturalSize()
+{
+  // Return zero if not set, or pass through to actor if needed.
+  // CustomActorImpl usually relies on GetHeightForWidth and GetWidthForHeight for size neg.
+  // For basic View, natural size is 0 unless content defines it.
+  return Vector3::ZERO;
+}
+
+float ViewImpl::CalculateChildSize(const Dali::Actor& child, Dimension::Type dimension)
+{
+  return CalculateChildSizeBase(child, dimension);
+}
+
+float ViewImpl::GetHeightForWidth(float width)
+{
+  return GetHeightForWidthBase(width);
+}
+
+float ViewImpl::GetWidthForHeight(float height)
+{
+  return GetWidthForHeightBase(height);
+}
+
+bool ViewImpl::RelayoutDependentOnChildren(Dimension::Type dimension)
+{
+  return RelayoutDependentOnChildrenBase(dimension);
+}
+
+void ViewImpl::OnCalculateRelayoutSize(Dimension::Type dimension)
+{
+}
+
+void ViewImpl::OnLayoutNegotiated(float size, Dimension::Type dimension)
+{
 }
 
 // =============================================================================
@@ -941,6 +993,72 @@ void ViewImpl::SetClipsToBounds(bool clips)
 bool ViewImpl::GetClipsToBounds() const
 {
   return mClipsToBounds;
+}
+
+void ViewImpl::SetBackgroundColor(const Vector4& color)
+{
+  Self().SetProperty(Dali::Actor::Property::COLOR, color);
+}
+
+Vector4 ViewImpl::GetBackgroundColor() const
+{
+  return Self().GetProperty<Vector4>(Dali::Actor::Property::COLOR);
+}
+
+// =============================================================================
+// Focus & Input API
+// =============================================================================
+
+void ViewImpl::OnKeyInputFocusGained()
+{
+  // Emit signal
+  if (!mKeyInputFocusGainedSignal.Empty())
+  {
+    mKeyInputFocusGainedSignal.Emit(UI::View(this));
+  }
+}
+
+void ViewImpl::OnKeyInputFocusLost()
+{
+  // Emit signal
+  if (!mKeyInputFocusLostSignal.Empty())
+  {
+    mKeyInputFocusLostSignal.Emit(UI::View(this));
+  }
+}
+
+bool ViewImpl::EmitKeyEventSignal(const KeyEvent& event)
+{
+  bool consumed = false;
+
+  if (!mKeyEventSignal.Empty())
+  {
+    mKeyEventSignal.Emit(UI::View(this), event);
+    consumed = true; // For now assume consumed if signal emitted?
+    // Control logic: return true if consumed by application.
+    // Signal return type is void.
+    // Wait, Control::KeyEventSignalType is bool(Control, KeyEvent).
+    // View::KeyEventSignalType is void(View, KeyEvent).
+    // If I want to support consumption, I might need to change signal type or check something.
+    // Toolkit::Control::KeyEventSignal() returns KeyEventSignalType& which is Signal<bool(Control, const KeyEvent&)>
+  }
+
+  return consumed;
+}
+
+UI::View::KeyEventSignalType& ViewImpl::KeyEventSignal()
+{
+  return mKeyEventSignal;
+}
+
+UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusGainedSignal()
+{
+  return mKeyInputFocusGainedSignal;
+}
+
+UI::View::KeyInputFocusSignalType& ViewImpl::KeyInputFocusLostSignal()
+{
+  return mKeyInputFocusLostSignal;
 }
 
 } // namespace Integration

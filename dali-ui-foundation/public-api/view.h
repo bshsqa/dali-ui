@@ -20,7 +20,7 @@
 // EXTERNAL INCLUDES
 #include <functional>
 #include <initializer_list>
-#include <dali-toolkit/public-api/controls/control.h>
+#include <dali/public-api/actors/custom-actor.h>
 
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/public-api/dali-ui-common.h>
@@ -40,19 +40,21 @@ class ViewImpl;
 
 #include "view.autogen.h"
 /**
- * @brief View is a base UI component class that extends Control.
+ * @brief View is a base UI component class that extends CustomActor.
  *
  * View provides basic UI functionality and can be used as a foundation
- * for creating custom UI components. It inherits all the capabilities
- * of Control including styling, gesture detection, and keyboard navigation.
+ * for creating custom UI components. It inherits capabilities of Actor
+ * including styling, gesture detection, and keyboard navigation.
  *
  * View implements the layout system with Measure/Arrange passes.
  */
-class DALI_UI_API View : public Toolkit::Control
+class DALI_UI_API View : public CustomActor
 {
 public:
 
   // Typedefs
+  typedef Signal<void(View, const KeyEvent&)> KeyEventSignalType;
+  typedef Signal<void(View)>                  KeyInputFocusSignalType;
 
 public: // Creation & Destruction
 
@@ -452,6 +454,55 @@ public: // Properties
     return *this;
   }
 
+public: // Properties (Migrated from Control)
+
+  /**
+   * @brief Sets the background color.
+   * @param[in] color The required background color
+   */
+  void SetBackgroundColor(const Vector4& color);
+
+  /**
+   * @brief Gets the background color.
+   * @return The background color
+   */
+  Vector4 GetBackgroundColor() const;
+
+public: // Signals
+
+  /**
+   * @brief This signal is emitted when the key event is received.
+   *
+   * A callback of the following type may be connected:
+   * @code
+   *   void YourCallback(View view, const KeyEvent& event);
+   * @endcode
+   * @return The signal to connect to
+   */
+  KeyEventSignalType& KeyEventSignal();
+
+  /**
+   * @brief This signal is emitted when the key input focus is gained.
+   *
+   * A callback of the following type may be connected:
+   * @code
+   *   void YourCallback(View view);
+   * @endcode
+   * @return The signal to connect to
+   */
+  KeyInputFocusSignalType& KeyInputFocusGainedSignal();
+
+  /**
+   * @brief This signal is emitted when the key input focus is lost.
+   *
+   * A callback of the following type may be connected:
+   * @code
+   *   void YourCallback(View view);
+   * @endcode
+   * @return The signal to connect to
+   */
+  KeyInputFocusSignalType& KeyInputFocusLostSignal();
+
   // @CHAIN_END
 
 public: // Not intended for application developers
@@ -464,11 +515,6 @@ public: // Not intended for application developers
    */
   explicit DALI_UI_API View(Integration::ViewImpl& implementation);
 
-  /**
-   * @brief Allows the creation of this Control from an Internal::CustomActor pointer.
-   *
-   * @param[in] internal A pointer to the internal CustomActor
-   */
   explicit DALI_UI_API View(Dali::Internal::CustomActor* internal);
   /// @endcond
 };

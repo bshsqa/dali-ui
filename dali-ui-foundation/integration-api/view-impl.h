@@ -18,7 +18,7 @@
  */
 
 // EXTERNAL INCLUDES
-#include <dali-toolkit/public-api/controls/control-impl.h>
+#include <dali/public-api/actors/custom-actor-impl.h>
 #include <dali/public-api/common/extents.h>
 #include <cstdint>
 #include <initializer_list>
@@ -49,7 +49,7 @@ namespace Integration
 /**
  * @brief This is the internal implementation class for View.
  *
- * ViewImpl extends ControlImpl to provide basic UI functionality.
+ * ViewImpl extends CustomActorImpl to provide basic UI functionality.
  * It implements the p-impl pattern and provides the actual implementation
  * for the View public API.
  *
@@ -59,7 +59,7 @@ namespace Integration
  *
  * @see Dali::UI::View
  */
-class DALI_UI_API ViewImpl : public Toolkit::Internal::Control
+class DALI_UI_API ViewImpl : public CustomActorImpl
 {
 public:
 
@@ -103,31 +103,137 @@ protected:
    */
   ViewImpl();
 
-public: // From Toolkit::Internal::Control
+public: // From CustomActorImpl
   /**
-   * @copydoc Toolkit::Internal::Control::OnInitialize
-   */
-  void OnInitialize() override;
-
-  /**
-   * @copydoc Toolkit::Internal::Control::OnSceneConnection
+   * @copydoc CustomActorImpl::OnSceneConnection
    * When this View is a layout root and is connected to a window, registers
    * with LayoutController so that measure/arrange runs even if invalidation
    * occurred before the view was added to the window.
    */
-  void OnSceneConnection(int depth) override;
+  void OnSceneConnection(int32_t depth) override;
 
   /**
-   * @copydoc Toolkit::Internal::Control::OnKeyEvent
+   * @copydoc CustomActorImpl::OnSceneDisconnection
    */
-  bool OnKeyEvent(const KeyEvent& event) override;
+  void OnSceneDisconnection() override;
 
   /**
-   * @brief Override to separate dali-ui layout from DALi size negotiation.
+   * @copydoc CustomActorImpl::OnChildAdd
+   */
+  void OnChildAdd(Actor& child) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnChildRemove
+   */
+  void OnChildRemove(Actor& child) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnPropertySet
+   */
+  void OnPropertySet(Property::Index index, const Property::Value& propertyValue) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnSizeSet
+   */
+  void OnSizeSet(const Vector3& targetSize) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnSizeAnimation
+   */
+  void OnSizeAnimation(Animation& animation, const Vector3& targetSize) override;
+
+  /**
+   * @copydoc CustomActorImpl::GetOffScreenRenderTasks
+   */
+  void GetOffScreenRenderTasks(Dali::Vector<Dali::RenderTask>& tasks, bool isForward) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnRelayout
+   * Override to separate dali-ui layout from DALi size negotiation.
    * When this View has a LayoutManager, size/position are driven by dali-ui
-   * LayoutController; we no-op. Otherwise delegate to Control.
+   * LayoutController; we no-op. Otherwise delegate to base logic if needed.
    */
   void OnRelayout(const Vector2& size, RelayoutContainer& container) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnSetResizePolicy
+   */
+  void OnSetResizePolicy(ResizePolicy::Type policy, Dimension::Type dimension) override;
+
+  /**
+   * @copydoc CustomActorImpl::GetNaturalSize
+   */
+  Vector3 GetNaturalSize() override;
+
+  /**
+   * @copydoc CustomActorImpl::CalculateChildSize
+   */
+  float CalculateChildSize(const Dali::Actor& child, Dimension::Type dimension) override;
+
+  /**
+   * @copydoc CustomActorImpl::GetHeightForWidth
+   */
+  float GetHeightForWidth(float width) override;
+
+  /**
+   * @copydoc CustomActorImpl::GetWidthForHeight
+   */
+  float GetWidthForHeight(float height) override;
+
+  /**
+   * @copydoc CustomActorImpl::RelayoutDependentOnChildren
+   */
+  bool RelayoutDependentOnChildren(Dimension::Type dimension = Dimension::ALL_DIMENSIONS) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnCalculateRelayoutSize
+   */
+  void OnCalculateRelayoutSize(Dimension::Type dimension) override;
+
+  /**
+   * @copydoc CustomActorImpl::OnLayoutNegotiated
+   */
+  void OnLayoutNegotiated(float size, Dimension::Type dimension) override;
+
+public: // Validation Logic (Migrated from Control)
+  /**
+   * @brief Initializes the View.
+   */
+  void Initialize();
+
+  /**
+   * @brief Called when the view gains key input focus.
+   */
+  void OnKeyInputFocusGained();
+
+  /**
+   * @brief Called when the view loses key input focus.
+   */
+  void OnKeyInputFocusLost();
+
+  /**
+   * @brief Emits the key event signal.
+   * @param[in] event The key event.
+   * @return True if consumed.
+   */
+  bool EmitKeyEventSignal(const KeyEvent& event);
+
+public: // Signals
+  /**
+   * @copydoc Dali::UI::View::KeyEventSignal
+   */
+  UI::View::KeyEventSignalType& KeyEventSignal();
+
+  /**
+   * @copydoc Dali::UI::View::KeyInputFocusGainedSignal
+   */
+  UI::View::KeyInputFocusSignalType& KeyInputFocusGainedSignal();
+
+  /**
+   * @copydoc Dali::UI::View::KeyInputFocusLostSignal
+   */
+  UI::View::KeyInputFocusSignalType& KeyInputFocusLostSignal();
+
 
 public: // API (size, position, parent origin, pivot)
   /**
@@ -469,6 +575,11 @@ private:
 
   // ClipsToBounds (layout-style behaviour when view has children)
   bool mClipsToBounds;
+
+  // Signals
+  UI::View::KeyEventSignalType      mKeyEventSignal;
+  UI::View::KeyInputFocusSignalType mKeyInputFocusGainedSignal;
+  UI::View::KeyInputFocusSignalType mKeyInputFocusLostSignal;
 };
 
 // Helpers for public-api forwarding methods
