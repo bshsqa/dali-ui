@@ -29,7 +29,7 @@
 
 // INTERNAL INCLUDES
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-ui-text/internal/text/glyph-metrics-helper.h>
 #include <dali-ui-text/internal/text/glyph-run.h>
 #include <dali-ui-text/internal/text/rendering/atlas/atlas-glyph-manager.h>

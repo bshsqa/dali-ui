@@ -35,7 +35,7 @@
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
 #include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-toolkit/internal/controls/image-view/image-view-impl.h>
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-toolkit/public-api/controls/image-view/image-view.h>
 
 #ifdef DEBUG_ENABLED

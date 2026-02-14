@@ -22,7 +22,7 @@
 #include <dali/integration-api/debug.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-ui-text/internal/text/text-scroller-interface.h>
 #include <dali-ui-visuals/internal/visuals/visual-base-impl.h>
 

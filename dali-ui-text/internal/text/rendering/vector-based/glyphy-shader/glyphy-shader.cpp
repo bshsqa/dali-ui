@@ -22,7 +22,7 @@
 #include <sstream>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 
 using namespace Dali;
 

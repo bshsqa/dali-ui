@@ -23,7 +23,7 @@
 
 // INTERNAL INCLUDES
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
-#include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-ui-text/internal/text/cursor-helper-functions.h>
 #include <dali-ui-text/internal/text/rendering/styles/character-spacing-helper-functions.h>
 #include <dali-ui-text/internal/text/text-view.h>
