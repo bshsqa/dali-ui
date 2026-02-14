@@ -33,8 +33,8 @@
 
 // INTERNAL INCLUDES
 #include <dali-toolkit/devel-api/controls/buttons/button-devel.h>
-#include <dali-toolkit/devel-api/controls/control-depth-index-ranges.h>
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+// TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-text/devel-api/controls/text-selection-popup-callback-interface.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>

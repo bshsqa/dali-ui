@@ -27,7 +27,7 @@
 #include <dali/public-api/animation/animation.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-toolkit/devel-api/controls/scroll-bar/scroll-bar.h>
 #include <dali-ui-text/devel-api/controls/text-editor-devel.h>
 #include <dali-toolkit/internal/controls/control/control-data-impl.h>

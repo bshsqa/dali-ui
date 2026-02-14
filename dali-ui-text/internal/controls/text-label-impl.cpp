@@ -29,11 +29,11 @@
 #include <dali/public-api/object/type-registry-helper.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-depth-index-ranges.h>
+// TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
 #include <dali-ui-text/devel-api/text/rendering-backend.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-toolkit/internal/render-effects/mask-effect-impl.h>
-#include <dali-toolkit/internal/styling/style-manager-impl.h>
+#include <dali-ui-foundation/integration-api/styling/style-manager-impl.h>
 #include <dali-ui-text/internal/text/property-string-parser.h>
 #include <dali-ui-text/internal/text/rendering/text-backend.h>
 #include <dali-ui-text/internal/text/text-definitions.h>
@@ -42,7 +42,7 @@
 #include <dali-ui-text/internal/text/text-view.h>
 #include <dali-toolkit/public-api/text/text-enumerations.h>
 
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-base.h>
 #include <dali-ui-visuals/devel-api/visual-factory/visual-factory.h>
 #include <dali-ui-text/internal/text/text-enumerations-impl.h>

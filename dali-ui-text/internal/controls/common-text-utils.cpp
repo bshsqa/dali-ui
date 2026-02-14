@@ -19,8 +19,8 @@
 #include <dali/public-api/actors/layer.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-depth-index-ranges.h>
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+// TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-foundation/public-api/input/keyinput-focus-manager.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-ui-text/internal/text/character-set-conversion.h>

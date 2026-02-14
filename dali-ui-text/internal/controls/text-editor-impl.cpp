@@ -33,13 +33,13 @@
 #include <limits>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-text/devel-api/text/rendering-backend.h>
 #include <dali-toolkit/internal/controls/control/control-data-impl.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 #include <dali-ui-text/internal/controls/text-editor-property-handler.h>
 #include <dali-toolkit/internal/focus-manager/keyboard-focus-manager-impl.h>
-#include <dali-toolkit/internal/styling/style-manager-impl.h>
+#include <dali-ui-foundation/integration-api/styling/style-manager-impl.h>
 #include <dali-ui-text/internal/text/rendering/text-backend.h>
 #include <dali-ui-text/internal/text/text-effects-style.h>
 #include <dali-ui-text/internal/text/text-enumerations-impl.h>

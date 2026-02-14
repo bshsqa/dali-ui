@@ -24,7 +24,7 @@
 #include <string>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-toolkit/devel-api/controls/table-view/table-view.h>
 #include <dali-ui-text/devel-api/controls/text-selection-popup.h>
 #include <dali-ui-text/devel-api/controls/text-selection-toolbar.h>

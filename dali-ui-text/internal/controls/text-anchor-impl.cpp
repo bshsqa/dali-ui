@@ -29,7 +29,7 @@
 #include <dali-ui-text/internal/controls/common-text-utils.h>
 
 // DEVEL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 
 using namespace Dali::UI::Text;
 

@@ -32,8 +32,8 @@
 #include <dali/public-api/size-negotiation/relayout-container.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-depth-index-ranges.h>
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+// TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-toolkit/internal/controls/image-view/image-view-impl.h>
 #include <dali-toolkit/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-toolkit/public-api/controls/image-view/image-view.h>

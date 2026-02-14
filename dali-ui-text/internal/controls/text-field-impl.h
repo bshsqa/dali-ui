@@ -25,7 +25,7 @@
 #include <dali/devel-api/atspi-interfaces/text.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/controls/control-devel.h>
+#include <dali-ui-foundation/devel-api/view-devel.h>
 #include <dali-ui-text/devel-api/controls/text-field-devel.h>
 #include <dali-toolkit/internal/controls/control/control-data-impl.h>
 #include <dali-ui-text/internal/controls/common-text-utils.h>
