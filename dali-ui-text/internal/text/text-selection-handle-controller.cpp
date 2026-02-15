@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -158,11 +158,11 @@ void SelectionHandleController::Reposition(Controller::Impl& impl)
 
   GlyphIndex lastGlyphOfLine = lineRun->glyphRun.glyphIndex + lineRun->glyphRun.numberOfGlyphs - 1u;
 
-  // Check if the first glyph is a ligature that must be broken like Latin ff, fi, or Arabic ﻻ, etc which needs special code.
+  // Check if the first glyph is a ligature that must be broken like Latin ff, fi, or Arabic ?, etc which needs special code.
   const Length numberOfCharactersStart = *(charactersPerGlyphBuffer + glyphStart);
   bool         splitStartGlyph         = (numberOfCharactersStart > 1u) && HasLigatureMustBreak(logicalModel->GetScript(selectionStart));
 
-  // Check if the last glyph is a ligature that must be broken like Latin ff, fi, or Arabic ﻻ, etc which needs special code.
+  // Check if the last glyph is a ligature that must be broken like Latin ff, fi, or Arabic ?, etc which needs special code.
   const Length numberOfCharactersEnd = *(charactersPerGlyphBuffer + glyphEnd);
   bool         splitEndGlyph         = (glyphStart != glyphEnd) && (numberOfCharactersEnd > 1u) && HasLigatureMustBreak(logicalModel->GetScript(selectionEndMinusOne));
 

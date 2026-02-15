@@ -1,4 +1,4 @@
-﻿#ifndef DALI_SCRIPT_TREE_NODE_H
+#ifndef DALI_SCRIPT_TREE_NODE_H
 #define DALI_SCRIPT_TREE_NODE_H
 
 /*

@@ -55,7 +55,7 @@ public:
 };
 
 /**
- * @brief Stub callback interface — formerly used to receive popup button presses.
+ * @brief Stub callback interface ??formerly used to receive popup button presses.
  */
 class TextSelectionPopupCallbackInterface
 {

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +21,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-text/public-api/controls/text-editor.h>
 
-using namespace Dali::Toolkit;
+using namespace Dali::UI;
 
 const int DEFAULT_SHOW_DURATION = 1000;
 

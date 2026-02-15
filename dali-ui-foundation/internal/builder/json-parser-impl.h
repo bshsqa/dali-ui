@@ -1,4 +1,4 @@
-﻿#ifndef DALI_JSON_PARSER_IMPL_H
+#ifndef DALI_JSON_PARSER_IMPL_H
 #define DALI_JSON_PARSER_IMPL_H
 
 /*
@@ -28,7 +28,7 @@
 #include <dali-ui-foundation/devel-api/builder/json-parser.h>
 #include <dali-ui-foundation/devel-api/builder/tree-node.h>
 
-#include <dali-toolkit/internal/builder/builder-get-is.inl.h>
+#include <dali-ui-foundation/internal/builder/builder-get-is.inl.h>
 
 namespace Dali
 {

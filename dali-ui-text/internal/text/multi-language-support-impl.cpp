@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -80,7 +80,7 @@ void CheckFontSupportsCharacter(
 
     // Is not desirable to cache fonts for the common script.
     //
-    // i.e. Consider the text " हिंदी", the 'white space' has assigned the DEVANAGARI script.
+    // i.e. Consider the text " ?????", the 'white space' has assigned the DEVANAGARI script.
     //      The user may have set a font or the platform's default is used.
     //
     //      As the 'white space' is the first character, no font is cached so the font validation

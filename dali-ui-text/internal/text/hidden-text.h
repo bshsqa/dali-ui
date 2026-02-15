@@ -1,4 +1,4 @@
-﻿#ifndef DALI_HIDDEN_TEXT_H
+#ifndef DALI_HIDDEN_TEXT_H
 #define DALI_HIDDEN_TEXT_H
 
 /*

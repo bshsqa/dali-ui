@@ -1,4 +1,4 @@
-﻿#ifndef DALI_UI_NPATCH_LOADER_H
+#ifndef DALI_UI_NPATCH_LOADER_H
 #define DALI_UI_NPATCH_LOADER_H
 
 /*

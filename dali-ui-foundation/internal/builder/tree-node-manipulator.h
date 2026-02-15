@@ -1,4 +1,4 @@
-﻿#ifndef DALI_SCRIPT_TREE_NODE_MANIPULATOR_H
+#ifndef DALI_SCRIPT_TREE_NODE_MANIPULATOR_H
 #define DALI_SCRIPT_TREE_NODE_MANIPULATOR_H
 
 /*
@@ -23,11 +23,11 @@
 #include <iterator>
 #include <utility> // pair
 
-#include <dali-toolkit/public-api/dali-toolkit-common.h>
+#include <dali-ui-foundation/public-api/dali-ui-common.h>
 #include <dali/public-api/common/vector-wrapper.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/builder/tree-node.h>
+#include <dali-ui-foundation/devel-api/builder/tree-node.h>
 
 namespace Dali
 {

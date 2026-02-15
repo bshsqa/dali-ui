@@ -1,4 +1,4 @@
-﻿#ifndef DALI_UI_INTERNAL_TEXT_VISUAL_H
+#ifndef DALI_UI_INTERNAL_TEXT_VISUAL_H
 #define DALI_UI_INTERNAL_TEXT_VISUAL_H
 
 /*
@@ -39,7 +39,7 @@ namespace UI
 namespace Internal
 {
 using TextLoadObserver = Dali::UI::Text::TextLoadObserver;
-// using namespace Dali::Toolkit;
+// using namespace Dali::UI;
 
 class TextVisual;
 typedef IntrusivePtr<TextVisual> TextVisualPtr;

@@ -1,4 +1,4 @@
-﻿#ifndef DALI_UI_ASYNC_IMAGE_LOADER_IMPL_H
+#ifndef DALI_UI_ASYNC_IMAGE_LOADER_IMPL_H
 #define DALI_UI_ASYNC_IMAGE_LOADER_IMPL_H
 
 /*
@@ -23,7 +23,7 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-visuals/devel-api/image-loader/async-image-loader-devel.h>
-#include <dali-toolkit/internal/image-loader/loading-task.h>
+#include <dali-ui-visuals/internal/image-loader/loading-task.h>
 #include <dali-ui-visuals/public-api/image-loader/async-image-loader.h>
 
 namespace Dali

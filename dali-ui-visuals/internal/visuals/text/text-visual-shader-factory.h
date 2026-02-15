@@ -1,4 +1,4 @@
-ï»¿#ifndef DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
+#ifndef DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
 #define DALI_UI_TEXT_VISUAL_SHADER_FACTORY_H
 
 /*
@@ -44,7 +44,7 @@ namespace TextMultiColor
 enum Type
 {
   SINGLE_COLOR_TEXT = 0, ///< The text contains single color only.
-  MULTI_COLOR_TEXT       ///< The text contains multiple colorï½“.
+  MULTI_COLOR_TEXT       ///< The text contains multiple color£ó.
 };
 } // namespace TextMultiColor
 

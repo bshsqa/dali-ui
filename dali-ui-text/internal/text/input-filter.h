@@ -1,4 +1,4 @@
-﻿#ifndef DALI_INPUT_FILTER_H
+#ifndef DALI_INPUT_FILTER_H
 #define DALI_INPUT_FILTER_H
 
 /*

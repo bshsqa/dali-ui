@@ -1,4 +1,4 @@
-﻿#ifndef DALI_UI_CONSTRAINT_TAG_RANGES_H
+#ifndef DALI_UI_CONSTRAINT_TAG_RANGES_H
 #define DALI_UI_CONSTRAINT_TAG_RANGES_H
 
 /*
@@ -21,7 +21,10 @@
 // EXTERNAL INCLUDES
 #include <dali/public-api/animation/constraint-tag-ranges.h>
 
-namespace Dali::Toolkit
+namespace Dali
+{
+
+namespace UI
 {
 /**
  * @brief Enumeration for the start and end property ranges.
@@ -33,6 +36,7 @@ enum ConstraintTagRanges
   TOOLKIT_CONSTRAINT_TAG_END   = TOOLKIT_CONSTRAINT_TAG_START + Dali::ConstraintTagRanges::INTERNAL_TAG_MAX_COUNT_PER_DERIVATION,
 };
 
-} // namespace Dali::Toolkit
+} // namespace UI
+} // namespace Dali
 
 #endif // DALI_UI_CONSTRAINT_TAG_RANGES_H

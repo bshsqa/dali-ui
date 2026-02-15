@@ -1,4 +1,4 @@
-﻿#ifndef DALI_JSON_PARSE_STATE_H
+#ifndef DALI_JSON_PARSE_STATE_H
 #define DALI_JSON_PARSE_STATE_H
 
 /*
@@ -24,7 +24,7 @@
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/devel-api/builder/tree-node.h>
 
-#include <dali-toolkit/internal/builder/tree-node-manipulator.h>
+#include <dali-ui-foundation/internal/builder/tree-node-manipulator.h>
 
 namespace Dali
 {
@@ -257,7 +257,7 @@ private:
   {
     // The standard suggests vector.end() can be decremented as
     //   iter v.back() { *--v.end() }
-    // (ISO/IEC 14882:2003 C++ Standard 23.1.1/12 – Sequences)
+    // (ISO/IEC 14882:2003 C++ Standard 23.1.1/12 ? Sequences)
     return (mEnd - mIter) > n;
   }
 

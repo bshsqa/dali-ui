@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -138,7 +138,7 @@ void GetTextGeometry(ModelPtr textModel, CharacterIndex startIndex, CharacterInd
   float      currentLineHeight = GetLineHeight(*lineRun, isLastLine);
   GlyphIndex lastGlyphOfLine   = lineRun->glyphRun.glyphIndex + lineRun->glyphRun.numberOfGlyphs - 1;
 
-  // Check if the first/last glyph is a ligature that needs be splitted like English fi or Arabic ﻻ.
+  // Check if the first/last glyph is a ligature that needs be splitted like English fi or Arabic ?.
   const Length numberOfCharactersStart = *(charactersPerGlyphBuffer + glyphStart);
   const Length numberOfCharactersEnd   = *(charactersPerGlyphBuffer + glyphEnd);
 

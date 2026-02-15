@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1394,7 +1394,7 @@ CharacterIndex Controller::Impl::CalculateNewCursorIndex(CharacterIndex index) c
       }
       else
       {
-        // Prevents to jump the whole Latin ligatures like fi, ff, or Arabic ﻻ, ...
+        // Prevents to jump the whole Latin ligatures like fi, ff, or Arabic ?, ...
         numberOfCharacters = 1u;
       }
     }

@@ -1,4 +1,4 @@
-﻿#ifndef DALI_TOOLKIT_INTERNAL_STYLE_MANAGER_H
+#ifndef DALI_TOOLKIT_INTERNAL_STYLE_MANAGER_H
 #define DALI_TOOLKIT_INTERNAL_STYLE_MANAGER_H
 
 /*
@@ -28,9 +28,9 @@
 #include <string>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/builder/builder.h>
+#include <dali-ui-foundation/devel-api/builder/builder.h>
 #include <dali-ui-foundation/devel-api/styling/style-manager-devel.h>
-#include <dali-toolkit/internal/builder/style.h>
+#include <dali-ui-foundation/internal/builder/style.h>
 #include <dali-ui-foundation/public-api/styling/style-manager.h>
 
 namespace Dali

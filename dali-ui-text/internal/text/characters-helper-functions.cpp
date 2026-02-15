@@ -1,4 +1,4 @@
-﻿// FILE HEADER
+// FILE HEADER
 #include <dali-ui-text/internal/text/characters-helper-functions.h>
 
 // INTERNAL INCLUDES
@@ -29,7 +29,7 @@ CharacterRun RetrieveClusteredCharactersOfCharacterIndex(const VisualModelPtr&  
   if(actualNumberOfCharacters > 1u)
   {
     const Script script = logicalModel->GetScript(characterIndex);
-    // Prevents to break the Latin ligatures like fi, ff, or Arabic ﻻ, ...
+    // Prevents to break the Latin ligatures like fi, ff, or Arabic ?, ...
     // Keep actual index of character as is. Because these characters cannot be clustered.
 
     if(!HasLigatureMustBreak(script))

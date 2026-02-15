@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -318,7 +318,7 @@ CharacterIndex GetClosestCursorIndex(VisualModelPtr         visualModel,
         }
       }
 
-      // Whether the glyph can be split, like Latin ligatures fi, ff or Arabic (ل + ا).
+      // Whether the glyph can be split, like Latin ligatures fi, ff or Arabic (? + ?).
       Length numberOfCharacters = *(charactersPerGlyphBuffer + firstLogicalGlyphIndex);
       if(direction != LTR)
       {
@@ -330,7 +330,7 @@ CharacterIndex GetClosestCursorIndex(VisualModelPtr         visualModel,
         if(0 == numberOfCharacters)
         {
           // TODO: This is a workaround to fix an issue with complex characters in the arabic
-          // script like i.e. رّ or الأَبْجَدِيَّة العَرَبِيَّة
+          // script like i.e. ?? or ?????????????? ????????????
           // There are characters that are not shaped in one glyph but in combination with
           // the next one generates two of them.
           // The visual to logical conversion table have characters in different order than

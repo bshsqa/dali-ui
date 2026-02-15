@@ -1,4 +1,4 @@
-﻿#ifndef DALI_UI_STYLE_MANAGER_H
+#ifndef DALI_UI_STYLE_MANAGER_H
 #define DALI_UI_STYLE_MANAGER_H
 
 /*

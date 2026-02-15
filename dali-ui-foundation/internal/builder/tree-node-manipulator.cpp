@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2014 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,9 +20,9 @@
 #include <sstream>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/internal/builder/tree-node-manipulator.h>
+#include <dali-ui-foundation/internal/builder/tree-node-manipulator.h>
 
-#include <dali-toolkit/devel-api/builder/tree-node.h>
+#include <dali-ui-foundation/devel-api/builder/tree-node.h>
 
 namespace Dali
 {

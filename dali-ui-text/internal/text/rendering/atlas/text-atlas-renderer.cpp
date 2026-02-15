@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,7 +39,7 @@
 #include <dali-ui-text/internal/text/text-view.h>
 
 using namespace Dali;
-using namespace Dali::Toolkit;
+using namespace Dali::UI;
 using namespace Dali::UI::Text;
 
 namespace

@@ -1,4 +1,4 @@
-ï»¿/*
+/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -688,7 +688,7 @@ void ImageVisual::LoadTexture(TextureSet& textures, const Dali::ImageDimensions&
   bool synchronousLoading = IsSynchronousLoadingRequired();
   if(synchronousLoading && mImageUrl.IsValid() && mImageUrl.GetProtocolType() == VisualUrl::REMOTE)
   {
-    DALI_LOG_DEBUG_INFO("Download image(%s) canâ€™t use synchronous loading. it is forced to load asynchronously instead.", mImageUrl.GetEllipsedUrl().c_str());
+    DALI_LOG_DEBUG_INFO("Download image(%s) can¡¯t use synchronous loading. it is forced to load asynchronously instead.", mImageUrl.GetEllipsedUrl().c_str());
     synchronousLoading = false;
   }
 

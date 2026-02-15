@@ -1,5 +1,5 @@
-﻿#ifndef DALI_TOOLKIT_INTERNAL_VISUAL_URL_H
-#define DALI_TOOLKIT_INTERNAL_VISUAL_URL_H
+#ifndef DALI_UI_INTERNAL_VISUAL_URL_H
+#define DALI_UI_INTERNAL_VISUAL_URL_H
 
 /*
  * Copyright (c) 2025 Samsung Electronics Co., Ltd.

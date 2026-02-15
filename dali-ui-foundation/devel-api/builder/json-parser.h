@@ -1,4 +1,4 @@
-﻿#ifndef DALI_JSON_PARSER_H
+#ifndef DALI_JSON_PARSER_H
 #define DALI_JSON_PARSER_H
 
 /*
