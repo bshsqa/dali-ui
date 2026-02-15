@@ -42,6 +42,9 @@ enum class ReservedTraitId : uint32_t
   // Effects
   INTERACTION_EFFECT = 50,
 
+  // Visuals
+  VISUAL_TRAIT = 2,
+
   // Reserved
   MAX_RESERVED = 1000
 };
