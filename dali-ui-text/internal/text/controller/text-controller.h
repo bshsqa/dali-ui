@@ -28,7 +28,6 @@
 // INTERNAL INCLUDES
 #include <dali-ui-text/devel-api/controls/text-anchor-devel.h>
 #include <dali-ui-text/devel-api/controls/text-label-devel.h>
-#include <dali-ui-text/devel-api/controls/text-selection-popup-callback-interface.h>
 #include <dali-ui-text/devel-api/text/text-enumerations-devel.h>
 #include <dali-ui-text/internal/text/decorator/text-decorator.h>
 #include <dali-ui-text/internal/text/hidden-text.h>

@@ -25,7 +25,6 @@
 #include <dali/public-api/object/ref-object.h>
 
 // INTERNAL INCLUDES
-#include <dali-ui-text/devel-api/controls/text-selection-popup.h>
 
 namespace Dali
 {

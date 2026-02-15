@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <dali.h>
-#include <dali-toolkit/dali-toolkit.h>
+#include <dali-ui-foundation/dali-ui-foundation.h>
 #include <dali-ui-components/public-api/dummy-component.h>
 #include <dali-test-suite-utils.h>
 

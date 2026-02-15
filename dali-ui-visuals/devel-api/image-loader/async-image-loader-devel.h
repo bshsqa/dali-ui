@@ -1,5 +1,5 @@
-﻿#ifndef DALI_TOOLKIT_DEVEL_API_IMAGE_LOADER_ASYNC_IMAGE_LOADER_DEVEL_H
-#define DALI_TOOLKIT_DEVEL_API_IMAGE_LOADER_ASYNC_IMAGE_LOADER_DEVEL_H
+﻿#ifndef DALI_UI_DEVEL_API_IMAGE_LOADER_ASYNC_IMAGE_LOADER_DEVEL_H
+#define DALI_UI_DEVEL_API_IMAGE_LOADER_ASYNC_IMAGE_LOADER_DEVEL_H
 
 /*
  * Copyright (c) 2022 Samsung Electronics Co., Ltd.
@@ -23,7 +23,7 @@
 #include <dali/public-api/signals/dali-signal.h>
 
 // INTERNAL HEADER
-#include <dali-toolkit/public-api/image-loader/async-image-loader.h>
+#include <dali-ui-visuals/public-api/image-loader/async-image-loader.h>
 
 namespace Dali
 {

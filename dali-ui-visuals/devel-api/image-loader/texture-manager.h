@@ -1,5 +1,5 @@
-﻿#ifndef DALI_TOOLKIT_DEVEL_API_TEXTURE_MANAGER_H
-#define DALI_TOOLKIT_DEVEL_API_TEXTURE_MANAGER_H
+﻿#ifndef DALI_UI_DEVEL_API_TEXTURE_MANAGER_H
+#define DALI_UI_DEVEL_API_TEXTURE_MANAGER_H
 
 /*
  * Copyright (c) 2023 Samsung Electronics Co., Ltd.
@@ -21,7 +21,7 @@
 #include <dali/public-api/rendering/texture-set.h>
 
 // INTERNAL INCLUDES
-#include <dali-ui-foundation/public-api/dali-toolkit-common.h>
+#include <dali-ui-foundation/public-api/dali-ui-common.h>
 
 namespace Dali
 {

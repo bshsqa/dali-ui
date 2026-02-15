@@ -28,8 +28,8 @@
 #include <dali/integration-api/debug.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/asset-manager/asset-manager.h>
-#include <dali-toolkit/devel-api/builder/json-parser.h>
+#include <dali-ui-visuals/devel-api/asset-manager/asset-manager.h>
+#include <dali-ui-foundation/devel-api/builder/json-parser.h>
 
 namespace Dali
 {

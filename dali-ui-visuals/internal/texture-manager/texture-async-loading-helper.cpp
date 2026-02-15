@@ -23,7 +23,7 @@
 
 // INTERNAL HEADERS
 #include <dali-ui-visuals/internal/image-loader/async-image-loader-impl.h>
-#include <dali-toolkit/public-api/image-loader/sync-image-loader.h>
+#include <dali-ui-visuals/public-api/image-loader/sync-image-loader.h>
 
 namespace Dali
 {

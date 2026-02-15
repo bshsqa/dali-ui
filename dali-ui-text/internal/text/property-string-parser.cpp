@@ -22,8 +22,8 @@
 #include <sstream>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/builder/json-parser.h>
-#include <dali-toolkit/devel-api/builder/tree-node.h>
+#include <dali-ui-foundation/devel-api/builder/json-parser.h>
+#include <dali-ui-foundation/devel-api/builder/tree-node.h>
 #include <dali-ui-text/internal/text/markup-processor/markup-processor-helper-functions.h>
 
 namespace Dali

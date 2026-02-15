@@ -34,9 +34,10 @@
 // INTERNAL INCLUDES
 // TODO: #include <dali-ui-foundation/devel-api/depth-index-ranges.h>
 #include <dali-ui-foundation/devel-api/view-devel.h>
+// TODO: Replace ImageView dependency with View-based image display
 #include <dali-toolkit/internal/controls/image-view/image-view-impl.h>
-#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 #include <dali-toolkit/public-api/controls/image-view/image-view.h>
+#include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h>
 
 #ifdef DEBUG_ENABLED
 #define DECORATOR_DEBUG
@@ -197,7 +198,7 @@ struct Decorator::Impl : public ConnectionTracker
     {
     }
 
-    TextSelectionPopup actor;
+    Actor actor; // Popup UI removed
     Vector3            position;
   };
 
@@ -439,7 +440,7 @@ struct Decorator::Impl : public ConnectionTracker
     {
       if(mCopyPastePopup.actor)
       {
-        mCopyPastePopup.actor.HidePopup();
+        /* Popup UI removed */;
         mPopupSetNewPosition = true;
       }
     }
@@ -468,7 +469,7 @@ struct Decorator::Impl : public ConnectionTracker
     }
 
     mCopyPastePopup.actor.RaiseAbove(mActiveLayer);
-    mCopyPastePopup.actor.ShowPopup();
+    /* Popup UI removed */;
   }
 
   float CalculateVerticalPopUpPosition(float halfHeight, bool preferBelow)
@@ -964,7 +965,7 @@ struct Decorator::Impl : public ConnectionTracker
   {
     if(!mCopyPastePopup.actor)
     {
-      mCopyPastePopup.actor = TextSelectionPopup::New(&mTextSelectionPopupCallbackInterface);
+      // Popup UI removed - mCopyPastePopup.actor not created
 #ifdef DECORATOR_DEBUG
       mCopyPastePopup.actor.SetProperty(Dali::Actor::Property::NAME, "mCopyPastePopup");
 #endif

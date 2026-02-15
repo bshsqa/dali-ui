@@ -1,8 +1,5 @@
-﻿#ifndef DALI_TOOLKIT_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H
-#define DALI_TOOLKIT_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H
-
 /*
- * Copyright (c) 2020 Samsung Electronics Co., Ltd.
+ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,39 +12,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
-// INTERNAL INCLUDES
+#ifndef DALI_UI_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H
+#define DALI_UI_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H
+
+// Stub: The interface is now defined in text-selection-popup.h
 #include <dali-ui-text/devel-api/controls/text-selection-popup.h>
 
-namespace Dali
-{
-namespace UI
-{
-/**
- * @brief Interface used to receive the TextSelectionPopup's button callbacks.
- */
-class TextSelectionPopupCallbackInterface
-{
-public:
-  /**
-   * @brief Virtual destructor.
-   */
-  virtual ~TextSelectionPopupCallbackInterface()
-  {
-  }
-
-  /**
-   * @brief Called when a button is touched.
-   *
-   * @param[in] button The button identifier.
-   */
-  virtual void TextPopupButtonTouched(TextSelectionPopup::Buttons button) = 0;
-};
-
-} // namespace UI
-
-} // namespace Dali
-
-#endif // DALI_TOOLKIT_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H
+#endif // DALI_UI_TEXT_SELECTION_POPUP_CALLBACK_INTERFACE_H

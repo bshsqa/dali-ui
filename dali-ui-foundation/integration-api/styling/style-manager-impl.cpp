@@ -27,7 +27,7 @@
 #include <dali/public-api/object/type-registry.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/asset-manager/asset-manager.h>
+#include <dali-ui-visuals/devel-api/asset-manager/asset-manager.h>
 #include <dali-toolkit/internal/builder/builder-impl.h>
 #include <dali-toolkit/internal/feedback/feedback-style.h>
 #include <dali-ui-foundation/integration-api/view-impl.h>

@@ -27,7 +27,7 @@
 #include <dali/public-api/object/type-registry.h>
 
 // INTERNAL INCLUDES
-#include <dali-toolkit/devel-api/asset-manager/asset-manager.h>
+#include <dali-ui-visuals/devel-api/asset-manager/asset-manager.h>
 #include <dali-ui-foundation/devel-api/styling/style-manager-devel.h>
 #include <dali-ui-visuals/devel-api/visuals/visual-properties-devel.h>
 // #include <dali-ui-visuals/internal/graphics/builtin-shader-extern-gen.h> // Not used

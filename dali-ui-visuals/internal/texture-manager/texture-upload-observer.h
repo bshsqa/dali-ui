@@ -25,7 +25,7 @@
 
 // INTERNAL INCLUDES
 #include <dali-ui-visuals/internal/visuals/visual-url.h>
-#include <dali-ui-foundation/public-api/dali-toolkit-common.h>
+#include <dali-ui-foundation/public-api/dali-ui-common.h>
 
 namespace Dali
 {

@@ -25,7 +25,6 @@
 #include <dali/public-api/math/vector2.h>
 
 // INTERNAL INCLUDES
-#include <dali-ui-text/devel-api/controls/text-selection-popup.h>
 #include <dali-ui-text/internal/text/controller/text-controller.h>
 #include <dali-ui-text/internal/text/decorator/text-decorator.h>
 
