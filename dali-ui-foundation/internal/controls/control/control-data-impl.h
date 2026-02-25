@@ -28,10 +28,13 @@
 #include <map>
 #include <memory>
 #include <set>
+#include <vector>
 
 // INTERNAL INCLUDES
 #include <dali-ui-foundation/devel-api/controls/control-devel.h>
 #include <dali-ui-foundation/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/devel-api/visual-factory/visual-base.h>
+#include <dali-ui-foundation/internal/visuals/visual-event-observer.h>
 
 namespace Dali
 {
@@ -49,10 +52,29 @@ enum class TriStateProperty
 /**
  * @brief Holds the Implementation for the internal control class
  */
-class Control::Impl : public ConnectionTracker, public Dali::Integration::Processor
+class Control::Impl : public ConnectionTracker, public Dali::Integration::Processor, public Visual::EventObserver
 {
 private:
   class AccessibilityData;
+
+  /**
+   * @brief Registered visual info.
+   */
+  struct RegisteredVisual
+  {
+    Property::Index index;
+    UI::Visual::Base visual;
+    bool enabled;
+    int depthIndex;
+
+    RegisteredVisual(Property::Index idx, UI::Visual::Base vis, bool en, int depth)
+      : index(idx),
+        visual(vis),
+        enabled(en),
+        depthIndex(depth)
+    {
+    }
+  };
 
 public:
   /**
@@ -244,6 +266,20 @@ public:
    */
   bool IsCreateAccessibleEnabled() const;
 
+  // Visual management
+  void RegisterVisual(Property::Index index, UI::Visual::Base& visual, bool enabled = true);
+  void UnregisterVisual(Property::Index index);
+  UI::Visual::Base GetVisual(Property::Index index) const;
+  bool IsVisualEnabled(Property::Index index) const;
+  void EnableVisual(Property::Index index, bool enable);
+  void SetBackground(const Property::Map& map);
+  void ClearBackground();
+
+  // Visual::EventObserver
+  void ResourceReady(Visual::Base& object) override;
+  void NotifyVisualEvent(Visual::Base& object, Property::Index signalId) override;
+  void RelayoutRequest(Visual::Base& object) override;
+
 protected: // From processor-interface
   /**
    * @copydoc Dali::Integration::Processor::Process()
@@ -297,6 +333,8 @@ public:
 
   InputMethodContext mInputMethodContext;
   CallbackBase* mIdleCallback; ///< The idle callback.
+
+  std::vector<RegisteredVisual> mVisuals; ///< Registered visuals.
 
   ControlBehaviour mFlags : CONTROL_BEHAVIOUR_FLAG_COUNT; ///< Flags passed in from constructor.
 

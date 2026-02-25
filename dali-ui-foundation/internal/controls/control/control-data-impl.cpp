@@ -19,6 +19,12 @@
 #include "control-data-impl.h"
 #include "control-accessibility-data.h"
 
+// VISUAL INCLUDES
+#include <dali-ui-foundation/devel-api/visual-factory/visual-factory.h>
+#include <dali-ui-foundation/internal/visuals/visual-base-impl.h>
+#include <dali-ui-foundation/devel-api/controls/control-depth-index-ranges.h>
+#include <dali-ui-foundation/public-api/visuals/visual-properties.h>
+
 // EXTERNAL INCLUDES
 #include <dali/devel-api/actors/actor-devel.h>
 #include <dali/devel-api/adaptor-framework/accessibility.h>
@@ -1087,6 +1093,164 @@ void Control::Impl::Process(bool postProcessor)
 {
   // No visual processing in dali-ui foundation
   mProcessorRegistered = false;
+}
+
+// Visual management
+void Control::Impl::RegisterVisual(Property::Index index, UI::Visual::Base& visual, bool enabled)
+{
+  // Check if already registered and replace
+  for (auto& rv : mVisuals)
+  {
+    if (rv.index == index)
+    {
+      // Replace existing
+      if (rv.visual && mControlImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+      {
+        Internal::Visual::Base& visualImpl = GetImplementation(rv.visual);
+        Actor self = mControlImpl.Self();
+        visualImpl.SetOffScene(self);
+      }
+      rv.visual = visual;
+      rv.enabled = enabled;
+
+      // Set event observer
+      Internal::Visual::Base& newVisualImpl = GetImplementation(visual);
+      newVisualImpl.SetEventObserver(this);
+
+      if (enabled && mControlImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+      {
+        Actor self = mControlImpl.Self();
+        newVisualImpl.SetOnScene(self);
+      }
+      return;
+    }
+  }
+
+  // New registration
+  Internal::Visual::Base& visualImpl = GetImplementation(visual);
+  visualImpl.SetEventObserver(this);
+
+  mVisuals.emplace_back(index, visual, enabled, UI::DepthIndex::CONTENT);
+
+  if (enabled && mControlImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+  {
+    Actor self = mControlImpl.Self();
+    visualImpl.SetOnScene(self);
+  }
+}
+
+void Control::Impl::UnregisterVisual(Property::Index index)
+{
+  for (auto it = mVisuals.begin(); it != mVisuals.end(); ++it)
+  {
+    if (it->index == index)
+    {
+      if (it->visual && mControlImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+      {
+        Internal::Visual::Base& visualImpl = GetImplementation(it->visual);
+        Actor self = mControlImpl.Self();
+        visualImpl.SetOffScene(self);
+      }
+      mVisuals.erase(it);
+      return;
+    }
+  }
+}
+
+UI::Visual::Base Control::Impl::GetVisual(Property::Index index) const
+{
+  for (auto& rv : mVisuals)
+  {
+    if (rv.index == index)
+    {
+      return rv.visual;
+    }
+  }
+  return UI::Visual::Base();
+}
+
+bool Control::Impl::IsVisualEnabled(Property::Index index) const
+{
+  for (auto& rv : mVisuals)
+  {
+    if (rv.index == index)
+    {
+      return rv.enabled;
+    }
+  }
+  return false;
+}
+
+void Control::Impl::EnableVisual(Property::Index index, bool enable)
+{
+  for (auto& rv : mVisuals)
+  {
+    if (rv.index == index)
+    {
+      if (rv.enabled != enable)
+      {
+        rv.enabled = enable;
+        if (mControlImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
+        {
+          Internal::Visual::Base& visualImpl = GetImplementation(rv.visual);
+          Actor self = mControlImpl.Self();
+          if (enable)
+          {
+            visualImpl.SetOnScene(self);
+          }
+          else
+          {
+            visualImpl.SetOffScene(self);
+          }
+        }
+      }
+      return;
+    }
+  }
+}
+
+namespace
+{
+const Property::Index BACKGROUND_VISUAL = UI::DepthIndex::BACKGROUND; // Use a well-known index
+}
+
+void Control::Impl::SetBackground(const Property::Map& map)
+{
+  UI::VisualFactory factory = UI::VisualFactory::Get();
+  if (factory)
+  {
+    UI::Visual::Base visual = factory.CreateVisual(map);
+    if (visual)
+    {
+      RegisterVisual(BACKGROUND_VISUAL, visual);
+
+      // Set depth index to background
+      Internal::Visual::Base& visualImpl = GetImplementation(visual);
+      visualImpl.SetDepthIndex(UI::DepthIndex::BACKGROUND);
+    }
+  }
+}
+
+void Control::Impl::ClearBackground()
+{
+  UnregisterVisual(BACKGROUND_VISUAL);
+  mControlImpl.Self().SetProperty(Actor::Property::COLOR, Color::TRANSPARENT);
+}
+
+// Visual::EventObserver
+void Control::Impl::ResourceReady(Visual::Base& object)
+{
+  // Resource ready callback - e.g. emit signal
+}
+
+void Control::Impl::NotifyVisualEvent(Visual::Base& object, Property::Index signalId)
+{
+  // Visual event notification
+}
+
+void Control::Impl::RelayoutRequest(Visual::Base& object)
+{
+  mControlImpl.RelayoutRequest();
 }
 
 } // namespace Internal
