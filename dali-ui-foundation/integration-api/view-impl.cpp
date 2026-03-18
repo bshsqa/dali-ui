@@ -1266,7 +1266,7 @@ bool ViewImpl::HasKeyInputFocus()
   bool result = false;
   if(Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
   {
-    Ui::View view = Ui::KeyInputFocusManager::Get().GetCurrentFocusControl();
+    Ui::View view = Ui::KeyInputFocusManager::Get().GetCurrentFocusView();
     if(Self() == view)
     {
       result = true;
