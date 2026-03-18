@@ -57,7 +57,7 @@ enum class TriStateProperty
 /**
  * @brief Holds the Implementation for the internal view class
  */
-class View::Impl : public ConnectionTracker, public Dali::Integration::Processor
+class ViewDataImpl : public ConnectionTracker, public Dali::Integration::Processor
 {
 private:
   class AccessibilityData;
@@ -66,26 +66,26 @@ private:
 public:
   /**
    * @brief Retrieves the implementation of the internal view class.
-   * @param[in] internalView A ref to the view whose internal implementation is required
+   * @param[in] viewImpl A ref to the view whose internal implementation is required
    * @return The internal implementation
    */
-  static View::Impl& Get(Integration::ViewImpl& internalView);
+  static ViewDataImpl& Get(Integration::ViewImpl& viewImpl);
 
   /**
    * @copydoc Get( Integration::ViewImpl& )
    */
-  static const View::Impl& Get(const Integration::ViewImpl& internalView);
+  static const ViewDataImpl& Get(const Integration::ViewImpl& viewImpl);
 
   /**
    * @brief Constructor.
    * @param[in] viewImpl The view which owns this implementation
    */
-  Impl(View& viewImpl);
+  ViewDataImpl(Integration::ViewImpl& viewImpl);
 
   /**
    * @brief Destructor.
    */
-  ~Impl();
+  ~ViewDataImpl();
 
   /**
    * @brief Initialize private VisualData context for this impl.
@@ -467,7 +467,7 @@ private:
   void UpdateBorderline();
 
 public:
-  View& mViewImpl;
+  Integration::ViewImpl& mViewImpl;
 
   std::unique_ptr<AccessibilityData> mAccessibilityData;
   std::unique_ptr<VisualData>        mVisualData;
@@ -505,10 +505,10 @@ public:
   InputMethodContext mInputMethodContext;
   CallbackBase*      mIdleCallback; ///< The idle callback to emit the resource ready signal.
 
-  ViewBehaviour mFlags : VIEW_BEHAVIOUR_FLAG_COUNT; ///< Flags passed in from constructor.
+  Integration::ViewImpl::ViewBehaviour mFlags : Integration::ViewImpl::VIEW_BEHAVIOUR_FLAG_COUNT; ///< Flags passed in from constructor.
 
   // Frequencly touched accessibility relative values.
-  // Keep it on Impl to avoid AccessibilityData creation.
+  // Keep it on ViewDataImpl to avoid AccessibilityData creation.
   int32_t mAccessibilityRole : Dali::Log<static_cast<uint32_t>(AccessibilityRole::MAX_COUNT)>::value + 2;
 
   bool mIsKeyboardNavigationSupported : 1; ///< Stores whether keyboard navigation is supported by the view.
@@ -519,8 +519,8 @@ public:
   bool mAccessibleCreatable : 1;           ///< Whether we can create new accessible or not.
   bool mProcessorRegistered : 1;           ///< Whether the processor is registered.
 
-  // Properties - these need to be members of Integration::ViewImpl::Impl as they access private methods/data of
-  // Integration::ViewImpl and Integration::ViewImpl::Impl.
+  // Properties - these need to be members of Internal::ViewDataImpl as they access private methods/data of
+  // Integration::ViewImpl and Internal::ViewDataImpl.
   static const PropertyRegistration PROPERTY_1;
   static const PropertyRegistration PROPERTY_2;
   static const PropertyRegistration PROPERTY_3;

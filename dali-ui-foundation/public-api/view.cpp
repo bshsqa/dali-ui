@@ -34,11 +34,11 @@
 
 namespace
 {
-Dali::Ui::Internal::View::Impl& GetViewImplementation(Dali::Ui::View view)
+Dali::Ui::Internal::ViewDataImpl& GetViewImplementation(Dali::Ui::View view)
 {
-  auto& internalView = Dali::Ui::Internal::GetImplementation(view);
+  auto& internalView = Dali::Ui::Integration::GetImpl(view);
 
-  return Dali::Ui::Internal::View::Impl::Get(internalView);
+  return Dali::Ui::Internal::ViewDataImpl::Get(internalView);
 }
 
 } // unnamed namespace
@@ -63,15 +63,9 @@ View View::New()
   return handle;
 }
 
-View::View(const View& view)
-: Ui::View(view)
-{
-}
+View::View(const View& view) = default;
 
-View::View(View&& rhs) noexcept
-: Ui::View(std::move(rhs))
-{
-}
+View::View(View&& rhs) noexcept = default;
 
 View::~View()
 {
@@ -382,62 +376,62 @@ View& View::SetLayoutParams(LayoutParams params)
 // From control.cpp
 void View::SetKeyInputFocus()
 {
-  Internal::GetImplementation(*this).SetKeyInputFocus();
+  Integration::GetImpl(*this).SetKeyInputFocus();
 }
 
 bool View::HasKeyInputFocus()
 {
-  return Internal::GetImplementation(*this).HasKeyInputFocus();
+  return Integration::GetImpl(*this).HasKeyInputFocus();
 }
 
 void View::ClearKeyInputFocus()
 {
-  Internal::GetImplementation(*this).ClearKeyInputFocus();
+  Integration::GetImpl(*this).ClearKeyInputFocus();
 }
 
 PinchGestureDetector View::GetPinchGestureDetector() const
 {
-  return Internal::GetImplementation(*this).GetPinchGestureDetector();
+  return Integration::GetImpl(*this).GetPinchGestureDetector();
 }
 
 PanGestureDetector View::GetPanGestureDetector() const
 {
-  return Internal::GetImplementation(*this).GetPanGestureDetector();
+  return Integration::GetImpl(*this).GetPanGestureDetector();
 }
 
 TapGestureDetector View::GetTapGestureDetector() const
 {
-  return Internal::GetImplementation(*this).GetTapGestureDetector();
+  return Integration::GetImpl(*this).GetTapGestureDetector();
 }
 
 LongPressGestureDetector View::GetLongPressGestureDetector() const
 {
-  return Internal::GetImplementation(*this).GetLongPressGestureDetector();
+  return Integration::GetImpl(*this).GetLongPressGestureDetector();
 }
 
 void View::SetBackgroundColor(const Vector4& color)
 {
-  Internal::GetImplementation(*this).SetBackgroundColor(color);
+  Integration::GetImpl(*this).SetBackgroundColor(color);
 }
 
 void View::ClearBackground()
 {
-  Internal::GetImplementation(*this).ClearBackground();
+  Integration::GetImpl(*this).ClearBackground();
 }
 
 void View::SetRenderEffect(Ui::RenderEffect effect)
 {
-  Internal::GetImplementation(*this).SetRenderEffect(effect);
+  Integration::GetImpl(*this).SetRenderEffect(effect);
 }
 
 Ui::RenderEffect View::GetRenderEffect() const
 {
-  return Internal::GetImplementation(*this).GetRenderEffect();
+  return Integration::GetImpl(*this).GetRenderEffect();
 }
 
 void View::ClearRenderEffect()
 {
-  Internal::GetImplementation(*this).ClearRenderEffect();
+  Integration::GetImpl(*this).ClearRenderEffect();
 }
 
 Dali::Renderer View::CreateRenderer(std::string_view vertexSrc, std::string_view fragmentSrc)
@@ -463,43 +457,43 @@ void View::SetRendererTexture(Renderer renderer, FrameBuffer frameBuffer)
 
 bool View::IsResourceReady() const
 {
-  return Internal::GetImplementation(*this).IsResourceReady();
+  return Integration::GetImpl(*this).IsResourceReady();
 }
 
 Visual::ResourceStatus View::GetVisualResourceStatus(const Dali::Property::Index index)
 {
-  const Internal::View&       internalView = Ui::Internal::GetImplementation(*this);
-  const Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(internalView);
+  const Integration::ViewImpl&  internalView = Ui::Integration::GetImpl(*this);
+  const Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(internalView);
   return viewDataImpl.GetVisualResourceStatus(index);
 }
 
 View::KeyEventSignalType& View::KeyEventSignal()
 {
-  return Internal::GetImplementation(*this).KeyEventSignal();
+  return Integration::GetImpl(*this).KeyEventSignal();
 }
 
 View::KeyInputFocusSignalType& View::KeyInputFocusGainedSignal()
 {
-  return Internal::GetImplementation(*this).KeyInputFocusGainedSignal();
+  return Integration::GetImpl(*this).KeyInputFocusGainedSignal();
 }
 
 View::KeyInputFocusSignalType& View::KeyInputFocusLostSignal()
 {
-  return Internal::GetImplementation(*this).KeyInputFocusLostSignal();
+  return Integration::GetImpl(*this).KeyInputFocusLostSignal();
 }
 
 View::ResourceReadySignalType& View::ResourceReadySignal()
 {
-  Internal::View&       internalView = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewImpl     = Internal::View::Impl::Get(internalView);
+  Integration::ViewImpl&  internalView = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewImpl     = Internal::ViewDataImpl::Get(internalView);
 
   return viewImpl.mResourceReadySignal;
 }
 
 View::OffScreenRenderingFinishedSignalType& View::OffScreenRenderingFinishedSignal()
 {
-  Internal::View&       internalView = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewImpl     = Internal::View::Impl::Get(internalView);
+  Integration::ViewImpl&  internalView = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewImpl     = Internal::ViewDataImpl::Get(internalView);
 
   return viewImpl.mOffScreenRenderingFinishedSignal;
 }
@@ -508,93 +502,93 @@ View::OffScreenRenderingFinishedSignalType& View::OffScreenRenderingFinishedSign
 
 void View::RegisterVisual(Dali::Property::Index index, Ui::Visual::Base& visual)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).RegisterVisual(index, visual);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).RegisterVisual(index, visual);
 }
 
 void View::RegisterVisual(Dali::Property::Index index, Ui::Visual::Base& visual, int depthIndex)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).RegisterVisual(index, visual, depthIndex);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).RegisterVisual(index, visual, depthIndex);
 }
 
 void View::RegisterVisual(Dali::Property::Index index, Ui::Visual::Base& visual, bool enabled)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).RegisterVisual(index, visual, enabled);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).RegisterVisual(index, visual, enabled);
 }
 
 void View::RegisterVisual(Dali::Property::Index index, Ui::Visual::Base& visual, bool enabled, int depthIndex)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).RegisterVisual(index, visual, enabled, depthIndex);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).RegisterVisual(index, visual, enabled, depthIndex);
 }
 
 void View::UnregisterVisual(Dali::Property::Index index)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).UnregisterVisual(index);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).UnregisterVisual(index);
 }
 
 Ui::Visual::Base View::GetVisual(Dali::Property::Index index)
 {
-  const Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  return Internal::View::Impl::Get(viewInternal).GetVisual(index);
+  const Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  return Internal::ViewDataImpl::Get(viewInternal).GetVisual(index);
 }
 
 void View::EnableVisual(Dali::Property::Index index, bool enable)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).EnableVisual(index, enable);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).EnableVisual(index, enable);
 }
 
 bool View::IsVisualEnabled(Dali::Property::Index index)
 {
-  const Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  return Internal::View::Impl::Get(viewInternal).IsVisualEnabled(index);
+  const Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  return Internal::ViewDataImpl::Get(viewInternal).IsVisualEnabled(index);
 }
 
 void View::DoAction(Dali::Property::Index visualIndex, Dali::Property::Index actionId,
                     const Dali::Property::Value& attributes)
 {
-  Internal::View&       viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(viewInternal);
+  Integration::ViewImpl&  viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewInternal);
   viewDataImpl.DoAction(visualIndex, actionId, attributes);
 }
 
 void View::DoActionExtension(Dali::Property::Index visualIndex, Dali::Property::Index actionId,
                              const Dali::Any& attributes)
 {
-  Internal::View&       viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(viewInternal);
+  Integration::ViewImpl&  viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewInternal);
   viewDataImpl.DoActionExtension(visualIndex, actionId, attributes);
 }
 
 void View::EnableCornerPropertiesOverridden(Visual::Base& visual, bool enable,
                                             Dali::Constraint cornerRadiusConstraint)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal)
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal)
     .EnableCornerPropertiesOverridden(visual, enable, cornerRadiusConstraint);
 }
 
 void View::SetInputMethodContext(InputMethodContext& inputMethodContext)
 {
-  Internal::View& viewInternal = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl::Get(viewInternal).SetInputMethodContext(inputMethodContext);
+  Integration::ViewImpl& viewInternal = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl::Get(viewInternal).SetInputMethodContext(inputMethodContext);
 }
 
 Ui::View::VisualEventSignalType& View::VisualEventSignal()
 {
-  Internal::View&       internalView = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(internalView);
+  Integration::ViewImpl&  internalView = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(internalView);
   return viewDataImpl.VisualEventSignal();
 }
 
 Dali::Property View::GetVisualProperty(Dali::Property::Index index, Dali::Property::Key visualPropertyKey)
 {
-  Internal::View&       internalView = Ui::Internal::GetImplementation(*this);
-  Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(internalView);
+  Integration::ViewImpl&  internalView = Ui::Integration::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(internalView);
   return viewDataImpl.GetVisualProperty(index, visualPropertyKey);
 }
 

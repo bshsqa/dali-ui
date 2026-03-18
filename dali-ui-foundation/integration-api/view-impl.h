@@ -50,10 +50,14 @@ namespace Ui
 {
 
 // Forward declarations
-class ControlAccessible;
 class Layout;
 class LayoutManager;
-// class ViewAccessible; TODO: Need to create ViewAccessible instead of ControlAccessible
+class ViewAccessible;
+
+namespace Internal
+{
+class ViewDataImpl;
+}
 
 namespace Integration
 {
@@ -577,6 +581,13 @@ public:
   void SetResourceReady();
 
   /**
+   * @brief Retrieves the internal data implementation of the view.
+   *
+   * @return Reference to the internal data implementation
+   */
+  Internal::ViewDataImpl& GetViewDataImpl() const;
+
+  /**
    * @brief Retrieves SourceActor of the OffScreenRenderable.
    *
    * @SINCE_2_3.43
@@ -605,7 +616,7 @@ public:
    *
    * @see CreateAccessibleObject()
    */
-  std::shared_ptr<Ui::ControlAccessible> GetAccessibleObject();
+  std::shared_ptr<Ui::ViewAccessible> GetAccessibleObject();
 
   // Gesture Detection
 
@@ -885,15 +896,18 @@ protected: // From CustomActorImpl
    */
   void OnLayoutNegotiated(float size, Dimension::Type dimension) override;
 
+public:
+  void RelayoutRequestToView();
+
 public: // Helpers for deriving classes
   /**
    * @brief Flags for the constructor.
    * @SINCE_1_0.0
    */
-  enum ControlBehaviour
+  enum ViewBehaviour
   {
-    CONTROL_BEHAVIOUR_DEFAULT = 0, ///< Default behaviour: Size negotiation is enabled & listens to Style Change signal,
-                                   ///< but doesn't receive event callbacks. @SINCE_1_2_10
+    VIEW_BEHAVIOUR_DEFAULT = 0, ///< Default behaviour: Size negotiation is enabled & listens to Style Change signal,
+                                ///< but doesn't receive event callbacks. @SINCE_1_2_10
     NOT_IN_USE_1 = 1 << (CustomActorImpl::ACTOR_FLAG_COUNT + 0),
     REQUIRES_KEYBOARD_NAVIGATION_SUPPORT =
       1 << (CustomActorImpl::ACTOR_FLAG_COUNT + 1), ///< True if needs to support keyboard navigation @SINCE_1_0.0
@@ -902,11 +916,11 @@ public: // Helpers for deriving classes
     DISABLE_VISUALS =
       1 << (CustomActorImpl::ACTOR_FLAG_COUNT + 3), ///< True if view should not use visuals @SINCE_2_3.6
 
-    LAST_CONTROL_BEHAVIOUR_FLAG
+    LAST_VIEW_BEHAVIOUR_FLAG
   };
 
-  static const int CONTROL_BEHAVIOUR_FLAG_COUNT =
-    Log<LAST_CONTROL_BEHAVIOUR_FLAG - 1>::value + 1; ///< Total count of flags
+  static const int VIEW_BEHAVIOUR_FLAG_COUNT =
+    Log<LAST_VIEW_BEHAVIOUR_FLAG - 1>::value + 1; ///< Total count of flags
 
 protected:
   // Construction
@@ -915,9 +929,9 @@ protected:
    * @brief View constructor.
    *
    * @SINCE_1_0.0
-   * @param[in] behaviourFlags Behavioural flags from ControlBehaviour enum
+   * @param[in] behaviourFlags Behavioural flags from ViewBehaviour enum
    */
-  ViewImpl(ControlBehaviour behaviourFlags);
+  ViewImpl(ViewBehaviour behaviourFlags);
 
 public: // API for derived classes to override
   // Lifecycle
@@ -989,7 +1003,7 @@ public: // API for derived classes to override
    *
    * @see GetAccessibleObject()
    */
-  virtual ControlAccessible* CreateAccessibleObject();
+  virtual ViewAccessible* CreateAccessibleObject();
 
   // Keyboard focus
 
@@ -1103,7 +1117,7 @@ public: // API for derived classes to override
    * @SINCE_1_0.0
    * @return The extension if available, NULL otherwise
    */
-  virtual Extension* GetControlExtension()
+  virtual Extension* GetViewExtension()
   {
     return NULL;
   }
@@ -1118,10 +1132,10 @@ public: // API for derived classes to override
   }
 
 public:
-  class DALI_INTERNAL Impl; // Class declaration is public so we can internally add devel API's to the Views Impl
+  class DALI_INTERNAL ViewDataImpl; // Class declaration is public so we can internally add devel API's to the Views Impl
 
 private:
-  Impl* mImpl;
+  Internal::ViewDataImpl* mImpl;
 };
 
 // Helpers for public-api forwarding methods

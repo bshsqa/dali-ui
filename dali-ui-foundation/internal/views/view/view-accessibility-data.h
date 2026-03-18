@@ -28,13 +28,13 @@ namespace Ui
 namespace Internal
 {
 // private inner class
-class View::Impl::AccessibilityData : public ConnectionTracker
+class ViewDataImpl::AccessibilityData : public ConnectionTracker
 {
   friend class Ui::ViewAccessible;
 
 public:
   // Constructor
-  AccessibilityData(View& viewImpl);
+  AccessibilityData(Integration::ViewImpl& viewImpl);
 
   /**
    * @copydoc Dali::Ui::Integration::ViewImpl::Impl::AppendAccessibilityAttribute()
@@ -162,7 +162,7 @@ private:
   Dali::Accessibility::ScreenRelativeMoveType mAccessibilityLastScreenRelativeMoveType{
     Accessibility::ScreenRelativeMoveType::OUTSIDE};
 
-  View& mViewImpl;
+  Integration::ViewImpl& mViewImpl;
 
   bool mIsAccessibilityPositionPropertyNotificationSet : 1;
   bool mIsAccessibilityPropertySetSignalRegistered : 1;

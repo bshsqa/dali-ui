@@ -27,7 +27,7 @@
 #include <dali-ui-foundation/internal/builder/style.h>
 #include <dali-ui-foundation/internal/visuals/visual-constraint-observer.h>
 #include <dali-ui-foundation/internal/visuals/visual-event-observer.h>
-#include <dali-ui-foundation/public-api/views/view-depth-index-ranges.h>
+#include <dali-ui-foundation/public-api/view-depth-index-ranges.h>
 #include <dali-ui-foundation/public-api/visuals/visual-properties.h>
 #include <dali/devel-api/common/owner-container.h>
 
@@ -71,11 +71,11 @@ struct RegisteredVisual
 typedef Dali::OwnerContainer<RegisteredVisual*> RegisteredVisualContainer;
 
 // private inner class
-class View::Impl::VisualData : public Visual::EventObserver, public Visual::ConstraintObserver
+class ViewDataImpl::VisualData : public Visual::EventObserver, public Visual::ConstraintObserver
 {
 public:
   // Constructor
-  VisualData(View::Impl& outer);
+  VisualData(ViewDataImpl& outer);
 
   // Destructor
   ~VisualData();
@@ -366,7 +366,7 @@ public:
   RegisteredVisualContainer       mRemoveVisuals; ///< List of visuals that are being replaced by another visual once ready
 
 private:
-  View::Impl& mOuter;
+  ViewDataImpl& mOuter;
 
   // Key : PropertyIndex. Value map's Key : Animation.GetObjectPtr(), Value map's Value: count of animate called
   using PropertyOnAnimationContainer =

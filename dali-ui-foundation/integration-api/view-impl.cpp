@@ -99,7 +99,7 @@ void CreateClippingRenderer(ViewImpl& viewImpl)
   int   clippingMode = ClippingMode::DISABLED;
   if(self.GetProperty(Actor::Property::CLIPPING_MODE).Get(clippingMode))
   {
-    Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(viewImpl);
+    Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewImpl);
     if(clippingMode == ClippingMode::CLIP_CHILDREN &&
        (DALI_UNLIKELY(!viewDataImpl.mVisualData) || viewDataImpl.mVisualData->mVisuals.Empty()) &&
        self.GetRendererCount() == 0u)
@@ -126,7 +126,7 @@ void RegisterViewAccessibleGetter()
       if(view.IsCreateAccessibleEnabled())
       {
         auto& viewImpl = Integration::GetImpl(view);
-        return {std::shared_ptr<ControlAccessible>(viewImpl.CreateAccessibleObject()), true};
+        return {std::shared_ptr<ViewAccessible>(viewImpl.CreateAccessibleObject()), true};
       }
       return {nullptr, false};
     });
@@ -144,9 +144,8 @@ ViewImplPtr ViewImpl::New()
 
 ViewImpl::ViewImpl()
 : CustomActorImpl(static_cast<ActorFlags>(
-    static_cast<int>(CONTROL_BEHAVIOUR_DEFAULT) |
+    static_cast<int>(VIEW_BEHAVIOUR_DEFAULT) |
     static_cast<int>(Dali::CustomActorImpl::DISABLE_SIZE_NEGOTIATION))),
-  mImpl(new Impl(*this)),
   mInteractionTrait(nullptr),
   mLayoutWidth(LayoutDimension::WrapContent),
   mLayoutHeight(LayoutDimension::WrapContent),
@@ -161,10 +160,11 @@ ViewImpl::ViewImpl()
   mDesiredSize{0.0f, 0.0f},
   mLastMeasuredConstraint{-1.0f, -1.0f},
   mArrangedBounds{0.0f, 0.0f, 0.0f, 0.0f},
-  mArrangeValid(false)
+  mArrangeValid(false),
+  mImpl(new Internal::ViewDataImpl(*this))
 {
   mImpl->mFlags = static_cast<Ui::View::ViewBehaviour>(
-    static_cast<int>(CONTROL_BEHAVIOUR_DEFAULT) |
+    static_cast<int>(VIEW_BEHAVIOUR_DEFAULT) |
     static_cast<int>(Dali::CustomActorImpl::DISABLE_SIZE_NEGOTIATION));
 }
 
@@ -1015,7 +1015,7 @@ void ViewImpl::SetLayoutParams(Ui::LayoutParams params)
 // From control-impl.cpp
 // =============================================================================
 
-ViewImpl::ViewImpl(ControlBehaviour behaviourFlags)
+ViewImpl::ViewImpl(ViewBehaviour behaviourFlags)
 : CustomActorImpl(static_cast<ActorFlags>(behaviourFlags)),
   mImpl(new Impl(*this)),
   mInteractionTrait(nullptr),
@@ -1139,8 +1139,13 @@ void ViewImpl::ClearRenderEffect()
 
 void ViewImpl::SetResourceReady()
 {
-  Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(*this);
   viewDataImpl.ResourceReady();
+}
+
+Internal::ViewDataImpl& ViewImpl::GetViewDataImpl() const
+{
+  return Internal::ViewDataImpl::Get(*this);
 }
 
 Dali::Actor ViewImpl::GetOffScreenRenderableSourceActor()
@@ -1154,7 +1159,7 @@ bool ViewImpl::IsOffScreenRenderTaskExclusive()
   return false;
 }
 
-std::shared_ptr<Ui::ControlAccessible> ViewImpl::GetAccessibleObject()
+std::shared_ptr<Ui::ViewAccessible> ViewImpl::GetAccessibleObject()
 {
   return mImpl->GetAccessibleObject();
 }
@@ -1326,9 +1331,9 @@ bool ViewImpl::OnAccessibilityZoom()
   return false; // Accessibility zoom action is not handled by default
 }
 
-ControlAccessible* ViewImpl::CreateAccessibleObject()
+ViewAccessible* ViewImpl::CreateAccessibleObject()
 {
-  return new ControlAccessible(Self());
+  return new ViewAccessible(Self());
 }
 
 Actor ViewImpl::GetNextKeyboardFocusableActor(Actor currentFocusedActor, Ui::View::KeyboardFocus::Direction direction,
@@ -1539,7 +1544,7 @@ void ViewImpl::GetOffScreenRenderTasks(Dali::Vector<Dali::RenderTask>& tasks, bo
 
 bool ViewImpl::IsResourceReady() const
 {
-  const Internal::View::Impl& viewDataImpl = Internal::View::Impl::Get(*this);
+  const Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(*this);
   return viewDataImpl.IsResourceReady();
 }
 
@@ -1616,6 +1621,11 @@ void ViewImpl::OnCalculateRelayoutSize(Dimension::Type dimension)
 
 void ViewImpl::OnLayoutNegotiated(float size, Dimension::Type dimension)
 {
+}
+
+void ViewImpl::RelayoutRequestToView()
+{
+  Self().RelayoutRequest();
 }
 
 void ViewImpl::SignalConnected(SlotObserver* slotObserver, CallbackBase* callback)
