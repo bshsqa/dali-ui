@@ -163,7 +163,7 @@ ViewImpl::ViewImpl()
   mArrangeValid(false),
   mImpl(new Internal::ViewDataImpl(*this))
 {
-  mImpl->mFlags = static_cast<Ui::View::ViewBehaviour>(
+  mImpl->mFlags = static_cast<Ui::Integration::ViewImpl::ViewBehaviour>(
     static_cast<int>(VIEW_BEHAVIOUR_DEFAULT) |
     static_cast<int>(Dali::CustomActorImpl::DISABLE_SIZE_NEGOTIATION));
 }
@@ -1017,7 +1017,6 @@ void ViewImpl::SetLayoutParams(Ui::LayoutParams params)
 
 ViewImpl::ViewImpl(ViewBehaviour behaviourFlags)
 : CustomActorImpl(static_cast<ActorFlags>(behaviourFlags)),
-  mImpl(new Impl(*this)),
   mInteractionTrait(nullptr),
   mLayoutWidth(LayoutDimension::WrapContent),
   mLayoutHeight(LayoutDimension::WrapContent),
@@ -1032,9 +1031,10 @@ ViewImpl::ViewImpl(ViewBehaviour behaviourFlags)
   mDesiredSize{0.0f, 0.0f},
   mLastMeasuredConstraint{-1.0f, -1.0f},
   mArrangedBounds{0.0f, 0.0f, 0.0f, 0.0f},
-  mArrangeValid(false)
+  mArrangeValid(false),
+  mImpl(new Internal::ViewDataImpl(*this))
 {
-  mImpl->mFlags = static_cast<Ui::View::ViewBehaviour>(behaviourFlags);
+  mImpl->mFlags = static_cast<Ui::Integration::ViewImpl::ViewBehaviour>(behaviourFlags);
 }
 
 void ViewImpl::Initialize()

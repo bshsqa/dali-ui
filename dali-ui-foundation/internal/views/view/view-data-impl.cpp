@@ -569,14 +569,14 @@ ViewDataImpl& ViewDataImpl::Get(Integration::ViewImpl& viewImpl)
 {
   DALI_ASSERT_ALWAYS(Stage::IsCoreThread() && "Core is not installed. Might call this API from worker thread?");
 
-  return *viewImpl.GetViewDataImpl();
+  return viewImpl.GetViewDataImpl();
 }
 
 const ViewDataImpl& ViewDataImpl::Get(const Integration::ViewImpl& viewImpl)
 {
   DALI_ASSERT_ALWAYS(Stage::IsCoreThread() && "Core is not installed. Might call this API from worker thread?");
 
-  return *viewImpl.GetViewDataImpl();
+  return viewImpl.GetViewDataImpl();
 }
 
 // Gesture Detection Methods
