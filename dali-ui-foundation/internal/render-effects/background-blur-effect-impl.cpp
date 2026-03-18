@@ -27,8 +27,10 @@
 #include <dali/public-api/render-tasks/render-task-list.h>
 
 // INTERNAL INCLUDES
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-foundation/public-api/controls/control-depth-index-ranges.h>
 #include <dali-ui-foundation/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/public-api/view-depth-index-ranges.h>
 
 namespace
 {
@@ -386,7 +388,7 @@ void BackgroundBlurEffectImpl::OnActivate()
   verticalRenderer.SetShader(blurShader);
   verticalRenderer.RegisterProperty(UNIFORM_BLUR_OFFSET_DIRECTION_NAME.data(), Vector2(0.0f, 1.0f / downsampledHeight));
 
-  // Inject blurred output to control
+  // Inject blurred output to view
   Renderer renderer = GetTargetRenderer();
   renderer.SetProperty(Dali::Renderer::Property::DEPTH_INDEX, Dali::Ui::DepthIndex::BACKGROUND_EFFECT);
   ownerView.AddRenderer(renderer);
@@ -397,7 +399,7 @@ void BackgroundBlurEffectImpl::OnActivate()
 
   // Reorder render task
   // TODO : Can we remove this GetImplementation?
-  GetImplementation(ownerView).RequestRenderTaskReorder();
+  Integration::GetImpl(ownerView).RequestRenderTaskReorder();
 }
 
 void BackgroundBlurEffectImpl::OnDeactivate()
@@ -457,7 +459,7 @@ void BackgroundBlurEffectImpl::OnRefresh()
     Ui::View ownerView = GetOwnerView();
     ownerView.Add(mInternalRoot);
     CreateRenderTasks(GetSceneHolder(), ownerView);
-    GetImplementation(ownerView).RequestRenderTaskReorder();
+    Integration::GetImpl(ownerView).RequestRenderTaskReorder();
   }
   else
   {
@@ -660,12 +662,12 @@ void BackgroundBlurEffectImpl::ApplyRenderTaskSourceActor(RenderTask sourceRende
       useUserSourceActor = true;
     }
 
-    Ui::View control = Ui::View::DownCast(sourceActor);
-    if(control && (((GetImplementation(control).GetOffScreenRenderableType() & OffScreenRenderable::Type::FORWARD)) ==
-                   OffScreenRenderable::Type::FORWARD))
+    Ui::View view = Ui::View::DownCast(sourceActor);
+    if(view && (((Integration::GetImpl(view).GetOffScreenRenderableType() & OffScreenRenderable::Type::FORWARD)) ==
+                OffScreenRenderable::Type::FORWARD))
     {
-      sourceActor         = GetImplementation(control).GetOffScreenRenderableSourceActor();
-      isExclusiveRequired = GetImplementation(control).IsOffScreenRenderTaskExclusive();
+      sourceActor         = Integration::GetImpl(view).GetOffScreenRenderableSourceActor();
+      isExclusiveRequired = Integration::GetImpl(view).IsOffScreenRenderTaskExclusive();
       break;
     }
   }

@@ -1109,7 +1109,7 @@ void ViewImpl::SetRenderEffect(Ui::RenderEffect effect)
     DALI_ASSERT_ALWAYS(object && "Given render effect is not valid.");
 
     Dali::Ui::View ownerView(GetOwner());
-    object->SetOwnerControl(ownerView);
+    object->SetOwnerView(ownerView);
 
     mImpl->mRenderEffect = object;
   }
@@ -1128,12 +1128,12 @@ void ViewImpl::ClearRenderEffect()
 {
   if(mImpl->mRenderEffect)
   {
-    RenderEffectImplPtr effectImpl = std::move(mImpl->mRenderEffect);
+    Dali::Ui::Internal::RenderEffectImplPtr effectImpl = std::move(mImpl->mRenderEffect);
 
     // Reset handle first to avoid circular reference
     mImpl->mRenderEffect.Reset();
 
-    effectImpl->ClearOwnerControl();
+    effectImpl->ClearOwnerView();
   }
 }
 
@@ -1145,7 +1145,7 @@ void ViewImpl::SetResourceReady()
 
 Internal::ViewDataImpl& ViewImpl::GetViewDataImpl() const
 {
-  return Internal::ViewDataImpl::Get(*this);
+  return *mImpl;
 }
 
 Dali::Actor ViewImpl::GetOffScreenRenderableSourceActor()
@@ -1169,7 +1169,7 @@ void ViewImpl::EnableGestureDetection(GestureType::Value type)
   if((type & GestureType::PINCH) && !mImpl->mPinchGestureDetector)
   {
     mImpl->mPinchGestureDetector = PinchGestureDetector::New();
-    mImpl->mPinchGestureDetector.DetectedSignal().Connect(mImpl, &Impl::PinchDetected);
+    mImpl->mPinchGestureDetector.DetectedSignal().Connect(mImpl, &Internal::ViewDataImpl::PinchDetected);
     mImpl->mPinchGestureDetector.Attach(Self());
   }
 
@@ -1177,21 +1177,21 @@ void ViewImpl::EnableGestureDetection(GestureType::Value type)
   {
     mImpl->mPanGestureDetector = PanGestureDetector::New();
     mImpl->mPanGestureDetector.SetMaximumTouchesRequired(2);
-    mImpl->mPanGestureDetector.DetectedSignal().Connect(mImpl, &Impl::PanDetected);
+    mImpl->mPanGestureDetector.DetectedSignal().Connect(mImpl, &Internal::ViewDataImpl::PanDetected);
     mImpl->mPanGestureDetector.Attach(Self());
   }
 
   if((type & GestureType::TAP) && !mImpl->mTapGestureDetector)
   {
     mImpl->mTapGestureDetector = TapGestureDetector::New();
-    mImpl->mTapGestureDetector.DetectedSignal().Connect(mImpl, &Impl::TapDetected);
+    mImpl->mTapGestureDetector.DetectedSignal().Connect(mImpl, &Internal::ViewDataImpl::TapDetected);
     mImpl->mTapGestureDetector.Attach(Self());
   }
 
   if((type & GestureType::LONG_PRESS) && !mImpl->mLongPressGestureDetector)
   {
     mImpl->mLongPressGestureDetector = LongPressGestureDetector::New();
-    mImpl->mLongPressGestureDetector.DetectedSignal().Connect(mImpl, &Impl::LongPressDetected);
+    mImpl->mLongPressGestureDetector.DetectedSignal().Connect(mImpl, &Internal::ViewDataImpl::LongPressDetected);
     mImpl->mLongPressGestureDetector.Attach(Self());
   }
 }
@@ -1625,7 +1625,7 @@ void ViewImpl::OnLayoutNegotiated(float size, Dimension::Type dimension)
 
 void ViewImpl::RelayoutRequestToView()
 {
-  Self().RelayoutRequest();
+  RelayoutRequest();
 }
 
 void ViewImpl::SignalConnected(SlotObserver* slotObserver, CallbackBase* callback)

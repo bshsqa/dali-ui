@@ -34,7 +34,7 @@ namespace Ui
 namespace Internal
 {
 OffScreenRenderingImpl::OffScreenRenderingImpl(Ui::Control::OffScreenRenderingType type)
-: mType(type)
+: mType(Ui::View::OffScreenRenderingType::NONE)
 {
   Initialize();
 }
@@ -124,7 +124,7 @@ void OffScreenRenderingImpl::OnActivate()
 
   // Reorder render task
   // TODO : Can we remove this GetImplementation?
-  GetImplementation(ownerView).RequestRenderTaskReorder();
+  Integration::GetImpl(ownerView).RequestRenderTaskReorder();
 }
 
 void OffScreenRenderingImpl::OnDeactivate()

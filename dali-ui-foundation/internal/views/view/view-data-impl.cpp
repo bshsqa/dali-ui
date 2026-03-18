@@ -769,7 +769,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
 
   if(view)
   {
-    View& viewImpl(GetImplementation(view));
+    Integration::ViewImpl& viewImpl(Integration::GetImpl(view));
 
     switch(index)
     {
@@ -778,7 +778,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mLeftFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mLeftFocusableActorId = focusId;
         }
       }
       break;
@@ -788,7 +788,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mRightFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mRightFocusableActorId = focusId;
         }
       }
       break;
@@ -798,7 +798,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mUpFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mUpFocusableActorId = focusId;
         }
       }
       break;
@@ -808,7 +808,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mDownFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mDownFocusableActorId = focusId;
         }
       }
       break;
@@ -837,15 +837,15 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         }
         else if(GetStdString(value, url))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
           {
             // don't know the size to load
             Ui::Visual::Base visual = Ui::VisualFactory::Get().CreateVisual(url, ImageDimensions());
             if(visual)
             {
-              viewImpl.mImpl->mVisualData->RegisterVisual(Ui::View::Property::BACKGROUND, visual,
-                                                          DepthIndex::BACKGROUND);
-              viewImpl.mImpl->EnableCornerPropertiesOverridden(visual, true);
+              viewImpl.GetViewDataImpl().mVisualData->RegisterVisual(Ui::View::Property::BACKGROUND, visual,
+                                                                     DepthIndex::BACKGROUND);
+              viewImpl.GetViewDataImpl().EnableCornerPropertiesOverridden(visual, true);
             }
           }
         }
@@ -866,7 +866,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         Extents margin;
         if(value.Get(margin))
         {
-          viewImpl.mImpl->SetMargin(margin);
+          viewImpl.GetViewDataImpl().SetMargin(margin);
         }
         break;
       }
@@ -876,7 +876,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         Extents padding;
         if(value.Get(padding))
         {
-          viewImpl.mImpl->SetPadding(padding);
+          viewImpl.GetViewDataImpl().SetPadding(padding);
         }
         break;
       }
@@ -886,12 +886,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         const Property::Map* map = value.GetMap();
         if(map && !map->Empty())
         {
-          viewImpl.mImpl->SetShadow(*map);
+          viewImpl.GetViewDataImpl().SetShadow(*map);
         }
         else
         {
           // The shadow is an empty property map, so we should clear the shadow
-          viewImpl.mImpl->ClearShadow();
+          viewImpl.GetViewDataImpl().ClearShadow();
         }
         break;
       }
@@ -901,9 +901,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         std::string name;
         if(GetStdString(value, name))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || !name.empty())
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || !name.empty())
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.name = std::move(name);
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.name = std::move(name);
           }
         }
         break;
@@ -914,9 +914,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         std::string text;
         if(GetStdString(value, text))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || !text.empty())
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || !text.empty())
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.description = std::move(text);
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.description = std::move(text);
           }
         }
         break;
@@ -927,7 +927,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int32_t role;
         if(value.Get(role))
         {
-          viewImpl.mImpl->mAccessibilityRole = role;
+          viewImpl.GetViewDataImpl().mAccessibilityRole = role;
         }
         break;
       }
@@ -937,7 +937,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         bool highlightable;
         if(value.Get(highlightable))
         {
-          viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.isHighlightable =
+          viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.isHighlightable =
             highlightable ? TriStateProperty::TRUE : TriStateProperty::FALSE;
         }
         break;
@@ -948,9 +948,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         const Property::Map* map = value.GetMap();
         if(map)
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || !map->Empty())
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || !map->Empty())
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.extraAttributes = *map;
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.extraAttributes = *map;
           }
         }
         break;
@@ -961,7 +961,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         bool dispatch;
         if(value.Get(dispatch))
         {
-          viewImpl.mImpl->mDispatchKeyEvents = dispatch;
+          viewImpl.GetViewDataImpl().mDispatchKeyEvents = dispatch;
         }
         break;
       }
@@ -971,12 +971,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         bool hidden;
         if(value.Get(hidden))
         {
-          const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+          const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
           const bool  originalHidden =
             DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.isHidden : false;
           if(originalHidden != hidden)
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.isHidden = hidden;
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.isHidden = hidden;
 
             auto accessible = viewImpl.GetAccessibleObject();
             if(DALI_LIKELY(accessible))
@@ -996,7 +996,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mClockwiseFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mClockwiseFocusableActorId = focusId;
         }
         break;
       }
@@ -1005,7 +1005,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int focusId;
         if(value.Get(focusId))
         {
-          viewImpl.mImpl->mCounterClockwiseFocusableActorId = focusId;
+          viewImpl.GetViewDataImpl().mCounterClockwiseFocusableActorId = focusId;
         }
         break;
       }
@@ -1015,9 +1015,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         std::string automationId;
         if(GetStdString(value, automationId))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || !automationId.empty())
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || !automationId.empty())
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.automationId =
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.automationId =
               std::move(automationId);
           }
         }
@@ -1029,9 +1029,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         std::string accessibilityValue;
         if(GetStdString(value, accessibilityValue))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || !accessibilityValue.empty())
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || !accessibilityValue.empty())
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.value = std::move(accessibilityValue);
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.value = std::move(accessibilityValue);
           }
         }
         break;
@@ -1042,9 +1042,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         bool isScrollable;
         if(value.Get(isScrollable))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || isScrollable)
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || isScrollable)
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.isScrollable = isScrollable;
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.isScrollable = isScrollable;
           }
         }
         break;
@@ -1055,10 +1055,10 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int32_t states;
         if(value.Get(states))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) ||
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) ||
              states != static_cast<int32_t>(AccessibilityData::GetDefaultViewAccessibilityStates().GetRawData32()))
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.states =
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.states =
               AccessibilityStates{static_cast<uint32_t>(states)};
           }
         }
@@ -1070,9 +1070,9 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         bool isModal;
         if(value.Get(isModal))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->GetAccessibilityData()) || isModal)
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().GetAccessibilityData()) || isModal)
           {
-            viewImpl.mImpl->GetOrCreateAccessibilityData().mAccessibilityProps.isModal = isModal;
+            viewImpl.GetViewDataImpl().GetOrCreateAccessibilityData().mAccessibilityProps.isModal = isModal;
           }
         }
         break;
@@ -1083,7 +1083,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int32_t offscreenRenderingType;
         if(value.Get(offscreenRenderingType))
         {
-          viewImpl.mImpl->SetOffScreenRendering(offscreenRenderingType);
+          viewImpl.GetViewDataImpl().SetOffScreenRendering(offscreenRenderingType);
         }
         break;
       }
@@ -1093,12 +1093,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         const Property::Map* map = value.GetMap();
         if(map && !map->Empty())
         {
-          viewImpl.mImpl->SetInnerShadow(*map);
+          viewImpl.GetViewDataImpl().SetInnerShadow(*map);
         }
         else
         {
           // The shadow is an empty property map, so we should clear the inner shadow
-          viewImpl.mImpl->ClearInnerShadow();
+          viewImpl.GetViewDataImpl().ClearInnerShadow();
         }
         break;
       }
@@ -1108,12 +1108,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         const Property::Map* map = value.GetMap();
         if(map && !map->Empty())
         {
-          viewImpl.mImpl->SetBorderline(*map, true);
+          viewImpl.GetViewDataImpl().SetBorderline(*map, true);
         }
         else
         {
           // The shadow is an empty property map, so we should clear the inner shadow
-          viewImpl.mImpl->ClearBorderline();
+          viewImpl.GetViewDataImpl().ClearBorderline();
         }
         break;
       }
@@ -1131,12 +1131,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         Vector4 radius;
         if(value.Get(radius))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
           {
-            viewImpl.mImpl->mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_RADIUS,
-                                                                         false);
+            viewImpl.GetViewDataImpl().mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_RADIUS,
+                                                                                    false);
           }
-          viewImpl.mImpl->UpdateCornerRadius();
+          viewImpl.GetViewDataImpl().UpdateCornerRadius();
         }
         break;
       }
@@ -1146,12 +1146,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         int policy;
         if(value.Get(policy))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
           {
-            viewImpl.mImpl->mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_RADIUS_POLICY,
-                                                                         false);
+            viewImpl.GetViewDataImpl().mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_RADIUS_POLICY,
+                                                                                    false);
           }
-          viewImpl.mImpl->UpdateCornerRadius();
+          viewImpl.GetViewDataImpl().UpdateCornerRadius();
         }
         break;
       }
@@ -1169,12 +1169,12 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         Vector4 squareness;
         if(value.Get(squareness))
         {
-          if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+          if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
           {
-            viewImpl.mImpl->mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_SQUARENESS,
-                                                                         false);
+            viewImpl.GetViewDataImpl().mVisualData->NotifyConstraintPropertyChanged(Ui::View::Property::CORNER_SQUARENESS,
+                                                                                    false);
           }
-          viewImpl.mImpl->UpdateCornerRadius();
+          viewImpl.GetViewDataImpl().UpdateCornerRadius();
         }
         break;
       }
@@ -1184,7 +1184,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         float width;
         if(value.Get(width))
         {
-          viewImpl.mImpl->UpdateBorderline();
+          viewImpl.GetViewDataImpl().UpdateBorderline();
         }
         break;
       }
@@ -1194,7 +1194,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         Vector4 color;
         if(value.Get(color))
         {
-          viewImpl.mImpl->UpdateBorderline();
+          viewImpl.GetViewDataImpl().UpdateBorderline();
         }
         break;
       }
@@ -1204,7 +1204,7 @@ void ViewDataImpl::SetProperty(BaseObject* object, Property::Index index, const 
         float offset;
         if(value.Get(offset))
         {
-          viewImpl.mImpl->UpdateBorderline();
+          viewImpl.GetViewDataImpl().UpdateBorderline();
         }
         break;
       }
@@ -1222,31 +1222,31 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
   if(view)
   {
-    View& viewImpl(GetImplementation(view));
+    Integration::ViewImpl& viewImpl(Integration::GetImpl(view));
 
     switch(index)
     {
       case Ui::View::Property::LEFT_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mLeftFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mLeftFocusableActorId;
         break;
       }
 
       case Ui::View::Property::RIGHT_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mRightFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mRightFocusableActorId;
         break;
       }
 
       case Ui::View::Property::UP_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mUpFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mUpFocusableActorId;
         break;
       }
 
       case Ui::View::Property::DOWN_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mDownFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mDownFocusableActorId;
         break;
       }
 
@@ -1260,10 +1260,10 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
       {
         Property::Map map;
 
-        if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+        if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
         {
           const Ui::Internal::Visual::Base* visualImplPtr =
-            viewImpl.mImpl->mVisualData->GetVisualImplPtr(Ui::View::Property::BACKGROUND);
+            viewImpl.GetViewDataImpl().mVisualData->GetVisualImplPtr(Ui::View::Property::BACKGROUND);
           if(visualImplPtr)
           {
             visualImplPtr->CreatePropertyMap(map);
@@ -1276,13 +1276,13 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
       case Ui::View::Property::MARGIN:
       {
-        value = viewImpl.mImpl->GetMargin();
+        value = viewImpl.GetViewDataImpl().GetMargin();
         break;
       }
 
       case Ui::View::Property::PADDING:
       {
-        value = viewImpl.mImpl->GetPadding();
+        value = viewImpl.GetViewDataImpl().GetPadding();
         break;
       }
 
@@ -1290,9 +1290,9 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
       {
         Property::Map map;
 
-        if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+        if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
         {
-          Ui::Visual::Base visual = viewImpl.mImpl->mVisualData->GetVisual(Ui::View::Property::SHADOW);
+          Ui::Visual::Base visual = viewImpl.GetViewDataImpl().mVisualData->GetVisual(Ui::View::Property::SHADOW);
           if(visual)
           {
             visual.CreatePropertyMap(map);
@@ -1305,27 +1305,27 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
       case Ui::View::Property::ACCESSIBILITY_NAME:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = ToPropertyValue(DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.name : "");
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_DESCRIPTION:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = ToPropertyValue(DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.description : "");
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_ROLE:
       {
-        value = viewImpl.mImpl->mAccessibilityRole;
+        value = viewImpl.GetViewDataImpl().mAccessibilityRole;
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_HIGHLIGHTABLE:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = (DALI_LIKELY(accessibilityData) &&
                  accessibilityData->mAccessibilityProps.isHighlightable == TriStateProperty::TRUE)
                                           ? true
@@ -1335,7 +1335,7 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
       case Ui::View::Property::ACCESSIBILITY_ATTRIBUTES:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value =
           DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.extraAttributes : Property::Map();
         break;
@@ -1343,53 +1343,53 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
       case Ui::View::Property::DISPATCH_KEY_EVENTS:
       {
-        value = viewImpl.mImpl->mDispatchKeyEvents;
+        value = viewImpl.GetViewDataImpl().mDispatchKeyEvents;
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_HIDDEN:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.isHidden : false;
         break;
       }
 
       case Ui::View::Property::CLOCKWISE_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mClockwiseFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mClockwiseFocusableActorId;
         break;
       }
 
       case Ui::View::Property::COUNTER_CLOCKWISE_FOCUSABLE_ACTOR_ID:
       {
-        value = viewImpl.mImpl->mCounterClockwiseFocusableActorId;
+        value = viewImpl.GetViewDataImpl().mCounterClockwiseFocusableActorId;
         break;
       }
 
       case Ui::View::Property::AUTOMATION_ID:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = ToPropertyValue(DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.automationId : "");
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_VALUE:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = ToPropertyValue(DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.value : "");
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_SCROLLABLE:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.isScrollable : false;
         break;
       }
 
       case Ui::View::Property::ACCESSIBILITY_STATES:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = static_cast<int32_t>((DALI_LIKELY(accessibilityData)
                                                                 ? accessibilityData->mAccessibilityProps.states
                                                                 : AccessibilityData::GetDefaultViewAccessibilityStates())
@@ -1399,14 +1399,14 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
       case Ui::View::Property::ACCESSIBILITY_IS_MODAL:
       {
-        const auto* accessibilityData = viewImpl.mImpl->GetAccessibilityData();
+        const auto* accessibilityData = viewImpl.GetViewDataImpl().GetAccessibilityData();
         value                         = DALI_LIKELY(accessibilityData) ? accessibilityData->mAccessibilityProps.isModal : false;
         break;
       }
 
       case Ui::View::Property::OFFSCREEN_RENDERING:
       {
-        value = viewImpl.mImpl->mOffScreenRenderingType;
+        value = viewImpl.GetViewDataImpl().mOffScreenRenderingType;
         break;
       }
 
@@ -1414,9 +1414,9 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
       {
         Property::Map map;
 
-        if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+        if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
         {
-          Ui::Visual::Base visual = viewImpl.mImpl->mVisualData->GetVisual(Ui::View::Property::INNER_SHADOW);
+          Ui::Visual::Base visual = viewImpl.GetViewDataImpl().mVisualData->GetVisual(Ui::View::Property::INNER_SHADOW);
           if(visual)
           {
             visual.CreatePropertyMap(map);
@@ -1431,9 +1431,9 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
       {
         Property::Map map;
 
-        if(DALI_LIKELY(viewImpl.mImpl->mVisualData))
+        if(DALI_LIKELY(viewImpl.GetViewDataImpl().mVisualData))
         {
-          Ui::Visual::Base visual = viewImpl.mImpl->mVisualData->GetVisual(Ui::View::Property::BORDERLINE);
+          Ui::Visual::Base visual = viewImpl.GetViewDataImpl().mVisualData->GetVisual(Ui::View::Property::BORDERLINE);
           if(visual)
           {
             visual.CreatePropertyMap(map);
@@ -1463,28 +1463,28 @@ Property::Value ViewDataImpl::GetProperty(BaseObject* object, Property::Index in
 
 void ViewDataImpl::SetMargin(Extents margin)
 {
-  mViewImpl.mImpl->mMargin = margin;
+  mViewImpl.GetViewDataImpl().mMargin = margin;
 
   // Trigger a size negotiation request that may be needed when setting a margin.
-  mViewImpl.RelayoutRequest();
+  mViewImpl.RelayoutRequestToView();
 }
 
 Extents ViewDataImpl::GetMargin() const
 {
-  return mViewImpl.mImpl->mMargin;
+  return mViewImpl.GetViewDataImpl().mMargin;
 }
 
 void ViewDataImpl::SetPadding(Extents padding)
 {
-  mViewImpl.mImpl->mPadding = padding;
+  mViewImpl.GetViewDataImpl().mPadding = padding;
 
   // Trigger a size negotiation request that may be needed when setting a padding.
-  mViewImpl.RelayoutRequest();
+  mViewImpl.RelayoutRequestToView();
 }
 
 Extents ViewDataImpl::GetPadding() const
 {
-  return mViewImpl.mImpl->mPadding;
+  return mViewImpl.GetViewDataImpl().mPadding;
 }
 
 Ui::View::VisualEventSignalType& ViewDataImpl::VisualEventSignal()
@@ -1636,7 +1636,7 @@ void ViewDataImpl::SetShadow(const Property::Map& map)
       mVisualData->RegisterVisual(Ui::View::Property::SHADOW, visual, DepthIndex::BACKGROUND_EFFECT);
       EnableCornerPropertiesOverridden(visual, true);
 
-      mViewImpl.RelayoutRequest();
+      mViewImpl.RelayoutRequestToView();
     }
   }
 }
@@ -1648,7 +1648,7 @@ void ViewDataImpl::ClearShadow()
     mVisualData->UnregisterVisual(Ui::View::Property::SHADOW);
 
     // Trigger a size negotiation request that may be needed when unregistering a visual.
-    mViewImpl.RelayoutRequest();
+    mViewImpl.RelayoutRequestToView();
   }
 }
 
@@ -1691,7 +1691,7 @@ void ViewDataImpl::SetInnerShadow(const Property::Map& map)
         EnableCornerPropertiesOverridden(visual, true, innerShadowCornerRadiusConstraint);
       }
 
-      mViewImpl.RelayoutRequest();
+      mViewImpl.RelayoutRequestToView();
     }
   }
 }
@@ -1703,7 +1703,7 @@ void ViewDataImpl::ClearInnerShadow()
     mVisualData->UnregisterVisual(Ui::View::Property::INNER_SHADOW);
 
     // Trigger a size negotiation request that may be needed when unregistering a visual.
-    mViewImpl.RelayoutRequest();
+    mViewImpl.RelayoutRequestToView();
   }
 }
 
@@ -1796,7 +1796,7 @@ void ViewDataImpl::SetBorderline(const Property::Map& map, bool forciblyCreate)
         }
       }
 
-      mViewImpl.RelayoutRequest();
+      mViewImpl.RelayoutRequestToView();
     }
   }
 }
@@ -1808,7 +1808,7 @@ void ViewDataImpl::ClearBorderline()
     mVisualData->UnregisterVisual(Ui::View::Property::BORDERLINE);
 
     // Trigger a size negotiation request that may be needed when unregistering a visual.
-    mViewImpl.RelayoutRequest();
+    mViewImpl.RelayoutRequestToView();
   }
 }
 
@@ -1879,7 +1879,7 @@ bool ViewDataImpl::OnIdleCallback()
   // A visual is ready so view may need relayouting if staged
   if(mViewImpl.Self().GetProperty<bool>(Actor::Property::CONNECTED_TO_SCENE))
   {
-    mViewImpl.RelayoutRequest();
+    mViewImpl.RelayoutRequestToView();
   }
 
   EmitResourceReadySignal();

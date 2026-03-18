@@ -26,8 +26,8 @@ namespace Ui
 {
 namespace Internal
 {
-#define BASIC_VERTEX_SOURCE SHADER_VIEW_RENDERERS_VERT
-#define BASIC_FRAGMENT_SOURCE SHADER_VIEW_RENDERERS_FRAG
+#define BASIC_VERTEX_SOURCE SHADER_CONTROL_RENDERERS_VERT
+#define BASIC_FRAGMENT_SOURCE SHADER_CONTROL_RENDERERS_FRAG
 
 /**
  * Helper method for rendering an image with custom shader.

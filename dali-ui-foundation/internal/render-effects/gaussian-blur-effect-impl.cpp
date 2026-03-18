@@ -397,7 +397,7 @@ void GaussianBlurEffectImpl::OnActivate()
 
   // Reorder render task
   // TODO : Can we remove this GetImplementation?
-  GetImplementation(ownerView).RequestRenderTaskReorder();
+  Integration::GetImpl(ownerView).RequestRenderTaskReorder();
 }
 
 void GaussianBlurEffectImpl::OnDeactivate()
@@ -458,7 +458,7 @@ void GaussianBlurEffectImpl::OnRefresh()
     Ui::View ownerView = GetOwnerView();
     ownerView.Add(mInternalRoot);
     CreateRenderTasks(GetSceneHolder(), ownerView);
-    GetImplementation(ownerView).RequestRenderTaskReorder();
+    Integration::GetImpl(ownerView).RequestRenderTaskReorder();
   }
   else
   {

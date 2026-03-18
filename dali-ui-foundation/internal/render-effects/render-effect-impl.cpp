@@ -184,6 +184,7 @@ void RenderEffectImpl::Initialize()
 
 Ui::Control RenderEffectImpl::GetOwnerControl() const
 {
+  return mOwnerControl.GetHandle();
 }
 
 Ui::View RenderEffectImpl::GetOwnerView() const

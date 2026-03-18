@@ -29,10 +29,13 @@
 #include <dali/public-api/rendering/shader.h>
 
 // INTERNAL INCLUDES
+#include <dali-ui-foundation/integration-api/view-impl.h>
 #include <dali-ui-foundation/internal/controls/control/control-renderers.h>
 #include <dali-ui-foundation/internal/graphics/builtin-shader-extern-gen.h>
+#include <dali-ui-foundation/internal/views/view/view-renderers.h>
 #include <dali-ui-foundation/public-api/controls/control-depth-index-ranges.h>
 #include <dali-ui-foundation/public-api/controls/control-impl.h>
+#include <dali-ui-foundation/public-api/view-depth-index-ranges.h>
 
 using Dali::Integration::ToDaliStringView;
 
@@ -72,7 +75,7 @@ MaskEffectImpl::MaskEffectImpl(Ui::Control maskControl, MaskEffect::MaskMode mas
                                Vector2 maskScale)
 : RenderEffectImpl(),
   mMaskControl(maskControl),
-  mMaskView(maskView),
+  mMaskView(),
   mMaskMode(maskMode),
   mMaskPosition(maskPosition),
   mMaskScale(maskScale),
@@ -85,7 +88,7 @@ MaskEffectImpl::MaskEffectImpl(Ui::Control maskControl, MaskEffect::MaskMode mas
 MaskEffectImpl::MaskEffectImpl(Ui::View maskView, MaskEffect::MaskMode maskMode, Vector2 maskPosition,
                                Vector2 maskScale)
 : RenderEffectImpl(),
-  mMaskControl(maskControl),
+  mMaskControl(),
   mMaskView(maskView),
   mMaskMode(maskMode),
   mMaskPosition(maskPosition),
@@ -340,7 +343,7 @@ void MaskEffectImpl::CreateMaskData()
 
     // Reorder render task
     // TODO : Can we remove this GetImplementation?
-    GetImplementation(ownerView).RequestRenderTaskReorder();
+    Integration::GetImpl(ownerView).RequestRenderTaskReorder();
   }
 }
 
