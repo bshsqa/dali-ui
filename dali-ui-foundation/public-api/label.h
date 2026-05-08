@@ -197,7 +197,7 @@ public: // Setters for chaining
    *
    * @param[in] text The text to display in UTF-8 format.
    */
-  Label& SetText(const Dali::String& text);
+  DALI_INVOKABLE Label& SetText(const Dali::String& text);
 
   /**
    * @brief Gets the text.

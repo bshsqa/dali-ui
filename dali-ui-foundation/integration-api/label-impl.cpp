@@ -40,6 +40,7 @@
 #include <dali-ui-foundation/internal/text/text-view.h>
 #include <dali-ui-foundation/internal/views/view/view-data-impl.h>
 #include <dali-ui-foundation/public-api/align-enumerations.h>
+#include <dali-ui-foundation/public-api/label.h>
 #include <dali-ui-foundation/public-api/render-effects/mask-effect.h>
 #include <dali-ui-foundation/public-api/text/font-variation/font-variation.h>
 #include <dali-ui-foundation/public-api/ui-color-manager.h>
