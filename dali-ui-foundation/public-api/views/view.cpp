@@ -782,6 +782,34 @@ bool View::IsResourceReady() const
   return GetImpl(*this).IsResourceReady();
 }
 
+void View::AddAccessibilityState(Accessibility::State state)
+{
+  ViewImpl&               viewImpl     = Ui::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewImpl);
+  viewDataImpl.AddAccessibilityState(state);
+}
+
+void View::RemoveAccessibilityState(Accessibility::State state)
+{
+  ViewImpl&               viewImpl     = Ui::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewImpl);
+  viewDataImpl.RemoveAccessibilityState(state);
+}
+
+void View::SetAccessibilityState(Accessibility::State state, bool enabled)
+{
+  ViewImpl&               viewImpl     = Ui::GetImpl(*this);
+  Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewImpl);
+  viewDataImpl.SetAccessibilityState(state, enabled);
+}
+
+bool View::HasAccessibilityState(Accessibility::State state) const
+{
+  const ViewImpl&               viewImpl     = Ui::GetImpl(*this);
+  const Internal::ViewDataImpl& viewDataImpl = Internal::ViewDataImpl::Get(viewImpl);
+  return viewDataImpl.HasAccessibilityState(state);
+}
+
 bool View::IsOnScene() const
 {
   return GetImpl(*this).IsOnScene();
