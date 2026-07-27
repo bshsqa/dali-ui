@@ -87,7 +87,7 @@ Token 기반 `UiColor`로 색상을 설정한 View는 테마 변경 시 자동�
 
 ```cpp
 // tv-theme-loader.h
-class TvThemeLoader : public Dali::Ui::ThemeLoaderInterface
+class TvThemeLoader : public Dali::Ui::Extension::ThemeLoaderInterface
 {
 public:
   TvThemeLoader()
@@ -134,7 +134,7 @@ class TvConfigImpl : public Dali::Ui::Extension::UiConfigImpl
 public:
   static Dali::IntrusivePtr<TvConfigImpl> New() { return new TvConfigImpl(); }
 
-  Dali::Ui::ThemeLoaderInterface* CreateThemeLoader() override
+  Dali::Ui::Extension::ThemeLoaderInterface* CreateThemeLoader() override
   {
     return new TvThemeLoader();
   }

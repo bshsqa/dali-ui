@@ -71,14 +71,14 @@ UiStyleKey<CheckBoxStyle> CheckBoxStyle::DefaultKey()
 
 CheckBoxStyle CheckBoxStyle::DefaultPreset()
 {
-  DebugAssertStyleConfigApplied();
+  Extension::DebugAssertStyleConfigApplied();
   static CheckBoxStyle style = CheckBoxStyle::Builder().Build();
   return style;
 }
 
 CheckBoxStyle CheckBoxStyle::Default()
 {
-  DebugAssertStyleConfigApplied();
+  Extension::DebugAssertStyleConfigApplied();
   CheckBoxStyle style = UiConfig::GetCurrent().GetStyle(DefaultKey());
   if(style)
   {

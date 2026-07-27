@@ -586,18 +586,16 @@ private:
   Impl* mImpl;
 };
 
-} // namespace Extension
-
 /**
  * @brief Retrieves the UiConfigImpl from a UiConfig handle.
  *
  * @param[in] obj The UiConfig handle
  * @return A reference to the internal implementation
  */
-inline Extension::UiConfigImpl& GetImpl(UiConfig& obj)
+inline UiConfigImpl& GetImpl(UiConfig& obj)
 {
   BaseObject& handle = obj.GetBaseObject();
-  return static_cast<Extension::UiConfigImpl&>(handle);
+  return static_cast<UiConfigImpl&>(handle);
 }
 
 /**
@@ -606,12 +604,13 @@ inline Extension::UiConfigImpl& GetImpl(UiConfig& obj)
  * @param[in] obj The UiConfig handle
  * @return A const reference to the internal implementation
  */
-inline const Extension::UiConfigImpl& GetImpl(const UiConfig& obj)
+inline const UiConfigImpl& GetImpl(const UiConfig& obj)
 {
   const BaseObject& handle = obj.GetBaseObject();
-  return static_cast<const Extension::UiConfigImpl&>(handle);
+  return static_cast<const UiConfigImpl&>(handle);
 }
 
+} // namespace Extension
 } // namespace Ui
 
 } // namespace Dali

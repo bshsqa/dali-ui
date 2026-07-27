@@ -512,7 +512,7 @@ Internal::VisualFactoryCache& VisualFactory::GetFactoryCache()
     std::vector<Dali::String> customBrokenImageUrlList{};
     if(UiConfig::HasCurrent())
     {
-      customBrokenImageUrlList = GetImpl(UiConfig::GetCurrent()).GetBrokenImageUrlList();
+      customBrokenImageUrlList = Extension::GetImpl(UiConfig::GetCurrent()).GetBrokenImageUrlList();
     }
 
     // Add default image

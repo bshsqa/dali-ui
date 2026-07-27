@@ -40,7 +40,7 @@ namespace Integration
  * Provides a minimal set of hardcoded colors used as fallback
  * when UiConfigImpl::CreateThemeLoader() returns nullptr.
  */
-class DALI_UI_API DefaultThemeLoader : public ThemeLoaderInterface
+class DALI_UI_API DefaultThemeLoader : public Extension::ThemeLoaderInterface
 {
 public:
   /**

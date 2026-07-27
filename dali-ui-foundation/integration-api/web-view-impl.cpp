@@ -586,7 +586,7 @@ void WebViewImpl::SetDisplayArea(const Dali::BoundsInteger& displayArea)
       Dali::Property::Map updateMap;
       updateMap.Insert(Dali::Ui::ImageVisualPropertyIndex::PIXEL_AREA, pixelArea);
       updateMap.Insert(Dali::Ui::VisualBasePropertyIndex::TRANSFORM,
-                       Dali::CreatePropertyMap({{Dali::Ui::Visual::Transform::Property::SIZE, transformSize}}));
+                       Dali::DevelProperty::CreatePropertyMap({{Dali::Ui::Visual::Transform::Property::SIZE, transformSize}}));
 
       auto& viewData = Internal::ViewDataImpl::Get(*this);
       viewData.DoAction(WebViewImpl::Property::URL, Dali::Ui::Integration::Visual::Action::UPDATE_PROPERTY, updateMap);

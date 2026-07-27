@@ -75,10 +75,10 @@ const UiConfig& UiConfigManagerImpl::GetConfig() const
   return mConfig;
 }
 
-ThemeLoaderInterface* UiConfigManagerImpl::CreateThemeLoader()
+Extension::ThemeLoaderInterface* UiConfigManagerImpl::CreateThemeLoader()
 {
   UiConfig config = UiConfig::GetCurrent();
-  return GetImpl(config).CreateThemeLoader();
+  return Extension::GetImpl(config).CreateThemeLoader();
 }
 
 bool UiConfigManagerImpl::RegisterLifecycleControllerCallback()

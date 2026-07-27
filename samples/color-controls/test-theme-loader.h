@@ -19,7 +19,7 @@
 
 #include <string>
 
-class TestThemeLoader : public Dali::Ui::ThemeLoaderInterface
+class TestThemeLoader : public Dali::Ui::Extension::ThemeLoaderInterface
 {
 public:
   TestThemeLoader();

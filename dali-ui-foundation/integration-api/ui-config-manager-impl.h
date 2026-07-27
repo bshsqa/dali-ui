@@ -62,7 +62,7 @@ public: ///< Method from UiConfigManager
   /**
    * @copydoc Dali::Ui::Integration::UiConfigManager::CreateThemeLoader()
    */
-  ThemeLoaderInterface* CreateThemeLoader();
+  Extension::ThemeLoaderInterface* CreateThemeLoader();
 
 public: ///< Internal API for UiConfigManager
   /**

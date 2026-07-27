@@ -30,6 +30,8 @@ namespace Dali
 {
 namespace Ui
 {
+namespace Extension
+{
 
 /**
  * @brief Abstract interface for theme-based color loading.
@@ -81,5 +83,6 @@ private:
   ThemeLoaderInterface& operator=(const ThemeLoaderInterface&) = delete;
 };
 
+} // namespace Extension
 } // namespace Ui
 } // namespace Dali

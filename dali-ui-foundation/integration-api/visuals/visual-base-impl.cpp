@@ -932,7 +932,7 @@ VisualBaseImpl::VisualBaseImpl(Dali::Ui::VisualType type)
 : mContainer(),
   mVisualType(type),
   mName(),
-  mCachedVisualPropertyMap(Dali::CreatePropertyMap({{Dali::Ui::VisualBasePropertyIndex::TYPE, mVisualType}, {Dali::Ui::VisualBasePropertyIndex::MIX_COLOR, Color::WHITE}})),
+  mCachedVisualPropertyMap(Dali::DevelProperty::CreatePropertyMap({{Dali::Ui::VisualBasePropertyIndex::TYPE, mVisualType}, {Dali::Ui::VisualBasePropertyIndex::MIX_COLOR, Color::WHITE}})),
   mUpdatedMutableVisualProperties(),
   mTransform(nullptr),
   mVisual(),

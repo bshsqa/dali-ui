@@ -72,7 +72,7 @@ public:
    * @pre UiConfig::Apply() must have been called. Triggers assertion failure otherwise.
    * @return A reference to the ThemeLoaderInterface
    */
-  ThemeLoaderInterface& GetLoader();
+  Extension::ThemeLoaderInterface& GetLoader();
 
   /**
    * @brief Returns the identifier of the current theme.
@@ -108,7 +108,7 @@ private:
   void OnLoaderThemeChanged();
 
 private:
-  ThemeLoaderInterface*            mLoader{nullptr};
+  Extension::ThemeLoaderInterface* mLoader{nullptr};
   ThemeChangedSignalType           mThemeChangedSignal;
   SlotDelegate<UiThemeManagerImpl> mSlotDelegate{this};
 };

@@ -27,11 +27,14 @@ namespace Dali
 {
 namespace Ui
 {
+namespace Extension
+{
 
 inline void DebugAssertStyleConfigApplied()
 {
   DALI_ASSERT_DEBUG(UiConfig::HasCurrent() && "Ui style requires UiConfig::Apply()");
 }
 
+} // namespace Extension
 } // namespace Ui
 } // namespace Dali

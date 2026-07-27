@@ -59,7 +59,7 @@ public:
     DALI_ASSERT_ALWAYS(!mApplied && "UiConfig::Apply() must be called only once");
 
     mConfig = config;
-    GetImpl(mConfig).Freeze();
+    Extension::GetImpl(mConfig).Freeze();
     mApplied = true;
 
     RegisterLifecycleControllerCallback();
@@ -67,11 +67,11 @@ public:
     UiThemeManager themeManager = UiThemeManager::Get();
     GetImpl(themeManager).EnsureThemeLoader();
 
-    GetImpl(mConfig).OnApplied();
+    Extension::GetImpl(mConfig).OnApplied();
 
     if(mApplicationCreated)
     {
-      GetImpl(mConfig).OnApplicationCreated();
+      Extension::GetImpl(mConfig).OnApplicationCreated();
     }
   }
 
@@ -120,7 +120,7 @@ private:
 
     if(mApplied)
     {
-      GetImpl(mConfig).OnApplicationCreated();
+      Extension::GetImpl(mConfig).OnApplicationCreated();
     }
   }
 
@@ -228,342 +228,342 @@ UiConfig UiConfig::GetCurrent()
 
 void UiConfig::SetScalingFactor(float scalingFactor)
 {
-  GetImpl(*this).SetScalingFactor(scalingFactor);
+  Extension::GetImpl(*this).SetScalingFactor(scalingFactor);
 }
 
 float UiConfig::GetScalingFactor() const
 {
-  return GetImpl(*this).GetScalingFactor();
+  return Extension::GetImpl(*this).GetScalingFactor();
 }
 
 float UiConfig::GetDpiFactor() const
 {
-  return GetImpl(*this).GetDpiFactor();
+  return Extension::GetImpl(*this).GetDpiFactor();
 }
 
 float UiConfig::GetScaledDpiFactor() const
 {
-  return GetImpl(*this).GetScaledDpiFactor();
+  return Extension::GetImpl(*this).GetScaledDpiFactor();
 }
 
 void UiConfig::SetDpi(int dpi)
 {
-  GetImpl(*this).SetDpi(dpi);
+  Extension::GetImpl(*this).SetDpi(dpi);
 }
 
 int UiConfig::GetDpi() const
 {
-  return GetImpl(*this).GetDpi();
+  return Extension::GetImpl(*this).GetDpi();
 }
 
 void UiConfig::SetBaselineDpi(int baselineDpi)
 {
-  GetImpl(*this).SetBaselineDpi(baselineDpi);
+  Extension::GetImpl(*this).SetBaselineDpi(baselineDpi);
 }
 
 int UiConfig::GetBaselineDpi() const
 {
-  return GetImpl(*this).GetBaselineDpi();
+  return Extension::GetImpl(*this).GetBaselineDpi();
 }
 
 void UiConfig::SetKeyClickPolicy(KeyClickPolicy policy)
 {
-  GetImpl(*this).SetKeyClickPolicy(policy);
+  Extension::GetImpl(*this).SetKeyClickPolicy(policy);
 }
 
 KeyClickPolicy UiConfig::GetKeyClickPolicy() const
 {
-  return GetImpl(*this).GetKeyClickPolicy();
+  return Extension::GetImpl(*this).GetKeyClickPolicy();
 }
 
 void UiConfig::SetExecutionKeyPredicate(ExecutionKeyPredicate predicate)
 {
-  GetImpl(*this).SetExecutionKeyPredicate(predicate);
+  Extension::GetImpl(*this).SetExecutionKeyPredicate(predicate);
 }
 
 ExecutionKeyPredicate UiConfig::GetExecutionKeyPredicate() const
 {
-  return GetImpl(*this).GetExecutionKeyPredicate();
+  return Extension::GetImpl(*this).GetExecutionKeyPredicate();
 }
 
 void UiConfig::SetKeyLongPressThreshold(uint32_t count)
 {
-  GetImpl(*this).SetKeyLongPressThreshold(count);
+  Extension::GetImpl(*this).SetKeyLongPressThreshold(count);
 }
 
 uint32_t UiConfig::GetKeyLongPressThreshold() const
 {
-  return GetImpl(*this).GetKeyLongPressThreshold();
+  return Extension::GetImpl(*this).GetKeyLongPressThreshold();
 }
 
 void UiConfig::SetTapRecognizerTime(uint32_t timeMs)
 {
-  GetImpl(*this).SetTapRecognizerTime(timeMs);
+  Extension::GetImpl(*this).SetTapRecognizerTime(timeMs);
 }
 
 uint32_t UiConfig::GetTapRecognizerTime() const
 {
-  return GetImpl(*this).GetTapRecognizerTime();
+  return Extension::GetImpl(*this).GetTapRecognizerTime();
 }
 
 void UiConfig::SetBrokenImageUrl(BrokenImageType brokenImageType, const Dali::String& brokenImageUrl)
 {
-  GetImpl(*this).SetBrokenImageUrl(brokenImageType, brokenImageUrl);
+  Extension::GetImpl(*this).SetBrokenImageUrl(brokenImageType, brokenImageUrl);
 }
 
 const Dali::String& UiConfig::GetBrokenImageUrl(BrokenImageType brokenImageType) const
 {
-  return GetImpl(*this).GetBrokenImageUrl(brokenImageType);
+  return Extension::GetImpl(*this).GetBrokenImageUrl(brokenImageType);
 }
 
 void UiConfig::SetClearFocusOnEscapeEnabled(bool enable)
 {
-  GetImpl(*this).SetClearFocusOnEscapeEnabled(enable);
+  Extension::GetImpl(*this).SetClearFocusOnEscapeEnabled(enable);
 }
 
 bool UiConfig::IsClearFocusOnEscapeEnabled() const
 {
-  return GetImpl(*this).IsClearFocusOnEscapeEnabled();
+  return Extension::GetImpl(*this).IsClearFocusOnEscapeEnabled();
 }
 
 void UiConfig::SetClearFocusIndicationOnTouch(bool clear)
 {
-  GetImpl(*this).SetClearFocusIndicationOnTouch(clear);
+  Extension::GetImpl(*this).SetClearFocusIndicationOnTouch(clear);
 }
 
 bool UiConfig::IsClearFocusIndicationOnTouchEnabled() const
 {
-  return GetImpl(*this).IsClearFocusIndicationOnTouchEnabled();
+  return Extension::GetImpl(*this).IsClearFocusIndicationOnTouchEnabled();
 }
 
 void UiConfig::SetClearFocusIndicationOnHover(bool clear)
 {
-  GetImpl(*this).SetClearFocusIndicationOnHover(clear);
+  Extension::GetImpl(*this).SetClearFocusIndicationOnHover(clear);
 }
 
 bool UiConfig::IsClearFocusIndicationOnHoverEnabled() const
 {
-  return GetImpl(*this).IsClearFocusIndicationOnHoverEnabled();
+  return Extension::GetImpl(*this).IsClearFocusIndicationOnHoverEnabled();
 }
 
 void UiConfig::SetDefaultFocusIndicatorEnabled(bool enabled)
 {
-  GetImpl(*this).SetDefaultFocusIndicatorEnabled(enabled);
+  Extension::GetImpl(*this).SetDefaultFocusIndicatorEnabled(enabled);
 }
 
 bool UiConfig::IsDefaultFocusIndicatorEnabled() const
 {
-  return GetImpl(*this).IsDefaultFocusIndicatorEnabled();
+  return Extension::GetImpl(*this).IsDefaultFocusIndicatorEnabled();
 }
 
 void UiConfig::SetDefaultFontSize(float fontSize)
 {
-  GetImpl(*this).SetDefaultFontSize(fontSize);
+  Extension::GetImpl(*this).SetDefaultFontSize(fontSize);
 }
 
 float UiConfig::GetDefaultFontSize() const
 {
-  return GetImpl(*this).GetDefaultFontSize();
+  return Extension::GetImpl(*this).GetDefaultFontSize();
 }
 
 void UiConfig::SetDefaultSystemFontSizeScaleEnabled(bool enabled)
 {
-  GetImpl(*this).SetDefaultSystemFontSizeScaleEnabled(enabled);
+  Extension::GetImpl(*this).SetDefaultSystemFontSizeScaleEnabled(enabled);
 }
 
 bool UiConfig::IsDefaultSystemFontSizeScaleEnabled() const
 {
-  return GetImpl(*this).IsDefaultSystemFontSizeScaleEnabled();
+  return Extension::GetImpl(*this).IsDefaultSystemFontSizeScaleEnabled();
 }
 
 void UiConfig::SetDefaultMinimumFontSizeScale(float scale)
 {
-  GetImpl(*this).SetDefaultMinimumFontSizeScale(scale);
+  Extension::GetImpl(*this).SetDefaultMinimumFontSizeScale(scale);
 }
 
 float UiConfig::GetDefaultMinimumFontSizeScale() const
 {
-  return GetImpl(*this).GetDefaultMinimumFontSizeScale();
+  return Extension::GetImpl(*this).GetDefaultMinimumFontSizeScale();
 }
 
 void UiConfig::SetDefaultMaximumFontSizeScale(float scale)
 {
-  GetImpl(*this).SetDefaultMaximumFontSizeScale(scale);
+  Extension::GetImpl(*this).SetDefaultMaximumFontSizeScale(scale);
 }
 
 float UiConfig::GetDefaultMaximumFontSizeScale() const
 {
-  return GetImpl(*this).GetDefaultMaximumFontSizeScale();
+  return Extension::GetImpl(*this).GetDefaultMaximumFontSizeScale();
 }
 
 void UiConfig::SetScaleForSystemFontSize(SystemFontSize fontSize, float scale)
 {
-  GetImpl(*this).SetScaleForSystemFontSize(fontSize, scale);
+  Extension::GetImpl(*this).SetScaleForSystemFontSize(fontSize, scale);
 }
 
 float UiConfig::GetScaleForSystemFontSize(SystemFontSize fontSize) const
 {
-  return GetImpl(*this).GetScaleForSystemFontSize(fontSize);
+  return Extension::GetImpl(*this).GetScaleForSystemFontSize(fontSize);
 }
 
 void UiConfig::SetDefaultTextColor(const Vector4& color)
 {
-  GetImpl(*this).SetDefaultTextColor(color);
+  Extension::GetImpl(*this).SetDefaultTextColor(color);
 }
 
 Vector4 UiConfig::GetDefaultTextColor() const
 {
-  return GetImpl(*this).GetDefaultTextColor();
+  return Extension::GetImpl(*this).GetDefaultTextColor();
 }
 
 void UiConfig::SetDefaultPlaceholderTextColor(const Vector4& color)
 {
-  GetImpl(*this).SetDefaultPlaceholderTextColor(color);
+  Extension::GetImpl(*this).SetDefaultPlaceholderTextColor(color);
 }
 
 Vector4 UiConfig::GetDefaultPlaceholderTextColor() const
 {
-  return GetImpl(*this).GetDefaultPlaceholderTextColor();
+  return Extension::GetImpl(*this).GetDefaultPlaceholderTextColor();
 }
 
 void UiConfig::SetShowPlaceholderTextOnFocus(bool enabled)
 {
-  GetImpl(*this).SetShowPlaceholderTextOnFocus(enabled);
+  Extension::GetImpl(*this).SetShowPlaceholderTextOnFocus(enabled);
 }
 
 bool UiConfig::IsPlaceholderTextShownOnFocus() const
 {
-  return GetImpl(*this).IsPlaceholderTextShownOnFocus();
+  return Extension::GetImpl(*this).IsPlaceholderTextShownOnFocus();
 }
 
 void UiConfig::SetMarqueeSpeed(int speed)
 {
-  GetImpl(*this).SetMarqueeSpeed(speed);
+  Extension::GetImpl(*this).SetMarqueeSpeed(speed);
 }
 
 int UiConfig::GetMarqueeSpeed() const
 {
-  return GetImpl(*this).GetMarqueeSpeed();
+  return Extension::GetImpl(*this).GetMarqueeSpeed();
 }
 
 void UiConfig::SetMarqueeLoopCount(int loopCount)
 {
-  GetImpl(*this).SetMarqueeLoopCount(loopCount);
+  Extension::GetImpl(*this).SetMarqueeLoopCount(loopCount);
 }
 
 int UiConfig::GetMarqueeLoopCount() const
 {
-  return GetImpl(*this).GetMarqueeLoopCount();
+  return Extension::GetImpl(*this).GetMarqueeLoopCount();
 }
 
 void UiConfig::SetMarqueeLoopDelay(float delay)
 {
-  GetImpl(*this).SetMarqueeLoopDelay(delay);
+  Extension::GetImpl(*this).SetMarqueeLoopDelay(delay);
 }
 
 float UiConfig::GetMarqueeLoopDelay() const
 {
-  return GetImpl(*this).GetMarqueeLoopDelay();
+  return Extension::GetImpl(*this).GetMarqueeLoopDelay();
 }
 
 void UiConfig::SetMarqueeGap(float gap)
 {
-  GetImpl(*this).SetMarqueeGap(gap);
+  Extension::GetImpl(*this).SetMarqueeGap(gap);
 }
 
 float UiConfig::GetMarqueeGap() const
 {
-  return GetImpl(*this).GetMarqueeGap();
+  return Extension::GetImpl(*this).GetMarqueeGap();
 }
 
 void UiConfig::SetMarqueeStopMode(Text::MarqueeStopMode stopMode)
 {
-  GetImpl(*this).SetMarqueeStopMode(stopMode);
+  Extension::GetImpl(*this).SetMarqueeStopMode(stopMode);
 }
 
 Text::MarqueeStopMode UiConfig::GetMarqueeStopMode() const
 {
-  return GetImpl(*this).GetMarqueeStopMode();
+  return Extension::GetImpl(*this).GetMarqueeStopMode();
 }
 
 void UiConfig::SetMarqueeOrientation(Text::MarqueeOrientation orientation)
 {
-  GetImpl(*this).SetMarqueeOrientation(orientation);
+  Extension::GetImpl(*this).SetMarqueeOrientation(orientation);
 }
 
 Text::MarqueeOrientation UiConfig::GetMarqueeOrientation() const
 {
-  return GetImpl(*this).GetMarqueeOrientation();
+  return Extension::GetImpl(*this).GetMarqueeOrientation();
 }
 
 void UiConfig::SetTextLayoutDirectionMode(Text::LayoutDirectionMode mode)
 {
-  GetImpl(*this).SetTextLayoutDirectionMode(mode);
+  Extension::GetImpl(*this).SetTextLayoutDirectionMode(mode);
 }
 
 Text::LayoutDirectionMode UiConfig::GetTextLayoutDirectionMode() const
 {
-  return GetImpl(*this).GetTextLayoutDirectionMode();
+  return Extension::GetImpl(*this).GetTextLayoutDirectionMode();
 }
 
 void UiConfig::SetLabelAsyncRendering(bool asyncRendering)
 {
-  GetImpl(*this).SetLabelAsyncRendering(asyncRendering);
+  Extension::GetImpl(*this).SetLabelAsyncRendering(asyncRendering);
 }
 
 bool UiConfig::IsLabelAsyncRendering() const
 {
-  return GetImpl(*this).IsLabelAsyncRendering();
+  return Extension::GetImpl(*this).IsLabelAsyncRendering();
 }
 
 void UiConfig::SetViewInitializer(ViewInitializer initializer)
 {
-  GetImpl(*this).SetViewInitializer(initializer);
+  Extension::GetImpl(*this).SetViewInitializer(initializer);
 }
 
 ViewInitializer UiConfig::GetViewInitializer() const
 {
-  return GetImpl(*this).GetViewInitializer();
+  return Extension::GetImpl(*this).GetViewInitializer();
 }
 
 void UiConfig::SetDefaultStateEffectForInteractive(StateEffect effect)
 {
-  GetImpl(*this).SetDefaultStateEffectForInteractive(effect);
+  Extension::GetImpl(*this).SetDefaultStateEffectForInteractive(effect);
 }
 
 StateEffect UiConfig::GetDefaultStateEffectForInteractive() const
 {
-  return GetImpl(*this).GetDefaultStateEffectForInteractive();
+  return Extension::GetImpl(*this).GetDefaultStateEffectForInteractive();
 }
 
 void UiConfig::SetAmbiguousPressDelay(uint32_t timeMs)
 {
-  GetImpl(*this).SetAmbiguousPressDelay(timeMs);
+  Extension::GetImpl(*this).SetAmbiguousPressDelay(timeMs);
 }
 
 uint32_t UiConfig::GetAmbiguousPressDelay() const
 {
-  return GetImpl(*this).GetAmbiguousPressDelay();
+  return Extension::GetImpl(*this).GetAmbiguousPressDelay();
 }
 
 void UiConfig::SetAmbiguousPressDuration(uint32_t timeMs)
 {
-  GetImpl(*this).SetAmbiguousPressDuration(timeMs);
+  Extension::GetImpl(*this).SetAmbiguousPressDuration(timeMs);
 }
 
 uint32_t UiConfig::GetAmbiguousPressDuration() const
 {
-  return GetImpl(*this).GetAmbiguousPressDuration();
+  return Extension::GetImpl(*this).GetAmbiguousPressDuration();
 }
 
 void UiConfig::ResetStyleSheet(UiStyleSheet styleSheet)
 {
-  GetImpl(*this).ResetStyleSheet(styleSheet);
+  Extension::GetImpl(*this).ResetStyleSheet(styleSheet);
 }
 
 UiStyleSheet UiConfig::StyleSheet() const
 {
-  return GetImpl(*this).StyleSheet();
+  return Extension::GetImpl(*this).StyleSheet();
 }
 
 void UiConfig::DefaultViewInitializer(View view)

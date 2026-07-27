@@ -103,7 +103,7 @@ void UiThemeManagerImpl::EnsureThemeLoader()
     DALI_ASSERT_ALWAYS(UiConfig::HasCurrent() && UICONFIG_NOT_INITIALIZED_MESSAGE);
 
     UiConfig config = UiConfig::GetCurrent();
-    mLoader         = GetImpl(config).CreateThemeLoader();
+    mLoader         = Extension::GetImpl(config).CreateThemeLoader();
     if(!mLoader)
     {
       mLoader = new DefaultThemeLoader();
@@ -112,7 +112,7 @@ void UiThemeManagerImpl::EnsureThemeLoader()
   }
 }
 
-ThemeLoaderInterface& UiThemeManagerImpl::GetLoader()
+Extension::ThemeLoaderInterface& UiThemeManagerImpl::GetLoader()
 {
   EnsureThemeLoader();
   return *mLoader;

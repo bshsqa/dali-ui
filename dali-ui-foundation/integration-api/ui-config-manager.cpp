@@ -112,7 +112,7 @@ const UiConfig& UiConfigManager::GetConfig() const
   return GetImpl(*this).GetConfig();
 }
 
-ThemeLoaderInterface* UiConfigManager::CreateThemeLoader()
+Extension::ThemeLoaderInterface* UiConfigManager::CreateThemeLoader()
 {
   return GetImpl(*this).CreateThemeLoader();
 }

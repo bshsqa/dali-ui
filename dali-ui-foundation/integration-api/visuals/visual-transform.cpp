@@ -221,7 +221,7 @@ Property::Index Transform::GetIntKey(const Property::Key& key)
 
 const Property::Map& Transform::GetDefaultTransformMap()
 {
-  static const Property::Map sDefaultTransformMap = Dali::CreatePropertyMap({
+  static const Property::Map sDefaultTransformMap = Dali::DevelProperty::CreatePropertyMap({
     {Ui::Visual::Transform::Property::OFFSET, Vector2::ZERO},
     {Ui::Visual::Transform::Property::SIZE, Vector2::ONE},
     {Ui::Visual::Transform::Property::ORIGIN, Ui::Align::TOP_BEGIN},

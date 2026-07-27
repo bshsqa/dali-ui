@@ -91,7 +91,7 @@ Below describes a simple example to show how it works. For the working sample, p
 
 ```cpp
 // tv-theme-loader.h
-class TvThemeLoader : public Dali::Ui::ThemeLoaderInterface
+class TvThemeLoader : public Dali::Ui::Extension::ThemeLoaderInterface
 {
 public:
   TvThemeLoader()
@@ -138,7 +138,7 @@ class TvConfigImpl : public Dali::Ui::Extension::UiConfigImpl
 public:
   static Dali::IntrusivePtr<TvConfigImpl> New() { return new TvConfigImpl(); }
 
-  Dali::Ui::ThemeLoaderInterface* CreateThemeLoader() override
+  Dali::Ui::Extension::ThemeLoaderInterface* CreateThemeLoader() override
   {
     return new TvThemeLoader();
   }

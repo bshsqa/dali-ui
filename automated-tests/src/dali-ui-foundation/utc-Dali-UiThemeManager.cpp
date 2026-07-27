@@ -41,7 +41,7 @@ public:
   }
 };
 
-class TestThemeLoader : public ThemeLoaderInterface
+class TestThemeLoader : public Extension::ThemeLoaderInterface
 {
 public:
   bool GetColor(StringView colorId, Vector4& outColor) override
@@ -68,7 +68,7 @@ private:
 class TestUiConfigImpl : public Dali::Ui::Extension::UiConfigImpl
 {
 public:
-  ThemeLoaderInterface* CreateThemeLoader() override
+  Extension::ThemeLoaderInterface* CreateThemeLoader() override
   {
     ++gThemeLoaderCreateCount;
     return new TestThemeLoader();

@@ -94,7 +94,7 @@ UiStyleKey<TextButtonStyle> TextButtonStyle::DefaultKey()
 ```cpp
 TextButtonStyle TextButtonStyle::DefaultPreset()
 {
-  DebugAssertStyleConfigApplied();
+  Extension::DebugAssertStyleConfigApplied();
 
   static TextButtonStyle style = TextButtonStyle::Builder().Build();
   return style;
@@ -106,7 +106,7 @@ TextButtonStyle TextButtonStyle::DefaultPreset()
 ```cpp
 TextButtonStyle TextButtonStyle::Default()
 {
-  DebugAssertStyleConfigApplied();
+  Extension::DebugAssertStyleConfigApplied();
 
   TextButtonStyle style = UiConfig::GetCurrent().GetStyle(DefaultKey());
   if(style)

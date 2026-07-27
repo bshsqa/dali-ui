@@ -135,7 +135,7 @@ public:
    * @pre UiConfig::Apply() must have been called.
    * @return A new ThemeLoaderInterface instance. Caller takes ownership.
    */
-  ThemeLoaderInterface* CreateThemeLoader();
+  Extension::ThemeLoaderInterface* CreateThemeLoader();
 
 private:
   explicit DALI_INTERNAL UiConfigManager(UiConfigManagerImpl* impl);
