@@ -320,9 +320,9 @@ InputEditorImpl::InputEditorImpl()
 {
   ViewAccessibility::SetAccessibleObjectCreator(
     *this,
-    [](Dali::Actor actor) -> ViewAccessible*
+    [](Dali::Ui::View view) -> ViewAccessible*
   {
-    return new InputEditorAccessible(actor);
+    return new InputEditorAccessible(view);
   });
 }
 
