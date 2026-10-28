@@ -1,0 +1,6 @@
+{
+  "name": "dali-web-smoke-tests",
+  "private": true,
+  "scripts": { "test": "node smoke.cjs" },
+  "devDependencies": { "playwright-core": "1.56.1", "pngjs": "7.0.0" }
+}

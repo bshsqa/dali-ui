@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="context-stroke"/></marker>
+<linearGradient id="hero" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#303c96"/><stop offset=".55" stop-color="#6854ce"/><stop offset="1" stop-color="#bd7cdd"/></linearGradient>
+<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#34425b"/></pattern></defs>
+<style>text{font-family:"Noto Sans CJK KR","Noto Sans CJK JP",sans-serif}</style>
+<rect x="0" y="0" width="1600" height="1060" rx="0" fill="#f4f7fb"/>
+<text x="60" y="66" font-size="34" fill="#15253f" font-weight="700" text-anchor="start">구축 후 활용 예시 · Scene 기반 시각 저작</text>
+<text x="60" y="108" font-size="21" fill="#5d6c82" font-weight="400" text-anchor="start">기능과 작업 흐름을 설명하기 위해 제작한 컨셉 시안</text>
+<rect x="1286" y="75" width="254" height="38" rx="19" fill="#fff0d3"/>
+<text x="1413.0" y="101" font-size="19" fill="#ad6908" font-weight="600" text-anchor="middle">컨셉 시안 · 미구현</text>
+<rect x="30" y="145" width="1540" height="850" rx="18" fill="#101829" stroke="#29374d" stroke-width="2"/>
+<rect x="30" y="145" width="1540" height="64" rx="16" fill="#182236"/>
+<text x="56" y="187" font-size="28" fill="#8de0da" font-weight="700" text-anchor="start">DALi Studio</text>
+<text x="295" y="185" font-size="22" fill="#d6dfed" font-weight="400" text-anchor="start">생활 서비스 / Home.scene</text>
+<rect x="1080" y="159" width="88" height="38" rx="7" fill="#25344c"/>
+<text x="1124.0" y="185" font-size="18" fill="#e3eaf5" font-weight="600" text-anchor="middle">저장</text>
+<rect x="1180" y="159" width="88" height="38" rx="7" fill="#25344c"/>
+<text x="1224.0" y="185" font-size="18" fill="#e3eaf5" font-weight="600" text-anchor="middle">실행</text>
+<rect x="1280" y="159" width="88" height="38" rx="7" fill="#25344c"/>
+<text x="1324.0" y="185" font-size="18" fill="#e3eaf5" font-weight="600" text-anchor="middle">공유</text>
+<rect x="1380" y="159" width="168" height="38" rx="7" fill="#6dd7c1"/>
+<text x="1464.0" y="185" font-size="18" fill="#102a29" font-weight="600" text-anchor="middle">코드 내보내기</text>
+<rect x="30" y="210" width="270" height="738" rx="0" fill="#141e30"/>
+<rect x="300" y="210" width="900" height="738" rx="0" fill="#101929"/>
+<rect x="300" y="263" width="900" height="541" rx="0" fill="url(#grid)"/>
+<rect x="1200" y="210" width="370" height="738" rx="0" fill="#141e30"/>
+<text x="54" y="250" font-size="18" fill="#8da0bb" font-weight="600" text-anchor="start">SCENE TREE</text>
+<text x="57" y="300" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">⌄ Home</text>
+<text x="79" y="343" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">Header</text>
+<rect x="42" y="358" width="244" height="38" rx="6" fill="#234153" stroke="#59cfc4" stroke-width="2"/>
+<text x="79" y="386" font-size="21" fill="#ecf2fa" font-weight="400" text-anchor="start">HeroCard</text>
+<text x="101" y="429" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">Title</text>
+<text x="101" y="472" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">Subtitle</text>
+<text x="101" y="515" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">ActionButton</text>
+<text x="79" y="558" font-size="21" fill="#b3c0d4" font-weight="400" text-anchor="start">QuickLinks</text>
+<path d="M51 625 H277" fill="none" stroke="#2c3c54" stroke-width="2"/>
+<text x="54" y="666" font-size="20" fill="#dbe5f4" font-weight="600" text-anchor="start">컴포넌트 추가</text>
+<rect x="51" y="690" width="108" height="59" rx="8" fill="#213047" stroke="#34475f" stroke-width="2"/>
+<text x="105" y="728" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">뷰</text>
+<rect x="169" y="690" width="108" height="59" rx="8" fill="#213047" stroke="#34475f" stroke-width="2"/>
+<text x="223" y="728" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">텍스트</text>
+<rect x="51" y="764" width="108" height="59" rx="8" fill="#213047" stroke="#34475f" stroke-width="2"/>
+<text x="105" y="802" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">이미지</text>
+<rect x="169" y="764" width="108" height="59" rx="8" fill="#213047" stroke="#34475f" stroke-width="2"/>
+<text x="223" y="802" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">버튼</text>
+<text x="324" y="250" font-size="20" fill="#dbe5f4" font-weight="600" text-anchor="start">캔버스</text>
+<text x="1174" y="250" font-size="19" fill="#8da0bb" font-weight="400" text-anchor="end">1280 × 720   |   맞춤 보기</text>
+<rect x="372" y="300" width="756" height="448" rx="12" fill="#f4f6fd"/>
+<text x="404" y="342" font-size="23" fill="#1c2f52" font-weight="700" text-anchor="start">DALi Home</text>
+<text x="1094" y="341" font-size="17" fill="#6a7b98" font-weight="400" text-anchor="end">홈     컬렉션     설정</text>
+<rect x="408" y="372" width="684" height="242" rx="22" fill="url(#hero)"/>
+<defs><clipPath id="heroClip"><rect x="408" y="372" width="684" height="242" rx="22"/></clipPath></defs><g clip-path="url(#heroClip)"><circle cx="1000" cy="423" r="105" fill="#c4a4e8" opacity=".18"/><circle cx="1047" cy="580" r="124" fill="#7ce8df" opacity=".2"/></g>
+<rect x="437" y="393" width="156" height="38" rx="19" fill="#ffffff22"/>
+<text x="515.0" y="419" font-size="19" fill="#e9e5ff" font-weight="600" text-anchor="middle">나를 위한 추천</text>
+<text x="437" y="474" font-size="39" fill="white" font-weight="700" text-anchor="start">오늘의 추천을</text>
+<text x="437" y="526" font-size="39" fill="white" font-weight="700" text-anchor="start">만나보세요</text>
+<rect x="439" y="550" width="152" height="40" rx="20" fill="white"/>
+<text x="515" y="578" font-size="19" fill="#52439a" font-weight="600" text-anchor="middle">시작하기  →</text>
+<rect x="402" y="366" width="696" height="254" rx="25" fill="none" stroke="#4ee1d0" stroke-width="2"/>
+<rect x="397" y="361" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="397" y="615" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="745" y="361" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="745" y="615" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="1093" y="361" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="1093" y="615" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="397" y="488" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="1093" y="488" width="10" height="10" rx="1" fill="#dbfff8" stroke="#258b85" stroke-width="2"/>
+<rect x="409" y="641" width="215" height="74" rx="12" fill="#dae8ff"/>
+<rect x="425" y="659" width="37" height="37" rx="10" fill="#ffffff99"/>
+<text x="475" y="686" font-size="20" fill="#334969" font-weight="600" text-anchor="start">이어보기</text>
+<rect x="644" y="641" width="215" height="74" rx="12" fill="#e5defc"/>
+<rect x="660" y="659" width="37" height="37" rx="10" fill="#ffffff99"/>
+<text x="710" y="686" font-size="20" fill="#334969" font-weight="600" text-anchor="start">즐겨찾기</text>
+<rect x="879" y="641" width="215" height="74" rx="12" fill="#d5eee7"/>
+<rect x="895" y="659" width="37" height="37" rx="10" fill="#ffffff99"/>
+<text x="945" y="686" font-size="20" fill="#334969" font-weight="600" text-anchor="start">새로운 소식</text>
+<text x="750" y="783" font-size="19" fill="#aab9ce" font-weight="400" text-anchor="middle">스냅 8 px  ·  드래그로 위치 변경  ·  속성 변경 즉시 프리뷰</text>
+<rect x="300" y="805" width="900" height="143" rx="0" fill="#172235"/>
+<text x="324" y="845" font-size="20" fill="#dbe5f4" font-weight="600" text-anchor="start">상태 · 애니메이션</text>
+<rect x="336" y="865" width="235" height="46" rx="9" fill="#263550"/>
+<text x="453" y="896" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">기본</text>
+<path d="M580 888 L603 888" fill="none" stroke="#6dd7c1" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="611" y="865" width="235" height="46" rx="9" fill="#263550"/>
+<text x="728" y="896" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">포커스</text>
+<path d="M855 888 L878 888" fill="none" stroke="#6dd7c1" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="886" y="865" width="235" height="46" rx="9" fill="#263550"/>
+<text x="1003" y="896" font-size="21" fill="#d6e4f5" font-weight="400" text-anchor="middle">눌림</text>
+<text x="1225" y="250" font-size="18" fill="#8da0bb" font-weight="600" text-anchor="start">PROPERTIES</text>
+<text x="1225" y="295" font-size="26" fill="#eef5ff" font-weight="700" text-anchor="start">HeroCard</text>
+<text x="1225" y="340" font-size="20" fill="#dbe5f4" font-weight="600" text-anchor="start">배치</text>
+<text x="1227" y="383" font-size="18" fill="#92a5bf" font-weight="400" text-anchor="start">X / Y</text>
+<rect x="1350" y="361" width="193" height="40" rx="6" fill="#23314a" stroke="#384961" stroke-width="2"/>
+<text x="1362" y="388" font-size="18" fill="#e7effa" font-weight="400" text-anchor="start">80 / 160</text>
+<text x="1227" y="446" font-size="18" fill="#92a5bf" font-weight="400" text-anchor="start">너비 / 높이</text>
+<rect x="1350" y="424" width="193" height="40" rx="6" fill="#23314a" stroke="#384961" stroke-width="2"/>
+<text x="1362" y="451" font-size="18" fill="#e7effa" font-weight="400" text-anchor="start">1120 / 400</text>
+<text x="1227" y="509" font-size="18" fill="#92a5bf" font-weight="400" text-anchor="start">모서리 반경</text>
+<rect x="1350" y="487" width="193" height="40" rx="6" fill="#23314a" stroke="#384961" stroke-width="2"/>
+<text x="1362" y="514" font-size="18" fill="#e7effa" font-weight="400" text-anchor="start">24</text>
+<text x="1227" y="572" font-size="18" fill="#92a5bf" font-weight="400" text-anchor="start">배경</text>
+<rect x="1350" y="550" width="193" height="40" rx="6" fill="#23314a" stroke="#384961" stroke-width="2"/>
+<text x="1362" y="577" font-size="18" fill="#e7effa" font-weight="400" text-anchor="start">선형 그라데이션</text>
+<path d="M1226 625 H1544" fill="none" stroke="#2c3c54" stroke-width="2"/>
+<text x="1225" y="666" font-size="20" fill="#dbe5f4" font-weight="600" text-anchor="start">이벤트</text>
+<text x="1228" y="708" font-size="19" fill="#7cddd1" font-weight="400" text-anchor="start">onClick</text>
+<rect x="1226" y="728" width="317" height="52" rx="8" fill="#23314a" stroke="#384961" stroke-width="2"/>
+<text x="1242" y="762" font-size="22" fill="#e7effa" font-weight="400" text-anchor="start">Navigate → Detail</text>
+<text x="1227" y="821" font-size="19" fill="#92a5bf" font-weight="400" text-anchor="start">이벤트는 선언으로 저장</text>
+<text x="1227" y="853" font-size="19" fill="#92a5bf" font-weight="400" text-anchor="start">앱 로직은 별도 코드에서 연결</text>
+<rect x="30" y="949" width="1540" height="46" rx="0" fill="#183d40"/>
+<text x="54" y="979" font-size="18" fill="#a5e6d8" font-weight="400" text-anchor="start">Home.scene  ·  12개 노드  ·  공통 Scene 모델</text>
+<text x="1540" y="979" font-size="18" fill="#a5e6d8" font-weight="400" text-anchor="end">사용자 로직과 생성 코드 분리</text>
+<text x="800" y="1036" font-size="23" fill="#087e8b" font-weight="600" text-anchor="middle">시각 편집 → Scene 저장 → 앱 로직 연결 → DALi 앱에 재사용하는 흐름을 목표로 한다.</text>
+</svg>

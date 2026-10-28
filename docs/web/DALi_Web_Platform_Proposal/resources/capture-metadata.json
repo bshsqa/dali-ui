@@ -1,0 +1,31 @@
+{
+  "capturedFor": "2026-10-28 제안 계획서",
+  "classification": "PoC 참고 화면; 계획 기능의 구현 완료 증거가 아님",
+  "target": "background-blur-dither.example",
+  "url": "http://127.0.0.1:8787/",
+  "viewport": [
+    1920,
+    1200
+  ],
+  "renderer": "headless Chrome / SwiftShader / WebGL 2",
+  "source": "dali-ui/samples/background-blur-dither/background-blur-dither-example.cpp",
+  "sourceSha256": "34969a93d634df5845cc18af93e32f9fcc0a245ab80b4e738920b7575dda0aca",
+  "sourcePolicy": "기존 작업 중인 소스를 그대로 사용. 파일 수정 없음.",
+  "captureSettings": {
+    "logicalSize": [
+      1017,
+      658
+    ],
+    "radius": 30,
+    "note": "키 입력으로 실행 중인 샘플의 반경만 조절"
+  },
+  "blurToggleChangedPixels": 548290,
+  "runtimeErrors": [],
+  "preview": {
+    "surface": [
+      1017,
+      658
+    ],
+    "isolated": true
+  }
+}

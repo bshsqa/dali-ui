@@ -1,0 +1,27 @@
+{
+  "description": "DALi Web PoC repository revisions. Use dali-ui at the commit containing this file.",
+  "dali-core": {
+    "commit": "621f097c6eaf2940a85f09e4eed137c52e00359c",
+    "changeId": "Ifabf1d2274d132995200c60b4de27743a4f9ba39",
+    "reviewBranch": "devel/master",
+    "fixedScenePrerequisite": "2ef0fc27dd55d74b39f0c2ac262bd1fb2ffe5721",
+    "reviewUrl": "https://review.tizen.org/gerrit/c/platform/core/uifw/dali-core/+/359361",
+    "reviewRef": "refs/changes/61/359361/1",
+    "fixedScenePrerequisiteRef": "refs/changes/35/353635/6"
+  },
+  "dali-adaptor": {
+    "commit": "a7637374daf9e2d12833e7da412e490e4b02b0de",
+    "changeId": "I64d7820a09cc32467066cf5fe9d138378732dedf",
+    "reviewBranch": "devel/master",
+    "fixedScenePrerequisite": "0e8aeb7b076d01059b50f02de439fa7bdd476af1",
+    "reviewUrl": "https://review.tizen.org/gerrit/c/platform/core/uifw/dali-adaptor/+/359362",
+    "reviewRef": "refs/changes/62/359362/1",
+    "fixedScenePrerequisiteRef": "refs/changes/34/353634/6"
+  },
+  "dali-ui": {
+    "branch": "daliWeb",
+    "revision": "the commit containing this file",
+    "base": "7dc0ceddf40340695925556ea1a791144f6f2fda"
+  },
+  "emscripten": "4.0.23"
+}

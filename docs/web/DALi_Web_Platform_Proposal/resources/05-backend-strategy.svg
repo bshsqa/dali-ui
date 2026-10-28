@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="930" viewBox="0 0 1600 930">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="context-stroke"/></marker>
+<linearGradient id="hero" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#303c96"/><stop offset=".55" stop-color="#6854ce"/><stop offset="1" stop-color="#bd7cdd"/></linearGradient>
+<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#34425b"/></pattern></defs>
+<style>text{font-family:"Noto Sans CJK KR","Noto Sans CJK JP",sans-serif}</style>
+<rect x="0" y="0" width="1600" height="930" rx="0" fill="#f4f7fb"/>
+<text x="60" y="66" font-size="34" fill="#15253f" font-weight="700" text-anchor="start">그래픽 API 선택은 공통 플랫폼과 분리해 검증</text>
+<text x="60" y="108" font-size="21" fill="#5d6c82" font-weight="400" text-anchor="start">기술 추진 방향 · WebGPU는 Vulkan 바이너리를 그대로 실행하는 인터페이스가 아님</text>
+<rect x="320" y="150" width="960" height="130" rx="16" fill="white" stroke="#dbe3ef" stroke-width="2"/>
+<text x="800" y="202" font-size="31" fill="#15253f" font-weight="700" text-anchor="middle">DALi Scene · 레이아웃 · 애니메이션</text>
+<text x="800" y="246" font-size="25" fill="#5d6c82" font-weight="400" text-anchor="middle">공통 Graphics API와 자원 모델을 확장 지점으로 검토</text>
+<path d="M800 280 V315 H280 V351 M800 315 V351 M800 315 H1320 V351" fill="none" stroke="#a5b4ca" stroke-width="3"/>
+<rect x="60" y="352" width="440" height="358" rx="16" fill="white" stroke="#dbe3ef" stroke-width="2"/>
+<rect x="60" y="352" width="440" height="107" rx="16" fill="#edf4ff"/>
+<text x="280" y="398" font-size="29" fill="#2563eb" font-weight="700" text-anchor="middle">WebGL 2 경로</text>
+<text x="280" y="435" font-size="21" fill="#2563eb" font-weight="400" text-anchor="middle">초기 지원 범위 확보</text>
+<rect x="84" y="481" width="392" height="52" rx="10" fill="#edf4ff"/>
+<text x="280" y="515" font-size="21" fill="#2563eb" font-weight="400" text-anchor="middle">GLES 호출의 Web 대응</text>
+<rect x="84" y="549" width="392" height="52" rx="10" fill="#edf4ff"/>
+<text x="280" y="583" font-size="21" fill="#2563eb" font-weight="400" text-anchor="middle">GLSL ES 3.00 기반 셰이더</text>
+<rect x="84" y="617" width="392" height="52" rx="10" fill="#edf4ff"/>
+<text x="280" y="651" font-size="21" fill="#2563eb" font-weight="400" text-anchor="middle">WebGL 2 · ES 3.0에 가까운 범위</text>
+<rect x="580" y="352" width="440" height="358" rx="16" fill="white" stroke="#dbe3ef" stroke-width="2"/>
+<rect x="580" y="352" width="440" height="107" rx="16" fill="#f2effb"/>
+<text x="800" y="398" font-size="29" fill="#7553c5" font-weight="700" text-anchor="middle">WebGPU 경로</text>
+<text x="800" y="435" font-size="21" fill="#7553c5" font-weight="400" text-anchor="middle">별도 backend 타당성 검증</text>
+<rect x="604" y="481" width="392" height="52" rx="10" fill="#f2effb"/>
+<text x="800" y="515" font-size="21" fill="#7553c5" font-weight="400" text-anchor="middle">자원·파이프라인·명령 매핑</text>
+<rect x="604" y="549" width="392" height="52" rx="10" fill="#f2effb"/>
+<text x="800" y="583" font-size="21" fill="#7553c5" font-weight="400" text-anchor="middle">WGSL 작성 / 변환 검증</text>
+<rect x="604" y="617" width="392" height="52" rx="10" fill="#f2effb"/>
+<text x="800" y="651" font-size="21" fill="#7553c5" font-weight="400" text-anchor="middle">WebGPU 기능·한계 협상</text>
+<rect x="1100" y="352" width="440" height="358" rx="16" fill="white" stroke="#dbe3ef" stroke-width="2"/>
+<rect x="1100" y="352" width="440" height="107" rx="16" fill="#eaf6f3"/>
+<text x="1320" y="398" font-size="29" fill="#087e8b" font-weight="700" text-anchor="middle">네이티브 경로</text>
+<text x="1320" y="435" font-size="21" fill="#087e8b" font-weight="400" text-anchor="middle">최종 적용·검증 경로 유지</text>
+<rect x="1124" y="481" width="392" height="52" rx="10" fill="#eaf6f3"/>
+<text x="1320" y="515" font-size="21" fill="#087e8b" font-weight="400" text-anchor="middle">기존 GLES / Vulkan backend</text>
+<rect x="1124" y="549" width="392" height="52" rx="10" fill="#eaf6f3"/>
+<text x="1320" y="583" font-size="21" fill="#087e8b" font-weight="400" text-anchor="middle">네이티브 셰이더·GPU 드라이버</text>
+<rect x="1124" y="617" width="392" height="52" rx="10" fill="#eaf6f3"/>
+<text x="1320" y="651" font-size="21" fill="#087e8b" font-weight="400" text-anchor="middle">Tizen 기기의 기능·성능 확인</text>
+<path d="M1320 750 L800 750" fill="none" stroke="#7553c5" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrow)"/>
+<text x="1060" y="790" font-size="22" fill="#7553c5" font-weight="400" text-anchor="middle">Vulkan 설계·셰이더 자산의 재사용 가능성 검토</text>
+<rect x="60" y="824" width="1480" height="68" rx="12" fill="#fff5df" stroke="#edd9b4" stroke-width="2"/>
+<text x="800" y="867" font-size="26" fill="#ad6908" font-weight="600" text-anchor="middle">채택 기준: 필요한 기능의 지원 여부 + 셰이더 변환 가능성 + 실제 브라우저 측정 결과</text>
+</svg>

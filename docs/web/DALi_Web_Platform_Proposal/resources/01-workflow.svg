@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="context-stroke"/></marker>
+<linearGradient id="hero" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#303c96"/><stop offset=".55" stop-color="#6854ce"/><stop offset="1" stop-color="#bd7cdd"/></linearGradient>
+<pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#34425b"/></pattern></defs>
+<style>text{font-family:"Noto Sans CJK KR","Noto Sans CJK JP",sans-serif}</style>
+<rect x="0" y="0" width="1600" height="700" rx="0" fill="#f4f7fb"/>
+<text x="60" y="66" font-size="34" fill="#15253f" font-weight="700" text-anchor="start">디자인 전달부터 실행 확인까지, 하나의 작업 흐름으로</text>
+<text x="60" y="108" font-size="21" fill="#5d6c82" font-weight="400" text-anchor="start">필요성 설명을 위한 업무 흐름 예시 · 제안하는 운영 방식</text>
+<rect x="60" y="146" width="1480" height="208" rx="16" fill="white" stroke="#dbe3ef" stroke-width="2"/>
+<rect x="84" y="166" width="205" height="38" rx="19" fill="#f4ede7"/>
+<text x="186.5" y="192" font-size="19" fill="#775b48" font-weight="600" text-anchor="middle">분리된 작업 흐름</text>
+<rect x="88" y="230" width="258" height="96" rx="12" fill="#f7f8fa" stroke="#dbe3ef" stroke-width="2"/>
+<text x="217" y="267" font-size="26" fill="#15253f" font-weight="600" text-anchor="middle">디자인 전달</text>
+<text x="217" y="301" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">시안·명세를 공유</text>
+<path d="M350 279 L373 279" fill="none" stroke="#a2aebf" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="378" y="230" width="258" height="96" rx="12" fill="#f7f8fa" stroke="#dbe3ef" stroke-width="2"/>
+<text x="507" y="267" font-size="26" fill="#15253f" font-weight="600" text-anchor="middle">화면 구현</text>
+<text x="507" y="301" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">코드로 배치 재현</text>
+<path d="M640 279 L663 279" fill="none" stroke="#a2aebf" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="668" y="230" width="258" height="96" rx="12" fill="#f7f8fa" stroke="#dbe3ef" stroke-width="2"/>
+<text x="797" y="267" font-size="26" fill="#15253f" font-weight="600" text-anchor="middle">환경 준비·빌드</text>
+<text x="797" y="301" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">SDK·의존성 설정</text>
+<path d="M930 279 L953 279" fill="none" stroke="#a2aebf" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="958" y="230" width="258" height="96" rx="12" fill="#f7f8fa" stroke="#dbe3ef" stroke-width="2"/>
+<text x="1087" y="267" font-size="26" fill="#15253f" font-weight="600" text-anchor="middle">실행 결과 확인</text>
+<text x="1087" y="301" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">기기·플랫폼 확인</text>
+<path d="M1220 279 L1243 279" fill="none" stroke="#a2aebf" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1248" y="230" width="258" height="96" rx="12" fill="#f7f8fa" stroke="#dbe3ef" stroke-width="2"/>
+<text x="1377" y="267" font-size="26" fill="#15253f" font-weight="600" text-anchor="middle">수정 요청</text>
+<text x="1377" y="301" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">차이를 다시 전달</text>
+<rect x="60" y="390" width="1480" height="248" rx="16" fill="#e9f5f6" stroke="#b9dfe2" stroke-width="2"/>
+<rect x="84" y="410" width="225" height="38" rx="19" fill="#e6f4f4"/>
+<text x="196.5" y="436" font-size="19" fill="#087e8b" font-weight="600" text-anchor="middle">구축 후 목표 흐름</text>
+<rect x="88" y="480" width="330" height="110" rx="12" fill="white" stroke="#a6d3d7" stroke-width="2"/>
+<text x="253" y="522" font-size="26" fill="#087e8b" font-weight="700" text-anchor="middle">브라우저에서 편집</text>
+<text x="253" y="559" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">Scene·코드를 같은 곳에서 수정</text>
+<path d="M422 534 L447 534" fill="none" stroke="#087e8b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="452" y="480" width="330" height="110" rx="12" fill="white" stroke="#a6d3d7" stroke-width="2"/>
+<text x="617" y="522" font-size="26" fill="#087e8b" font-weight="700" text-anchor="middle">DALi 프리뷰 확인</text>
+<text x="617" y="559" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">배치·상태·동작을 빠르게 확인</text>
+<path d="M786 534 L811 534" fill="none" stroke="#087e8b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="816" y="480" width="330" height="110" rx="12" fill="white" stroke="#a6d3d7" stroke-width="2"/>
+<text x="981" y="522" font-size="26" fill="#087e8b" font-weight="700" text-anchor="middle">프로젝트 저장</text>
+<text x="981" y="559" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">Scene·리소스·로직을 관리</text>
+<path d="M1150 534 L1175 534" fill="none" stroke="#087e8b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1180" y="480" width="330" height="110" rx="12" fill="white" stroke="#a6d3d7" stroke-width="2"/>
+<text x="1345" y="522" font-size="26" fill="#087e8b" font-weight="700" text-anchor="middle">공유·기기 검증</text>
+<text x="1345" y="559" font-size="20" fill="#5d6c82" font-weight="400" text-anchor="middle">버전을 공유하고 Tizen에 적용</text>
+<text x="800" y="674" font-size="23" fill="#087e8b" font-weight="600" text-anchor="middle">작은 변경을 짧게 반복하고, 만들어진 Scene을 실제 앱에서 재사용하는 것을 목표로 한다.</text>
+</svg>

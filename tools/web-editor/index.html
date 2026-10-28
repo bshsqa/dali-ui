@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101419">
+  <link rel="icon" href="data:,">
+  <title>DALi — App Editor</title>
+</head>
+<body>
+  <div id="app">
+    <header class="titlebar">
+      <div class="brand"><span class="brand-mark">d</span><strong>DALi</strong><span class="brand-divider"></span><span>App Editor</span></div>
+      <div class="workspace-title"><span class="folder-symbol">⌘</span><span id="workspace-name">Connecting to workspace…</span></div>
+      <div class="connection"><span id="connection-dot" class="dot"></span><span id="connection-status">Connecting</span></div>
+    </header>
+    <nav class="toolbar" aria-label="Editor actions">
+      <button id="new-file" class="tool-button" title="New file"><span data-icon="file-plus"></span><span>New file</span></button>
+      <button id="save-all" class="tool-button" title="Save all files (Ctrl+S)"><span data-icon="save"></span><span>Save all</span></button>
+      <button id="reload-file" class="icon-button" aria-label="Reload active file" title="Reload active file from disk"><span data-icon="refresh"></span></button>
+      <span class="toolbar-divider"></span>
+      <label class="sample-label" for="sample-select">APPLICATION</label>
+      <select id="sample-select" aria-label="Application target"><option>Loading samples…</option></select>
+      <div class="toolbar-space"></div>
+      <button id="reset-layout" class="icon-button" aria-label="Reset panel sizes" title="Reset panel sizes"><span data-icon="panels"></span></button>
+      <button id="stop" class="tool-button" disabled><span data-icon="stop"></span><span>Stop</span></button>
+      <button id="build-run" class="primary-button" disabled title="Save all, build and run (Ctrl+Enter)"><span data-icon="play"></span><span>Build &amp; Run</span><kbd>⌃ ↵</kbd></button>
+    </nav>
+    <main id="workbench">
+      <aside id="explorer-panel" class="panel">
+        <div class="panel-heading"><span>EXPLORER</span><div class="panel-actions">
+          <button id="new-folder" class="icon-button small" aria-label="New folder" title="New folder"><span data-icon="folder-plus"></span></button>
+          <button id="refresh-tree" class="icon-button small" aria-label="Refresh Explorer" title="Refresh Explorer"><span data-icon="refresh"></span></button>
+          <button id="collapse-tree" class="icon-button small" aria-label="Collapse folders" title="Collapse folders"><span data-icon="collapse"></span></button>
+        </div></div>
+        <div class="workspace-root"><span>⌄</span><strong id="tree-root">DALi</strong><span class="local-tag">LOCAL</span></div>
+        <div id="file-tree" role="tree" aria-label="Workspace files"></div>
+        <div class="explorer-footer"><span class="dot green"></span><span>Files on disk</span></div>
+      </aside>
+      <div id="explorer-splitter" class="splitter vertical" role="separator" tabindex="0" aria-label="Resize Explorer" aria-orientation="vertical"></div>
+      <section id="center-panel">
+        <section id="preview-panel" class="panel">
+          <div class="panel-heading preview-heading"><span class="panel-label"><span data-icon="monitor"></span>PREVIEW</span>
+            <span id="preview-state" class="state-chip">Idle</span>
+            <div class="panel-actions"><button id="reload-preview" class="icon-button small" aria-label="Restart preview" title="Restart the last successful build"><span data-icon="refresh"></span></button></div>
+          </div>
+          <div class="preview-options"><span class="muted">Scene</span><select id="scene-size" aria-label="Logical scene size">
+            <option value="sample">App default</option><option value="800,600">800 × 600 · Desktop</option><option value="360,640">360 × 640 · Portrait</option>
+            <option value="1920,1080">1920 × 1080 · TV</option><option value="custom">Custom…</option>
+          </select><div id="custom-size" hidden><input id="scene-width" type="number" min="64" max="8192" value="800" aria-label="Scene width"><span>×</span><input id="scene-height" type="number" min="64" max="8192" value="600" aria-label="Scene height"><button id="apply-size" class="text-button">Apply</button></div><span class="fit-label">Aspect fit</span></div>
+          <div id="preview-stage"><div id="preview-placeholder"><div class="placeholder-art"><span data-icon="monitor"></span></div><h1>Your application, live.</h1><p>Open a sample, edit its source, then build and run.</p><span class="shortcut-hint">Ctrl + Enter</span></div><iframe id="preview-frame" title="DALi application preview" allow="cross-origin-isolated" hidden></iframe></div>
+          <div class="preview-footer"><span id="scene-dimensions">SCENE 800 × 600</span><span id="surface-dimensions">SURFACE —</span><span class="engine-label">WASM <span>·</span> WebGL 2</span></div>
+        </section>
+        <div id="terminal-splitter" class="splitter horizontal" role="separator" tabindex="0" aria-label="Resize Preview and Terminal" aria-orientation="horizontal"></div>
+        <section id="terminal-panel" class="panel">
+          <div class="terminal-heading"><div class="terminal-tabs" role="tablist" aria-label="Output views">
+            <button class="output-tab active" role="tab" aria-selected="true" data-terminal="shell">Terminal</button>
+            <button class="output-tab" role="tab" aria-selected="false" data-terminal="build">Build<span id="build-indicator"></span></button>
+            <button class="output-tab" role="tab" aria-selected="false" data-terminal="runtime">Application</button>
+          </div><div class="panel-actions"><span id="terminal-label">bash</span><button id="restart-terminal" class="icon-button small" aria-label="Restart terminal" title="Restart shell"><span data-icon="refresh"></span></button><button id="clear-terminal" class="icon-button small" aria-label="Clear terminal output" title="Clear output"><span data-icon="clear"></span></button></div></div>
+          <div id="terminal-content"><div id="terminal-shell" class="terminal-view active"></div><div id="terminal-build" class="terminal-view"></div><div id="terminal-runtime" class="terminal-view"></div></div>
+          <div id="problems" hidden></div>
+        </section>
+      </section>
+      <div id="code-splitter" class="splitter vertical" role="separator" tabindex="0" aria-label="Resize Code Editor" aria-orientation="vertical"></div>
+      <section id="code-panel" class="panel"><div id="editor-tabs" role="tablist" aria-label="Open files"></div><div id="breadcrumbs"></div><div id="editor"></div><div id="editor-empty" hidden><span data-icon="code"></span><p>Choose a file from Explorer</p></div></section>
+    </main>
+    <footer class="statusbar"><span id="global-status">Opening workspace…</span><span id="build-status"></span><div class="toolbar-space"></div><span id="cursor-position">Ln 1, Col 1</span><span>Spaces: 2</span><span>UTF-8</span><span id="language-status">C++</span></footer>
+  </div>
+  <div id="toast" role="status" hidden></div>
+  <dialog id="file-dialog"><form id="file-form"><h2 id="file-dialog-title">New file</h2><label for="new-path">Path relative to workspace</label><input id="new-path" autocomplete="off" required placeholder="dali-ui/samples/hello-world/example.h"><p id="dialog-error" role="alert"></p><div class="dialog-actions"><button type="button" id="cancel-dialog" class="tool-button">Cancel</button><button type="submit" class="primary-button">Create</button></div></form></dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

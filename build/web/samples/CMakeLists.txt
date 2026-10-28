@@ -1,0 +1,85 @@
+cmake_minimum_required(VERSION 3.20)
+project(dali-ui-web-samples LANGUAGES C CXX)
+if(NOT EMSCRIPTEN)
+  message(FATAL_ERROR "Configure Web samples with emcmake cmake.")
+endif()
+list(APPEND CMAKE_FIND_ROOT_PATH "${CMAKE_INSTALL_PREFIX}")
+find_package(dali2-ui-components CONFIG REQUIRED)
+include("${CMAKE_INSTALL_PREFIX}/share/dali-web/web-common.cmake")
+get_filename_component(DALI_UI_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../.." ABSOLUTE)
+set(DALI_WEB_SAMPLE_DIRS "hello-world;animation" CACHE STRING "Sample directories to build")
+set(DALI_WEB_SAMPLE_TARGETS "" CACHE STRING "Optional list of sample target names")
+set(DALI_WEB_FONT_DIR "${CMAKE_INSTALL_PREFIX}/share/dali-web/fonts/noto" CACHE PATH "Fonts bundled with Web samples")
+if(NOT IS_DIRECTORY "${DALI_WEB_FONT_DIR}")
+  message(FATAL_ERROR "No Web fonts found. Run make -C dali-adaptor/build/web setup or set DALI_WEB_FONT_DIR.")
+endif()
+set(web_support "${CMAKE_CURRENT_SOURCE_DIR}")
+set(web_output "${CMAKE_CURRENT_BINARY_DIR}/dist")
+set(web_fontconfig "${CMAKE_CURRENT_BINARY_DIR}/fontconfig")
+file(MAKE_DIRECTORY "${web_output}" "${CMAKE_CURRENT_BINARY_DIR}/fontconfig")
+file(CONFIGURE OUTPUT "${web_fontconfig}/fonts.conf" CONTENT
+  "<?xml version=\"1.0\"?><!DOCTYPE fontconfig SYSTEM \"urn:fontconfig:fonts.dtd\"><fontconfig><dir>/usr/share/fonts</dir><cachedir>/tmp/fontconfig</cachedir><alias><family>sans-serif</family><prefer><family>Noto Sans CJK KR</family><family>DejaVu Sans</family></prefer></alias></fontconfig>")
+file(GLOB_RECURSE web_assets CONFIGURE_DEPENDS "${DALI_WEB_FONT_DIR}/*" "${CMAKE_INSTALL_PREFIX}/share/dali/*")
+
+function(DALI_SET_SAMPLE_RESOURCES target resource_name resource_directory)
+  if(NOT TARGET ${target})
+    return()
+  endif()
+  target_compile_definitions(${target} PRIVATE RESOURCES_DIR="/res/")
+  target_link_options(${target} PRIVATE "SHELL:--preload-file ${resource_directory}@/res")
+  file(GLOB_RECURSE resources CONFIGURE_DEPENDS "${resource_directory}/*")
+  set_property(TARGET ${target} APPEND PROPERTY LINK_DEPENDS ${resources})
+endfunction()
+
+function(DALI_ADD_SAMPLE target)
+  add_executable(${target} EXCLUDE_FROM_ALL ${ARGN})
+  dali_web_target(${target})
+  set_target_properties(${target} PROPERTIES SUFFIX ".html" RUNTIME_OUTPUT_DIRECTORY "${web_output}")
+  set_property(TARGET ${target} APPEND PROPERTY LINK_DEPENDS
+    "${web_support}/shell.html" "${web_support}/pre.js" "${web_fontconfig}/fonts.conf" ${web_assets})
+  target_link_libraries(${target} PRIVATE dali2-ui-components::dali2-ui-components)
+  target_link_options(${target} PRIVATE
+    -pthread -fexceptions -sPROXY_TO_PTHREAD=1 -sPTHREAD_POOL_SIZE=8
+    -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=268435456 -sMAXIMUM_MEMORY=2147483648
+    -sSTACK_SIZE=8388608 -sDEFAULT_PTHREAD_STACK_SIZE=2097152
+    -sASYNCIFY=1 -sASYNCIFY_STACK_SIZE=131072
+    -sMIN_WEBGL_VERSION=2 -sMAX_WEBGL_VERSION=2 -sFULL_ES3=1
+    -sOFFSCREEN_FRAMEBUFFER=1 -sASSERTIONS=1 -sEXIT_RUNTIME=1
+    "SHELL:--shell-file ${web_support}/shell.html"
+    "SHELL:--pre-js ${web_support}/pre.js"
+    "SHELL:--preload-file ${DALI_WEB_FONT_DIR}@/usr/share/fonts"
+    "SHELL:--preload-file ${web_fontconfig}@/etc/fonts")
+  if(IS_DIRECTORY "${CMAKE_INSTALL_PREFIX}/share/dali")
+    target_link_options(${target} PRIVATE
+      "SHELL:--preload-file ${CMAKE_INSTALL_PREFIX}/share/dali@/usr/share/dali")
+  endif()
+  if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/res")
+    DALI_SET_SAMPLE_RESOURCES(${target} ${target} "${CMAKE_CURRENT_SOURCE_DIR}/res")
+  endif()
+  if(NOT DALI_WEB_SAMPLE_TARGETS OR target IN_LIST DALI_WEB_SAMPLE_TARGETS)
+    set_property(GLOBAL APPEND PROPERTY DALI_WEB_SAMPLES "${target}")
+  endif()
+endfunction()
+
+foreach(sample IN LISTS DALI_WEB_SAMPLE_DIRS)
+  if(NOT EXISTS "${DALI_UI_ROOT}/samples/${sample}/CMakeLists.txt")
+    message(FATAL_ERROR "Unknown sample directory: ${sample}")
+  endif()
+  add_subdirectory("${DALI_UI_ROOT}/samples/${sample}" "samples/${sample}" EXCLUDE_FROM_ALL)
+endforeach()
+get_property(samples GLOBAL PROPERTY DALI_WEB_SAMPLES)
+if(NOT samples)
+  message(FATAL_ERROR "No samples selected. Check DALI_WEB_SAMPLE_DIRS and DALI_WEB_SAMPLE_TARGETS.")
+endif()
+foreach(target IN LISTS DALI_WEB_SAMPLE_TARGETS)
+  if(NOT target IN_LIST samples)
+    message(FATAL_ERROR "Selected target is not defined in these sample directories: ${target}")
+  endif()
+endforeach()
+add_custom_target(dali-web-samples ALL DEPENDS ${samples})
+set(index "<!doctype html><meta charset=utf-8><title>DALi Web samples</title><h1>DALi Web samples</h1><ul>")
+foreach(sample IN LISTS samples)
+  string(APPEND index "<li><a href=\"${sample}.html\">${sample}</a></li>")
+endforeach()
+string(APPEND index "</ul><p>WASM + WebGL 2. The same files run on Ubuntu and Windows browsers.</p>")
+file(WRITE "${web_output}/index.html" "${index}")

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>DALi Web sample</title>
+  <style>
+    body { margin: 0; background: #20242b; color: #eee; font: 14px system-ui; }
+    header { padding: 12px 18px; display: flex; gap: 24px; align-items: center; }
+    a { color: #9cd0ff; }
+    canvas { display: block; margin: 0 auto; outline: none; max-width: 100%; touch-action: none; }
+    pre { margin: 16px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
+    html.embedded, html.embedded body { width: 100%; height: 100%; overflow: hidden; background: white; }
+    html.embedded header, html.embedded pre { display: none; }
+    html.embedded canvas { width: 100%; height: 100%; max-width: none; margin: 0; }
+  </style>
+  <script>
+    if (new URLSearchParams(location.search).get('embedded') === '1') document.documentElement.classList.add('embedded');
+  </script>
+</head>
+<body>
+  <header><a href="index.html">Samples</a><span id="status">Loading DALi…</span></header>
+  <canvas id="canvas" width="800" height="600" tabindex="0" oncontextmenu="event.preventDefault()"></canvas>
+  <pre id="output"></pre>
+  <script>
+    var editorOrigin = null;
+    try { if (document.referrer) editorOrigin = new URL(document.referrer).origin; } catch (_) {}
+    function reportToEditor(type, details) {
+      if (editorOrigin && parent !== window) parent.postMessage(Object.assign({ source: 'dali-preview', type: type }, details), editorOrigin);
+    }
+    var Module = {
+      canvas: document.getElementById('canvas'),
+      print: function(text) { console.log(text); reportToEditor('log', { text: String(text), level: 'info' }); },
+      printErr: function(text) { console.error(text); document.getElementById('output').textContent += text + '\n'; reportToEditor('log', { text: String(text), level: 'error' }); },
+      setStatus: function(text) { document.getElementById('status').textContent = text || 'DALi running'; reportToEditor('status', { text: text || 'DALi running' }); },
+      onRuntimeInitialized: function() { Module.setStatus('DALi runtime ready'); },
+      onExit: function(code) { Module.setStatus('DALi exited (' + code + ')'); },
+      onAbort: function(reason) { Module.setStatus('Failed: ' + reason); }
+    };
+    Module.canvas.addEventListener('mousedown', function() { Module.canvas.focus(); });
+    Module.canvas.addEventListener('pointerdown', function(event) { Module.canvas.setPointerCapture(event.pointerId); });
+    var canvasResizePending = false;
+    function reportSurface() {
+      reportToEditor('surface', { width: Module.canvas.width, height: Module.canvas.height });
+      if (!document.documentElement.classList.contains('embedded') || canvasResizePending) return;
+      var rect = Module.canvas.getBoundingClientRect();
+      var ratio = window.devicePixelRatio || 1;
+      var width = Math.max(1, Math.min(8192, Math.round(rect.width * ratio)));
+      var height = Math.max(1, Math.min(8192, Math.round(rect.height * ratio)));
+      if (Module.canvas.width === width && Module.canvas.height === height) return;
+      // An app may request a desktop window size during Init. In an embedded
+      // preview the host controls the physical surface. Ask DALi's normal
+      // resize path to restore it, after the app's request has completed.
+      canvasResizePending = true;
+      requestAnimationFrame(function() {
+        canvasResizePending = false;
+        window.dispatchEvent(new Event('resize'));
+      });
+    }
+    new ResizeObserver(reportSurface).observe(Module.canvas);
+    new MutationObserver(reportSurface).observe(Module.canvas, { attributes: true, attributeFilter: ['width', 'height'] });
+    if (!crossOriginIsolated) Module.setStatus('COOP/COEP headers required. Use the provided sample server.');
+  </script>
+  {{{ SCRIPT }}}
+</body>
+</html>
