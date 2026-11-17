@@ -2,6 +2,7 @@ prefix=@PREFIX@
 exec_prefix=@EXEC_PREFIX@
 libdir=@LIB_DIR@
 includedir=@INCLUDE_DIR@
+query_interface_manifest=${prefix}/share/@PROJECT_LIB_NAME@/query-interfaces.json
 
 Name: dali-ui-foundation
 Description: DALi UI Foundation Library

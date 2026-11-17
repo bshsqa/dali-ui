@@ -86,3 +86,7 @@ dali.info
 
 # Developer-local AI-SDLC workflow state and generated artifacts
 /ai-sdlc-docs/
+/build/tizen/**/query-interfaces/
+
+# Previous generator output may remain in an existing build directory.
+/build/tizen/dali-ui-foundation/component-interfaces/
