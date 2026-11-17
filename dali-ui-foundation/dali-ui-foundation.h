@@ -1,5 +1,7 @@
 #pragma once
 
+#include <dali-ui-foundation/public-api/interfaces/text-content.h>
+
 /*
  * Copyright (c) 2026 Samsung Electronics Co., Ltd.
  *
