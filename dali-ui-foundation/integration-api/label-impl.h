@@ -34,6 +34,7 @@
 #include <dali-ui-foundation/integration-api/text/text-scroller-interface.h>
 #include <dali-ui-foundation/integration-api/visual-factory/visual-base.h>
 #include <dali-ui-foundation/public-api/gradient/gradient-base.h>
+#include <dali-ui-foundation/public-api/interfaces/text-content.h>
 #include <dali-ui-foundation/public-api/text/fit/text-fit.h>
 #include <dali-ui-foundation/public-api/text/font-variation/font-variation-axis.h>
 #include <dali-ui-foundation/public-api/text/label-properties.h>
@@ -96,7 +97,8 @@ class DALI_UI_API LabelImpl : public SizeNegotiatedViewImpl,
                               public Text::ControlInterface,
                               public Text::ScrollerInterface,
                               public Text::AnchorControlInterface,
-                              public Text::AsyncTextInterface
+                              public Text::AsyncTextInterface,
+                              public ITextContent
 {
   friend class LabelAccessible;
 
@@ -120,12 +122,12 @@ public:
   /**
    * @copydoc Dali::Ui::Label::SetText
    */
-  void SetText(const Dali::String& text);
+  void SetText(const Dali::String& text) override;
 
   /**
    * @copydoc Dali::Ui::Label::GetText
    */
-  Dali::String GetText() const;
+  Dali::String GetText() const override;
 
   /**
    * @copydoc Dali::Ui::Label::SetStyledText

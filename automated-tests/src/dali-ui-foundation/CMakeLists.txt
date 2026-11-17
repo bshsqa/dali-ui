@@ -26,6 +26,7 @@ SET(TC_SOURCES
         utc-Dali-ViewLayoutBoundary.cpp
         utc-Dali-ViewMeasureMode.cpp
         utc-Dali-Label.cpp
+        utc-Dali-QueryInterface.cpp
         utc-Dali-LabelTextGradient.cpp
         utc-Dali-InputField.cpp
         utc-Dali-InputEditor.cpp
