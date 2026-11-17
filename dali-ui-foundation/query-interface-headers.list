@@ -1,0 +1,3 @@
+# Implementation headers relative to SOURCE_ROOT, one per line.
+# Interfaces in public-api/interfaces are discovered automatically.
+# Add a header here once; UUIDs and interface mappings are generated.

@@ -61,6 +61,8 @@ BuildRequires:  pkgconfig(glesv2)
 BuildRequires:  pkgconfig(egl)
 BuildRequires:  gettext
 BuildRequires:  python3
+BuildRequires:  python-clang >= 18
+BuildRequires:  clang-devel >= 18
 
 %if 0%{?tizen_version_major} >= 3
 BuildRequires:  pkgconfig(libtzplatform-config)
@@ -396,6 +398,7 @@ end
 %{_includedir}/dali3/dali-ui-foundation/extension-api/*
 %{_includedir}/dali3/dali-ui-foundation/public-api/*
 %{_bindir}/dali3-ui-shader-generator
+%{_datadir}/dali3-ui-foundation/query-interfaces.json
 
 %files integration-devel
 %defattr(-,root,root,-)
